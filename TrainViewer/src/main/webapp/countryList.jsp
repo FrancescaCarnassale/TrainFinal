@@ -3,10 +3,8 @@
 	import="java.util.*,com.beans.*,com.strategy.*"%>
 
 <%
-
 Strategy db = new StrategyDB();
 Collection<?> countries = (Collection<?>) db.getAllCountries();
-
 %>
 
 <!DOCTYPE html>
@@ -42,20 +40,19 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 			</thead>
 			<tbody>
 				<tr>
-					<% 
-			if(countries != null && countries.size() != 0) {
-				Iterator<?> it = countries.iterator();
-				while(it.hasNext()) {
-					Country c = (Country) it.next();
-		%>
+					<%
+					if (countries != null && countries.size() != 0) {
+						Iterator<?> it = countries.iterator();
+						while (it.hasNext()) {
+							Country c = (Country) it.next();
+					%>
 					<td><%=c.getCountryName()%></td>
 					<td><%=c.getAlpha2code()%></td>
 				</tr>
 				<%
-			}
-	
-		}
-		%>
+				}
+				}
+				%>
 
 			</tbody>
 		</table>
@@ -64,4 +61,5 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 
 	</div>
 </body>
+
 </html>
