@@ -1,7 +1,6 @@
-package com.beans;
+package com.TrenoFactory.treno;
 
 import java.util.List;
-import com.TrenoFactory.treno.Carrozza;
 //L'oggetto treno è caratterizzato dalla sigla e dalla lista delle sue carrozze.
 //Nel DB sarà presente assieme al tipo di Treno (TN o FR, che infatti decisono il creatore) e alla lista dei passeggeri.
 public class Treno {

@@ -7,7 +7,7 @@ import com.TrenoFactory.treno.Carrozza;
 import com.TrenoFactory.treno.Locomotiva;
 import com.TrenoFactory.treno.Passeggeri;
 import com.TrenoFactory.treno.Ristorante;
-import com.beans.Treno;
+import com.TrenoFactory.treno.Treno;
 
 
 public abstract class TrenoBuilder {

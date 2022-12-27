@@ -12,7 +12,8 @@ import com.TrenoFactory.exceptions.TrenoException;
 import com.TrenoFactory.factory.FRFactory;
 import com.TrenoFactory.factory.TNFactory;
 import com.TrenoFactory.factory.VagoneFactory;
-import com.beans.Treno;
+import com.TrenoFactory.treno.Treno;
+import com.beans.Viaggio;
 import com.strategy.Strategy;
 import com.strategy.StrategyDB;
 
