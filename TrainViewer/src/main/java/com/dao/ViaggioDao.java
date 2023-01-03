@@ -1,9 +1,9 @@
 package com.dao;
 
-import com.beans.Viaggio;
+import com.beans.Trip;
 
 public interface ViaggioDao {
-	public void create(Viaggio t);
-	public Viaggio get(String id);
+	public void create(Trip t);
+	public Trip get(String id);
 	
 }

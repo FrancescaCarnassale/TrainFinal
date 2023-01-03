@@ -6,7 +6,7 @@ import com.TrenoFactory.treno.Passeggeri;
 import com.TrenoFactory.treno.Treno;
 //L'oggetto treno è caratterizzato dalla sigla e dalla lista delle sue carrozze.
 //Nel DB sarà presente assieme al tipo di Treno (TN o FR, che infatti decisono il creatore) e alla lista dei passeggeri.
-public class Viaggio implements Bean {
+public class Trip implements Bean {
 	private Treno treno;
 	private String id;
 	private String partenza;

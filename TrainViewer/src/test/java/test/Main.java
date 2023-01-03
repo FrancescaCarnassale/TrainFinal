@@ -13,7 +13,7 @@ import com.TrenoFactory.factory.FRFactory;
 import com.TrenoFactory.factory.TNFactory;
 import com.TrenoFactory.factory.VagoneFactory;
 import com.TrenoFactory.treno.Treno;
-import com.beans.Viaggio;
+import com.beans.Trip;
 import com.strategy.Strategy;
 import com.strategy.StrategyDB;
 
