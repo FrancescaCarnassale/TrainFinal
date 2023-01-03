@@ -1,6 +1,6 @@
 package com.beans;
 
-public class Users implements Bean {
+public class User implements Bean {
 	String userName, email, password;
 
 	public String getUserName() {

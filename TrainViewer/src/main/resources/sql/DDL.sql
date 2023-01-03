@@ -35,15 +35,7 @@ DROP TABLE IF EXISTS train;
 CREATE TABLE train (
   id_train INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   serial_number_train VARCHAR(10) NOT NULL,
-  brand VARCHAR(20) NOT NULL,
-  departure VARCHAR(50),
-  arrive VARCHAR(50),
-  FOREIGN KEY (departure) REFERENCES country(country_name) 
-  		ON UPDATE CASCADE
-  		ON DELETE CASCADE,
-  	FOREIGN KEY (arrive) REFERENCES country(country_name) 
-  		ON UPDATE CASCADE
-  		ON DELETE CASCADE
+  brand VARCHAR(20) NOT NULL
 );
 
 DROP TABLE IF EXISTS trip;
