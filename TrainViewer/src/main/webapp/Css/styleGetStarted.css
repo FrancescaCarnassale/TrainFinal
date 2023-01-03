@@ -1,0 +1,42 @@
+
+ .Meet{
+    font-size: 3rem;
+    line-height: 1.5;
+    color: black;
+  }
+
+.btn{
+    font-size: 25px; 
+    margin-right: 20px; 
+    margin-top: 20px
+}
+.icon{
+    margin-bottom: 10px;
+    color: #ff4c68;
+}
+
+.icon:hover{
+    color: black;
+}
+
+.titleImage{
+	margin-top:50px; 
+	width: 100%; 
+	height:55%; 
+	position:relative;
+	opacity:0.8;
+}
+
+.Title{
+	position:absolute; 
+	top:200px; 
+	width: 100%;
+}
+
+.header-container {
+	background-color: yellow;
+}
+
+.header {
+	justify-content: end;	
+}
