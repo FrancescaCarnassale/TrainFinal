@@ -21,10 +21,9 @@
 	<jsp:include page="../menu.jsp"></jsp:include>
 	<div class="container">
 		<input type="button" onclick="play()" value="Play" class="btnPlay"></input>
-		<input type="button" onclick="mostraMatriceHTML()"
-			value="mostra matrice"></input> <input id="id01" type="button"
-			onclick="om.muovi()" value="muovi oggetto"></input>
-		<audio id="myAudio" src="audio1/videoplayback.mp3" loop></audio>
+		<!--  <input type="button" onclick="mostraMatriceHTML()" value="mostra matrice"></input>--> 
+			<input id="id01" type="button" onclick="om.muovi()" value="muovi oggetto"></input>
+		  <audio id="myAudio" src="audio1/videoplayback.mp3" loop></audio>
 		<br>
 		<br>
 		<div id="pianoGioco"></div>
