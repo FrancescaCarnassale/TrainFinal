@@ -14,6 +14,7 @@ import java.util.Set;
 
 import com.beans.Alias;
 import com.beans.Country;
+import com.beans.GameScore;
 
 public class StrategyFile implements Strategy {
 	
@@ -93,5 +94,10 @@ public class StrategyFile implements Strategy {
 	public void approveAlias(String[] list) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public Collection<GameScore> getGameData() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

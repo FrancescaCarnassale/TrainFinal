@@ -17,6 +17,7 @@ import com.dao.impl.AliasUnknownDaoImpl;
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
+import com.beans.GameScore;
 
 public class StrategyDB implements Strategy{
 	//WIP serve l'RMI
@@ -108,6 +109,24 @@ public class StrategyDB implements Strategy{
 			aliasDao.getSession().getTransaction().commit();
 		}
 		aliasDao.getSession().close();
+	}
+
+
+	@Override
+	public Collection<GameScore> getGameData() {
+		Collection<GameScore> ca = new LinkedList <GameScore>();
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from game_data ORDER BY score Desc");
+        List<Object[]> scores = mq.list();
+        
+		for (Object[] o: scores) {
+			GameScore a = new GameScore();
+			a.setUsername((String) o[0]);
+			
+			a.setScore((int) o[1]);
+			
+			ca.add(a);
+		}
+		return ca;
 	}
 	
 }
