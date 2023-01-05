@@ -36,46 +36,72 @@ var om2 = new OggettoInMovimento(0, 9, 10, true, "nemico4");
 var om3 = new OggettoInMovimento(6, 0, 10, false, "nemico3");
 var om4 = new OggettoInMovimento(0, 4, 10, true, "nemico2");
 var om5 = new OggettoInMovimento(0, 14, 10, true, "nemico5");
+var idInterval1;			//used in clearInterval, prevents enemies movement after game over
+var idInterval2;			//null assigned in play() function
+var idInterval3;			
+var idInterval4;
+var idInterval5;
+function stopEnemies(){
+	if(idInterval1 != null){
+		clearInterval(idInterval1)
+	}
+	if(idInterval2 != null){
+		clearInterval(idInterval2)
+	}
+	if(idInterval3 != null){
+		clearInterval(idInterval3)
+	}
+	if(idInterval4 != null){
+		clearInterval(idInterval4)
+	}
+	if(idInterval5 != null){
+		clearInterval(idInterval5)
+	}
+	
+	
+}
 function incrementaDiff(){
 	if(punteggio <= 80){
 		switch(punteggio){
-			case 5: //25
+			case 5:
 				//introduci primo nemico
-				setInterval("om1.muovi()", 800);
+				idInterval1 = setInterval("om1.muovi()", 800);
 				break;
 			case 10:
 				//introduci secondo nemico
-				setInterval("om2.muovi()", 800);
+				idInterval2 = setInterval("om2.muovi()", 800);
 				break;
 			case 20:
 				//introduci terzo nemico nemico
-				setInterval("om3.muovi()", 800);
+				idInterval3 = setInterval("om3.muovi()", 800);
 				break;
 			case 30:
+				
 				//aumenta velocità nemico 1 e 3(nemici orizzontali)
-				setInterval("om1.muovi()", 600);
-				setInterval("om3.muovi()", 600);
+				
+				idInterval1 = setInterval("om1.muovi()", 600);
+				idInterval3 = setInterval("om3.muovi()", 600);
 				break;
 			case 40:
 				//introduci quarto nemico
-				setInterval("om4.muovi()", 800);
+				idInterval4 = setInterval("om4.muovi()", 800);
 				break;
 			case 50:
 				//aumenta velocita' nemici verticali
-				setInterval("om4.muovi()", 600);
-				setInterval("om2.muovi()", 600);
+				idInterval4 = setInterval("om4.muovi()", 600);
+				idInterval2 = setInterval("om2.muovi()", 600);
 				break;
 			case 60:
 				//introduci quinto nemico
-				setInterval("om5.muovi()", 600);
+				idInterval5 = setInterval("om5.muovi()", 600);
 				break;
 			case 80:
 				//difficoltà massima
-				setInterval("om1.muovi()", 400);
-				setInterval("om2.muovi()", 400);
-				setInterval("om3.muovi()", 400);
-				setInterval("om4.muovi()", 400);
-				setInterval("om5.muovi()", 400);
+				idInterval1 = setInterval("om1.muovi()", 400);
+				idInterval2 = setInterval("om2.muovi()", 400);
+				idInterval3 = setInterval("om3.muovi()", 400);
+				idInterval4 = setInterval("om4.muovi()", 400);
+				idInterval5 = setInterval("om5.muovi()", 400);
 				break;
 			default:
 				break;
@@ -83,7 +109,7 @@ function incrementaDiff(){
 	}
 }
 function gameOver(){
-
+	stopEnemies();
 	while(username == null || username == "") {
 		 username = prompt("Enter your username to continue");
 	} 
@@ -149,7 +175,7 @@ function sposta(daX, daY, aX, aY) {
 		// cancella l'omino e disegna lo sfondo
 		ominoX = aX;
 		ominoY = aY;
-		mostraMatriceHTML();
+		//mostraMatriceHTML();
 		disegnaCellaSpeciale(ominoX, ominoY, omino);
 	
 	}
@@ -238,7 +264,7 @@ OggettoInMovimento.prototype.muovi = function () {
 	piano[this.x][this.y] = NEMICO;
 	disegnaCella(this.x, this.y);
 
-	mostraMatriceHTML();
+	//mostraMatriceHTML();
 	var id = "c" + this.x + "_" + this.y;
 }
 
