@@ -32,8 +32,7 @@ Collection<?> scores = (Collection<?>) db.getGameData();
 	</div>
 	
 	<div class="container">
-	<div  id="punteggioUtente"></div>
-		
+	
 		<h1 class="py-4 text-center text-white bg-dark">Best Scores</h1>
 		<form action="GameServlet" method="GET">
 			<table class="table table-dark table-striped">
