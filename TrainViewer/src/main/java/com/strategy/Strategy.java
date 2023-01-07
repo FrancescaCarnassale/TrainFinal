@@ -18,4 +18,5 @@ public interface Strategy {
 	public Collection<Alias> getUnapprovedAliases();
 	public void approveAlias(String[] list);
 	public Collection<GameScore> getGameData();
+	public void updateGameData(String[] list);
 }

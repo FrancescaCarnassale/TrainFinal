@@ -25,8 +25,6 @@ Collection<?> scores = (Collection<?>) db.getGameData();
 	<jsp:include page="../menu.jsp"></jsp:include>
 	<div class="container">
 		<input type="button" onclick="play()" value="Play" class="btnPlay"></input>
-		<!--  <input type="button" onclick="mostraMatriceHTML()" value="mostra matrice"></input>
-			<input id="id01" type="button" onclick="om.muovi()" value="muovi oggetto"></input>-->
 		  <audio id="myAudio" src="audio1/videoplayback.mp3" loop></audio>
 		<br>
 		<br>
@@ -34,8 +32,10 @@ Collection<?> scores = (Collection<?>) db.getGameData();
 	</div>
 	
 	<div class="container">
-		<h1 class="py-4 text-center text-white bg-dark">Alias Table</h1>
-		<form action="AliasApprovingServlet" method="GET">
+	<div  id="punteggioUtente"></div>
+		
+		<h1 class="py-4 text-center text-white bg-dark">Best Scores</h1>
+		<form action="GameServlet" method="GET">
 			<table class="table table-dark table-striped">
 				<thead>
 					<tr>

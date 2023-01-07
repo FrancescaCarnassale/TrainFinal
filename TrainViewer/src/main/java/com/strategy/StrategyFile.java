@@ -100,4 +100,9 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public void updateGameData(String[] list) {
+		// TODO Auto-generated method stub
+		
+	}
 }

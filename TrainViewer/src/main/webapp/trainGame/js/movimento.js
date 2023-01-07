@@ -117,6 +117,10 @@ function gameOver(){
 }
 
 var punteggio = 0;
+function getPunteggio(){
+	return punteggio;
+}
+
 function controllaCella(x, y) {
 	controllaGameOver(x, y);
 	const val = piano[x][y];
@@ -131,6 +135,10 @@ function controllaCella(x, y) {
 			piano[x][y] = testa;
 			sposta(ominoX,ominoY,x,y);  //il treno non si allunga piu', basta spostarlo
 			incrementaDiff(); 			//incrementa la difficolta' del gioco
+			const abcdf = document.getElementById("punteggioUtente");
+			const efgt = document.createElement(" "+ punteggio);
+			abcdf.append(efgt);
+			console.log(abcdf)
 			return false;
 			break;
 		case NEMICO:

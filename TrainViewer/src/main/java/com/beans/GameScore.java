@@ -2,17 +2,12 @@ package com.beans;
 
 //è possibile fare interfaccia gameScore e GameScoreImpl
 
-public class GameScore {
+public class GameScore implements Bean{
 	private String username;
 	private int score;
 	
-	public GameScore() {
+
 	
-	}
-	public GameScore(String username, int score) {
-		this.username = username;
-		this.score = score;
-	}
 	
 	public String getUsername() {
 		return username;
