@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+ <hibernate-mapping>  
+  <class name="com.beans.Trip" table="trip">  
+  	
+  	<id name="idTrip" column="id_train"></id>
+  	<many-to-one name="idTrain" class="com.beans.Train" column="id_Train"></many-to-one>
+  	<many-to-one name="departure" class="com.beans.Country" column="country_name"></many-to-one>
+  	<many-to-one name="arrive" class="com.beans.Country" column="country_name"></many-to-one>
+  	<property name="timeDeparture" column="time_departure"> </property>
+  	<property name="timeArrive" column="time_arrive"> </property>
+  	
+  
+  </class>  
+            
+ </hibernate-mapping> 

@@ -3,8 +3,9 @@ package com.beans;
 //DA CAPIRE SE DEVE ESSERE UNA LISTA DI TUPLE DELLA TABELLA O LA SINGOLA TUPLA
 
 public class Leaderboard implements Bean {
-	User username;
-	int score;
+	private int idScore;
+	private  User username;
+	private int score;
 	public User getUsername() {
 		return username;
 	}
@@ -16,6 +17,9 @@ public class Leaderboard implements Bean {
 	}
 	public void setScore(int score) {
 		this.score = score;
+	}
+	public int getIdScore() {
+		return idScore;
 	}
 	
 	

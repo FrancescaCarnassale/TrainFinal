@@ -1,8 +1,9 @@
 package com.beans;
 
 public class Train implements Bean {
-	String serialNumber;
-	String brand;
+	private int idTrain;
+	private String serialNumber;
+	private String brand;
 	
 	public String getSerialNumber() {
 		return serialNumber;
@@ -15,6 +16,9 @@ public class Train implements Bean {
 	}
 	public void setBrand(String brand) {
 		this.brand = brand;
-	}	
+	}
+	public int getId() {
+		return idTrain;
+	}
 	
 }

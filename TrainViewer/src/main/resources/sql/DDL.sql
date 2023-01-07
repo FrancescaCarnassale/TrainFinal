@@ -1,6 +1,6 @@
-DROP SCHEMA IF EXISTS trainViewer;
-CREATE SCHEMA trainViewer;
-USE trainViewer;
+DROP SCHEMA IF EXISTS trainviewer;
+CREATE SCHEMA trainviewer;
+USE trainviewer;
 
 DROP TABLE IF EXISTS country;
 CREATE TABLE country (
