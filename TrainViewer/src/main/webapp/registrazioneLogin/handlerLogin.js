@@ -1,6 +1,6 @@
 
 function handleSubmit() {
-	var form = document.getElementById('registration-form');
+	var form = document.getElementById('login-form');
 
   const name = form.elements.name.value;
   const email = form.elements.email.value;

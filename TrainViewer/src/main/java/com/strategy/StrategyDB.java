@@ -10,7 +10,6 @@ import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
 import com.connectionDB.ConnectionToDB;
-import com.dao.AliasDao;
 import com.dao.AliasUnknownDao;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.AliasUnknownDaoImpl;
