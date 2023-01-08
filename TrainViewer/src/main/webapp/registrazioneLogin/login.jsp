@@ -15,26 +15,20 @@
 <title>Registration</title>
 </head>
 <body>
-	<script src="handlerRegistrazione.js"></script>
+	<script src="handlerLogin.js"></script>
 	<jsp:include page="../menu.jsp"></jsp:include>
 	 <div align="center">
-	<form id="registration-form" onsubmit="return handleSubmit()">
-		<label for="name">Nome Utente:</label>
-		<br>
-		<input type="text" id="name" name="name" required>
-		<br>
-		<label for="email" required>Indirizzo email:</label>
-		<br>
-		<input type="email" id="email" name="email">
-		<br>
-		<label for="password">Password:</label>
-		<br>
-		<input type="password" id="password" name="password" required>
-		<br> <br>
-		<input type="submit" value="Registrati">
+	<form id="login-form" onsubmit="return handleSubmit()">
+		 <label for="email" required>Indirizzo email:</label>
+		 <br>
+		 <input type="email" id="email" name="email">
+		 <br>
+		 <label for="password">Password:</label>
+		 <br>
+		 <input type="password" id="password" name="password" required><br>
+		 <br> 
+		 <input type="submit" value="Entra">
 	</form>
-	<br>
-	<a href="login.jsp">Gia' registrato? Accedi!</a>
 	</div>
 </body>
 </html>
