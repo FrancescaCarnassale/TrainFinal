@@ -2,9 +2,9 @@ package com.dao.impl;
 
 import com.beans.Country;
 import com.beans.Trip;
-import com.dao.ViaggioDao;
+import com.dao.TripDao;
 
-public class ViaggioDaoImpl extends BaseDao implements ViaggioDao{
+public class TripDaoImpl extends BaseDao implements TripDao{
 
 	@Override
 	public void create(Trip t) {
