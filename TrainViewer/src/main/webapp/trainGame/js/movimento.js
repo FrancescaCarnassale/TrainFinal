@@ -57,8 +57,6 @@ function stopEnemies(){
 	if(idInterval5 != null){
 		clearInterval(idInterval5)
 	}
-	
-	
 }
 function incrementaDiff(){
 	if(punteggio <= 80){
