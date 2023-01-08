@@ -57,14 +57,26 @@ function play() {
 			console.log(piano[i][j]);
 		}
 	}
+	
 	ominoX = 0;
-	ominoY = 0;
-	testa = 1;
-	piano[0][2] = PILLOLA;
-	piano[0][4] = PILLOLA;
-	piano[0][6] = PILLOLA;
+	ominoY = 2;
+	testa = 3;
+
+	//punteggio da resettare ogni volta che premi play
+	punteggio = 0;
+	//const punteggioUtente = document.getElementById("punteggioUtente");
+	//punteggioUtente.innerHTML = ""
+	//console.log(punteggio)
+	idInterval1 = null;			//used for stopping enemies when game stops
+	idInterval2 = null;
+	idInterval3 = null;
+	idInterval4 = null;
+	idInterval5 = null;
+	piano[4][4] = PILLOLA; 
+	
+	piano[ominoX][ominoY] = testa;
+	piano[0][1] = 2;
 	piano[0][0] = 1;
-	piano[8][8] = MURO;
 	disegnaPiano();
 }
 
