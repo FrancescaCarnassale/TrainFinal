@@ -9,17 +9,17 @@ function handleSubmit() {
   // Eseguire i controlli qui
   if (name.length < 4) {
     alert("Il nome deve essere lungo almeno 3 caratteri");
-    return;
+    return false;;
   }
 
   if (!(/^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(email))){
        alert("L'indirizzo email che hai inserito non e' valido");
-       return;
+       return false;
     }
 
   if (password.length < 8) {
     alert("La password deve essere lunga almeno 8 caratteri");
-    return;
+    return false;
   }
   // Se i controlli sono superati, inviare i dati al server
   const data = { name, email, password };
@@ -31,7 +31,7 @@ function handleSubmit() {
     }
   })
     .then((response) => response.json())
-    .then((result) => {
-      alert("Ce l'hai fatta!");
+	.then((result) => {
+    	console.log('Success:', result);
     });
 }
