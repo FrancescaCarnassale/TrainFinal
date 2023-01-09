@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg" style="background: linear-gradient(to right, #574B90, #9E579D);">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="color:white">TrainViewer</a>
+    <a class="navbar-brand" href="/TrainViewer/index.jsp" style="color:white">TrainViewer</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

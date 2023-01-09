@@ -5,8 +5,7 @@ table, th, td {
 
 .container {
     margin: 0 auto;
-    width: 40%;
-    text-align: center;
+    width: 70%;
 }
 
 .btnPlay {
@@ -25,6 +24,10 @@ table, th, td {
 
 .btnPlay:focus {
     outline: 0;
+}
+
+.btn {
+  background: linear-gradient(to right, #574B90, #9E579D);
 }
 
 #pianoGioco {

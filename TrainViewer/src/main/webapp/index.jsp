@@ -36,11 +36,11 @@
       <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/1920x580/1920x580-ICN-Servizi-06-2022.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
-  <button class="carousel-control-prev btn btn-lg" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden"></span>
 </button>
-<button class="carousel-control-next btn btn-lg" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden"></span>
 </button>
@@ -51,7 +51,7 @@
     </div>
     
      <div class="container">
-        <div class="row g-2">
+        <div class="row g-4">
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
                     <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/325x350/325x350-AR-in-Giornata-venezia%20st.jpg" class="card-img-top" alt="A Street in Europe">
