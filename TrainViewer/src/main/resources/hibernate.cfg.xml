@@ -16,6 +16,7 @@
        <mapping resource="country.hbm.xml"/>  
        <mapping resource="alias.hbm.xml"/> 
        <mapping resource="aliasUnknown.hbm.xml"/> 
+       <mapping resource="gameScore.hbm.xml"/>
     </session-factory>  
     
 </hibernate-configuration>
