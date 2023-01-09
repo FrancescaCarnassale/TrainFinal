@@ -131,3 +131,11 @@ audio {
 	75% {transform: rotate(-2deg);}
 	100% {transform: rotate(0);}
 }
+
+#counter{
+	align: center;
+	font-size: 1.8em;
+	color: white;
+	border-radius: 15px;
+	position: relative;
+}

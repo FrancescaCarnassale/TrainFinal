@@ -59,8 +59,8 @@ function stopEnemies(){
 	}
 }
 function incrementaDiff(){
-	if(punteggio <= 80){
-		switch(punteggio){
+	if(actualScore <= 80){
+		switch(actualScore){
 			case 5:
 				//introduci primo nemico
 				idInterval1 = setInterval("om1.muovi()", 800);
@@ -111,13 +111,13 @@ function gameOver(){
 	while(username == null || username == "") {
 		 username = prompt("Enter your username to continue");
 	} 
-	alert("Hello " + username + " you scored: " + punteggio);
+	alert("Hello " + username + " you scored: " + punteggio.innerHTML);
 }
 
-var punteggio = 0;
-function getPunteggio(){
-	return punteggio;
-}
+
+var punteggio = document.getElementById("counter");
+var actualScore = 0;
+
 
 function controllaCella(x, y) {
 	controllaGameOver(x, y);
@@ -129,13 +129,12 @@ function controllaCella(x, y) {
 		case PILLOLA:
 			biglietto.rewindAndPlay(); 
 			generaOggetto(PILLOLA);
-			punteggio++;
+			actualScore++;
+			punteggio.innerHTML=actualScore;
 			piano[x][y] = testa;
 			sposta(ominoX,ominoY,x,y);  //il treno non si allunga piu', basta spostarlo
 			incrementaDiff(); 			//incrementa la difficolta' del gioco
-			const abcdf = document.getElementById("punteggioUtente");
-			const efgt = document.createElement(" "+ punteggio);
-			abcdf.append(efgt);
+			
 			console.log(abcdf)
 			return false;
 			break;

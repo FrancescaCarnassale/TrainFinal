@@ -63,7 +63,8 @@ function play() {
 	testa = 3;
 
 	//punteggio da resettare ogni volta che premi play
-	punteggio = 0;
+	actualScore=0;
+	punteggio.innerHTML=actualScore;
 	//const punteggioUtente = document.getElementById("punteggioUtente");
 	//punteggioUtente.innerHTML = ""
 	//console.log(punteggio)
