@@ -8,6 +8,7 @@ import java.util.Set;
 import com.beans.Alias;
 import com.beans.Country;
 import com.beans.GameScore;
+import com.beans.User;
 
 public interface Strategy {
 	public String getAliasCountry(String alias);
@@ -19,4 +20,6 @@ public interface Strategy {
 	public void approveAlias(String[] list);
 	public Collection<GameScore> getGameData();
 	public void updateGameData(String[] list);
+	public User getUser(User user);
+	public void setUser(String name, String password, String email);
 }

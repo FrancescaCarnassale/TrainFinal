@@ -13,7 +13,7 @@ function handleSubmit() {
   }
 
   if (!(/^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(email))){
-       alert("L'indirizzo email che hai inserito e' valido");
+       alert("L'indirizzo email che hai inserito non e' valido");
        return;
     }
 
@@ -21,10 +21,9 @@ function handleSubmit() {
     alert("La password deve essere lunga almeno 8 caratteri");
     return;
   }
-
   // Se i controlli sono superati, inviare i dati al server
   const data = { name, email, password };
-  fetch('/register', {
+  fetch('/RegistrazioneServlet', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {

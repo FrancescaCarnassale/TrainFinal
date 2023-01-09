@@ -14,18 +14,21 @@ import com.dao.AliasDao;
 import com.dao.AliasUnknownDao;
 import com.dao.GameScoreDao;
 import com.dao.impl.GameScoreDaoImpl;
+import com.dao.impl.UserDaoImpl;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.AliasUnknownDaoImpl;
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
 import com.beans.GameScore;
+import com.beans.User;
 
 public class StrategyDB implements Strategy{
 	//WIP serve l'RMI
 	static Session session = ConnectionToDB.getSession();
 	private AliasUnknownDao unknownDao = new AliasUnknownDaoImpl();
 	private AliasDaoImpl aliasDao = new AliasDaoImpl();
+	private UserDaoImpl userDao = new UserDaoImpl();
 	private GameScoreDaoImpl gameScoreDao = new GameScoreDaoImpl();
 	private Map<String,List<String>> dataMap;
 	public String getAliasCountry(String input) {
@@ -145,6 +148,31 @@ public class StrategyDB implements Strategy{
 			aliasDao.getSession().getTransaction().commit();
 		}
 		aliasDao.getSession().close();
+	}
+
+
+	@Override
+	public void setUser(String name, String password, String email) {
+		User u = new User();
+		u.setUsername(name);
+		u.setEmail(email);
+		u.setPassword(password);
+		userDao.create(u);
+	}
+
+
+	@Override
+	public User getUser(User user) {
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from user_train where " + "user ="+ user.getUsername()+", password ="+ user.getPassword());
+		List<Object[]> temp = mq.list();
+		//ciclo for, da capire come gestisce la nativequery
+		User u = new User();
+		for (Object[] o: temp) {
+			u.setUsername((String) o[0]);
+			u.setPassword((String) o[1]);
+			
+		}
+		return u;
 	}
 	
 }
