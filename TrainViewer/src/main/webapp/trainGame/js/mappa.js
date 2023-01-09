@@ -65,9 +65,7 @@ function play() {
 	//punteggio da resettare ogni volta che premi play
 	actualScore=0;
 	punteggio.innerHTML=actualScore;
-	//const punteggioUtente = document.getElementById("punteggioUtente");
-	//punteggioUtente.innerHTML = ""
-	//console.log(punteggio)
+	
 	idInterval1 = null;			//used for stopping enemies when game stops
 	idInterval2 = null;
 	idInterval3 = null;
