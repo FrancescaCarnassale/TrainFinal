@@ -23,15 +23,4 @@ function handleSubmit() {
   }
   // Se i controlli sono superati, inviare i dati al server
   const data = { name, email, password };
-  fetch('/RegistrazioneServlet', {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-    .then((response) => response.json())
-	.then((result) => {
-    	console.log('Success:', result);
-    });
 }

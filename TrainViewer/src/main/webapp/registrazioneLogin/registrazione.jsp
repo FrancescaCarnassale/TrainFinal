@@ -18,7 +18,7 @@
 	<script src="handlerRegistrazione.js"></script>
 	<jsp:include page="../menu.jsp"></jsp:include>
 	 <div align="center">
-	<form id="registration-form" onsubmit="return handleSubmit()" action = "/TrainViewer/src/main/java/com/servlets/RegistrazioneServlet" method = "POST">
+	<form id="registration-form" onsubmit="return handleSubmit()" action = "/TrainViewer/RegistrazioneServlet" method = "POST">
 		<label for="name">Nome Utente:</label>
 		<br>
 		<input type="text" id="name" name="name" required>
