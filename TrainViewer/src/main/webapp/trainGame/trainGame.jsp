@@ -48,9 +48,9 @@ Collection<?> scores = (Collection<?>) db.getGameData();
 						if (scores != null && scores.size() != 0) {
 							Iterator<?> it = scores.iterator();
 							while (it.hasNext()) {
-								GameScore gs = (GameScore) it.next();
+								Leaderboard gs = (Leaderboard) it.next();
 						%>
-						<td><%=gs.getUsername()%></td>		
+						<td><%=gs.getUser().getUsername()%></td>		
 						<td><%=gs.getScore()%></td>
 				
 					</tr>
