@@ -30,12 +30,11 @@ public class GameServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		StrategyDB s = new StrategyDB();
-		String[] checkAliases = request.getParameterValues("UserData");
-		s.approveAlias(checkAliases);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
-		dispatcher.forward(request, response);
+//		response.setContentType("text/html");
+//		StrategyDB s = new StrategyDB();
+//		String[] checkAliases = request.getParameterValues("UserData");
+//		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
+//		dispatcher.forward(request, response);
 	}
 
 	/**

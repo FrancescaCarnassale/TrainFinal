@@ -12,8 +12,8 @@ import org.hibernate.query.NativeQuery;
 import com.connectionDB.ConnectionToDB;
 import com.dao.AliasDao;
 import com.dao.AliasUnknownDao;
-import com.dao.GameScoreDao;
-import com.dao.impl.GameScoreDaoImpl;
+import com.dao.LeaderboardDao;
+import com.dao.impl.LeaderboardDaoImpl;
 import com.dao.impl.TrainDaoImpl;
 import com.dao.impl.UserDaoImpl;
 import com.dao.impl.AliasDaoImpl;
@@ -21,7 +21,7 @@ import com.dao.impl.AliasUnknownDaoImpl;
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
-import com.beans.GameScore;
+import com.beans.Leaderboard;
 import com.beans.Train;
 import com.beans.User;
 
@@ -31,7 +31,7 @@ public class StrategyDB implements Strategy{
 	private AliasUnknownDao unknownDao = new AliasUnknownDaoImpl();
 	private AliasDaoImpl aliasDao = new AliasDaoImpl();
 	private UserDaoImpl userDao = new UserDaoImpl();
-	private GameScoreDaoImpl gameScoreDao = new GameScoreDaoImpl();
+	private LeaderboardDaoImpl LeaderboardDao = new LeaderboardDaoImpl();
 	private TrainDaoImpl trainDao= new TrainDaoImpl();
 	private Map<String,List<String>> dataMap;
 	
@@ -123,16 +123,19 @@ public class StrategyDB implements Strategy{
 
 
 	@Override
-	public Collection<GameScore> getGameData() {
-		Collection<GameScore> ca = new LinkedList <GameScore>();
-		NativeQuery<Object []> mq = session.createSQLQuery("Select * from game_data ORDER BY score Desc");
+	public Collection<Leaderboard> getGameData() {
+		Collection<Leaderboard> ca = new LinkedList <Leaderboard>();
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from leaderboard ORDER BY user_score Desc");
         List<Object[]> scores = mq.list();
         
 		for (Object[] o: scores) {
-			GameScore a = new GameScore();
-			a.setUsername((String) o[0]);
+			Leaderboard a = new Leaderboard();
+			a.setIdScore((int) o[2]);
+			User u = new User();
+			u.setUsername((String) o[1]);
+			a.setUser(u);
 			
-			a.setScore((int) o[1]);
+			a.setScore((int) o[2]);
 			
 			ca.add(a);
 		}
@@ -145,7 +148,7 @@ public class StrategyDB implements Strategy{
 		// TODO Auto-generated method stub
 		for(String s : list)
 		{
-			GameScore gs = gameScoreDao.get(s);
+			Leaderboard gs = LeaderboardDao.get(s);
 			//a.setApproved(true);
 			aliasDao.getSession().beginTransaction();
 			aliasDao.getSession().update(gs);

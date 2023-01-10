@@ -14,7 +14,7 @@ import java.util.Set;
 
 import com.beans.Alias;
 import com.beans.Country;
-import com.beans.GameScore;
+import com.beans.Leaderboard;
 import com.beans.User;
 
 public class StrategyFile implements Strategy {
@@ -97,7 +97,7 @@ public class StrategyFile implements Strategy {
 		
 	}
 	@Override
-	public Collection<GameScore> getGameData() {
+	public Collection<Leaderboard> getGameData() {
 		// TODO Auto-generated method stub
 		return null;
 	}
