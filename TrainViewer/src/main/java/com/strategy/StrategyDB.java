@@ -132,7 +132,7 @@ public class StrategyDB implements Strategy{
 			Leaderboard a = new Leaderboard();
 			a.setIdScore((int) o[2]);
 			User u = new User();
-			u.setUsername((String) o[1]);
+			u.setName((String) o[1]);
 			a.setUser(u);
 			
 			a.setScore((int) o[2]);

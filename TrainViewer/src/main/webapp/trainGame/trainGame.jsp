@@ -50,7 +50,7 @@ Collection<?> scores = (Collection<?>) db.getGameData();
 							while (it.hasNext()) {
 								Leaderboard gs = (Leaderboard) it.next();
 						%>
-						<td><%=gs.getUser().getUsername()%></td>		
+						<td><%=gs.getUser().getName()%></td>		
 						<td><%=gs.getScore()%></td>
 				
 					</tr>
