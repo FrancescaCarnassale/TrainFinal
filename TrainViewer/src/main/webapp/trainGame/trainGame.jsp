@@ -4,7 +4,7 @@
 
 <%
 Strategy db = new StrategyDB();
-Collection<?> scores = (Collection<?>) db.getGameData();
+Collection<?> scores = (Collection<?>)db.getGameData();
 %>
 <!DOCTYPE html>
 <html>
