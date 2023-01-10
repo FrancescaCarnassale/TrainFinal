@@ -13,7 +13,7 @@
 </head>
 <body class="bg-dark">
 	<script src="handlerLogin.js"></script>
-	<jsp:include page="../menu.jsp"></jsp:include>
+	<jsp:include page="menu.jsp"></jsp:include>
 	<div align="center">
 		<h1 class="py-4 text-center text-white bg-dark">Login</h1>
 		<form id="login-form" class="d-flex align-items-center flex-column" onsubmit="return handleSubmit()">

@@ -13,7 +13,7 @@
 </head>
 <body class="bg-dark">
 	<script src="handlerRegistrazione.js"></script>
-	<jsp:include page="../menu.jsp"></jsp:include>
+	<jsp:include page="menu.jsp"></jsp:include>
 	<div align="center">
 		<form id="registration-form" onsubmit="return handleSubmit()">
 			<h1 class="py-4 text-center text-white bg-dark" >Registrazione</h1>
