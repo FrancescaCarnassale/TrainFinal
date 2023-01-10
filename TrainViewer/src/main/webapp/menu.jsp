@@ -21,13 +21,16 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/TrainViewer/trainGame/trainGame.jsp" style="color:white">TrainGame</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/registrazione.jsp" style="color:white">Registrazione</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/login.jsp" style="color:white">Login</a>
-        </li>
       </ul>
     </div>
+         <!-- Default dropstart button -->
+<div class="btn-group dropstart" style="width:50px; height:50px;">
+  <img src="trainGame/img1/user.png" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" alt="dropstart">
+  <ul class="dropdown-menu">
+    <li><a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/registrazione.jsp" style="color:#574B90">Registrazione</a></li>
+    <hr>
+    <li><a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/login.jsp" style="color: #574B90">Login</a></li>
+  </ul>
   </div>
+</div>
 </nav>
