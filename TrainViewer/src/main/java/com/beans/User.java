@@ -1,14 +1,23 @@
 package com.beans;
 
 public class User implements Bean {
-	private String username, email, password;
+	private String name, email, password;
+	private boolean admin;
 
-    public String getUsername() {
-        return username;
+    public boolean getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+	public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String username) {
+        this.name = username;
     }
 
     public String getEmail() {

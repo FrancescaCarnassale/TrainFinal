@@ -112,13 +112,14 @@ public class StrategyFile implements Strategy {
 		
 		return null;
 	}
+
 	@Override
-	public void setUser(String name, String password, String email) {
+	public void setTrain(String brand, String serialNumber) {
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public void setTrain(String brand, String serialNumber) {
+	public void setUser(String name, String password, String email, boolean admin) {
 		// TODO Auto-generated method stub
 		
 	}

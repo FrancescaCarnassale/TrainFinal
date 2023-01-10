@@ -26,9 +26,11 @@ CREATE TABLE alias_unknown (
 
 DROP TABLE IF EXISTS user_train;
 CREATE TABLE user_train (
-  user_name VARCHAR(20) NOT NULL PRIMARY KEY,
-  user_password VARCHAR(20) NOT NULL,
-  user_mail VARCHAR(50) NOT NULL
+  user_mail VARCHAR(50) NOT NULL PRIMARY KEY,
+  user_name VARCHAR(20) NOT NULL ,
+  user_password VARCHAR(20) NOT NULL ,
+  user_admin TINYINT(1) NOT NULL
+  
 );
 
 DROP TABLE IF EXISTS train;
@@ -58,9 +60,9 @@ CREATE TABLE trip(
 DROP TABLE IF EXISTS leaderboard;
 CREATE TABLE leaderboard (
   id_score INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  user_name VARCHAR(20) NOT NULL,
+  user_mail VARCHAR(20) NOT NULL,
   user_score INT NOT NULL,
-  FOREIGN KEY (user_name) REFERENCES user_train(user_name) 
+  FOREIGN KEY (user_mail) REFERENCES user_train(user_mail) 
   		ON UPDATE CASCADE
   		ON DELETE CASCADE
 );

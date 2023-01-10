@@ -21,6 +21,6 @@ public interface Strategy {
 	public Collection<GameScore> getGameData();
 	public void updateGameData(String[] list);
 	public User getUser(User user);
-	public void setUser(String name, String password, String email);
+	public void setUser(String name, String password, String email, boolean admin);
 	public void setTrain(String brand, String serialNumber);
 }

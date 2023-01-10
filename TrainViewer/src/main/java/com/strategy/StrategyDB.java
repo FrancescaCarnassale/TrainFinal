@@ -156,23 +156,24 @@ public class StrategyDB implements Strategy{
 
 
 	@Override
-	public void setUser(String name, String password, String email) {
+	public void setUser(String name, String password, String email, boolean admin) {
 		User u = new User();
-		u.setUsername(name);
+		u.setName(name);
 		u.setEmail(email);
 		u.setPassword(password);
+		u.setAdmin(admin);
 		userDao.create(u);
 	}
 
 
 	@Override
 	public User getUser(User user) {
-		NativeQuery<Object []> mq = session.createSQLQuery("Select * from user_train where " + "user ="+ user.getUsername()+", password ="+ user.getPassword());
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from user_train where " + "user ="+ user.getName()+", password ="+ user.getPassword());
 		List<Object[]> temp = mq.list();
 		//ciclo for, da capire come gestisce la nativequery
 		User u = new User();
 		for (Object[] o: temp) {
-			u.setUsername((String) o[0]);
+			u.setName((String) o[0]);
 			u.setPassword((String) o[1]);
 			
 		}
