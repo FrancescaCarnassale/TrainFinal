@@ -13,9 +13,9 @@
 	 <div align="center">
 	<form id="creazioneTreno-form" onsubmit="return handleSubmit()"  action = "/TrainViewer/CreazionTrenoServlet" method = "POST"	>
 		<select name="produttore" id="produttore">
-		    <option value="">--Scegli un produttore--</option>
-		    <option value="fr">Frecciarossa</option>
-		    <option value="tn">Trenord</option>
+		   		<option style="display:none">--Seleziona un brand--</option>
+			    <option >Frecciarossa</option>
+			    <option value="tn">Trenord</option>
 		</select>
 		<label for="serialNumber" required>Numero seriale:</label>
 		<input type="text" id="serialNumber" name="serialNumber">
@@ -24,6 +24,7 @@
 	</form>
 	<c:set var="msg" value="${requestScope.msg}" />
         <script>
+        if("${msg}"!="")
             alert("${msg}");
         </script>
 	</div>

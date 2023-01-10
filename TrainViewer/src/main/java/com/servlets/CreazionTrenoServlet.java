@@ -55,21 +55,12 @@ public class CreazionTrenoServlet extends HttpServlet{
 			} catch (NumeroPostiInEccesso e) {
 				// TODO Auto-generated catch block
 				msg=e.getMessage();
-				request.setAttribute("msg", msg);
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/creazioneTrenoAdmin/creazioneTreno.jsp");
-				dispatcher.forward(request, response);
 			} catch (TrenoException e) {
 				// TODO Auto-generated catch block
 				msg=e.getMessage();
-				request.setAttribute("msg", msg);
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/creazioneTrenoAdmin/creazioneTreno.jsp");
-				dispatcher.forward(request, response);
 			}
 			catch(IllegalArgumentException e) {
 				msg=e.getMessage();
-				request.setAttribute("msg", msg);
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/creazioneTrenoAdmin/creazioneTreno.jsp");
-				dispatcher.forward(request, response);
 			}
 		// CREAZIONE TRENO CORRETTO
 		request.setAttribute("msg", msg);
