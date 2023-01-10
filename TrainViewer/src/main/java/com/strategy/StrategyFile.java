@@ -117,4 +117,9 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void setTrain(String brand, String serialNumber) {
+		// TODO Auto-generated method stub
+		
+	}
 }

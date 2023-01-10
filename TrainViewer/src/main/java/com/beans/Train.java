@@ -17,7 +17,10 @@ public class Train implements Bean {
     public void setBrand(String brand) {
         this.brand = brand;
     }
-    public int getId() {
+    public int getIdTrain() {
         return idTrain;
+    }
+    public void setIdTrain(int idTrain) {
+        this.idTrain = idTrain;
     }
 }
