@@ -16,9 +16,6 @@
           <a class="nav-link" aria-current="page" href="/TrainViewer/admin.jsp">ApproveAliases Admin</a>
         </li> 	
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/TrainViewer/insert.jsp">InsertTrain Admin</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/TrainViewer/trainGame/trainGame.jsp">TrainGame</a>
         </li>
         <li class="nav-item">
@@ -26,6 +23,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/login.jsp">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTrenoAdmin/creazioneTreno.jsp">CreazioneTreno</a>
         </li>
       </ul>
     </div>

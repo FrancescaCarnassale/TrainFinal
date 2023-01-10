@@ -14,6 +14,7 @@ import com.dao.AliasDao;
 import com.dao.AliasUnknownDao;
 import com.dao.GameScoreDao;
 import com.dao.impl.GameScoreDaoImpl;
+import com.dao.impl.TrainDaoImpl;
 import com.dao.impl.UserDaoImpl;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.AliasUnknownDaoImpl;
@@ -21,6 +22,7 @@ import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
 import com.beans.GameScore;
+import com.beans.Train;
 import com.beans.User;
 
 public class StrategyDB implements Strategy{
@@ -30,7 +32,9 @@ public class StrategyDB implements Strategy{
 	private AliasDaoImpl aliasDao = new AliasDaoImpl();
 	private UserDaoImpl userDao = new UserDaoImpl();
 	private GameScoreDaoImpl gameScoreDao = new GameScoreDaoImpl();
+	private TrainDaoImpl trainDao= new TrainDaoImpl();
 	private Map<String,List<String>> dataMap;
+	
 	public String getAliasCountry(String input) {
 	    String query = "select nome_paese from alias where alias_paese = " + input;
 	    NativeQuery<String> q = session.createSQLQuery(query);
@@ -173,6 +177,16 @@ public class StrategyDB implements Strategy{
 			
 		}
 		return u;
+	}
+
+
+	@Override
+	public void setTrain(String brand, String serialNumber) {
+		// TODO Auto-generated method stub
+		Train t = new Train();
+		t.setBrand(brand);
+		t.setSerialNumber(serialNumber);
+		trainDao.create(t);
 	}
 	
 }
