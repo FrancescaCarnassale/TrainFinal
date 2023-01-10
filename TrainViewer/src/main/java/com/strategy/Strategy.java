@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.beans.Alias;
 import com.beans.Country;
+import com.beans.GameScore;
 
 public interface Strategy {
 	public String getAliasCountry(String alias);
@@ -16,4 +17,6 @@ public interface Strategy {
 	public Collection<Country> getAllCountries();
 	public Collection<Alias> getUnapprovedAliases();
 	public void approveAlias(String[] list);
+	public Collection<GameScore> getGameData();
+	public void updateGameData(String[] list);
 }

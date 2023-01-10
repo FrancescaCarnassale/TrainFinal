@@ -9,15 +9,20 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="css/styles.css">
-<title>InsertTrain Admin</title>
+<title>Registration</title>
 </head>
 <body class="bg-dark">
+	<script src="handlerLogin.js"></script>
 	<jsp:include page="menu.jsp"></jsp:include>
-	<!--
-<div class="ms-loader">
-		<div class="track"></div>
-		<div class="train"></div>
-</div>
--->
+	<div align="center">
+		<h1 class="py-4 text-center text-white bg-dark">Login</h1>
+		<form id="login-form" class="d-flex align-items-center flex-column" onsubmit="return handleSubmit()">
+			<label class="mb-1 text-center text-white" for="email" class="mb-1 text-center text-white" required>Indirizzo email:</label>
+			<input type="email" id="email" name="email">
+			<label for="password" class="mb-1 text-center text-white">Password:</label>
+			<input type="password" id="password" name="password" required><br>
+			<input type="submit" value="Entra">
+		</form>
+	</div>
 </body>
 </html>

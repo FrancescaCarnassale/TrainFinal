@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+ <hibernate-mapping>  
+   <class name="com.beans.Leaderboard" table="leaderboard">
+
+    <id name="idScore" column="id_score"></id>
+       <many-to-one name="username" class="com.beans.User" column="user_name"></many-to-one>
+       <property name="score" column="user_score"></property>
+            
+  </class>  
+            
+ </hibernate-mapping>
