@@ -23,16 +23,16 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/1920x580/1920x580-DOLCEZZA23-CRUSCOTTO-1.jpg" class="d-block w-100" alt="...">
+      <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/1920x580/1920x580-DOLCEZZA23-CRUSCOTTO-1.jpg" class="d-block w-100 img-fluid" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/768x726/1920x580-FR-Milano-Roma-Coll_90_02-23.jpg" class="d-block w-100" alt="...">
+      <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/768x726/1920x580-FR-Milano-Roma-Coll_90_02-23.jpg" class="d-block w-100 img-fluid" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/1920x580/1920x580-Me-you--08-22.jpg" class="d-block w-100" alt="...">
+      <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/1920x580/1920x580-Me-you--08-22.jpg" class="d-block w-100 img-fluid" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/1920x580/1920x580-ICN-Servizi-06-2022.jpg" class="d-block w-100" alt="...">
+      <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/1920x580/1920x580-ICN-Servizi-06-2022.jpg" class="d-block w-100 img-fluid" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -117,5 +117,8 @@
     
    <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/1920x410/1920x410-Reg-GUIDE-GIUNTI-12-21.jpg"" class="img-fluid w-100" alt="Immagine" style="margin: 5% 0px 5% 0px">
 	
+	<div style="background: linear-gradient(to right, #574B90, #9E579D);">
+	
+	</div>
 </body>
 </html>

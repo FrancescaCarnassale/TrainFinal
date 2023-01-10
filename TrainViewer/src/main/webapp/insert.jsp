@@ -16,9 +16,11 @@
 </head>
 <body class="bg-dark">
 	<jsp:include page="menu.jsp"></jsp:include>
-	<div class="ms-loader">
+	<!--
+<div class="ms-loader">
 		<div class="track"></div>
 		<div class="train"></div>
-	</div>
+</div>
+-->
 </body>
 </html>
