@@ -8,6 +8,7 @@ import java.util.Set;
 import com.beans.Alias;
 import com.beans.Country;
 import com.beans.GameScore;
+import com.beans.Train;
 import com.beans.User;
 
 public interface Strategy {
@@ -23,4 +24,5 @@ public interface Strategy {
 	public User getUser(User user);
 	public void setUser(String name, String password, String email, boolean admin);
 	public void setTrain(String brand, String serialNumber);
+	public Collection<Train> getAllTrains();
 }

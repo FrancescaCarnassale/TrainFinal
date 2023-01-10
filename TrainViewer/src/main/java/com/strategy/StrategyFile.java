@@ -15,6 +15,7 @@ import java.util.Set;
 import com.beans.Alias;
 import com.beans.Country;
 import com.beans.GameScore;
+import com.beans.Train;
 import com.beans.User;
 
 public class StrategyFile implements Strategy {
@@ -122,5 +123,10 @@ public class StrategyFile implements Strategy {
 	public void setUser(String name, String password, String email, boolean admin) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public Collection<Train> getAllTrains() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
