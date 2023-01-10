@@ -27,7 +27,7 @@ public class RegistrazioneServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
 		String name = request.getParameter("name");
@@ -35,6 +35,7 @@ public class RegistrazioneServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		boolean admin= false;
 		s.setUser(name, password, email, admin);
+		request.setAttribute("admin", admin);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/registrazione.jsp");
 		dispatcher.forward(request, response);
 	}
