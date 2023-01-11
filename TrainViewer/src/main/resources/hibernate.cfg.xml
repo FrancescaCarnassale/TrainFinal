@@ -18,6 +18,6 @@
        <mapping resource="aliasUnknown.hbm.xml"/> 
        <mapping resource="user.hbm.xml"/>
        <mapping resource="train.hbm.xml"/>
-  </session-factory>  
+    </session-factory>  
     
 </hibernate-configuration>

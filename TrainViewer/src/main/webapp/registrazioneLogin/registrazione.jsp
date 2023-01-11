@@ -13,9 +13,9 @@
 </head>
 <body class="bg-dark">
 	<script src="handlerRegistrazione.js"></script>
-	<jsp:include page="menu.jsp"></jsp:include>
+	<jsp:include page="../menu.jsp"></jsp:include>
 	<div align="center">
-		<form id="registration-form" onsubmit="return handleSubmit()">
+		<form id="registration-form" onsubmit="return handleSubmit()" action="/TrainViewer/RegistrazioneServlet" method="POST">
 			<h1 class="py-4 text-center text-white bg-dark" >Registrazione</h1>
 			<label class="mb-1 text-center text-white" for="name">Nome Utente:</label> <br> 
 			<input type="text"

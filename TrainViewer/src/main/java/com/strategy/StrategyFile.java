@@ -107,7 +107,7 @@ public class StrategyFile implements Strategy {
 		
 	}
 	@Override
-	public User getUser(User user) {
+	public String getUser(String email, String password) {
 		// TODO Auto-generated method stub
 		
 		return null;
