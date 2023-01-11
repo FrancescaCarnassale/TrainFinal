@@ -18,6 +18,14 @@ import com.dao.impl.TrainDaoImpl;
 import com.dao.impl.UserDaoImpl;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.AliasUnknownDaoImpl;
+import com.ChainResponsibility.CheckChain;
+import com.ChainResponsibility.algorithm.Contained;
+import com.ChainResponsibility.algorithm.Contains;
+import com.ChainResponsibility.algorithm.ContainsPartial;
+import com.ChainResponsibility.algorithm.EqualsInputCS;
+import com.ChainResponsibility.algorithm.EqualsStandardCS;
+import com.ChainResponsibility.algorithm.JaroDistance;
+import com.ChainResponsibility.algorithm.Levenshtein;
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
@@ -34,6 +42,7 @@ public class StrategyDB implements Strategy{
 	private LeaderboardDaoImpl LeaderboardDao = new LeaderboardDaoImpl();
 	private TrainDaoImpl trainDao= new TrainDaoImpl();
 	private Map<String,List<String>> dataMap;
+	private static CheckChain checkStringSingleton;
 	
 	public String getAliasCountry(String input) {
 	    String query = "select nome_paese from alias where alias_paese = " + input;
@@ -220,6 +229,23 @@ public class StrategyDB implements Strategy{
 			cc.add(c);
 		}
 		return cc;
+	}
+
+
+	@Override
+	public CheckChain getChain() {
+		if (checkStringSingleton == null) {
+			CheckChain es = new EqualsStandardCS();
+			CheckChain cd = new Contained(); cd.setNextChain(es);
+			CheckChain cs = new Contains(); cs.setNextChain(cd);
+			CheckChain cp = new ContainsPartial(); cp.setNextChain(cs);
+			CheckChain lev = new Levenshtein(2); lev.setNextChain(cp);
+			CheckChain jd = new JaroDistance(0.8); jd.setNextChain(lev);
+			CheckChain ei = new EqualsInputCS(); ei.setNextChain(jd);
+			ei.setStrategy(this);
+			checkStringSingleton = ei;
+        }
+        return checkStringSingleton;
 	}
 	
 }

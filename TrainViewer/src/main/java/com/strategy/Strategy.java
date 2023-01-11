@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.ChainResponsibility.CheckChain;
 import com.beans.Alias;
 import com.beans.Country;
 import com.beans.Leaderboard;
@@ -25,4 +26,5 @@ public interface Strategy {
 	public void setUser(String name, String password, String email, boolean admin);
 	public void setTrain(String brand, String serialNumber);
 	public Collection<Train> getAllTrains();
+	public CheckChain getChain();
 }

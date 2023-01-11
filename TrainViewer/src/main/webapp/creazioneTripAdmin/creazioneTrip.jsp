@@ -20,7 +20,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 	<script src="handlerCreazioneTrip.js"></script>
 	<jsp:include page="../menu.jsp"></jsp:include>
 	 <div align="center">
-	<form id="creazioneTrip-form" onsubmit="return handleSubmit()" action = "/TrainViewer/CreazionTripServlet" method = "POST" >
+	<form id="creazioneTrip-form" onsubmit="return handleSubmit()" action = "/TrainViewer/CreazioneTripServlet" method = "POST" >
 		<select name="idTrain" id="idTrain">
 		<% 
 			if(trains != null && trains.size() != 0) {
@@ -56,7 +56,6 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
        	<br>
 		<input type="submit" value="Crea trip!">
 	</form>
-		
 	<c:set var="msg" value="${requestScope.msg}" />
         <script>
         if("${msg}"!="")

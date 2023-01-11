@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
+import com.ChainResponsibility.CheckChain;
 import com.beans.Alias;
 import com.beans.Country;
 import com.beans.Leaderboard;
@@ -126,6 +127,11 @@ public class StrategyFile implements Strategy {
 	}
 	@Override
 	public Collection<Train> getAllTrains() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public CheckChain getChain() {
 		// TODO Auto-generated method stub
 		return null;
 	}
