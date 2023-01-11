@@ -26,6 +26,11 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 <body class="bg-dark">
 
 	<jsp:include page="menu.jsp"></jsp:include>
+	
+	<div id="loader">
+  		<img src="https://thumbs.gfycat.com/InferiorDecentAsianporcupine-max-1mb.gif" alt="Loading...">
+  		<h3 style="color:white">Loading...</h3>
+	</div>
 
 	<!-- Table of countries -->
 
