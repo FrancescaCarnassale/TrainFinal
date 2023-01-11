@@ -1,8 +1,6 @@
-
-
 function handleSubmit() {
 	var form = document.getElementById('creazioneTrip-form');
-
+	const date = new Date();
   const idTrain = form.elements.idTrain.value;
   const departure = form.elements.departure.value;
   const arrive = form.elements.arrive.value;
@@ -16,6 +14,7 @@ function handleSubmit() {
 	alert("La partenza deve essere successiva all'arrivo!");
     return false;
   }
+  alert(date);
    // Se i controlli sono superati, inviare i dati al server
   const data = { idTrain, departure,arrive,start,end};
 }
