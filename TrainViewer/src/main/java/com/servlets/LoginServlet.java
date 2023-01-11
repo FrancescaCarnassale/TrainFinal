@@ -34,10 +34,11 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		RequestDispatcher dispatcher;
 		String user = s.getUser(email, password);
-		if(user != "") {
-			request.setAttribute("user", user);
+		request.setAttribute("user", user);
+		if(user != "" && user != "User not found") {
 			dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/welcome.jsp");
 		} else {
+			
 			dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
 		}
 
