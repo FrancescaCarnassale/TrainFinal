@@ -20,7 +20,7 @@ public interface Strategy {
 	public void approveAlias(String[] list);
 	public Collection<GameScore> getGameData();
 	public void updateGameData(String[] list);
-	public User getUser(User user);
+	public String getUser(String email, String password);
 	public void setUser(String name, String password, String email, boolean admin);
 	public void setTrain(String brand, String serialNumber);
 }

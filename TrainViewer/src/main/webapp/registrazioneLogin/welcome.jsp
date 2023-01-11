@@ -12,24 +12,13 @@
 	crossorigin="anonymous">
 	
 <link rel="stylesheet" href="css/styles.css">
-<title>Registration</title>
+<title>Welcome</title>
 </head>
 <body>
 	<jsp:include page="../menu.jsp"></jsp:include>
+	<%String user = (String)request.getAttribute("user");%>
 	 <div align="center">
-	<form id="login-form" action = "/TrainViewer/LoginServlet" method = "POST">
-		 <label for="email" required>Indirizzo email:</label>
-		 <br>
-		 <input type="email" id="email" name="email">
-		 <br>
-		 <label for="password">Password:</label>
-		 <br>
-		 <input type="password" id="password" name="password" required><br>
-		 <br> 
-		 <input type="submit" value="Entra">
-	</form>
-	<br>
-	<a href="registrazione.jsp">Non sei registrato? FALLO!</a>
+	<p>Benvenuto  <%= user %></p>
 	</div>
 </body>
 </html>

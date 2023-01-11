@@ -18,9 +18,6 @@
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/trainGame/trainGame.jsp">TrainGame</a>
         	        </li>
         	        <li class="nav-item">
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/registrazione.jsp">Registrazione</a>
-        	        </li>
-        	        <li class="nav-item">
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/login.jsp">Login</a>
         	        </li>
         	        <li class="nav-item">
@@ -54,9 +51,6 @@
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/trainGame/trainGame.jsp">TrainGame</a>
         	        </li>
         	        <li class="nav-item">
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/registrazione.jsp">Registrazione</a>
-        	        </li>
-        	        <li class="nav-item">
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/login.jsp">Login</a>
         	        </li>
         	        <li class="nav-item">
@@ -88,9 +82,6 @@
         	        </li> 	
         	        <li class="nav-item">
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/trainGame/trainGame.jsp">TrainGame</a>
-        	        </li>
-        	        <li class="nav-item">
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/registrazione.jsp">Registrazione</a>
         	        </li>
         	        <li class="nav-item">
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/login.jsp">Login</a>
