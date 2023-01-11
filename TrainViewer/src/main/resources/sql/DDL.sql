@@ -46,6 +46,8 @@ CREATE TABLE trip(
 	id_train INT NOT NULL,
 	departure VARCHAR(50) NOT NULL,
 	arrive VARCHAR(50) NOT NULL,
+	time_departure DATETIME NOT NULL,
+	time_arrive DATETIME NOT NULL,
 	FOREIGN KEY (departure) REFERENCES country(country_name) 
   		ON UPDATE CASCADE
   		ON DELETE CASCADE,

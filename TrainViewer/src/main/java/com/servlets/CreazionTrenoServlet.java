@@ -40,7 +40,7 @@ public class CreazionTrenoServlet extends HttpServlet{
 		//CHECK DATI
 		VagoneFactory vagoneFactory;
 			//IN BASE AL TIPO DI PRODUTTORE SCELGO QUALE FARE
-		if(produttore.equals("fr"))
+		if(produttore.equals("Frecciarossa"))
 			vagoneFactory = new FRFactory();
 		else
 			vagoneFactory = new TNFactory();

@@ -204,5 +204,22 @@ public class StrategyDB implements Strategy{
 		t.setSerialNumber(serialNumber);
 		trainDao.create(t);
 	}
+
+
+	@Override
+	public Collection<Train> getAllTrains() {
+		Collection<Train> cc = new LinkedList <Train>();
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from train");
+        List<Object[]> trains = mq.list();
+        
+		for (Object[] o: trains) {
+			Train c = new Train();
+			c.setIdTrain((int) o[0]);
+			c.setSerialNumber((String) o[1]);
+			c.setBrand((String) o[2]);
+			cc.add(c);
+		}
+		return cc;
+	}
 	
 }
