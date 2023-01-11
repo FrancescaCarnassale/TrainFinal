@@ -115,7 +115,19 @@
     </div>
     
     
-   <img src="https://www.trenitalia.com/content/dam/tcom/restyling/homepage/1920x410/1920x410-Reg-GUIDE-GIUNTI-12-21.jpg"" class="img-fluid w-100" alt="Immagine" style="margin: 5% 0px 5% 0px">
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="col-md-12">
+         <div class="d-flex align-items-center justify-content-center img-overlay">
+   			<img src="https://knowledge.wharton.upenn.edu/wp-content/uploads/2019/01/country-flags-rankings.jpg" class="img-fluid w-100" alt="Immagine" style="margin: 5% 0px 5% 0px; height: 28rem;">
+   			  <div class="bg-black" style="width:100%;height:28rem; position:absolute;opacity:0.5;z-index:0;"></div>
+            <h2 class="position-absolute" style="margin-bottom: 10%; color:white">Scopri i paesi in cui puoi viaggiare</h2>
+            <button type="button" class="position-absolute btn btn-dark btn-lg" onClick="location.href='/TrainViewer/countryList.jsp'">Scopri di più</button>
+        </div>
+      </div>
+    </div>
+</div>
+
 	
 	<div style="background: linear-gradient(to right, #574B90, #9E579D);">
 	

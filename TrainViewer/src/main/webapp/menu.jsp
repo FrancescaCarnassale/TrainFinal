@@ -45,9 +45,6 @@
         	          <a class="nav-link active" aria-current="page" href="#"></a>
         	        </li>
         	        <li class="nav-item">
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/countryList.jsp">CountryList</a>
-        	        </li>
-        	        <li class="nav-item">
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/admin.jsp">ApproveAliases Admin</a>
         	        </li> 	
         	        <li class="nav-item">
@@ -79,9 +76,6 @@
         	      <ul class="navbar-nav">
         	        <li class="nav-item">
         	          <a class="nav-link active" aria-current="page" href="#"></a>
-        	        </li>
-        	        <li class="nav-item">
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/countryList.jsp">CountryList</a>
         	        </li>
         	        <li class="nav-item">
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/admin.jsp">ApproveAliases Admin</a>
