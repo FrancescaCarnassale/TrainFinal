@@ -13,10 +13,13 @@
 
 <link rel="stylesheet" href="css/styles.css">
 <title>Registration</title>
+
 </head>
-<body>
+<body onload = "userNotFound()">
 	<jsp:include page="../menu.jsp"></jsp:include>
-	<%String user = (String)request.getAttribute("user");%>
+	<%
+	String user = (String)request.getAttribute("user");
+	%>
 	<div align="center">
 		<form id="login-form" action="/TrainViewer/LoginServlet" method="POST">
 			<label for="email" required>Indirizzo email:</label> <br> <input
@@ -27,13 +30,16 @@
 		</form>
 		<br> <a href="registrazione.jsp">Non sei registrato? FALLO!</a>
 	</div>
-
-	<script type="text/javascript">
-	var Msg = <%= user%>;
-		if (Msg != null) {
-				alert(Msg);
-		}
-	</script>
 	
 </body>
+	<script>
+	function userNotFound(){
+	boolean userNotFound = (boolean)request.getAttribute("userNotFound");
+	}
+	if (userNotFound == false){
+	alert( "User non trovato!" );
+	document.loginform.userName.focus();
+	return false;
+	}
+</script>
 </html>
