@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.User.exceptions.UserNotFound;
 import com.beans.Alias;
 import com.beans.Country;
 import com.beans.Leaderboard;
@@ -21,7 +22,7 @@ public interface Strategy {
 	public void approveAlias(String[] list);
 	public Collection<Leaderboard> getGameData();
 	public void updateGameData(String[] list);
-	public String getUser(String email, String password);
+	public String getUser(String email, String password) throws UserNotFound;
 	public void setUser(String name, String password, String email, boolean admin);
 	public void setTrain(String brand, String serialNumber);
 	public Collection<Train> getAllTrains();

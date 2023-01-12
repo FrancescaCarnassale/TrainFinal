@@ -30,7 +30,7 @@
 				required> <br> <br> <input type="submit"
 				value="Registrati">
 		</form>
-		<br> <a href="login.jsp" class="py-4 text-center text-white bg-dark">Gia' registrato? Accedi!</a>
+		<br> <a href="/TrainViewer/registrazioneLogin/login.jsp" class="py-4 text-center text-white bg-dark">Gia' registrato? Accedi!</a>
 	</div>
 </body>
 </html>

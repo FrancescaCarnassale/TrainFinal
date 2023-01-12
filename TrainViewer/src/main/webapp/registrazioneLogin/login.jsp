@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +13,10 @@
 	crossorigin="anonymous">
 
 <link rel="stylesheet" href="css/styles.css">
-<title>Registration</title>
+<title>Login</title>
 
 </head>
-<body onload = "userNotFound()">
+<body>
 	<jsp:include page="../menu.jsp"></jsp:include>
 	<%
 	String user = (String)request.getAttribute("user");
@@ -28,18 +29,14 @@
 				id="password" name="password" required><br> <br> <input
 				type="submit" value="Entra">
 		</form>
-		<br> <a href="registrazione.jsp">Non sei registrato? FALLO!</a>
-	</div>
-	
+		<br> <a href="/TrainViewer/registrazioneLogin/registrazione.jsp">Non sei registrato? FALLO!</a>
+
+		<c:set var="msg" value="${requestScope.msg}" />
+        <script>
+        if("${msg}"!="")
+            alert("${msg}");
+        </script>
+       </div>
 </body>
-	<script>
-	function userNotFound(){
-	boolean userNotFound = (boolean)request.getAttribute("userNotFound");
-	}
-	if (userNotFound == false){
-	alert( "User non trovato!" );
-	document.loginform.userName.focus();
-	return false;
-	}
-</script>
+
 </html>

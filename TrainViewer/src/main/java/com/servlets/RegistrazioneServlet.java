@@ -35,8 +35,8 @@ public class RegistrazioneServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		boolean admin= false;
 		s.setUser(name, password, email, admin);
-		request.setAttribute("admin", admin);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/registrazione.jsp");
+		request.setAttribute("msg", "Utente creato con successo!");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
 		dispatcher.forward(request, response);
 	}
 

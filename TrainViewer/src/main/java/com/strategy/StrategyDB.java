@@ -18,6 +18,7 @@ import com.dao.impl.TrainDaoImpl;
 import com.dao.impl.UserDaoImpl;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.AliasUnknownDaoImpl;
+import com.User.exceptions.UserNotFound;
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
@@ -170,29 +171,21 @@ public class StrategyDB implements Strategy{
 
 
 	@Override
-	public String getUser(String email, String password) {
+	public String getUser(String email, String password) throws UserNotFound {
 		User u = new User();
 		NativeQuery<Object []> mq = session.createSQLQuery("Select * from user_train where user_mail = :email and user_password = :password");
 		mq.setParameter("email", email);
 		mq.setParameter("password", password);
-		//List<Object[]> temp = mq.list();
 		try {
-		Object[] o = (Object[]) mq.list().get(0);
-		//ciclo for, da capire come gestisce la nativequery
+			Object[] o = (Object[]) mq.list().get(0);
 			u.setEmail((String) o[0]);
 			u.setName((String) o[1]);
 			u.setPassword((String) o[2]);
-		}catch(Exception userNotFound){
-			return "User not found";
 			
+		}catch(IndexOutOfBoundsException e){
+			 return "L'utente inserito non è stato trovato!";
 		}
-		if( u.getEmail().equals(email) && u.getPassword().equals(password)) {
-			return u.getName();
-		}
-		
-		
-		
-		return "";
+		return u.getName();
 	}
 
 

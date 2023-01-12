@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.User.exceptions.UserNotFound;
 import com.beans.Alias;
 import com.dao.impl.AliasDaoImpl;
 import com.strategy.StrategyDB;
@@ -33,17 +34,22 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		RequestDispatcher dispatcher;
-		String user = s.getUser(email, password);
-		if(user != "" && user != "User not found") {
-			request.setAttribute("user", user);
-			request.setAttribute("userNotFound", true);
-			dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/welcome.jsp");
-		} else {
-			request.setAttribute("user", "");
-			request.setAttribute("userNotFound", false);
-			dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
-		}
-
+		String user;
+		String msg = "";
+	
+			user = s.getUser(email, password);
+			String error = "L'utente inserito non è stato trovato!";
+			if(user != error) {
+				msg = "Benvenuto "+ user+"!";
+				request.setAttribute("user", user);
+				request.setAttribute("msg", msg);
+				dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/welcome.jsp");
+			}else{
+				msg=user;
+				request.setAttribute("msg", msg);
+				dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
+			}
+			
 		dispatcher.forward(request, response);
 	}
 
