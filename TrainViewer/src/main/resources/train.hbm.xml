@@ -6,7 +6,7 @@
  <hibernate-mapping>  
   <class name="com.beans.Train" table="train">
 
-    <id name="idTrain" column="id_train"></id>
+    <id name="idTrain" column="id_train"> <generator class="increment"></generator></id>
        <property name="serialNumber" column="serial_number_train"></property>
        <property name="brand" column="brand"></property>
   </class>  

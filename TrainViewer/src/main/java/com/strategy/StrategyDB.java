@@ -53,6 +53,12 @@ public class StrategyDB implements Strategy{
 	    NativeQuery<String> q = session.createSQLQuery(query);
 	    return q.getSingleResult();
 	}	
+	public Country getCountry(String input) {
+	    return session.get(Country.class, input);
+	}
+	public Train getTrain(int input) {
+	    return session.get(Train.class, input);
+	}
 
 	
 	public Map<String,List<String>> dataMap() {
@@ -260,9 +266,9 @@ public class StrategyDB implements Strategy{
 		t.setSerialNumber(serialNumber);
 		trainDao.create(t);*/
 		Trip tr= new Trip();
-		tr.setArrive(arrive);
-		tr.setDeparture(departure);
-		tr.setIdTrain(idTrain);
+		tr.setArrive(this.getCountry(arrive));
+		tr.setDeparture(this.getCountry(departure));
+		tr.setIdTrain(this.getTrain(idTrain));
 		tr.setTimeArrive(timeArrive);
 		tr.setTimeDeparture(timeDeparture);
 		tripDao.create(tr);

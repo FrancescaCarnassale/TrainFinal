@@ -69,7 +69,7 @@ public class CreazioneTripServlet extends HttpServlet {
 		String arrivo= checkChain.check(arrive);
 		if(partenza!=null) {
 			if(arrivo!=null) {
-				//s.setTrip(idTrain, departure, arrive, timeStart, timeEnd);
+				s.setTrip(idTrain, departure, arrive, timeStart, timeEnd);
 				//I DATI SONO TUTTI CORRETTI
 				msg = "idTrain: " + idTrain+ " Departure: "+partenza + " Arrive: "+ arrivo
 						+" TimeDeparture: "+timeStart+" TimeArrrive: "+timeEnd;

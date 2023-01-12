@@ -8,35 +8,35 @@ import com.TrenoFactory.treno.Treno;
 //L'oggetto treno è caratterizzato dalla sigla e dalla lista delle sue carrozze.
 //Nel DB sarà presente assieme al tipo di Treno (TN o FR, che infatti decisono il creatore) e alla lista dei passeggeri.
 	public class Trip implements Bean {
-		private String idTrip;
-		private int idTrain;
-		private String departure;
-		private String arrive;
+		private int idTrip;
+		private Train idTrain;
+		private Country departure;
+		private Country arrive;
 		private Timestamp timeDeparture;
 		private Timestamp timeArrive;
 		//private List<Passeggeri> passeggeri;
-		public int getIdTrain() {
-			return idTrain;
-		}
-		public void setIdTrain(int idTrain) {
-			this.idTrain = idTrain;
-		}
-		public String getIdTrip() {
+		public int getIdTrip() {
 			return idTrip;
 		}
-		public void setIdTrip(String idTrip) {
+		public void setIdTrip(int idTrip) {
 			this.idTrip = idTrip;
 		}
-		public String getDeparture() {
+		public Train getIdTrain() {
+			return idTrain;
+		}
+		public void setIdTrain(Train idTrain) {
+			this.idTrain = idTrain;
+		}
+		public Country getDeparture() {
 			return departure;
 		}
-		public void setDeparture(String departure) {
+		public void setDeparture(Country departure) {
 			this.departure = departure;
 		}
-		public String getArrive() {
+		public Country getArrive() {
 			return arrive;
 		}
-		public void setArrive(String arrive) {
+		public void setArrive(Country arrive) {
 			this.arrive = arrive;
 		}
 		public Timestamp getTimeDeparture() {
@@ -51,6 +51,7 @@ import com.TrenoFactory.treno.Treno;
 		public void setTimeArrive(Timestamp timeArrive) {
 			this.timeArrive = timeArrive;
 		}
+
 
 	
 	

@@ -6,7 +6,7 @@
  <hibernate-mapping>  
   <class name="com.beans.Trip" table="trip">
 
-      <id name="idTrip" column="id_trip"></id>
+      <id name="idTrip" column="id_trip"> <generator class="increment"></generator></id>
       <many-to-one name="idTrain" class="com.beans.Train" column="id_train"></many-to-one>
       <many-to-one name="departure" class="com.beans.Country" column="departure"></many-to-one>
       <many-to-one name="arrive" class="com.beans.Country" column="arrive"></many-to-one>
