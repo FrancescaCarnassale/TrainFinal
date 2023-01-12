@@ -1,5 +1,7 @@
 package com.dao.impl;
 
+import java.io.Serializable;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -40,6 +42,12 @@ public abstract class BaseDao {
 		Bean b =this.session.get(class1, id);
 		this.session.getTransaction().commit();
 		return b;
-		
+	}
+	
+	protected Bean get(Class<? extends Bean> class1, int id) {
+		this.session.beginTransaction();
+		Bean b =this.session.get(class1, id);
+		this.session.getTransaction().commit();
+		return b;
 	}
 }

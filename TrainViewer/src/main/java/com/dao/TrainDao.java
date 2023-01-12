@@ -4,5 +4,5 @@ import com.beans.Train;
 
 public interface TrainDao {
 	public void create(Train a);
-	public Train get(String train);
+	public Train get(int train);
 }

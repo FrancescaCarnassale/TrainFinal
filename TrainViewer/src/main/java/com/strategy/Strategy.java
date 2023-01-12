@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.User.exceptions.UserNotFound;
+import com.ChainResponsibility.CheckChain;
 import com.beans.Alias;
 import com.beans.Country;
 import com.beans.Leaderboard;
@@ -26,4 +27,5 @@ public interface Strategy {
 	public void setUser(String name, String password, String email, String admin);
 	public void setTrain(String brand, String serialNumber, boolean isCargo);
 	public Collection<Train> getAllTrains();
+	public CheckChain getChain();
 }

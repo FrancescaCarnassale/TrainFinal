@@ -11,7 +11,7 @@ public class TrainDaoImpl extends BaseDao implements TrainDao {
 	}
 
 	@Override
-	public Train get(String train) {
+	public Train get(int train) {
 		return (Train) super.get(Train.class, train);
 	}
 }

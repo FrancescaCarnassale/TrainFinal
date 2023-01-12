@@ -19,19 +19,19 @@ public abstract class CheckChain {
 	public final String check(String input) {
 		String result = checkInternal(input);
 		if(result != null) {
-			Alias a = new Alias();
+			/*Alias a = new Alias();
 			a.setAlias(input);
 			a.setCountry(cdao.get(result));
 			a.setApproved(false);
 			dao.create(a);
-			System.out.println("Il risultato è "+result);
+			System.out.println("Il risultato è "+result);*/
 			return result;
 		}
 		//non ho trovato la soluzione, procedo col successivo se c'è
 		if (nextChain!= null)
 			return this.nextChain.check(input);
 		else {
-			strategy.addAliasUnknown(input);
+			//strategy.addAliasUnknown(input);
         	return null;
 			}
 		}

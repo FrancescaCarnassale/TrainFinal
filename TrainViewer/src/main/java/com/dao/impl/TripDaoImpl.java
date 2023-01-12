@@ -13,7 +13,7 @@ public class TripDaoImpl extends BaseDao implements TripDao{
 	}
 
 	@Override
-	public Trip get(String id) {
+	public Trip get(int id) {
 		// TODO Auto-generated method stub
 		return (Trip) super.get(Trip.class, id);
 	}

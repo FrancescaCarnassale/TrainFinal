@@ -14,7 +14,10 @@ function handleSubmit() {
 	alert("La partenza deve essere successiva all'arrivo!");
     return false;
   }
-  alert(date);
+  if(departure===arrive){
+	  alert("La partenza non può essere uguale all'arrivo!");
+    	return false;
+  }
    // Se i controlli sono superati, inviare i dati al server
   const data = { idTrain, departure,arrive,start,end};
 }

@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
+import com.ChainResponsibility.CheckChain;
 import com.beans.Alias;
 import com.beans.Country;
 import com.beans.Leaderboard;
@@ -124,9 +125,13 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void setTrain(String brand, String serialNumber, boolean isCargo) {
 		// TODO Auto-generated method stub
-		
+	}
+	public CheckChain getChain() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
