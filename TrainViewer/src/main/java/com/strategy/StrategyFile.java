@@ -62,11 +62,7 @@ public class StrategyFile implements Strategy {
 		return map;
 	}
 
-	@Override
-	public void addAliasUnknown(String input) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	@Override
 	public String toString() {
 		String result = "";
