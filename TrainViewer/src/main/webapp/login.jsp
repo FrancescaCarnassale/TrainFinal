@@ -15,7 +15,7 @@
 		<title>Registration</title>
 	</head>
 
-	<body>
+	<body class="body-login">
 		<script src="handlerLogin.js"></script>
 		<jsp:include page="menu.jsp"></jsp:include>
 		<div align="center" class="card-registration">
