@@ -1,35 +1,64 @@
+
 .btn {
   background: linear-gradient(to right, #574B90, #9E579D);
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
-    display: inline-block;
-    width: 5rem;
-    height: 5rem;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: 100% 100%;
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
 }
 
-@media (max-width: 1100px){
-	
-	.btn-group-lg>.btn, .btn-lg{
-	 margin-top: 60px;
-	--bs-btn-padding-y: 0.5rem;
-    --bs-btn-padding-x: 1rem;
-    --bs-btn-font-size: 1.25rem;
-    --bs-btn-border-radius: 0.5rem;
-	}
-	
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(224, 85, 255, 1) 0%, rgba(123, 0, 255, 1) 100%);
 }
 
-@media (max-width: 600px){
-	.w-100 {
-    width: 100%!important;
-    height: 600px;
-    /* zoom: 150%; */
-    object-position: 38%;
-    object-fit: cover;
+#title-registration {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
-	
+#registration-form {
+  padding-bottom: 10px;
+}
+.card-registration {
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 60%;
+}
+input {
+  border-radius: 8px;
+  border: none;
+}
+#input-submit {
+  width: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  transition: 0.15s;
+}
+#input-submit:hover {
+  background-color: rgba(224, 85, 255, 1);
+  color: white;
+}
+.div-submit {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  margin-bottom: 15px;
+}
+a {
+  text-decoration: none;
+  transition: 0.15s;
+}
+a:hover {
+  color:rgba(224, 85, 255, 1)!important;
 }
