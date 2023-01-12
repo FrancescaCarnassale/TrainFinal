@@ -31,7 +31,7 @@ public abstract class CheckChain {
 		if (nextChain!= null)
 			return this.nextChain.check(input);
 		else {
-			strategy.addAliasUnknown(input);
+			//strategy.addAliasUnknown(input);
         	return null;
 			}
 		}

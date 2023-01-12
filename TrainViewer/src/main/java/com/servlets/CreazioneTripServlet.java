@@ -34,9 +34,9 @@ import com.TrenoFactory.treno.Treno;
 import com.strategy.Strategy;
 import com.strategy.StrategyDB;
 @WebServlet("/CreazioneTripServlet")
-public class CrazioneTripServlet extends HttpServlet {
+public class CreazioneTripServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public CrazioneTripServlet() {
+    public CreazioneTripServlet() {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -65,10 +65,20 @@ public class CrazioneTripServlet extends HttpServlet {
 		Timestamp timeEnd = new Timestamp(dateEnd.getTime());
 		Map<String, List<String>> map = s.dataMap();
 		CheckChain checkChain=s.getChain();
-		if(checkChain.check(departure)!=null) {
-			if(checkChain.check(arrive)!=null) {
-				msg = "Operazione avvenuta con successo!";
+		String partenza= checkChain.check(departure);
+		String arrivo= checkChain.check(arrive);
+		if(partenza!=null) {
+			if(arrivo!=null) {
+				msg = "Operazione avvenuta con successo!" +partenza + " "+ arrivo;
 			}
+			else {
+				s.addAliasUnknown(arrive);
+				msg = "Arrivo non trovato!";
+			}
+		}
+		else {
+			s.addAliasUnknown(departure);
+			msg = "Partenza non trovata!";
 		}
 		
 		// CREAZIONE TRENO CORRETTO
