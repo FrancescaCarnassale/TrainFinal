@@ -12,17 +12,13 @@ CREATE TABLE country (
 DROP TABLE IF EXISTS alias;
 CREATE TABLE alias (
   alias_country VARCHAR(50) NOT NULL PRIMARY KEY,
-  country_name VARCHAR(50) NOT NULL,
-  approved BOOLEAN DEFAULT FALSE NOT NULL,
+  country_name VARCHAR(50),
+  approved BOOLEAN NOT NULL DEFAULT 0,
   FOREIGN KEY (country_name) REFERENCES country(country_name)
-  		ON UPDATE CASCADE
-  		ON DELETE CASCADE
+      ON UPDATE CASCADE
+      ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS alias_unknown;
-CREATE TABLE alias_unknown (
-	input VARCHAR(50) NOT NULL PRIMARY KEY
-	);
 
 DROP TABLE IF EXISTS user_train;
 CREATE TABLE user_train (
@@ -46,6 +42,8 @@ CREATE TABLE trip(
 	id_train INT NOT NULL,
 	departure VARCHAR(50) NOT NULL,
 	arrive VARCHAR(50) NOT NULL,
+	time_departure DATETIME NOT NULL,
+	time_arrive DATETIME NOT NULL,
 	FOREIGN KEY (departure) REFERENCES country(country_name) 
   		ON UPDATE CASCADE
   		ON DELETE CASCADE,

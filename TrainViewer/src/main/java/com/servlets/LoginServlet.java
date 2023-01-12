@@ -11,14 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.User.exceptions.UserNotFound;
 import com.beans.Alias;
 import com.dao.impl.AliasDaoImpl;
 import com.strategy.StrategyDB;
 
-@WebServlet("/RegistrazioneServlet")
-public class RegistrazioneServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public RegistrazioneServlet() {
+    public LoginServlet() {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,16 +28,28 @@ public class RegistrazioneServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
-		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
-		String admin= "admin";
-		s.setUser(name, password, email, admin);
-		request.setAttribute("msg", "Utente creato con successo!");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
+		RequestDispatcher dispatcher;
+		String user;
+		String msg = "";
+	
+			user = s.getUser(email, password);
+			String error = "L'utente inserito non è stato trovato!";
+			if(user != error) {
+				msg = "Benvenuto "+ user+"!";
+				request.setAttribute("user", user);
+				request.setAttribute("msg", msg);
+				dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/welcome.jsp");
+			}else{
+				msg=user;
+				request.setAttribute("msg", msg);
+				dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
+			}
+			
 		dispatcher.forward(request, response);
 	}
 

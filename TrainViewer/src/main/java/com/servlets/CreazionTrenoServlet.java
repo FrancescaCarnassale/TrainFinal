@@ -40,7 +40,7 @@ public class CreazionTrenoServlet extends HttpServlet{
 		//CHECK DATI
 		VagoneFactory vagoneFactory;
 			//IN BASE AL TIPO DI PRODUTTORE SCELGO QUALE FARE
-		if(produttore.equals("fr"))
+		if(produttore.equals("Frecciarossa"))
 			vagoneFactory = new FRFactory();
 		else
 			vagoneFactory = new TNFactory();
@@ -50,7 +50,7 @@ public class CreazionTrenoServlet extends HttpServlet{
 		String msg;
 			try {
 				t = builder.buildTreno(serialNumber.toUpperCase());
-				s.setTrain(produttore, serialNumber);
+				s.setTrain(produttore, serialNumber, false);
 				msg = "Operazione avvenuta con successo!";
 			} catch (NumeroPostiInEccesso e) {
 				// TODO Auto-generated catch block

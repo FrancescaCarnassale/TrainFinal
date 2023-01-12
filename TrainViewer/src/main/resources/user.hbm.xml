@@ -9,7 +9,7 @@
     	<id name="email" column="user_mail"></id>
        <property name="password" column="user_password"></property>
        <property name="name" column="user_name"></property>
-       <property name="admin" column="user_admin"></property>
+       <property name="admin" column="user_role"></property>
 
   </class>  
             

@@ -5,10 +5,9 @@ function handleSubmit() {
   const name = form.elements.name.value;
   const email = form.elements.email.value;
   const password = form.elements.password.value;
-
   // Eseguire i controlli qui
   if (name.length < 4) {
-    alert("Il nome deve essere lungo almeno 3 caratteri");
+    alert("Il nome deve essere lungo almeno 4 caratteri");
     return false;;
   }
 

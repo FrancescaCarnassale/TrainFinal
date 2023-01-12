@@ -1,5 +1,6 @@
 package com.strategy;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -12,17 +13,33 @@ import org.hibernate.query.NativeQuery;
 import com.connectionDB.ConnectionToDB;
 import com.dao.AliasDao;
 import com.dao.AliasUnknownDao;
+import com.dao.CountryDao;
 import com.dao.LeaderboardDao;
+import com.dao.TrainDao;
+import com.dao.TripDao;
+import com.dao.UserDao;
 import com.dao.impl.LeaderboardDaoImpl;
 import com.dao.impl.TrainDaoImpl;
+import com.dao.impl.TripDaoImpl;
 import com.dao.impl.UserDaoImpl;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.AliasUnknownDaoImpl;
+import com.User.exceptions.UserNotFound;
+import com.dao.impl.CountryDaoImpl;
+import com.ChainResponsibility.CheckChain;
+import com.ChainResponsibility.algorithm.Contained;
+import com.ChainResponsibility.algorithm.Contains;
+import com.ChainResponsibility.algorithm.ContainsPartial;
+import com.ChainResponsibility.algorithm.EqualsInputCS;
+import com.ChainResponsibility.algorithm.EqualsStandardCS;
+import com.ChainResponsibility.algorithm.JaroDistance;
+import com.ChainResponsibility.algorithm.Levenshtein;
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
 import com.beans.Leaderboard;
 import com.beans.Train;
+import com.beans.Trip;
 import com.beans.User;
 
 public class StrategyDB implements Strategy{
@@ -30,17 +47,19 @@ public class StrategyDB implements Strategy{
 	static Session session = ConnectionToDB.getSession();
 	private AliasUnknownDao unknownDao = new AliasUnknownDaoImpl();
 	private AliasDaoImpl aliasDao = new AliasDaoImpl();
-	private UserDaoImpl userDao = new UserDaoImpl();
-	private LeaderboardDaoImpl LeaderboardDao = new LeaderboardDaoImpl();
-	private TrainDaoImpl trainDao= new TrainDaoImpl();
+	private UserDao userDao = new UserDaoImpl();
+	private LeaderboardDao LeaderboardDao = new LeaderboardDaoImpl();
+	private TrainDao trainDao= new TrainDaoImpl();
+	private TripDao tripDao= new TripDaoImpl();
+	private CountryDao countryDao= new CountryDaoImpl();
 	private Map<String,List<String>> dataMap;
+	private static CheckChain checkStringSingleton;
 	
 	public String getAliasCountry(String input) {
 	    String query = "select nome_paese from alias where alias_paese = " + input;
 	    NativeQuery<String> q = session.createSQLQuery(query);
 	    return q.getSingleResult();
 	}	
-
 	
 	public Map<String,List<String>> dataMap() {
         NativeQuery<String> q = session.createSQLQuery("Select country_name From country");
@@ -159,7 +178,7 @@ public class StrategyDB implements Strategy{
 
 
 	@Override
-	public void setUser(String name, String password, String email, boolean admin) {
+	public void setUser(String name, String password, String email, String admin) {
 		User u = new User();
 		u.setName(name);
 		u.setEmail(email);
@@ -170,27 +189,82 @@ public class StrategyDB implements Strategy{
 
 
 	@Override
-	public User getUser(User user) {
-		NativeQuery<Object []> mq = session.createSQLQuery("Select * from user_train where " + "user ="+ user.getName()+", password ="+ user.getPassword());
-		List<Object[]> temp = mq.list();
-		//ciclo for, da capire come gestisce la nativequery
+	public String getUser(String email, String password) throws UserNotFound {
 		User u = new User();
-		for (Object[] o: temp) {
-			u.setName((String) o[0]);
-			u.setPassword((String) o[1]);
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from user_train where user_mail = :email and user_password = :password");
+		mq.setParameter("email", email);
+		mq.setParameter("password", password);
+		try {
+			Object[] o = (Object[]) mq.list().get(0);
+			u.setEmail((String) o[0]);
+			u.setName((String) o[1]);
+			u.setPassword((String) o[2]);
 			
+		}catch(IndexOutOfBoundsException e){
+			 return "L'utente inserito non è stato trovato!";
 		}
-		return u;
+		return u.getName();
 	}
 
 
 	@Override
-	public void setTrain(String brand, String serialNumber) {
+	public void setTrain(String brand, String serialNumber, boolean isCargo) {
 		// TODO Auto-generated method stub
 		Train t = new Train();
 		t.setBrand(brand);
 		t.setSerialNumber(serialNumber);
+		t.setIsCargo(isCargo);
 		trainDao.create(t);
+	}
+
+
+	@Override
+	public Collection<Train> getAllTrains() {
+		Collection<Train> cc = new LinkedList <Train>();
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from train");
+        List<Object[]> trains = mq.list();
+        
+		for (Object[] o: trains) {
+			Train c = new Train();
+			c.setIdTrain((int) o[0]);
+			c.setSerialNumber((String) o[1]);
+			c.setBrand((String) o[2]);
+			cc.add(c);
+		}
+		return cc;
+	}
+
+
+	@Override
+	public CheckChain getChain() {
+		if (checkStringSingleton == null) {
+			CheckChain es = new EqualsStandardCS();
+			CheckChain cd = new Contained(); cd.setNextChain(es);
+			CheckChain cs = new Contains(); cs.setNextChain(cd);
+			CheckChain cp = new ContainsPartial(); cp.setNextChain(cs);
+			CheckChain lev = new Levenshtein(2); lev.setNextChain(cp);
+			CheckChain jd = new JaroDistance(0.8); jd.setNextChain(lev);
+			CheckChain ei = new EqualsInputCS(); ei.setNextChain(jd);
+			ei.setStrategy(this);
+			checkStringSingleton = ei;
+        }
+        return checkStringSingleton;
+	}
+
+
+	public void setTrip(int idTrain, String departure, String arrive, Timestamp timeDeparture, Timestamp timeArrive) {
+		// TODO Auto-generated method stub
+		/*Train t = new Train();
+		t.setBrand(brand);
+		t.setSerialNumber(serialNumber);
+		trainDao.create(t);*/
+		Trip tr= new Trip();
+		tr.setArrive(this.countryDao.get(arrive));
+		tr.setDeparture(this.countryDao.get(departure));
+		tr.setIdTrain(this.trainDao.get(idTrain));
+		tr.setTimeArrive(timeArrive);
+		tr.setTimeDeparture(timeDeparture);
+		tripDao.create(tr);
 	}
 	
 }
