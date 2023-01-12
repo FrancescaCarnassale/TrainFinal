@@ -50,7 +50,7 @@ public class CreazionTrenoServlet extends HttpServlet{
 		String msg;
 			try {
 				t = builder.buildTreno(serialNumber.toUpperCase());
-				s.setTrain(produttore, serialNumber);
+				s.setTrain(produttore, serialNumber, false);
 				msg = "Operazione avvenuta con successo!";
 			} catch (NumeroPostiInEccesso e) {
 				// TODO Auto-generated catch block

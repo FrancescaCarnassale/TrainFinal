@@ -160,7 +160,7 @@ public class StrategyDB implements Strategy{
 
 
 	@Override
-	public void setUser(String name, String password, String email, boolean admin) {
+	public void setUser(String name, String password, String email, String admin) {
 		User u = new User();
 		u.setName(name);
 		u.setEmail(email);
@@ -190,11 +190,12 @@ public class StrategyDB implements Strategy{
 
 
 	@Override
-	public void setTrain(String brand, String serialNumber) {
+	public void setTrain(String brand, String serialNumber, boolean isCargo) {
 		// TODO Auto-generated method stub
 		Train t = new Train();
 		t.setBrand(brand);
 		t.setSerialNumber(serialNumber);
+		t.setIsCargo(isCargo);
 		trainDao.create(t);
 	}
 

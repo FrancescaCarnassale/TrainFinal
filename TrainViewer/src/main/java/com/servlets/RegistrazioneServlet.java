@@ -33,7 +33,7 @@ public class RegistrazioneServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
-		boolean admin= false;
+		String admin= "admin";
 		s.setUser(name, password, email, admin);
 		request.setAttribute("msg", "Utente creato con successo!");
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");

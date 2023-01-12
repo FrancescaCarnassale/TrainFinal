@@ -9,6 +9,7 @@
     <id name="idTrain" column="id_train"></id>
        <property name="serialNumber" column="serial_number_train"></property>
        <property name="brand" column="brand"></property>
+       <property name="isCargo" column="isCargo"></property>
   </class>  
             
  </hibernate-mapping>

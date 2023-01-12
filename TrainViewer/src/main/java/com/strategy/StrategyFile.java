@@ -115,18 +115,18 @@ public class StrategyFile implements Strategy {
 	}
 
 	@Override
-	public void setTrain(String brand, String serialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void setUser(String name, String password, String email, boolean admin) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
 	public Collection<Train> getAllTrains() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public void setUser(String name, String password, String email, String admin) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setTrain(String brand, String serialNumber, boolean isCargo) {
+		// TODO Auto-generated method stub
+		
 	}
 }

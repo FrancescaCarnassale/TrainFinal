@@ -23,7 +23,7 @@ public interface Strategy {
 	public Collection<Leaderboard> getGameData();
 	public void updateGameData(String[] list);
 	public String getUser(String email, String password) throws UserNotFound;
-	public void setUser(String name, String password, String email, boolean admin);
-	public void setTrain(String brand, String serialNumber);
+	public void setUser(String name, String password, String email, String admin);
+	public void setTrain(String brand, String serialNumber, boolean isCargo);
 	public Collection<Train> getAllTrains();
 }
