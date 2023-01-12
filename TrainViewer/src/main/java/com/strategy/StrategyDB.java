@@ -13,13 +13,18 @@ import org.hibernate.query.NativeQuery;
 import com.connectionDB.ConnectionToDB;
 import com.dao.AliasDao;
 import com.dao.AliasUnknownDao;
+import com.dao.CountryDao;
 import com.dao.LeaderboardDao;
+import com.dao.TrainDao;
+import com.dao.TripDao;
+import com.dao.UserDao;
 import com.dao.impl.LeaderboardDaoImpl;
 import com.dao.impl.TrainDaoImpl;
 import com.dao.impl.TripDaoImpl;
 import com.dao.impl.UserDaoImpl;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.AliasUnknownDaoImpl;
+import com.dao.impl.CountryDaoImpl;
 import com.ChainResponsibility.CheckChain;
 import com.ChainResponsibility.algorithm.Contained;
 import com.ChainResponsibility.algorithm.Contains;
@@ -41,10 +46,11 @@ public class StrategyDB implements Strategy{
 	static Session session = ConnectionToDB.getSession();
 	private AliasUnknownDao unknownDao = new AliasUnknownDaoImpl();
 	private AliasDaoImpl aliasDao = new AliasDaoImpl();
-	private UserDaoImpl userDao = new UserDaoImpl();
-	private LeaderboardDaoImpl LeaderboardDao = new LeaderboardDaoImpl();
-	private TrainDaoImpl trainDao= new TrainDaoImpl();
-	private TripDaoImpl tripDao= new TripDaoImpl();
+	private UserDao userDao = new UserDaoImpl();
+	private LeaderboardDao LeaderboardDao = new LeaderboardDaoImpl();
+	private TrainDao trainDao= new TrainDaoImpl();
+	private TripDao tripDao= new TripDaoImpl();
+	private CountryDao countryDao= new CountryDaoImpl();
 	private Map<String,List<String>> dataMap;
 	private static CheckChain checkStringSingleton;
 	
@@ -53,13 +59,6 @@ public class StrategyDB implements Strategy{
 	    NativeQuery<String> q = session.createSQLQuery(query);
 	    return q.getSingleResult();
 	}	
-	public Country getCountry(String input) {
-	    return session.get(Country.class, input);
-	}
-	public Train getTrain(int input) {
-	    return session.get(Train.class, input);
-	}
-
 	
 	public Map<String,List<String>> dataMap() {
         NativeQuery<String> q = session.createSQLQuery("Select country_name From country");
@@ -266,9 +265,9 @@ public class StrategyDB implements Strategy{
 		t.setSerialNumber(serialNumber);
 		trainDao.create(t);*/
 		Trip tr= new Trip();
-		tr.setArrive(this.getCountry(arrive));
-		tr.setDeparture(this.getCountry(departure));
-		tr.setIdTrain(this.getTrain(idTrain));
+		tr.setArrive(this.countryDao.get(arrive));
+		tr.setDeparture(this.countryDao.get(departure));
+		tr.setIdTrain(this.trainDao.get(idTrain));
 		tr.setTimeArrive(timeArrive);
 		tr.setTimeDeparture(timeDeparture);
 		tripDao.create(tr);
