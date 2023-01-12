@@ -48,7 +48,7 @@ public class CreazioneTripServlet extends HttpServlet {
 		String msg = null;
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
-		String idTrain = request.getParameter("idTrain");
+		int idTrain = Integer.valueOf(request.getParameter("idTrain"));
 		String departure = request.getParameter("departure");
 		String arrive = request.getParameter("arrive");
 		SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
@@ -69,7 +69,10 @@ public class CreazioneTripServlet extends HttpServlet {
 		String arrivo= checkChain.check(arrive);
 		if(partenza!=null) {
 			if(arrivo!=null) {
-				msg = "Operazione avvenuta con successo!" +partenza + " "+ arrivo;
+				//s.setTrip(idTrain, departure, arrive, timeStart, timeEnd);
+				//I DATI SONO TUTTI CORRETTI
+				msg = "idTrain: " + idTrain+ " Departure: "+partenza + " Arrive: "+ arrivo
+						+" TimeDeparture: "+timeStart+" TimeArrrive: "+timeEnd;
 			}
 			else {
 				s.addAliasUnknown(arrive);

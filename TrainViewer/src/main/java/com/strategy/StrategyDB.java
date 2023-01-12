@@ -1,5 +1,6 @@
 package com.strategy;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -15,6 +16,7 @@ import com.dao.AliasUnknownDao;
 import com.dao.LeaderboardDao;
 import com.dao.impl.LeaderboardDaoImpl;
 import com.dao.impl.TrainDaoImpl;
+import com.dao.impl.TripDaoImpl;
 import com.dao.impl.UserDaoImpl;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.AliasUnknownDaoImpl;
@@ -31,6 +33,7 @@ import com.beans.AliasUnknown;
 import com.beans.Country;
 import com.beans.Leaderboard;
 import com.beans.Train;
+import com.beans.Trip;
 import com.beans.User;
 
 public class StrategyDB implements Strategy{
@@ -41,6 +44,7 @@ public class StrategyDB implements Strategy{
 	private UserDaoImpl userDao = new UserDaoImpl();
 	private LeaderboardDaoImpl LeaderboardDao = new LeaderboardDaoImpl();
 	private TrainDaoImpl trainDao= new TrainDaoImpl();
+	private TripDaoImpl tripDao= new TripDaoImpl();
 	private Map<String,List<String>> dataMap;
 	private static CheckChain checkStringSingleton;
 	
@@ -246,6 +250,22 @@ public class StrategyDB implements Strategy{
 			checkStringSingleton = ei;
         }
         return checkStringSingleton;
+	}
+
+
+	public void setTrip(int idTrain, String departure, String arrive, Timestamp timeDeparture, Timestamp timeArrive) {
+		// TODO Auto-generated method stub
+		/*Train t = new Train();
+		t.setBrand(brand);
+		t.setSerialNumber(serialNumber);
+		trainDao.create(t);*/
+		Trip tr= new Trip();
+		tr.setArrive(arrive);
+		tr.setDeparture(departure);
+		tr.setIdTrain(idTrain);
+		tr.setTimeArrive(timeArrive);
+		tr.setTimeDeparture(timeDeparture);
+		tripDao.create(tr);
 	}
 	
 }

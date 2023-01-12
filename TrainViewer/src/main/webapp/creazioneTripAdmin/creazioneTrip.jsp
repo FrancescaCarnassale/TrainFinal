@@ -28,7 +28,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 				while(it.hasNext()) {
 					Train c = (Train) it.next();
 		%>
-					<option ><%=c.getBrand()%> <%=c.getSerialNumber()%></option >
+					<option value="<%=c.getIdTrain()%>"><%=c.getBrand()%> <%=c.getSerialNumber()%></option >
 				<%
 			}
 	

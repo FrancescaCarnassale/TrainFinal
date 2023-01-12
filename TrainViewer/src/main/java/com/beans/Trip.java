@@ -8,17 +8,17 @@ import com.TrenoFactory.treno.Treno;
 //L'oggetto treno è caratterizzato dalla sigla e dalla lista delle sue carrozze.
 //Nel DB sarà presente assieme al tipo di Treno (TN o FR, che infatti decisono il creatore) e alla lista dei passeggeri.
 	public class Trip implements Bean {
-		private String idTrain;
 		private String idTrip;
+		private int idTrain;
 		private String departure;
 		private String arrive;
 		private Timestamp timeDeparture;
 		private Timestamp timeArrive;
 		//private List<Passeggeri> passeggeri;
-		public String getIdTrain() {
+		public int getIdTrain() {
 			return idTrain;
 		}
-		public void setIdTrain(String idTrain) {
+		public void setIdTrain(int idTrain) {
 			this.idTrain = idTrain;
 		}
 		public String getIdTrip() {
