@@ -2,13 +2,13 @@ package com.beans;
 
 public class Leaderboard implements Bean {
 	private int idScore;
-    private  User username;
+    private  User user;
     private int score;
-    public User getUsername() {
-        return username;
+    public User getUser() {
+        return user;
     }
-    public void setUsername(User username) {
-        this.username = username;
+    public void setUser(User user) {
+        this.user = user;
     }
     public int getScore() {
         return score;
@@ -18,6 +18,9 @@ public class Leaderboard implements Bean {
     }
     public int getIdScore() {
         return idScore;
+    }
+    public void setIdScore(int idScore) {
+        this.idScore = idScore;
     }
 
 }

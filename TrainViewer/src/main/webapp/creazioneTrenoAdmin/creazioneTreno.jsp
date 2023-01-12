@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Creazione</title>
+<title>Creazione Treno</title>
 </head>
 <body>
 	<script src="handlerCreazioneTreno.js"></script>
@@ -15,7 +15,7 @@
 		<select name="produttore" id="produttore">
 		   		<option style="display:none">--Seleziona un brand--</option>
 			    <option >Frecciarossa</option>
-			    <option value="tn">Trenord</option>
+			    <option >Trenord</option>
 		</select>
 		<label for="serialNumber" required>Numero seriale:</label>
 		<input type="text" id="serialNumber" name="serialNumber">

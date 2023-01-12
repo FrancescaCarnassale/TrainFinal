@@ -7,7 +7,8 @@ import java.util.Set;
 
 import com.beans.Alias;
 import com.beans.Country;
-import com.beans.GameScore;
+import com.beans.Leaderboard;
+import com.beans.Train;
 import com.beans.User;
 
 public interface Strategy {
@@ -18,9 +19,10 @@ public interface Strategy {
 	public Collection<Country> getAllCountries();
 	public Collection<Alias> getUnapprovedAliases();
 	public void approveAlias(String[] list);
-	public Collection<GameScore> getGameData();
+	public Collection<Leaderboard> getGameData();
 	public void updateGameData(String[] list);
 	public String getUser(String email, String password);
 	public void setUser(String name, String password, String email, boolean admin);
 	public void setTrain(String brand, String serialNumber);
+	public Collection<Train> getAllTrains();
 }

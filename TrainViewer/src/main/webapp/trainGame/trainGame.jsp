@@ -4,7 +4,7 @@
 
 <%
 Strategy db = new StrategyDB();
-Collection<?> scores = (Collection<?>) db.getGameData();
+Collection<?> scores = (Collection<?>)db.getGameData();
 %>
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@ Collection<?> scores = (Collection<?>) db.getGameData();
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
 <!-- CSS only -->
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/Game.css">
 <title>TrainGame</title>
 </head>
 <body id="b01" class="bg-dark" onkeydown="checkKeyDown(event);"
@@ -48,9 +48,9 @@ Collection<?> scores = (Collection<?>) db.getGameData();
 						if (scores != null && scores.size() != 0) {
 							Iterator<?> it = scores.iterator();
 							while (it.hasNext()) {
-								GameScore gs = (GameScore) it.next();
+								Leaderboard gs = (Leaderboard) it.next();
 						%>
-						<td><%=gs.getUsername()%></td>		
+						<td><%=gs.getUser().getName()%></td>				
 						<td><%=gs.getScore()%></td>
 				
 					</tr>
