@@ -9,6 +9,7 @@ import java.util.List;
 import org.hibernate.query.NativeQuery;
 
 import com.beans.Alias;
+import com.beans.Bean;
 import com.beans.Country;
 
 public class AliasDaoImpl extends BaseDao implements AliasDao {
@@ -40,17 +41,30 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 	}
 	
 	@Override
-	public void approveAlias(String[] list) {
-		for(String s : list)
-		{
-			Alias a = this.get(s);
-			a.setApproved(true);
-			getSession().beginTransaction();
-			getSession().update(a);
-			getSession().getTransaction().commit();
-		}
-		getSession().close();
+	public void approveAliasAndCancel(String[] approve, String[] cancel, String[] newCountries) {
+		    getSession().beginTransaction();
+		    if(approve!=null) {
+			    for(int i=0;i<approve.length;i++)
+			    {
+					Alias b =this.getSession().get(Alias.class, approve[i]);
+			        b.setApproved(true);
+			        b.setCountry(this.getSession().get(Country.class, newCountries[i]));
+			        getSession().update(b);
+			    }
+		    }
+		    if(cancel!=null) {
+			    for(String s : cancel)
+			    {
+					Alias b =this.getSession().get(Alias.class, s);
+			        getSession().delete(b);
+			    }
+		    }
+		    getSession().getTransaction().commit();
+		    getSession().close();
+		    
 	}
+	
+	
 	@Override
 	public String getAliasCountry(String input) {
 	    String query = "select nome_paese from alias where alias_paese = " + input;
@@ -58,17 +72,5 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 	    return q.getSingleResult();
 	}
 
-	@Override
-	public void cancelAlias(String[] list) {
-		// TODO Auto-generated method stub
-		System.out.println("Ciao");
-		for(String s : list)
-		{
-			Alias a = this.get(s);
-			getSession().beginTransaction();
-			getSession().delete(a);
-			getSession().getTransaction().commit();
-		}
-		getSession().close();
-	}
+
 }

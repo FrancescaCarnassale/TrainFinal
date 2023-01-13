@@ -30,7 +30,7 @@ public class CountryDaoImpl extends BaseDao implements CountryDao {
 	        for (String s: q.getResultList()) {
 	            map.put(s.toLowerCase(), new ArrayList<String>());
 	        }
-	        NativeQuery<Object []> mq = getSession().createSQLQuery("Select alias_country, country_name from alias where approved=true");
+	        NativeQuery<Object []> mq = getSession().createSQLQuery("Select alias_country, country_name from alias where approved=1");
 	        List<Object[]>  l =mq.list();
 	        System.out.println(l.size());
 	        for(Object[] o: l) { 

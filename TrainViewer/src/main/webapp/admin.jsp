@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"
 	import="java.util.*,com.beans.*,com.strategy.*"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 Strategy db = new StrategyDB();
 Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
@@ -48,7 +48,7 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 						%>
 						<td><%=a.getAlias()%></td>
 						<td>
-								<select name="idTrain" id="idTrain">
+								<select name="newCountry" id="newCountry">
 								<% 
 									if(countries != null && countries.size() != 0) {
 										Iterator<?> it2 = countries.iterator();
@@ -77,6 +77,11 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 				<input class="btn btn-outline-light" type="submit" value="Approve">
 			</p>
 		</form>
+		<c:set var="msg" value="${requestScope.msg}" />
+        <script>
+        if("${msg}"!="")
+            alert("${msg}");
+        </script>
 
 
 	</div>

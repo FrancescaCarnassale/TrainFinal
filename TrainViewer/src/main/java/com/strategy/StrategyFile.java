@@ -90,11 +90,6 @@ public class StrategyFile implements Strategy {
 		return null;
 	}
 	@Override
-	public void approveAlias(String[] list) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
 	public Collection<Leaderboard> getGameData() {
 		// TODO Auto-generated method stub
 		return null;
@@ -131,7 +126,12 @@ public class StrategyFile implements Strategy {
 		return null;
 	}
 	@Override
-	public void cancelAlias(String[] list) {
+	public void approveAndCancelAlias(String[] approve, String[] cancel, String[] newCountries) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setAlias(String alias) {
 		// TODO Auto-generated method stub
 		
 	}

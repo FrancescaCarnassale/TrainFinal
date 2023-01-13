@@ -75,12 +75,12 @@ public class CreazioneTripServlet extends HttpServlet {
 						+" TimeDeparture: "+timeStart+" TimeArrrive: "+timeEnd;
 			}
 			else {
-				//s.addAliasUnknown(arrive);
+				s.setAlias(arrive);
 				msg = "Arrivo non trovato!";
 			}
 		}
 		else {
-			//s.addAliasUnknown(departure);
+			s.setAlias(departure);
 			msg = "Partenza non trovata!";
 		}
 		

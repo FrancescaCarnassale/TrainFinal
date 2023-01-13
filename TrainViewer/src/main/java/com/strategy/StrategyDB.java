@@ -79,14 +79,10 @@ public class StrategyDB implements Strategy{
 
 
 	@Override
-	public void approveAlias(String[] list) {
-		aliasDao.approveAlias(list);
+	public void approveAndCancelAlias(String[] approve, String[] cancel, String[] newCountries) {
+		aliasDao.approveAliasAndCancel(approve, cancel, newCountries);
 	}
 	
-	@Override
-	public void cancelAlias(String[] list) {
-		
-	}
 
 
 	@Override
@@ -150,6 +146,16 @@ public class StrategyDB implements Strategy{
 
 	public void setTrip(int idTrain, String departure, String arrive, Timestamp timeDeparture, Timestamp timeArrive) {
 		tripDao.setTrip(idTrain, departure, arrive, timeDeparture, timeArrive);
+	}
+
+	@Override
+	public void setAlias(String alias) {
+		// TODO Auto-generated method stub
+		Alias a= new Alias();
+		a.setAlias(alias);
+		a.setCountry(null);
+		a.setApproved(false);
+		aliasDao.create(a);
 	}
 	
 }

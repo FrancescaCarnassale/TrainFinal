@@ -24,12 +24,13 @@ public class AliasApprovingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
+		String msg = null;
 		String[] checkAliases = request.getParameterValues("checkAlias");
 		String[] deleteAliases = request.getParameterValues("checkDelete");
-		if(checkAliases!=null)
-			s.approveAlias(checkAliases);
-		if(deleteAliases!=null)
-			s.cancelAlias(deleteAliases);
+		String[] newCountries = request.getParameterValues("newCountry");
+		s.approveAndCancelAlias(checkAliases, deleteAliases, newCountries);
+		msg = newCountries[0]+" "+newCountries[1];
+		request.setAttribute("msg", msg);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
 		dispatcher.forward(request, response);
 	}
