@@ -28,7 +28,7 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 
 	<div class="container">
 		<h1 class="py-4 text-center text-white bg-dark">Alias Table</h1>
-		<form action="AliasApprovingServlet" method="GET">
+		<form action="aliasApproving/approve" method="GET">
 			<table class="table table-dark table-striped">
 				<thead>
 					<tr>
