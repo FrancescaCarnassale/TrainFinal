@@ -21,7 +21,7 @@
 	<%
 	String user = (String)request.getAttribute("user");
 	%>
-	<div align="center" class="card">
+	<div align="center" class="card2">
 	<h1 class="py-4 text-center text-white">Login</h1>
 		<form id="login-form" action="/TrainViewer/LoginServlet" method="POST">
 			<label class="mb-1 text-center text-white" for="email" required>Indirizzo email:</label> <br> <input

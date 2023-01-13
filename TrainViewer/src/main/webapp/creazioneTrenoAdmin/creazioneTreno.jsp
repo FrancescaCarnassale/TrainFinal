@@ -21,7 +21,7 @@
 <body class="body-createTrain">
 	<script src="handlerCreazioneTreno.js"></script>
 	<jsp:include page="../menu.jsp"></jsp:include>
-	<div align="center" class="card">
+	<div align="center" class="card2">
 		<h1 class="py-4 text-center text-white">Creazione Treno</h1>
 		<form id="creazioneTreno-form" onsubmit="return handleSubmit()"
 			action="/TrainViewer/CreazionTrenoServlet" method="POST"
