@@ -144,5 +144,26 @@ public class StrategyDB implements Strategy{
 	public void setTrip(int idTrain, String departure, String arrive, Timestamp timeDeparture, Timestamp timeArrive) {
 		tripDao.setTrip(idTrain, departure, arrive, timeDeparture, timeArrive);
 	}
+
+	@Override
+	public Collection<Trip> getTrips(Country departure, Country arrive) {
+		return tripDao.getTrip(departure, arrive);
+	}
+
+	@Override
+	public Collection<Country> getAllDepartures() {
+		return tripDao.getDepartureCountries();
+	}
+
+	@Override
+	public Collection<Country> getAllArrives() {
+		return tripDao.getArriveCountries();
+	}
+	
+	public Collection<Trip> getTripWithTime(Country departure, Country arrive, Timestamp timeDeparture){
+		return tripDao.getTripWithTime(departure, arrive, timeDeparture);
+	}
+	
+	
 	
 }

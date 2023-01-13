@@ -16,22 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ChainResponsibility.CheckChain;
-import com.ChainResponsibility.algorithm.Contained;
-import com.ChainResponsibility.algorithm.Contains;
-import com.ChainResponsibility.algorithm.ContainsPartial;
-import com.ChainResponsibility.algorithm.EqualsInputCS;
-import com.ChainResponsibility.algorithm.EqualsStandardCS;
-import com.ChainResponsibility.algorithm.JaroDistance;
-import com.ChainResponsibility.algorithm.Levenshtein;
-import com.TrenoFactory.builder.ConcreteBuilder;
-import com.TrenoFactory.builder.TrenoBuilder;
-import com.TrenoFactory.exceptions.NumeroPostiInEccesso;
-import com.TrenoFactory.exceptions.TrenoException;
-import com.TrenoFactory.factory.FRFactory;
-import com.TrenoFactory.factory.TNFactory;
-import com.TrenoFactory.factory.VagoneFactory;
-import com.TrenoFactory.treno.Treno;
-import com.strategy.Strategy;
 import com.strategy.StrategyDB;
 @WebServlet("/CreazioneTripServlet")
 public class CreazioneTripServlet extends HttpServlet {

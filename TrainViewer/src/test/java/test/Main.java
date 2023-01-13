@@ -1,5 +1,8 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +16,10 @@ import com.TrenoFactory.factory.FRFactory;
 import com.TrenoFactory.factory.TNFactory;
 import com.TrenoFactory.factory.VagoneFactory;
 import com.TrenoFactory.treno.Treno;
+import com.beans.Country;
 import com.beans.Trip;
+import com.dao.TripDao;
+import com.dao.impl.TripDaoImpl;
 import com.strategy.Strategy;
 import com.strategy.StrategyDB;
 
@@ -21,12 +27,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		/*Strategy s= new StrategyDB();
-		Map<String, List<String>> map= s.dataMap();
+		Strategy s= new StrategyDB();
+		/*Map<String, List<String>> map= s.dataMap();
 		CheckChain chain=CheckChainBuilder.getChain(s);
 		chain.check("china");*/
 		
-		String codiceTreno="HPPR";
+		/*String codiceTreno="HPPR";
 		VagoneFactory vagoneFactoryFR = new FRFactory();
 		TrenoBuilder builderFR = new ConcreteBuilder(vagoneFactoryFR);
 		Treno tFR;
@@ -40,7 +46,17 @@ public class Main {
 			} catch (TrenoException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} 
+			}*/
+		
+		TripDao tripDao = new TripDaoImpl();
+		Country italia = new Country();
+		italia.setCountryName("Italia");
+		Country algeria = new Country();
+		algeria.setCountryName("Algeria");
+		Collection<Country> countryArrive = s.getAllArrives();
+		for(Country c : countryArrive) {
+			System.out.println(c.getCountryName());
+		}
 	}
 
 }

@@ -51,8 +51,13 @@ import com.TrenoFactory.treno.Treno;
 		public void setTimeArrive(Timestamp timeArrive) {
 			this.timeArrive = timeArrive;
 		}
+		@Override
+		public String toString() {
+			return "Trip [idTrip=" + idTrip + ", idTrain=" + idTrain + ", departure=" + departure + ", arrive=" + arrive
+					+ ", timeDeparture=" + timeDeparture + ", timeArrive=" + timeArrive + "]";
+		}
 
-
+		
 	
 	
 	

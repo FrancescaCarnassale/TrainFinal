@@ -3,6 +3,7 @@ package com.strategy;
 import java.io.File;
 
 import java.io.FileNotFoundException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -17,6 +18,7 @@ import com.beans.Alias;
 import com.beans.Country;
 import com.beans.Leaderboard;
 import com.beans.Train;
+import com.beans.Trip;
 import com.beans.User;
 
 public class StrategyFile implements Strategy {
@@ -127,6 +129,26 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 	}
 	public CheckChain getChain() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Collection<Trip> getTrips(Country departure, Country arrive) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Collection<Country> getAllDepartures() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Collection<Country> getAllArrives() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Collection<Trip> getTripWithTime(Country departure, Country arrive, Timestamp timeDeparture) {
 		// TODO Auto-generated method stub
 		return null;
 	}

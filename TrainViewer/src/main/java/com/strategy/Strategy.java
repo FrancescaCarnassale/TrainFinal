@@ -1,5 +1,6 @@
 package com.strategy;
 
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import com.beans.Alias;
 import com.beans.Country;
 import com.beans.Leaderboard;
 import com.beans.Train;
+import com.beans.Trip;
 import com.beans.User;
 
 public interface Strategy {
@@ -27,4 +29,8 @@ public interface Strategy {
 	public void setTrain(String brand, String serialNumber, boolean isCargo);
 	public Collection<Train> getAllTrains();
 	public CheckChain getChain();
+	public Collection<Trip> getTrips(Country departure, Country arrive);
+	public Collection<Country> getAllDepartures();
+	public Collection<Country> getAllArrives();
+	public Collection<Trip> getTripWithTime(Country departure, Country arrive, Timestamp timeDeparture);
 }
