@@ -13,7 +13,7 @@
   background-size: 100% 100%;
 }
 
-.body-registration, .body-login {
+.body-registration, .body-login, .body-createTrain {
   background: rgb(2, 0, 36);
   background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(224, 85, 255, 1) 0%, rgba(123, 0, 255, 1) 100%);
 }
@@ -23,9 +23,13 @@
   border-top-right-radius: 20px;
 }
 
+<<<<<<< HEAD
 
 
 .card-registration {
+=======
+.card {
+>>>>>>> cbf3a731560d4a0169823265e654da2752a80c68
   border-radius: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -58,15 +62,16 @@
 input {
   border-radius: 8px;
   border: none;
+  text-align: center;
 }
-#input-submit {
+.input-submit {
   width: auto;
   padding-left: 12px;
   padding-right: 12px;
   transition: 0.15s;
 }
-#input-submit:hover {
-  background-color: rgba(224, 85, 255, 1);
+.input-submit:hover {
+  background-color: rgba(224, 85, 255, 1)!important;
   color: white;
 }
 .div-submit {
@@ -82,4 +87,22 @@ a {
 }
 a:hover {
   color:rgba(224, 85, 255, 1)!important;
+}
+.btn.btn-primary {
+	border: none;
+}
+#btn-approve {
+	border: none;
+}
+.createTrainForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;	
+}
+option {
+	text-align: center;
+}
+#produttore {
+	border-radius: 8px;
 }

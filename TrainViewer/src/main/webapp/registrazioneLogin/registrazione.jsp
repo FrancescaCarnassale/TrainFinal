@@ -18,18 +18,18 @@
 	<body class="body-registration">
 		<script src="handlerRegistrazione.js"></script>
 		<jsp:include page="../menu.jsp"></jsp:include>
-		<div align="center" class="card-registration">
+		<div align="center" class="card">
 			<form id="registration-form" onsubmit="return handleSubmit()">
 				<h1 class="py-4 text-center text-white" id="title-registration">Registrazione</h1>
 				<label class="mb-1 text-center text-white" for="name">Nome Utente:</label> <br>
-				<input type="text" id="name" name="name" required> <br>
+				<input type="text" class="mb-1" id="name" name="name" required> <br>
 				<label class="mb-1 text-center text-white" for="email" required>Indirizzo email:</label> <br>
-				<input type="email" id="email" name="email"> <br>
+				<input type="email" class="mb-1" id="email" name="email"> <br>
 				<label class="mb-1 text-center text-white" for="password">Password:</label>
 				<br>
 				<input type="password" id="password" name="password" required> <br> <br>
 				<div class="div-submit">
-					<input type="submit" id="input-submit" value="Registrati">
+					<input type="submit" class="input-submit" value="Registrati">
 					<br>
 					<a href="login.jsp" class="text-center text-white" id="already-registered">Gia' registrato?
 						Accedi!</a>
