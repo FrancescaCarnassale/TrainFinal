@@ -21,17 +21,17 @@
 	<%
 	String user = (String)request.getAttribute("user");
 	%>
-	<div align="center" class="card-registration">
+	<div align="center" class="card">
 	<h1 class="py-4 text-center text-white">Login</h1>
 		<form id="login-form" action="/TrainViewer/LoginServlet" method="POST">
 			<label class="mb-1 text-center text-white" for="email" required>Indirizzo email:</label> <br> <input
-				type="email" id="email" name="email"> <br> 
+				type="email" id="email" class="mb-1" name="email"> <br> 
 				<label
 				for="password" class="mb-1 text-center text-white">Password:</label> <br> 
 				<input type="password"
 				id="password" name="password" required><br> <br> 
 		<div class="div-submit">
-					<input type="submit" id="input-submit" value="Login">
+					<input type="submit" class="input-submit" value="Login">
 					<br>
 					<a href="registrazione.jsp" class="text-center text-white" id="already-registered">Non sei registrato? FALLO!</a>
 		</div>
