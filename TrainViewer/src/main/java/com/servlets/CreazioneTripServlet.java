@@ -31,8 +31,8 @@ import com.TrenoFactory.factory.FRFactory;
 import com.TrenoFactory.factory.TNFactory;
 import com.TrenoFactory.factory.VagoneFactory;
 import com.TrenoFactory.treno.Treno;
-import com.strategy.Strategy;
-import com.strategy.StrategyDB;
+import com.manager.strategy.Strategy;
+import com.manager.strategy.StrategyDB;
 @WebServlet("/CreazioneTripServlet")
 public class CreazioneTripServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

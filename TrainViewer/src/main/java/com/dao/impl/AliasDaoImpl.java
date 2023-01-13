@@ -27,7 +27,7 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 	
 	@Override
 	public Collection<Alias> getUnapprovedAliases() {
-		
+	
 		TypedQuery<Alias > mq = getSession().createQuery("Select a From Alias a where a.approved = 0", Alias.class);
         Collection<Alias> a = mq.getResultList();
         return a;

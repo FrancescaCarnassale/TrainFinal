@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.strategy.StrategyDB;
+import com.manager.strategy.StrategyDB;
 
 /**
  * Servlet implementation class GameServlet

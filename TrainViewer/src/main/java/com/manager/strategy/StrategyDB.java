@@ -1,4 +1,4 @@
-package com.strategy;
+package com.manager.strategy;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -98,17 +98,20 @@ public class StrategyDB implements Strategy{
 		leaderboardDao.updateGameData(list);
 	}
 
-
+//	@Override
+//	public void setUser(Bean) {
+//		userDao.setUser(name, password, email, admin);
+//	}
 	@Override
 	public void setUser(String name, String password, String email, String admin) {
 		userDao.setUser(name, password, email, admin);
 	}
 
 
-	@Override
-	public String getUser(String email, String password) throws UserNotFound {
-		return userDao.getUser(email, password);
-	}
+//	@Override
+//	public String getUser(String email, String password) throws UserNotFound {
+//		return userDao.getUser(email, password);
+//	}
 
 
 	@Override

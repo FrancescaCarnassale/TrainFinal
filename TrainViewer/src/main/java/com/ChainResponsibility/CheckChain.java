@@ -4,8 +4,8 @@ import com.dao.AliasDao;
 import com.dao.CountryDao;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.CountryDaoImpl;
+import com.manager.strategy.Strategy;
 import com.beans.Alias;
-import com.strategy.Strategy;
 
 public abstract class CheckChain {
 	private CheckChain nextChain;

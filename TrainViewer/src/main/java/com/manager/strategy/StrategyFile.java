@@ -1,4 +1,4 @@
-package com.strategy;
+package com.manager.strategy;
 
 import java.io.File;
 
@@ -104,12 +104,7 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public String getUser(String email, String password) {
-		// TODO Auto-generated method stub
-		
-		return null;
-	}
+	
 
 	@Override
 	public Collection<Train> getAllTrains() {
