@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.query.NativeQuery;
 
 import com.beans.Country;
@@ -25,7 +27,7 @@ public class CountryDaoImpl extends BaseDao implements CountryDao {
 
 	@Override
 	public Map<String, List<String>> dataMap() {
-		 NativeQuery<String> q = getSession().createSQLQuery("Select country_name From country");
+		 	NativeQuery<String> q = getSession().createSQLQuery("Select country_name From country");
 	        HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 	        for (String s: q.getResultList()) {
 	            map.put(s.toLowerCase(), new ArrayList<String>());
@@ -43,16 +45,10 @@ public class CountryDaoImpl extends BaseDao implements CountryDao {
 
 	@Override
 	public Collection<Country> getAllCountries() {
-		Collection<Country> cc = new LinkedList <Country>();
-		NativeQuery<Object []> mq = getSession().createSQLQuery("Select * from country");
-        List<Object[]> countries = mq.list();
-        
-		for (Object[] o: countries) {
-			Country c = new Country();
-			c.setCountryName((String) o[0]);
-			c.setAlpha2code((String) o[1]);
-			cc.add(c);
-		}
-		return cc;
+		
+		TypedQuery<Country > mq = getSession().createQuery("Select country From Country country", Country.class);
+        Collection<Country> countries = mq.getResultList();
+        return countries;
+		
 	}
 }

@@ -46,8 +46,8 @@ function mostraMatriceHTML() {
 
 
 function play() {
-	var audio = document.getElementById("myAudio");
-	audio.play();
+	//var audio = document.getElementById("myAudio");
+	//audio.play();
 	const pianoDiGioco = document.getElementById("pianoGioco");
 	pianoDiGioco.innerHTML = "";
 	for (var i = 0; i < R; i++) {
