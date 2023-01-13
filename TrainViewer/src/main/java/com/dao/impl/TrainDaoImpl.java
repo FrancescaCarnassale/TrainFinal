@@ -4,9 +4,12 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.query.NativeQuery;
 
 import com.beans.Alias;
+import com.beans.Leaderboard;
 import com.beans.Train;
 import com.dao.AliasDao;
 import com.dao.TrainDao;
@@ -33,17 +36,8 @@ public class TrainDaoImpl extends BaseDao implements TrainDao {
 
 	@Override
 	public Collection<Train> getAllTrains() {
-		Collection<Train> cc = new LinkedList <Train>();
-		NativeQuery<Object []> mq = getSession().createSQLQuery("Select * from train");
-        List<Object[]> trains = mq.list();
-        
-		for (Object[] o: trains) {
-			Train c = new Train();
-			c.setIdTrain((int) o[0]);
-			c.setSerialNumber((String) o[1]);
-			c.setBrand((String) o[2]);
-			cc.add(c);
-		}
-		return cc;
+		TypedQuery<Train > mq = getSession().createQuery("Select t From Train t", Train.class);
+        Collection<Train> t = mq.getResultList();
+        return t;
 	}
 }
