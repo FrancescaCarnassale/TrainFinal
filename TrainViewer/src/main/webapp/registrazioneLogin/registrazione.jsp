@@ -11,12 +11,13 @@
 			integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 			crossorigin="anonymous"></script>
 
-		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="../css/styles.css">
 		<title>Registration</title>
 	</head>
 
 	<body class="body-registration">
 		<script src="handlerRegistrazione.js"></script>
+		<jsp:include page="../menu.jsp"></jsp:include>
 		<div align="center" class="card-registration">
 			<form id="registration-form" onsubmit="return handleSubmit()">
 				<h1 class="py-4 text-center text-white" id="title-registration">Registrazione</h1>

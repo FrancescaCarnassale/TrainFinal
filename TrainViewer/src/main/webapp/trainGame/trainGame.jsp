@@ -4,7 +4,7 @@
 
 <%
 Strategy db = new StrategyDB();
-Collection<?> scores = (Collection<?>)db.getGameData();
+Collection<?> scores = (Collection<?>) db.getGameData();
 %>
 <!DOCTYPE html>
 <html>
@@ -17,61 +17,63 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
 <!-- CSS only -->
-<link rel="stylesheet" href="css/Game.css">
+<link rel="stylesheet" href="css/styles_game.css">
 <title>TrainGame</title>
 </head>
 <body id="b01" class="bg-dark" onkeydown="checkKeyDown(event);"
 	onkeypress="checkKeyPress(event)">
 	<jsp:include page="../menu.jsp"></jsp:include>
-	<div class="container">
-		<input type="button" onclick="play()" value="Play" class="btnPlay"></input>
-		  <audio id="myAudio" src="audio1/videoplayback.mp3" loop></audio>
-		<br>
-		<br>
-		<div id="pianoGioco"></div>
-	</div>
-	
-	<div class="container">
-		<div id="counter"></div>
-		<h1 class="py-4 text-center text-white bg-dark">Best Scores</h1>
-		<form action="GameServlet" method="GET">
-			<table class="table table-dark table-striped">
-				<thead>
-					<tr>
-						<th scope="col">Username</th>
-						<th scope="col">Score</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
+	<div class="outerContainer">
+		<div class="container" id="container-game">
+			<input id="btnPlay" type="button" onclick="play()" value="Play" class="btnPlay"></input>
+			<audio id="myAudio" src="audio1/videoplayback.mp3" loop></audio>
+			<br> <br>
+			<div id="pianoGioco"></div>
+		</div>
+
+		<div class="container bg-dark" id="container-score">
+			<div id="counter"></div>
+			<h1 class="py-4 text-center text-white bg-dark" id="title-score">Best
+				Scores</h1>
+			<form action="GameServlet" method="GET">
+				<table class="table table-dark table-striped" id="score-table">
+					<thead>
+						<tr>
+							<th scope="col">Username</th>
+							<th scope="col">Score</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<%
+							if (scores != null && scores.size() != 0) {
+								Iterator<?> it = scores.iterator();
+								while (it.hasNext()) {
+									Leaderboard gs = (Leaderboard) it.next();
+							%>
+							<td><%=gs.getUser().getName()%></td>
+							<td><%=gs.getScore()%></td>
+
+						</tr>
 						<%
-						if (scores != null && scores.size() != 0) {
-							Iterator<?> it = scores.iterator();
-							while (it.hasNext()) {
-								Leaderboard gs = (Leaderboard) it.next();
+						}
+						}
 						%>
-						<td><%=gs.getUser().getName()%></td>				
-						<td><%=gs.getScore()%></td>
-				
-					</tr>
-					<%
-					}
-					}
-					%>
-				</tbody>
-			</table>
-			
-		</form>
+					</tbody>
+				</table>
+
+			</form>
 
 
+		</div>
 	</div>
 	<br>
 	<br>
 	<p id="posizioneOmino"></p>
 	<p id="messaggioDebug"></p>
-	
+
 	<script type="text/javascript" src="js/mappa.js"></script>
 	<script type="text/javascript" src="js/movimento.js"></script>
-	
+
 </body>
 </html>

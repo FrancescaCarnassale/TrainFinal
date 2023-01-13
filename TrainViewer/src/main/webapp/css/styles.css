@@ -22,9 +22,7 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-#registration-form {
-  padding-bottom: 10px;
-}
+
 .card-registration {
   border-radius: 20px;
   margin-left: auto;
@@ -53,7 +51,7 @@ input {
   justify-content: center;
   flex-direction: column;
   display: flex;
-  margin-bottom: 15px;
+  padding-bottom: 15px;
 }
 a {
   text-decoration: none;
