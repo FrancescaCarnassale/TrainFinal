@@ -20,9 +20,8 @@ public class AdminController {
 			@WebParam String[] checkDelete, @WebParam String[] newCountry){
 		//String input = request.getParameter("input"); 
 		StrategyDB s = new StrategyDB();
-		String msg = null;
 		s.approveAndCancelAlias(checkAlias, checkDelete, newCountry);
-		msg = "Operazione avvenuta con successo!";
+		String msg = "Operazione avvenuta con successo!";
 		request.setAttribute("msg", msg);
 		return "admin";
 	}
