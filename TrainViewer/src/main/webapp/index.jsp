@@ -5,7 +5,7 @@
 <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
+   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   <link rel="stylesheet" href="css/styles.css">
 <title>TrainViewer</title>
 </head>
@@ -129,9 +129,36 @@
 </div>
 
 	
-	<div style="background: linear-gradient(to right, #574B90, #9E579D);">
-	
+	<div style="background: linear-gradient(to right, #574B90, #9E579D); padding-bottom:30px; border-top-left-radius: 20px;border-top-right-radius: 20px;">
+	<div align="left" style="margin-left: 15%;">
+	      <img src="img/logo.jpg" class="" alt="logo" style="margin:50px; width:25%">
+	      </div>
+	 <div class="container d-flex flex-row" >
+  <div class="col-4 mr-5">
+    <a href="#" class ="FinalText"><strong>Contatti e assistenza</strong></a>
+    <a href="#" class ="FinalText2">Call center 892021</a>
+    <a href="#" class ="FinalText2">Chat Onlinea</a>
+    <a href="#" class ="FinalText2">Guida all'acquistoa</a>
+    <a href="#" class ="FinalText2">FAQ</a>
+    <a href="#" class ="FinalText2">Reclami</a>
+  </div>
+  <div class="col-4 mr-5">
+    <a href="#" class ="FinalText"><strong>La sostenibilità</strong></a>
+    <a href="#" class ="FinalText"><strong>Infomobilità</strong></a>
+    <a href="#" class ="FinalText2">In caso di sciopero</a>
+    <a href="#" class ="FinalText2">Viaggiatreno</a>
+    <a href="#" class ="FinalText"><strong>La Freccia Mag</strong></a>
+    <a href="#" class ="FinalText"><strong>Lavora con noi</strong></a>
+  </div>
+  <div class="col-4">
+    <a href="#" class ="FinalText"><strong>Seguici su</strong></a>
+<div class="container d-flex justify-content-center">
+</div>    <a href="#" class ="FinalText">Scarica App</a>
+  </div>
+</div>
 	</div>
+	
+	
 </body>
 </html>
 

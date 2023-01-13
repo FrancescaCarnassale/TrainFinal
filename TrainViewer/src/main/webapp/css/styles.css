@@ -23,6 +23,8 @@
   border-top-right-radius: 20px;
 }
 
+
+
 .card-registration {
   border-radius: 20px;
   margin-left: auto;
@@ -32,6 +34,27 @@
   height: 100%;
   width: 60%;
 }
+
+.FinalText{
+	color:white; 
+	font-size: 30px;
+	text-decoration: none; 
+	margin-bottom: 20px;
+	display: block;
+}
+
+.FinalText2{
+	color:white; 
+	font-size: 20px;
+	text-decoration: none; 
+	margin-bottom: 10px;
+	display: block;
+}
+
+.container{
+	margin-bottom:20px;
+}
+
 input {
   border-radius: 8px;
   border: none;
