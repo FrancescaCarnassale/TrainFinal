@@ -25,7 +25,11 @@ public class AliasApprovingServlet extends HttpServlet {
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
 		String[] checkAliases = request.getParameterValues("checkAlias");
-		s.approveAlias(checkAliases);
+		String[] deleteAliases = request.getParameterValues("checkDelete");
+		if(checkAliases!=null)
+			s.approveAlias(checkAliases);
+		if(deleteAliases!=null)
+			s.cancelAlias(deleteAliases);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
 		dispatcher.forward(request, response);
 	}

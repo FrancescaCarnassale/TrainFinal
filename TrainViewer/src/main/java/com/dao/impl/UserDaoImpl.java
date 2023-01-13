@@ -17,17 +17,6 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	}
 
 	@Override
-	public void setUser(String name, String password, String email, String admin) {
-		// TODO Auto-generated method stub
-		User u = new User();
-		u.setName(name);
-		u.setEmail(email);
-		u.setPassword(password);
-		u.setAdmin(admin);
-		this.create(u);
-	}
-
-	@Override
 	public String getUser(String email, String password) throws UserNotFound {
 		User u = new User();
 		NativeQuery<Object []> mq = getSession().createSQLQuery("Select * from user_train where user_mail = :email and user_password = :password");

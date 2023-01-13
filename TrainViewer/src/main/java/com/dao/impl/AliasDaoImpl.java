@@ -51,4 +51,24 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 		}
 		getSession().close();
 	}
+	@Override
+	public String getAliasCountry(String input) {
+	    String query = "select nome_paese from alias where alias_paese = " + input;
+	    NativeQuery<String> q = getSession().createSQLQuery(query);
+	    return q.getSingleResult();
+	}
+
+	@Override
+	public void cancelAlias(String[] list) {
+		// TODO Auto-generated method stub
+		System.out.println("Ciao");
+		for(String s : list)
+		{
+			Alias a = this.get(s);
+			getSession().beginTransaction();
+			getSession().delete(a);
+			getSession().getTransaction().commit();
+		}
+		getSession().close();
+	}
 }

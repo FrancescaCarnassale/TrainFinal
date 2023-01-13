@@ -5,6 +5,7 @@
 <%
 Strategy db = new StrategyDB();
 Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
+Collection<?> countries = (Collection<?>) db.getAllCountries();
 %>
 <!DOCTYPE html>
 <html>
@@ -34,6 +35,7 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 						<th scope="col">Alias</th>
 						<th scope="col">Country</th>
 						<th scope="col">Approved</th>
+						<th scope="col">Deleted</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,8 +47,24 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 								Alias a = (Alias) it.next();
 						%>
 						<td><%=a.getAlias()%></td>
-						<td><%=a.getCountry().getCountryName()%></td>
+						<td>
+								<select name="idTrain" id="idTrain">
+								<% 
+									if(countries != null && countries.size() != 0) {
+										Iterator<?> it2 = countries.iterator();
+										while(it2.hasNext()) {
+											Country c = (Country) it2.next();
+								%>
+											<option><%=c.getCountryName()%></option >
+										<%
+									}
+							
+								}
+								%>
+						</td>
 						<td><input type="checkbox" name="checkAlias"
+							value="<%=a.getAlias()%>"></td>
+						<td><input type="checkbox" name="checkDelete"
 							value="<%=a.getAlias()%>"></td>
 					</tr>
 					<%

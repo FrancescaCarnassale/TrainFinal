@@ -41,10 +41,9 @@ import com.beans.User;
 
 public class StrategyDB implements Strategy{
 	//WIP serve l'RMI
-	static Session session = ConnectionToDB.getSession();
+	//static Session session = ConnectionToDB.getSession();
 	private AliasDao aliasDao = new AliasDaoImpl();
 	private UserDao userDao = new UserDaoImpl();
-	private LeaderboardDao LeaderboardDao = new LeaderboardDaoImpl();
 	private TrainDao trainDao= new TrainDaoImpl();
 	private TripDao tripDao= new TripDaoImpl();
 	private CountryDao countryDao= new CountryDaoImpl();
@@ -52,9 +51,7 @@ public class StrategyDB implements Strategy{
 	private static CheckChain checkStringSingleton;
 	
 	public String getAliasCountry(String input) {
-	    String query = "select nome_paese from alias where alias_paese = " + input;
-	    NativeQuery<String> q = session.createSQLQuery(query);
-	    return q.getSingleResult();
+	    return aliasDao.getAliasCountry(input);
 	}	
 	
 	public Map<String,List<String>> dataMap() {
@@ -85,6 +82,11 @@ public class StrategyDB implements Strategy{
 	public void approveAlias(String[] list) {
 		aliasDao.approveAlias(list);
 	}
+	
+	@Override
+	public void cancelAlias(String[] list) {
+		
+	}
 
 
 	@Override
@@ -101,7 +103,12 @@ public class StrategyDB implements Strategy{
 
 	@Override
 	public void setUser(String name, String password, String email, String admin) {
-		userDao.setUser(name, password, email, admin);
+		User u = new User();
+		u.setName(name);
+		u.setEmail(email);
+		u.setPassword(password);
+		u.setAdmin(admin);
+		userDao.create(u);
 	}
 
 

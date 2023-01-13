@@ -27,4 +27,5 @@ public interface Strategy {
 	public void setTrain(String brand, String serialNumber, boolean isCargo);
 	public Collection<Train> getAllTrains();
 	public CheckChain getChain();
+	public void cancelAlias(String[] list);
 }
