@@ -47,13 +47,12 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 			}
 		%>
 		
-		<div id="loader" style="align-items: center; justify-content: center; display: flex; flex-direction:row;">
+		<div id="loader" style="align-items: center; justify-content: center; display: flex; flex-direction:row; padding-top: 20%">
 			<div style="align-items: center; display: flex; flex-direction: column;">
-		  		<img src="https://thumbs.gfycat.com/InferiorDecentAsianporcupine-max-1mb.gif" style="padding-left: 5rem" alt="Loading...">
-		  		<h3 style="color:white">Loading...</h3>
+		  		<img src="https://thumbs.gfycat.com/InferiorDecentAsianporcupine-max-1mb.gif" style="padding-left: 5rem; width: 25rem" alt="Loading...">
+		  		<h3 style="color:white; font-size:3rem">Loading...</h3>
 			</div>
 		</div>
-
 		<div id="list" style="display: none;" >
 		
 		<h1 class="py-4 text-center text-white bg-dark">Country Table</h1>
@@ -68,6 +67,7 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 			<tbody>
 				<tr>
 					<% 
+					
 			if(countries != null && countries.size() != 0 ) {
 				Iterator<?> it = countries.iterator();
 				while(it.hasNext()) {
@@ -86,8 +86,6 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 		</table>	
 		
 		</div>
-
-
 	</div>
 </body>
 </html>
