@@ -22,13 +22,8 @@ public class TripDaoImpl extends BaseDao implements TripDao{
 	}
 
 	@Override
-	public void setTrip(int idTrain, String departure, String arrive, Timestamp timeDeparture, Timestamp timeArrive) {
-		Trip tr= new Trip();
-		tr.setArrive((Country)super.get(Country.class,arrive));
-		tr.setDeparture((Country)super.get(Country.class,departure));
-		tr.setIdTrain((Train)super.get(Train.class,idTrain));
-		tr.setTimeArrive(timeArrive);
-		tr.setTimeDeparture(timeDeparture);
+	public void setTrip(Trip tr) {
+		
 		this.create(tr);
 	}
 

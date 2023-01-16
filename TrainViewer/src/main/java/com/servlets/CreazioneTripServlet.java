@@ -31,6 +31,12 @@ import com.TrenoFactory.factory.FRFactory;
 import com.TrenoFactory.factory.TNFactory;
 import com.TrenoFactory.factory.VagoneFactory;
 import com.TrenoFactory.treno.Treno;
+import com.beans.Country;
+import com.beans.Train;
+import com.beans.Trip;
+import com.dao.TripDao;
+import com.dao.impl.TripDaoImpl;
+import com.manager.TripManager;
 import com.manager.strategy.Strategy;
 import com.manager.strategy.StrategyDB;
 @WebServlet("/CreazioneTripServlet")
@@ -48,6 +54,7 @@ public class CreazioneTripServlet extends HttpServlet {
 		String msg = null;
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
+		TripManager tr = new TripManager();
 		int idTrain = Integer.valueOf(request.getParameter("idTrain"));
 		String departure = request.getParameter("departure");
 		String arrive = request.getParameter("arrive");
@@ -67,9 +74,16 @@ public class CreazioneTripServlet extends HttpServlet {
 		CheckChain checkChain=s.getChain();
 		String partenza= checkChain.check(departure);
 		String arrivo= checkChain.check(arrive);
+		TripDaoImpl td = (TripDaoImpl)tr.getTripDao();
 		if(partenza!=null) {
 			if(arrivo!=null) {
-				s.setTrip(idTrain, departure, arrive, timeStart, timeEnd);
+				Trip trip= new Trip();         
+				trip.setArrive(td.getSession().get(Country.class,arrive));         
+				trip.setDeparture(td.getSession().get(Country.class,departure));         
+				trip.setIdTrain(td.getSession().get(Train.class,idTrain));         
+				trip.setTimeArrive(timeStart);         
+				trip.setTimeDeparture(timeEnd);
+				tr.setTrip(trip);
 				//I DATI SONO TUTTI CORRETTI
 				msg = "idTrain: " + idTrain+ " Departure: "+partenza + " Arrive: "+ arrivo
 						+" TimeDeparture: "+timeStart+" TimeArrrive: "+timeEnd;

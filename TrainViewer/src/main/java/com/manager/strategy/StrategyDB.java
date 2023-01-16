@@ -98,21 +98,6 @@ public class StrategyDB implements Strategy{
 		leaderboardDao.updateGameData(list);
 	}
 
-//	@Override
-//	public void setUser(Bean) {
-//		userDao.setUser(name, password, email, admin);
-//	}
-	
-
-
-//	@Override
-//	public String getUser(String email, String password) throws UserNotFound {
-//		return userDao.getUser(email, password);
-//	}
-
-
-	
-
 
 	@Override
 	public Collection<Train> getAllTrains() {
@@ -137,8 +122,4 @@ public class StrategyDB implements Strategy{
 	}
 
 
-	public void setTrip(int idTrain, String departure, String arrive, Timestamp timeDeparture, Timestamp timeArrive) {
-		tripDao.setTrip(idTrain, departure, arrive, timeDeparture, timeArrive);
-	}
-	
 }
