@@ -1,31 +1,9 @@
 package test;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
-import com.ChainResponsibility.CheckChain;
-import com.ChainResponsibility.CheckChainBuilder;
-import com.TrenoFactory.builder.ConcreteBuilder;
-import com.TrenoFactory.builder.TrenoBuilder;
-import com.TrenoFactory.exceptions.NumeroPostiInEccesso;
-import com.TrenoFactory.exceptions.TrenoException;
-import com.TrenoFactory.factory.FRFactory;
-import com.TrenoFactory.factory.TNFactory;
-import com.TrenoFactory.factory.VagoneFactory;
-import com.TrenoFactory.treno.Treno;
-import com.beans.Country;
-import com.beans.Trip;
-import com.dao.CountryDao;
 import com.dao.ReservationDao;
 import com.dao.TrainDao;
 import com.dao.TripDao;
 import com.dao.UserDao;
-import com.dao.impl.CountryDaoImpl;
 import com.dao.impl.ReservationDaoImpl;
 import com.dao.impl.TrainDaoImpl;
 import com.dao.impl.TripDaoImpl;
