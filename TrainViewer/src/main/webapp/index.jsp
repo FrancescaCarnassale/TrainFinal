@@ -130,8 +130,8 @@
 
 	
 	<div style="background: linear-gradient(to right, #574B90, #9E579D); padding-bottom:30px; border-top-left-radius: 20px;border-top-right-radius: 20px;">
-	<div align="left" style="margin-left: 15%;">
-	      <img src="img/logo.jpg" class="" alt="logo" style="margin:50px; width:25%">
+	<div align="left" style="margin-left: 10%;">
+	      <img src="img/logo.jpg" class="" alt="logo" style="margin-top:50px; margin-bottom:50px; width:25rem; border-radius:10px;">
 	      </div>
 	 <div class="container d-flex flex-row" >
   <div class="col-4 mr-5">
