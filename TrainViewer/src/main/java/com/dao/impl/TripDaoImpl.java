@@ -1,6 +1,7 @@
 package com.dao.impl;
 
 import java.sql.Timestamp;
+import java.util.Collection;
 
 import com.beans.Country;
 import com.beans.Train;
@@ -26,5 +27,7 @@ public class TripDaoImpl extends BaseDao implements TripDao{
 	public void setTrip(Trip tr) {
 		this.create(tr);
 	}
+	
+
 
 }
