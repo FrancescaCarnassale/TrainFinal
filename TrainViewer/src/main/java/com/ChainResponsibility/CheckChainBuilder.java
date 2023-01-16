@@ -7,7 +7,7 @@ import com.ChainResponsibility.algorithm.EqualsInputCS;
 import com.ChainResponsibility.algorithm.EqualsStandardCS;
 import com.ChainResponsibility.algorithm.JaroDistance;
 import com.ChainResponsibility.algorithm.Levenshtein;
-import com.strategy.Strategy;
+import com.manager.strategy.Strategy;
 
 public class CheckChainBuilder {
 	

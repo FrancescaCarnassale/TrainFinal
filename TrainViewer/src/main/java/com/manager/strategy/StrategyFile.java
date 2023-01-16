@@ -1,4 +1,4 @@
-package com.strategy;
+package com.manager.strategy;
 
 import java.io.File;
 
@@ -89,6 +89,7 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	@Override
 	public Collection<Leaderboard> getGameData() {
 		// TODO Auto-generated method stub
@@ -99,40 +100,24 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public String getUser(String email, String password) {
-		// TODO Auto-generated method stub
-		
-		return null;
-	}
+	
 
 	@Override
 	public Collection<Train> getAllTrains() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
-	public void setUser(String name, String password, String email, String admin) {
-		// TODO Auto-generated method stub
-		
-	}
 	
-	@Override
-	public void setTrain(String brand, String serialNumber, boolean isCargo) {
-		// TODO Auto-generated method stub
-	}
+	
+	
 	public CheckChain getChain() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
-	public void approveAndCancelAlias(String[] approve, String[] cancel, String[] newCountries) {
+	public void approveAndCancelAlias(String[] checkAlias, String[] checkDelete, String[] newCountry) {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public void setAlias(String alias) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

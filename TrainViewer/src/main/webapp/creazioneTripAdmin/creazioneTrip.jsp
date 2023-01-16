@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
-    import="java.util.*,com.beans.*,com.strategy.*"%>
+    import="java.util.*,com.beans.*,com.manager.strategy.*"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%
@@ -50,9 +50,9 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 		<input type="text" id="arrive" name="arrive">
 		<br>
 		<label for="start">Orario di partenza:</label>
-       	<input type="datetime-local" id="start" name="start" value="<%=sdf.format(today)%>" oninput="getTrainsFromDb()">
+       	<input type="datetime-local" id="start" name="start" value="<%=sdf.format(today)%>" >
 		<label for="end">Orario di arrivo:</label>
-       	<input type="datetime-local" id="end" name="end" value="<%=sdf.format(later)%>" oninput="getTrainsFromDb()">
+       	<input type="datetime-local" id="end" name="end" value="<%=sdf.format(later)%>">
        	<br>
 		<input type="submit" value="Crea trip!">
 	</form>

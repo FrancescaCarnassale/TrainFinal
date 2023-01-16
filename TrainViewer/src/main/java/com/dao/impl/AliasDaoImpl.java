@@ -6,11 +6,14 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.query.NativeQuery;
 
 import com.beans.Alias;
 import com.beans.Bean;
 import com.beans.Country;
+import com.beans.Leaderboard;
 
 public class AliasDaoImpl extends BaseDao implements AliasDao {
 	
@@ -25,19 +28,10 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 	
 	@Override
 	public Collection<Alias> getUnapprovedAliases() {
-		Collection<Alias> ca = new LinkedList <Alias>();
-		NativeQuery<Object []> mq = getSession().createSQLQuery("Select * from alias where approved = 0");
-        List<Object[]> aliases = mq.list();
-        
-		for (Object[] o: aliases) {
-			Alias a = new Alias();
-			a.setAlias((String) o[0]);
-			Country c = new Country();
-			c.setCountryName((String) o[1]);
-			a.setCountry(c);
-			ca.add(a);
-		}
-		return ca;
+	
+		TypedQuery<Alias > mq = getSession().createQuery("Select a From Alias a where a.approved = 0", Alias.class);
+        Collection<Alias> a = mq.getResultList();
+        return a;
 	}
 	
 	@Override

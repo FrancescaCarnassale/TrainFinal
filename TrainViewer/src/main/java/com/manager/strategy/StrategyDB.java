@@ -1,4 +1,4 @@
-package com.strategy;
+package com.manager.strategy;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -41,9 +41,10 @@ import com.beans.User;
 
 public class StrategyDB implements Strategy{
 	//WIP serve l'RMI
-	//static Session session = ConnectionToDB.getSession();
+	static Session session = ConnectionToDB.getSession();
 	private AliasDao aliasDao = new AliasDaoImpl();
 	private UserDao userDao = new UserDaoImpl();
+	private LeaderboardDao LeaderboardDao = new LeaderboardDaoImpl();
 	private TrainDao trainDao= new TrainDaoImpl();
 	private TripDao tripDao= new TripDaoImpl();
 	private CountryDao countryDao= new CountryDaoImpl();
@@ -51,7 +52,9 @@ public class StrategyDB implements Strategy{
 	private static CheckChain checkStringSingleton;
 	
 	public String getAliasCountry(String input) {
-	    return aliasDao.getAliasCountry(input);
+	    String query = "select nome_paese from alias where alias_paese = " + input;
+	    NativeQuery<String> q = session.createSQLQuery(query);
+	    return q.getSingleResult();
 	}	
 	
 	public Map<String,List<String>> dataMap() {
@@ -78,11 +81,6 @@ public class StrategyDB implements Strategy{
 	}
 
 
-	@Override
-	public void approveAndCancelAlias(String[] approve, String[] cancel, String[] newCountries) {
-		aliasDao.approveAliasAndCancel(approve, cancel, newCountries);
-	}
-	
 
 
 	@Override
@@ -94,30 +92,6 @@ public class StrategyDB implements Strategy{
 	@Override
 	public void updateGameData(String[] list) {
 		leaderboardDao.updateGameData(list);
-	}
-
-
-	@Override
-	public void setUser(String name, String password, String email, String admin) {
-		User u = new User();
-		u.setName(name);
-		u.setEmail(email);
-		u.setPassword(password);
-		u.setAdmin(admin);
-		userDao.create(u);
-	}
-
-
-	@Override
-	public String getUser(String email, String password) throws UserNotFound {
-		return userDao.getUser(email, password);
-	}
-
-
-	@Override
-	public void setTrain(String brand, String serialNumber, boolean isCargo) {
-		// TODO Auto-generated method stub
-		trainDao.setTrain(brand, serialNumber, isCargo);
 	}
 
 
@@ -143,19 +117,12 @@ public class StrategyDB implements Strategy{
         return checkStringSingleton;
 	}
 
-
-	public void setTrip(int idTrain, String departure, String arrive, Timestamp timeDeparture, Timestamp timeArrive) {
-		tripDao.setTrip(idTrain, departure, arrive, timeDeparture, timeArrive);
-	}
-
 	@Override
-	public void setAlias(String alias) {
+	public void approveAndCancelAlias(String[] checkAlias, String[] checkDelete, String[] newCountry) {
 		// TODO Auto-generated method stub
-		Alias a= new Alias();
-		a.setAlias(alias);
-		a.setCountry(null);
-		a.setApproved(false);
-		aliasDao.create(a);
+		aliasDao.approveAliasAndCancel(checkAlias, checkDelete, newCountry);
 	}
-	
+
+
+
 }

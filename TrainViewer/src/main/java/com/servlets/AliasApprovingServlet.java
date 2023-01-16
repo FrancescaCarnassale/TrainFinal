@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.beans.Alias;
 import com.dao.impl.AliasDaoImpl;
-import com.strategy.StrategyDB;
+import com.manager.strategy.StrategyDB;
 
 @WebServlet("/AliasApprovingServlet")
 public class AliasApprovingServlet extends HttpServlet {

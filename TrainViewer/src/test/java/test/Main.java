@@ -14,8 +14,8 @@ import com.TrenoFactory.factory.TNFactory;
 import com.TrenoFactory.factory.VagoneFactory;
 import com.TrenoFactory.treno.Treno;
 import com.beans.Trip;
-import com.strategy.Strategy;
-import com.strategy.StrategyDB;
+import com.manager.strategy.Strategy;
+import com.manager.strategy.StrategyDB;
 
 public class Main {
 

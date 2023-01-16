@@ -1,4 +1,4 @@
-package com.strategy;
+package com.manager.strategy;
 
 import java.util.Collection;
 import java.util.List;
@@ -21,11 +21,9 @@ public interface Strategy {
 	public Collection<Alias> getUnapprovedAliases();
 	public Collection<Leaderboard> getGameData();
 	public void updateGameData(String[] list);
-	public String getUser(String email, String password) throws UserNotFound;
-	public void setUser(String name, String password, String email, String admin);
-	public void setTrain(String brand, String serialNumber, boolean isCargo);
-	public void setAlias(String alias);
+	//public String getUser(String email, String password) throws UserNotFound;
+	//public void setUser(String name, String password, String email, String admin);
+	public void approveAndCancelAlias(String[] checkAlias, String[] checkDelete, String[] newCountry);
 	public Collection<Train> getAllTrains();
 	public CheckChain getChain();
-	public void approveAndCancelAlias(String[] approve, String[] cancel, String[] newCountries);
 }
