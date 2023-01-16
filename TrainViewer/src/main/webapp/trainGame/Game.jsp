@@ -19,10 +19,10 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 <link rel="stylesheet" href="css/styles_game.css">
 <title>Game</title>
 </head>
-<body id="b01" class="bg-dark" onkeydown="checkKeyDown(event);"
+<body id="b01" class="bg-white" onkeydown="checkKeyDown(event);"
 	onkeypress="checkKeyPress(event)">
 	<jsp:include page="../menu.jsp"></jsp:include>
-	<div class="outerContainer">
+	<div class="outerContainer" style="background-color:white">
 		<div class="container" id="container-game">
 			<input id="btnPlay" type="button" onclick="play()" value="Play" class="btnPlay"></input>
 			<audio id="myAudio" src="audio1/videoplayback.mp3" loop></audio>
@@ -30,16 +30,16 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 			<div id="pianoGioco"></div>
 		</div>
 
-		<div class="container bg-dark" id="container-score">
+		<div class="container bg-dark" id="container-score" style="background: linear-gradient(to right, #574B90, #9E579D);">
 			<div id="counter"></div>
-			<h1 class="py-4 text-center text-white bg-dark" id="title-score">Best
+			<h1 class="py-4 text-center text-white bg-dark" id="title-score" style="background: linear-gradient(to right, #574B90, #9E579D);">Best
 				Scores</h1>
 			<form action="GameServlet" method="GET">
-				<table class="table table-dark table-striped" id="score-table">
+				<table class="table table-dark table-striped" id="score-table" >
 					<thead>
 						<tr>
-							<th scope="col">Username</th>
-							<th scope="col">Score</th>
+							<th scope="col" style="background: linear-gradient(to right, #574B90, #9E579D);">Username</th>
+							<th scope="col" style="background: linear-gradient(to right, #574B90, #9E579D);">Score</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -62,9 +62,12 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 				</table>
 
 			</form>
-
-
+     <!-- 
 		</div>
+            <div class="centered-flex" style="position:absolute; bottom:20%; left:45%">          
+                <button onClick="location.href='/TrainViewer/index.jsp" style="background-color: #1a73e8;color: white;box-shadow: 0 4px 0 #185abc;border: none;display: block; font-size: .875rem;font-weight: 500;height: 36px;margin: 12px;min-width: 200px;padding: 0px 24px;" id="title-start-btn" class="btn primary-btn" dir="auto">HomePage</button>
+            </div>   
+             -->		
 	</div>
 	<br>
 	<br>

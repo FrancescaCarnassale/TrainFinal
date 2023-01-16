@@ -37,11 +37,11 @@ Collection<?> scores = (Collection<?>) db.getGameData();
                       <img class="title-image title-image-person-2"style="position:absolute; bottom:75%; right:56%" src="https://snake.googlemaps.com/static/img/person/Pegman_3.png">     
                      <div class="centered-flex title-container" style="position:absolute; top:20%; left:45%">         
                      <div class="title-block">                   
-                         <h1 class="title pixel-font" style="font-size: 6rem; color:blue">Snake</h1>        
+                         <h1 class="title pixel-font" style="font-size: 6rem; color:#9E579D">Snake</h1>        
                           </div>         
                             </div>    
                             <div class="centered-flex" style="position:absolute; bottom:20%; left:45%">          
-                             <button onClick="location.href='/TrainViewer/trainGame/Game.jsp'" style="background-color: #1a73e8;color: white;box-shadow: 0 4px 0 #185abc;border: none;display: block; font-size: .875rem;font-weight: 500;height: 36px;margin: 12px;min-width: 200px;padding: 0px 24px;" id="title-start-btn" class="btn primary-btn" dir="auto">Inizia</button>
+                             <button onClick="location.href='/TrainViewer/trainGame/Game.jsp'" style="background-color: #9E579D;color: white;box-shadow: 0 4px 0 #9E579D;border: none;display: block; font-size: .875rem;font-weight: 500;height: 36px;margin: 12px;min-width: 200px;padding: 0px 24px;" id="title-start-btn" class="btn primary-btn" dir="auto">Inizia</button>
                                </div>   
                                    </div>
 </body>

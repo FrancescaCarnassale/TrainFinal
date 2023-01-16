@@ -1,5 +1,5 @@
 body {
-    background-color: #ceead6;	
+    background-color:white;	
 }
 
 table, th, td {
@@ -173,7 +173,6 @@ audio {
 	width: 635px;
 }
 .outerContainer {
-	background-color: rgba(0,0,0,0.4);
 	width: 800px;
 	border-radius: 20px;
 	margin-top: 20px;

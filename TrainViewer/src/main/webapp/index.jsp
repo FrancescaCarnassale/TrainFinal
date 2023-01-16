@@ -117,7 +117,7 @@
     
 <div id="carouselExampleIndicators" class="carousel slide">
   <div class="carousel-inner">
-    <div class="col-md-12">
+    <div class="col-md-12" style="padding-bottom: 6rem;">
          <div class="d-flex align-items-center justify-content-center img-overlay">
    			<img src="https://knowledge.wharton.upenn.edu/wp-content/uploads/2019/01/country-flags-rankings.jpg" class="img-fluid w-100" alt="Immagine" style="margin: 5% 0px 5% 0px; height: 28rem;">
    			  <div class="bg-black" style="width:100%;height:28rem; position:absolute;opacity:0.5;z-index:0;"></div>
