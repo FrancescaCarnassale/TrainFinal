@@ -135,10 +135,10 @@
 	      </div>
 	 <div class="container d-flex flex-row" >
   <div class="col-4 mr-5">
-    <a href="#" class ="FinalText"><strong>Contatti e assistenza</strong></a>
+    <a href="#" class ="FinalText"><strong>Contatti e Assistenza</strong></a>
     <a href="#" class ="FinalText2">Call center 892021</a>
-    <a href="#" class ="FinalText2">Chat Onlinea</a>
-    <a href="#" class ="FinalText2">Guida all'acquistoa</a>
+    <a href="#" class ="FinalText2">Chat Online</a>
+    <a href="#" class ="FinalText2">Guida all'acquisto</a>
     <a href="#" class ="FinalText2">FAQ</a>
     <a href="#" class ="FinalText2">Reclami</a>
   </div>

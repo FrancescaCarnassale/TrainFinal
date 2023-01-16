@@ -13,7 +13,7 @@
   background-size: 100% 100%;
 }
 
-.body-registration, .body-login, .body-createTrain {
+.body-registration, .body-login, .body-createTrain, .body-createTrip{
   background: rgb(2, 0, 36);
   background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(224, 85, 255, 1) 0%, rgba(123, 0, 255, 1) 100%);
 }
