@@ -31,6 +31,7 @@ public class StrategyFile implements Strategy {
 		return null;
 	}
 	//NON HO UN DB
+	
 	@Override
 	public Map<String, List<String>> dataMap() {
         HashMap<String, List<String>> map = new HashMap<String, List<String>>();
@@ -64,7 +65,6 @@ public class StrategyFile implements Strategy {
 		return map;
 	}
 
-
 	@Override
 	public String toString() {
 		String result = "";
@@ -75,37 +75,45 @@ public class StrategyFile implements Strategy {
 		}
 		return result;
 	}
+	
 	public Set<String> getCountryNames() {
 		return standards;
 	}
+	
 	public static void setStandards(Set<String> standards) {
 		StrategyFile.standards = standards;
 	}
+	
 	@Override
 	public Collection<Country> getAllCountries() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public Collection<Alias> getUnapprovedAliases() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public void approveAlias(String[] list) {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public Collection<Leaderboard> getGameData() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public void updateGameData(String[] list) {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public String getUser(String email, String password) {
 		// TODO Auto-generated method stub
@@ -118,6 +126,7 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public void setUser(String name, String password, String email, String admin) {
 		// TODO Auto-generated method stub
@@ -128,27 +137,26 @@ public class StrategyFile implements Strategy {
 	public void setTrain(String brand, String serialNumber, boolean isCargo) {
 		// TODO Auto-generated method stub
 	}
+	
 	public CheckChain getChain() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
-	public Collection<Trip> getTrips(Country departure, Country arrive) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	@Override
 	public Collection<Country> getAllDepartures() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public Collection<Country> getAllArrives() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
-	public Collection<Trip> getTripWithTime(Country departure, Country arrive, Timestamp timeDeparture) {
+	public Collection<Trip> getTrips(Country departure, Country arrive, Timestamp timeDeparture) {
 		// TODO Auto-generated method stub
 		return null;
 	}

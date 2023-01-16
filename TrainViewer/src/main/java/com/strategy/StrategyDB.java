@@ -146,8 +146,8 @@ public class StrategyDB implements Strategy{
 	}
 
 	@Override
-	public Collection<Trip> getTrips(Country departure, Country arrive) {
-		return tripDao.getTrip(departure, arrive);
+	public Collection<Trip> getTrips(Country departure, Country arrive, Timestamp timeDeparture) {
+		return tripDao.getTrips(departure, arrive, timeDeparture);
 	}
 
 	@Override
@@ -158,10 +158,6 @@ public class StrategyDB implements Strategy{
 	@Override
 	public Collection<Country> getAllArrives() {
 		return tripDao.getArriveCountries();
-	}
-	
-	public Collection<Trip> getTripWithTime(Country departure, Country arrive, Timestamp timeDeparture){
-		return tripDao.getTripWithTime(departure, arrive, timeDeparture);
 	}
 	
 	

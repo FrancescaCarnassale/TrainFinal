@@ -65,7 +65,7 @@ public class RicercaTrenoServlet extends HttpServlet {
 		departureCountry.setCountryName(departure);
 		Country arriveCountry = new Country();
 		arriveCountry.setCountryName(arrive);
-		Collection<Trip> trips = s.getTripWithTime(departureCountry, arriveCountry, departureTime);
+		Collection<Trip> trips = s.getTrips(departureCountry, arriveCountry, departureTime);
 		
 		request.setAttribute("trips", trips);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ricercaTreno/ricercaTreno.jsp");

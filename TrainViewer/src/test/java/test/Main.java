@@ -1,5 +1,7 @@
 package test;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -18,8 +20,16 @@ import com.TrenoFactory.factory.VagoneFactory;
 import com.TrenoFactory.treno.Treno;
 import com.beans.Country;
 import com.beans.Trip;
+import com.dao.CountryDao;
+import com.dao.ReservationDao;
+import com.dao.TrainDao;
 import com.dao.TripDao;
+import com.dao.UserDao;
+import com.dao.impl.CountryDaoImpl;
+import com.dao.impl.ReservationDaoImpl;
+import com.dao.impl.TrainDaoImpl;
 import com.dao.impl.TripDaoImpl;
+import com.dao.impl.UserDaoImpl;
 import com.strategy.Strategy;
 import com.strategy.StrategyDB;
 
@@ -47,16 +57,13 @@ public class Main {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}*/
-		
 		TripDao tripDao = new TripDaoImpl();
-		Country italia = new Country();
-		italia.setCountryName("Italia");
-		Country algeria = new Country();
-		algeria.setCountryName("Algeria");
-		Collection<Country> countryArrive = s.getAllArrives();
-		for(Country c : countryArrive) {
-			System.out.println(c.getCountryName());
-		}
+		UserDao userDao = new UserDaoImpl();
+		TrainDao trainDao = new TrainDaoImpl();
+		
+		ReservationDao reservationDao = new ReservationDaoImpl();
+		System.out.println(reservationDao.getReservationsForTrip(tripDao.get(1)));
+
 	}
 
 }

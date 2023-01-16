@@ -29,8 +29,7 @@ public interface Strategy {
 	public void setTrain(String brand, String serialNumber, boolean isCargo);
 	public Collection<Train> getAllTrains();
 	public CheckChain getChain();
-	public Collection<Trip> getTrips(Country departure, Country arrive);
 	public Collection<Country> getAllDepartures();
 	public Collection<Country> getAllArrives();
-	public Collection<Trip> getTripWithTime(Country departure, Country arrive, Timestamp timeDeparture);
+	public Collection<Trip> getTrips(Country departure, Country arrive, Timestamp timeDeparture);
 }
