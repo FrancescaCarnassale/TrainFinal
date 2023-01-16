@@ -18,8 +18,8 @@
 	<body class="body-registration">
 		<script src="handlerRegistrazione.js"></script>
 		<jsp:include page="../menu.jsp"></jsp:include>
-		<div align="center" class="card2">
-			<form id="registration-form" onsubmit="return handleSubmit()">
+    <div align="center" class="card2" style="border-radius: 20px;margin-left: auto;margin-right: auto; margin-top: 50px;background-color: rgba(0, 0, 0, 0.5);height: 100%;width: 60%;">		
+	<form id="registration-form" onsubmit="return handleSubmit()">
 				<h1 class="py-4 text-center text-white" id="title-registration">Registrazione</h1>
 				<label class="mb-1 text-center text-white" for="name">Nome Utente:</label> <br>
 				<input type="text" class="mb-1" id="name" name="name" required> <br>
