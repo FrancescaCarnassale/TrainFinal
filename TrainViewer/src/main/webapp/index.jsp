@@ -151,7 +151,7 @@
     <a href="#" class ="FinalText"><strong>Lavora con noi</strong></a>
   </div>
   <div class="col-4">
-    <a href="#" class ="FinalText"><strong>Seguici su</strong></a>
+    <p style="color:white; font-size: 30px;text-decoration: none; margin-bottom: 20px;display: block;"><strong>Seguici su</strong></p>
 <div class="container d-flex justify-content-center">
 </div>    <a href="#" class ="FinalText">Scarica App</a>
   </div>
