@@ -1,3 +1,7 @@
+body {
+    background-color: #ceead6;	
+}
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
@@ -43,8 +47,22 @@ img {
     margin: 0 0.0167236px ;
 }
 
+.pixel-font {
+    font-family: "Press Start K";
+    color: #1a73e8;
+    -webkit-filter: drop-shadow(0 0.05em 0 #185ABC);
+    filter: drop-shadow(0 0.05em 0 #185ABC);
+}
+
 audio {
     display: none;
+}
+
+.pixel-font {
+    font-family: "Press Start K";
+    color: #1a73e8;
+    -webkit-filter: drop-shadow(0 0.05em 0 #185ABC);
+    filter: drop-shadow(0 0.05em 0 #185ABC);
 }
 
 .ms-loader {
@@ -144,12 +162,7 @@ audio {
 	position: relative;
 }
 
-body {
-	height: 100%;
-	width: 100%;
-	background: rgb(2, 0, 36);
-  	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(224, 85, 255, 1) 0%, rgba(123, 0, 255, 1) 100%);	
-}
+
 #container-score, #title-score, #score-table {
 	border-radius: 20px;
 }
