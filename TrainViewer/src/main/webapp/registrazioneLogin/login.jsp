@@ -29,12 +29,19 @@
 				id="password" name="password" required><br> <br> <input
 				type="submit" value="Entra">
 		</form>
-		<br> <a href="/TrainViewer/registrazioneLogin/registrazione.jsp">Non sei registrato? FALLO!</a>
+		<br> <a href="/TrainViewer/registrazioneLogin/registrazione.jsp">Non sei registrato? Registrati!</a>
 
 		<c:set var="msg" value="${requestScope.msg}" />
         <script>
         if("${msg}"!="")
             alert("${msg}");
+        </script>
+        
+        <script>
+       if( sessionStorage.getItem("user") !=null){
+    	   
+    	   
+       }
         </script>
        </div>
 </body>

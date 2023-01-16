@@ -23,7 +23,7 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 </head>
 <body class="bg-dark">
 
-	<jsp:include page="menu.jsp"></jsp:include>
+	<jsp:include page="menuLogged.jsp"></jsp:include>
 
 	<div class="container">
 		<h1 class="py-4 text-center text-white bg-dark">Alias Table</h1>

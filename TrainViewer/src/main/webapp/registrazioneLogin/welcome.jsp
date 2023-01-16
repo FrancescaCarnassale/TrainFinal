@@ -15,7 +15,7 @@
 <title>Welcome</title>
 </head>
 <body>
-	<jsp:include page="../menu.jsp"></jsp:include>
+	<jsp:include page="../menuLogged.jsp"></jsp:include>
 	<%String user = (String)request.getAttribute("user");%>
 	 <div align="center">
 	<p>Benvenuto  <%= user %></p>

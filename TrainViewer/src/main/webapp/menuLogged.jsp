@@ -1,4 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%
+	String user = (String)request.getAttribute("user");
+	%>
     <!-- componente HTML da mostrare se loggati -->
         	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         	  <div class="container-fluid">
@@ -22,18 +25,9 @@
         	                	        <li class="nav-item">
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTripAdmin/creazioneTrip.jsp">CreazioneTrip</a>
         	        </li>
-        	        <li style="float:right"><a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/login.jsp">Login</a></li>
+        	        <li style="float:right"><a class="nav-link" aria-current="page" href="/TrainViewer/registrazioneLogin/login.jsp">Benvenuto, <%= user%></a></li>
         	      </ul>
         	    </div>
         	    
         	  </div>
         	</nav>
-        	<% 
-        	String user = (String)request.getAttribute("user");
-if (user != null) {%>
-	
-	<% 
-}else{ %>
-	<jsp:include page="login.jsp"></jsp:include>
-	<% 
-}; %>

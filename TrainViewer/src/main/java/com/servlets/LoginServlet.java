@@ -49,7 +49,6 @@ public class LoginServlet extends HttpServlet {
 			if(user != null) {
 				msg = "Benvenuto "+ user.getName()+"!";
 				request.setAttribute("user", user.getName());
-				//vanno segnate informazioni sulla sessione
 				request.setAttribute("msg", msg);
 				dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/welcome.jsp");
 			}else{

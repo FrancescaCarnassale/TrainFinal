@@ -12,7 +12,7 @@
 <title>InsertTrain Admin</title>
 </head>
 <body class="bg-dark">
-	<jsp:include page="menu.jsp"></jsp:include>
+	<jsp:include page="menuLogged.jsp"></jsp:include>
 	<!--
 <div class="ms-loader">
 		<div class="track"></div>
