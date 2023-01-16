@@ -102,10 +102,7 @@ public class StrategyDB implements Strategy{
 //	public void setUser(Bean) {
 //		userDao.setUser(name, password, email, admin);
 //	}
-	@Override
-	public void setUser(String name, String password, String email, String admin) {
-		userDao.setUser(name, password, email, admin);
-	}
+	
 
 
 //	@Override

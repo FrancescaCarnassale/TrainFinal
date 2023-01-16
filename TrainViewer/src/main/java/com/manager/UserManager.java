@@ -8,4 +8,8 @@ public class UserManager {
 	public User getUser(Login login) {
 		return userDao.getUser(login);
 	}
+	
+	public void setUser(User newUser) {
+		userDao.setUser(newUser);
+	}
 }

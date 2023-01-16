@@ -24,14 +24,9 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	}
 
 	@Override
-	public void setUser(String name, String password, String email, String admin) {
-		// TODO Auto-generated method stub
-		User u = new User();
-		u.setName(name);
-		u.setEmail(email);
-		u.setPassword(password);
-		u.setAdmin(admin);
-		this.create(u);
+	public void setUser(User user) {
+	
+		this.create(user);
 	}
 
 	@Override
