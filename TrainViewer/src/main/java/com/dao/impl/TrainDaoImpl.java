@@ -25,11 +25,7 @@ public class TrainDaoImpl extends BaseDao implements TrainDao {
 	}
 
 	@Override
-	public void setTrain(String brand, String serialNumber, boolean isCargo) {
-		Train t = new Train();
-		t.setBrand(brand);
-		t.setSerialNumber(serialNumber);
-		t.setIsCargo(isCargo);
+	public void setTrain(Train t) {
 		this.create(t);
 		
 	}

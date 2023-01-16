@@ -6,6 +6,6 @@ import com.dao.impl.UserDaoImpl;
 public class UserManager {
 	UserDao userDao = new UserDaoImpl();
 	public User getUser(Login login) {
-		return userDao.getUser(login );
+		return userDao.getUser(login);
 	}
 }

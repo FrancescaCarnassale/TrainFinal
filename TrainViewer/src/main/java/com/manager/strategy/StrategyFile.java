@@ -117,10 +117,7 @@ public class StrategyFile implements Strategy {
 		
 	}
 	
-	@Override
-	public void setTrain(String brand, String serialNumber, boolean isCargo) {
-		// TODO Auto-generated method stub
-	}
+	
 	public CheckChain getChain() {
 		// TODO Auto-generated method stub
 		return null;

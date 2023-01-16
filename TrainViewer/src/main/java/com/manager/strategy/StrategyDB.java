@@ -114,11 +114,7 @@ public class StrategyDB implements Strategy{
 //	}
 
 
-	@Override
-	public void setTrain(String brand, String serialNumber, boolean isCargo) {
-		// TODO Auto-generated method stub
-		trainDao.setTrain(brand, serialNumber, isCargo);
-	}
+	
 
 
 	@Override
