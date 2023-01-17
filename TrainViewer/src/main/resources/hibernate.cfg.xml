@@ -20,6 +20,7 @@
        <mapping resource="train.hbm.xml"/>
        <mapping resource="trip.hbm.xml"/>
        <mapping resource="leaderboard.hbm.xml"/>
+       <mapping resource="reservation.hbm.xml"/> 
     </session-factory>  
     
 </hibernate-configuration>

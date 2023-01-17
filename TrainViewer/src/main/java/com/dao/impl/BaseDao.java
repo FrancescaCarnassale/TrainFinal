@@ -52,5 +52,18 @@ public abstract class BaseDao {
 		this.session.close();
 		return b;
 	}
-
+	
+	protected void delete(Bean b) {
+		this.session.beginTransaction();
+		this.session.delete(b);
+		this.session.getTransaction().commit();
+		this.session.close();
+	}
+	
+	protected void update(Bean b) {
+		this.session.beginTransaction();
+		this.session.update(b);
+		this.session.getTransaction().commit();
+		this.session.close();
+	}
 }

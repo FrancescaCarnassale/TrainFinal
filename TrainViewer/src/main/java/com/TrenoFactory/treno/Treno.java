@@ -6,11 +6,23 @@ import java.util.List;
 public class Treno {
 	private String sigla;
 	private List<Carrozza> carrozze;
+	private int numPosti;
 	
 	
-	public Treno(String sigla, List<Carrozza> carrozze) {
+	public int getNumPosti() {
+		return numPosti;
+	}
+
+
+	public void setNumPosti(int numPosti) {
+		this.numPosti = numPosti;
+	}
+
+
+	public Treno(String sigla, List<Carrozza> carrozze, int numPosti) {
 		this.sigla = sigla;
 		this.carrozze = carrozze;
+		this.numPosti=numPosti;
 	}
 	
 

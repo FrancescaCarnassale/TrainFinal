@@ -10,4 +10,6 @@ public interface TripDao {
 	public void create(Trip t);
 	public Trip get(int id);
 	public void setTrip(Trip Tr);
-	}
+	public void updateSeats(Trip t, int bookedSeats);
+
+}

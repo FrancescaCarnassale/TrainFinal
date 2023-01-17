@@ -80,16 +80,18 @@ public class CreazioneTripServlet extends HttpServlet {
 		TripDaoImpl td = (TripDaoImpl)tr.getTripDao();
 		if(partenza!=null) {
 			if(arrivo!=null) {
-				Trip trip= new Trip();         
+				Trip trip= new Trip();  
+				Train tp= td.getSession().get(Train.class,idTrain);
 				trip.setArrive(td.getSession().get(Country.class,arrive));         
 				trip.setDeparture(td.getSession().get(Country.class,departure));         
-				trip.setIdTrain(td.getSession().get(Train.class,idTrain));         
+				trip.setIdTrain(tp);         
 				trip.setTimeArrive(timeEnd);         
 				trip.setTimeDeparture(timeStart);
+				trip.setSeatsAvailable(tp.getSeats());
 				tr.setTrip(trip);
 				//I DATI SONO TUTTI CORRETTI
 				msg = "idTrain: " + idTrain+ " Departure: "+partenza + " Arrive: "+ arrivo
-						+" TimeDeparture: "+timeStart+" TimeArrrive: "+timeEnd;
+						+" TimeDeparture: "+timeStart+" TimeArrrive: "+timeEnd + " Seats avaiable: " +tp.getSeats();
 			}
 			else {
 				Alias a= new Alias();

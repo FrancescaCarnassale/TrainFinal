@@ -19,5 +19,11 @@ public class Country implements Bean {
 	public void setAlpha2code(String alpha2code) {
 		this.alpha2code = alpha2code;
 	}
+
+	@Override
+	public String toString() {
+		return "Country [countryName=" + countryName + ", alpha2code=" + alpha2code + "]";
+	}
+	
 	
 }

@@ -36,4 +36,5 @@ public class TrainDaoImpl extends BaseDao implements TrainDao {
         Collection<Train> t = mq.getResultList();
         return t;
 	}
+
 }

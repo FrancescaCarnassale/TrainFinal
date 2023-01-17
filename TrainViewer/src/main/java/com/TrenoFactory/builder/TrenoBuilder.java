@@ -103,7 +103,7 @@ public abstract class TrenoBuilder {
 		pesoTotale+=getLocomotiva().getPeso();
 		if(pesoTotale>getLocomotiva().getPesoTrainabile())
 			throw new IllegalArgumentException("Peso eccessivo!");
-		Treno t = new Treno(sigla, lista);
+		Treno t = new Treno(sigla, lista, numPosti);
 		return t;
 	}
 	

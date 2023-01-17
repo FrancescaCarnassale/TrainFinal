@@ -10,6 +10,7 @@
        <property name="serialNumber" column="serial_number_train"></property>
        <property name="brand" column="brand"></property>
        <property name="isCargo" column="isCargo"></property>
+       <property name="seats" column="seats"></property>
   </class>  
             
  </hibernate-mapping>

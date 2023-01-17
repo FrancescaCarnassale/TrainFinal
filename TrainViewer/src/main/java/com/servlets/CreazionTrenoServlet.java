@@ -1,6 +1,7 @@
 package com.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ import com.TrenoFactory.exceptions.TrenoException;
 import com.TrenoFactory.factory.FRFactory;
 import com.TrenoFactory.factory.TNFactory;
 import com.TrenoFactory.factory.VagoneFactory;
+import com.TrenoFactory.treno.Carrozza;
 import com.TrenoFactory.treno.Treno;
 import com.beans.Train;
 import com.manager.TrainManager;
@@ -55,11 +57,12 @@ public class CreazionTrenoServlet extends HttpServlet{
 			try {
 				//controllo composizione treno inserito
 				t = builder.buildTreno(serialNumber.toUpperCase());
-				
 				//costruzione istanza treno
 				train.setBrand(produttore);
 				train.setSerialNumber(serialNumber);
 				train.setIsCargo(false);
+				train.setSeats(t.getNumPosti());
+				System.out.println(t.getNumPosti());
 				s.setTrain(train);
 				msg = "Operazione avvenuta con successo!";
 			} catch ( TrenoException | IllegalArgumentException /*| NumeroPostiInEccesso */  e) {
