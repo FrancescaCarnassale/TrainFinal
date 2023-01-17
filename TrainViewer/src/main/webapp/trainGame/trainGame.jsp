@@ -20,6 +20,9 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 <link rel="stylesheet" href="css/Game.css">
 <title>TrainGame</title>
 </head>
+<% 
+        	String user = (String)session.getAttribute("user");
+if (user != null) {%>
 <body id="b01" class="bg-dark" onkeydown="checkKeyDown(event);"
 	onkeypress="checkKeyPress(event)">
 	<jsp:include page="../menu.jsp"></jsp:include>
@@ -74,4 +77,9 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 	<script type="text/javascript" src="js/movimento.js"></script>
 	
 </body>
+	<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<% 
+}; %>
 </html>

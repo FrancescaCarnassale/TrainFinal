@@ -14,11 +14,23 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" href="css/styles.css">
 <title>Creazione Trip</title>
 </head>
+<% 
+        	String user = (String)session.getAttribute("user");
+			String role = (String)session.getAttribute("role");
+if (user != null && role == "train manager") {%>
 <body>
 	<script src="handlerCreazioneTrip.js"></script>
-	<jsp:include page="../menu.jsp"></jsp:include>
+	<jsp:include page="../menuLogged.jsp"></jsp:include>
 	 <div align="center">
 	<form id="creazioneTrip-form" onsubmit="return handleSubmit()" action = "/TrainViewer/CreazioneTripServlet" method = "POST" >
 		<select name="idTrain" id="idTrain">
@@ -63,4 +75,9 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
         </script>
 	</div>
 </body>
+	<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<% 
+}; %>
 </html>

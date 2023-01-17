@@ -11,13 +11,26 @@
   <link rel="stylesheet" href="css/styles.css">
 <title>InsertTrain Admin</title>
 </head>
+
+   
 <body class="bg-dark">
+
+<% 
+     	String user = (String)session.getAttribute("user");
+		String role = (String)session.getAttribute("role");
+if (user != null && role == "admin") {%>
+
 	<jsp:include page="menuLogged.jsp"></jsp:include>
 	<!--
 <div class="ms-loader">
 		<div class="track"></div>
 		<div class="train"></div>
 </div>
--->
+-->	<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<% 
+}; %>
 </body>
+
 </html>

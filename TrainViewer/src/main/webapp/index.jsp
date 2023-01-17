@@ -11,7 +11,7 @@
 </head>
 <body>
 <% 
-	String user = (String)request.getAttribute("user");
+	String user = (String)session.getAttribute("user");
 if (user != null) {%>
 	<jsp:include page="menuLogged.jsp"></jsp:include>
 	<% 

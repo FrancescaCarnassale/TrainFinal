@@ -36,13 +36,7 @@
         if("${msg}"!="")
             alert("${msg}");
         </script>
-        
-        <script>
-       if( sessionStorage.getItem("user") !=null){
-    	   
-    	   
-       }
-        </script>
+       
        </div>
 </body>
 

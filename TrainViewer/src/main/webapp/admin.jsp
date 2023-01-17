@@ -21,6 +21,11 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
 </head>
+<% 
+        	String user = (String)session.getAttribute("user");
+			String role = (String)session.getAttribute("role");
+if (user != null && role == "admin") {%>
+
 <body class="bg-dark">
 
 	<jsp:include page="menuLogged.jsp"></jsp:include>
@@ -63,4 +68,9 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 
 	</div>
 </body>
+	<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<% 
+}; %>
 </html>

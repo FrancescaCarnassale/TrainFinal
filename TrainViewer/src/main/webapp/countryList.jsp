@@ -23,7 +23,12 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 <link rel="stylesheet" href="css/styles.css">
 <title>TrainViewer</title>
 </head>
+       <%  	        	String user = (String)session.getAttribute("user");
+      					 String role = (String)session.getAttribute("role");
+if (user != null && role == "admin") {%>
 <body class="bg-dark">
+
+
 
 	<jsp:include page="menuLogged.jsp"></jsp:include>
 
@@ -59,9 +64,12 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 
 			</tbody>
 		</table>
-
-
-
 	</div>
 </body>
+<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<% 
+}; %>
+	
 </html>
