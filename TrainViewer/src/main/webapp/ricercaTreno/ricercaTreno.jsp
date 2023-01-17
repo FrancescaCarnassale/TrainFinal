@@ -17,7 +17,7 @@
 <title>Ricerca Trip</title>
 </head>
 <body>
-	<jsp:include page="../menu.jsp"></jsp:include>
+	<jsp:include page="../menuLogged.jsp"></jsp:include>
 	 <div align="center">
 	<form id="ricercaTreno-form" action = "/TrainViewer/buyingTickets/search" method = "POST" >
 		PARTENZA:
@@ -75,22 +75,20 @@
     <th>Orario di Partenza</th>
     <th>Orario d'Arrivo</th>
   </tr>
-  <c:forEach items="${tripsJSP}" var="trip">
+  <c:set var="counter" value="0" />
+<c:forEach items="${tripsJSP}" var="trip">
     <tr>
-    <form action = "/TrainViewer/buyingTickets/buy" method = "POST">
       <td>${trip.getDeparture().getCountryName()}</td>
       <td>${trip.getArrive().getCountryName()}</td>
       <td>${trip.getTimeDeparture()}</td>
-      <td>${trip.getTimeArrive()}
-      <td>
-      	<input type="hidden" name="tripId" value="${trip.getIdTrip()}"/>
-		<input type="submit" value="Compra biglietto!"/>
+      <td>${trip.getTimeArrive()}</td>
+		<td>
+		<a href="/TrainViewer/buyingTickets/buyingPage?tripId=${trip.getIdTrip()}"> Compra!</a>
 		</td>
-     </form>
     </tr>
-  </c:forEach>
+    <c:set var="counter" value="${counter + 1}" />
+</c:forEach>
 </table>
-
 
 	</form>
 	</div>

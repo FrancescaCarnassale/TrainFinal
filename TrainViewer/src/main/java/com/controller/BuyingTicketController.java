@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.beans.Reservation;
 import com.beans.Trip;
 import com.manager.TripManager;
 import com.manager.strategy.StrategyDB;
@@ -43,9 +44,23 @@ public class BuyingTicketController {
 		return "ricercaTreno/ricercaTreno";
 	}
 	
-	@RequestMapping(path = {"/buy"}, method= {RequestMethod.GET,RequestMethod.POST})
-	public String buy(HttpServletRequest request, @WebParam String tripId){
+	@RequestMapping(path = {"/buyingPage"}, method= {RequestMethod.GET,RequestMethod.POST})
+	public String buyingPage(HttpServletRequest request, @WebParam int tripId){
 		//CARICA LA NUOVA PAGINA OVE L'UTENTE COMPRA IL BIGLIETTO
-		return "ricercaTreno/ricercaTreno";
+		TripManager tripManager= new TripManager();
+		request.setAttribute("tripId", tripManager.getTripDao().get(tripId));
+		int msg=tripId;
+		request.setAttribute("msg", msg);
+		return "ricercaTreno/acquistoBiglietto";
+	}
+	
+	@RequestMapping(path = {"/buy"}, method= {RequestMethod.GET,RequestMethod.POST})
+	public String buy(HttpServletRequest request, @WebParam Trip trip, @WebParam int seats){
+		//CARICA LA NUOVA PAGINA OVE L'UTENTE COMPRA IL BIGLIETTO
+		Reservation res= new Reservation();
+		res.setIdTrip(trip);
+		res.setNumberTickets(seats);
+		res.setUser();
+		return "index";
 	}
 }
