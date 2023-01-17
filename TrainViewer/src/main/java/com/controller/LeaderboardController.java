@@ -2,6 +2,8 @@ package com.controller;
 
 import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +25,12 @@ public class LeaderboardController {
 			method= { RequestMethod.POST, RequestMethod.GET}
 	)
 	//nome parametro e id devono coincidere
-	public String updateScore(HttpServletRequest request, @WebParam String counter,@WebParam String user){
+	public String updateScore(HttpServletRequest request, @WebParam String counter){
 		UserDaoImpl userdao = new UserDaoImpl();
 		StrategyDB s = new StrategyDB();
 		Leaderboard l = null;
+		HttpSession session = request.getSession();
+		String user = (String)session.getAttribute("user");
 		System.out.println("stampo utente " + user);
 		User u = userdao.get(user);
 		
