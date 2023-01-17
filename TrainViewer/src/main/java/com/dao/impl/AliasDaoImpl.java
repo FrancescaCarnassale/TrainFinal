@@ -38,6 +38,7 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 	public void approveAliasAndCancel(String[] approve, String[] cancel, String[] newCountries) {
 		    getSession().beginTransaction();
 		    if(approve!=null) {
+		    	//l'alias è stato approvato, viene salvato come alias
 			    for(int i=0;i<approve.length;i++)
 			    {
 					Alias b =this.getSession().get(Alias.class, approve[i]);
@@ -47,6 +48,7 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 			    }
 		    }
 		    if(cancel!=null) {
+		    	//l'alias viene cancellato dal db
 			    for(String s : cancel)
 			    {
 					Alias b =this.getSession().get(Alias.class, s);

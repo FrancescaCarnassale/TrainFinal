@@ -34,9 +34,12 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 <link rel="stylesheet" href="css/styles_game.css">
 <title>Game</title>
 </head>
+<% 
+        	String user = (String)session.getAttribute("user");
+if (user != null) {%>
 <body id="b01" class="bg-white" onkeydown="checkKeyDown(event);"
 	onkeypress="checkKeyPress(event)">
-	<jsp:include page="../menu.jsp"></jsp:include>
+	<jsp:include page="../menuLogged.jsp"></jsp:include>
 	<div id="loader" style="align-items: center; justify-content: center; display: flex; flex-direction:row; padding-top: 10%">
 			<div style="align-items: center; display: flex; flex-direction: column;">
 		  		<img src="https://thumbs.gfycat.com/InferiorDecentAsianporcupine-max-1mb.gif" style="padding-left: 5rem; width: 25rem" alt="Loading...">
@@ -54,7 +57,7 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 		</div>
 
 		<div class="container bg-dark" id="container-score" style="background: linear-gradient(to right, #574B90, #9E579D);">
-			<div id="counter"></div>
+			<div id="counter"></div><div id="user" value="<%${user}%>"></div>
 			<h1 class="py-4 text-center text-white bg-dark" id="title-score" style="background: linear-gradient(to right, #574B90, #9E579D);">Best
 				Scores</h1>
 			<form action="GameServlet" method="GET">
@@ -75,7 +78,7 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 							%>
 							<td><%=gs.getUser().getName()%></td>
 							<td><%=gs.getScore()%></td>
-
+							
 						</tr>
 						<%
 						}
@@ -90,6 +93,8 @@ Collection<?> scores = (Collection<?>)db.getGameData();
             <div class="centered-flex" style="position:absolute; bottom:20%; left:45%">          
                 <button onClick="location.href='/TrainViewer/index.jsp" style="background-color: #1a73e8;color: white;box-shadow: 0 4px 0 #185abc;border: none;display: block; font-size: .875rem;font-weight: 500;height: 36px;margin: 12px;min-width: 200px;padding: 0px 24px;" id="title-start-btn" class="btn primary-btn" dir="auto">HomePage</button>
                 -->	
+              
+			<a href= "/TrainViewer/leaderboardController/updateScore">Aggiorna il tuo Punteggio!!</a>
             </div>   
              	
 	</div>
@@ -102,4 +107,9 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 	<script type="text/javascript" src="js/movimento.js"></script>
 	
 </body>
+<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<% 
+}; %>
 </html>
