@@ -35,7 +35,7 @@ Collection<?> scores = (Collection<?>) db.getGameData();
         	String user = (String)session.getAttribute("user");
 if (user != null) {%>
 <body onkeydown="checkKeyDown(event);" onkeypress="checkKeyPress(event)">
-	<jsp:include page="../menu.jsp"></jsp:include>
+	<jsp:include page="../menuLogged.jsp"></jsp:include>
 
 	<div id="start-page" style="background-color: #ceead6; height: 100vh"
 		class="page full-page title-bg">

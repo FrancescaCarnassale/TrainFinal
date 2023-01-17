@@ -63,21 +63,9 @@
         	           
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/admin.jsp">Admin</a>
         	         
-        	        </li>
-
- 						<li class="nav-item">
-        	        </li>
-        	            <li class="nav-item">
-        	            
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/insert.jsp">Insert</a>
-        	          
-        	        </li>   
   					</c:if>
         	      
-        	         
-        	             	        
-        	     
-        	        
+
         	       </ul>
         	    </div>
         	  </div>
