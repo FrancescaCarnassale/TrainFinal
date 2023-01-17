@@ -22,7 +22,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 	crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
 <title>Creazione Trip</title>
 </head>
 <body class="body-createTrip">
@@ -64,8 +64,8 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 				<input type="datetime-local" id="start" name="start"
 				value="<%=sdf.format(today)%>"> <label for="end">Orario
 				di arrivo:</label> 
-				<input type="datetime-local" id="end" name="end"
-				value="<%=sdf.format(later)%>"> <br> 
+				<input type="datetime-local" id="end" name="end" value="<%=sdf.format(later)%>"> 
+				<br> 
 				<input
 				type="submit" value="Crea trip!">
 		</form>

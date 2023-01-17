@@ -13,7 +13,7 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 <meta charset="ISO-8859-1">
 <title>Admin Page</title>
 <!-- CSS only -->
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
 
 <!-- Bootstrap -->
 <link
