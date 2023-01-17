@@ -77,7 +77,7 @@
   </tr>
   <c:forEach items="${tripsJSP}" var="trip">
     <tr>
-    <form>
+    <form action = "/TrainViewer/buyingTickets/buy" method = "POST">
       <td>${trip.getDeparture().getCountryName()}</td>
       <td>${trip.getArrive().getCountryName()}</td>
       <td>${trip.getTimeDeparture()}</td>

@@ -44,20 +44,8 @@ public class BuyingTicketController {
 	}
 	
 	@RequestMapping(path = {"/buy"}, method= {RequestMethod.GET,RequestMethod.POST})
-	public String buy(HttpServletRequest request, @WebParam String departures, 
-			@WebParam String arrives, @WebParam String timeDeparture){
-		TripManager tripManager= new TripManager();
-		SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-		Date timeDepartur = null;
-		try {
-			timeDepartur = isoFormat.parse(timeDeparture);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Timestamp departureTime = new Timestamp(timeDepartur.getTime());
-		Collection<Trip> trips = tripManager.getTripsWithDate(departures, arrives, departureTime);
-		request.setAttribute("trips", trips);
+	public String buy(HttpServletRequest request, @WebParam String tripId){
+		//CARICA LA NUOVA PAGINA OVE L'UTENTE COMPRA IL BIGLIETTO
 		return "ricercaTreno/ricercaTreno";
 	}
 }
