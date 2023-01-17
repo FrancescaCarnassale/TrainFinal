@@ -1,140 +1,103 @@
-body{
-	margin:0;
-}
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-.container {
-    margin: 0 auto;
-    width: 70%;
-}
-
-.btnPlay {
-    width: 80px;
-    height: 40px;
-    background-color: #00ffff;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 4px 6px 12px #888888;
-    transition: 0.5s ease;
-}
-
-.btnPlay:hover {
-    background-color: #00cccc;
-}
-
-.btnPlay:focus {
-    outline: 0;
-}
 
 .btn {
   background: linear-gradient(to right, #574B90, #9E579D);
 }
 
-#pianoGioco {
-
-    border: 1px solid;
-    width: 89%;
-    background-color: rgb(34, 160, 76);
-    margin: auto;
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
 }
 
-img {
-    margin: 0 0.0167236px ;
+.body-registration, .body-login, .body-createTrain, .body-createTrip{
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(224, 85, 255, 1) 0%, rgba(123, 0, 255, 1) 100%);
 }
 
-audio {
-    display: none;
+#title-registration {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
-.ms-loader {
-	
-	background-color: #ffffff;
-	width: 15%;
-	border-radius: 15px;
-	position: relative;
+.card2 {
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 60%;
 }
 
-.track {
-	position: relative;
-	overflow: hidden;
-	width: 50px;
-	height: 100px;
-	border-left: 3px solid #333;
-	transform: skew(-10deg) rotateX(45deg);
-	
+
+.FinalText{
+	color:white; 
+	font-size: 30px;
+	text-decoration: none; 
+	margin-bottom: 20px;
+	display: block;
 }
 
-.track:before {
-	content: "";
-	position: absolute;
-	height: 3px;
-	width: 50px;
-	background-color: #333;
-	top:90px;
-	box-shadow: 0 0 #333, 0 -10px #333, 0 -20px #333, 0 -30px #333, 0 -40px #333, 0 -50px #333, 0 -50px #333, 0 -60px #333, 0 -70px #333, 0 -80px #333, 0 -90px #333, 0 -100px #333, 0 -110px #333, 0 -120px #333, 0 -130px #333, 0 -140px #333;
-	animation: track 1s linear infinite;
+.FinalText2{
+	color:white; 
+	font-size: 20px;
+	text-decoration: none; 
+	margin-bottom: 10px;
+	display: block;
 }
 
-.track:after {
-	content: "";
-	position: absolute;
-	transform: rotate(-15deg);
-	width: 50px;
-	height: 120px;
-	background-color: #fff;
-	border-left: 3px solid #333;
-	left: 30px;
-	top: -10px;
+.container{
+	margin-bottom:20px;
 }
 
-.train {
-	position:absolute;
-	width: 60px;
-	height:60px;
-	background-color: #333;
-	border-radius:15px;
-	top:0;
-	left:-13px;
-	transform-origin: bottom;
-	animation: rotate 1s linear infinite;
+input {
+  border-radius: 8px;
+  border: none;
+  text-align: center;
 }
-
-.train:before {
-	content:"";
-	position: absolute;
-	background-color: #ced4da;
-	width:20px;
-	height:15px;
-	left:9px;
-	top:15px;
-	box-shadow: 22px 0 #ced4da;
+.input-submit {
+  width: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  transition: 0.15s;
 }
-
-.train:after {
-	content: "";
-	position:absolute;
-	background-color: #ced4da;
-	border-radius:50%;
-	height:10px;
-	width:10px;
-	top:45px;
-	left:10px;
-	box-shadow: 30px 0px #ced4da;
+.input-submit:hover {
+  background-color: rgba(224, 85, 255, 1)!important;
+  color: white;
 }
-
-@keyframes track {
-	0% {transform: translateY(70px) rotateX(45deg);}
-	100% {transform: translate(0px) rotateX(45deg);}
+.div-submit {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  padding-bottom: 15px;
 }
-
-@keyframes rotate {
-	0% {transform: rotate(0);}
-	25% {transform: rotate(2deg);}
-	50% {transform: rotate(0);}
-	75% {transform: rotate(-2deg);}
-	100% {transform: rotate(0);}
+a {
+  text-decoration: none;
+  transition: 0.15s;
+}
+a:hover {
+  color:rgba(224, 85, 255, 1)!important;
+}
+.btn.btn-primary {
+	border: none;
+}
+#btn-approve {
+	border: none;
+}
+.createTrainForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;	
+}
+option {
+	text-align: center;
+}
+#produttore {
+	border-radius: 8px;
 }

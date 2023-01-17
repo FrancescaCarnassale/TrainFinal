@@ -1,3 +1,12 @@
+@font-face {
+	font-family: prstartk;
+	src: url(prstartk.ttf);
+}
+
+body {
+    background-color:white;	
+}
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
@@ -5,31 +14,35 @@ table, th, td {
 
 .container {
     margin: 0 auto;
-    width: 40%;
+	margin-top: 20px;
+    /* width: 40%; */
+    width: 80%;
     text-align: center;
 }
 
 .btnPlay {
     width: 80px;
     height: 40px;
-    background-color: #00ffff;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 4px 6px 12px #888888;
+    color: white;
+    background-color: rgba(33,37,41, 0.75);
+    border: none;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    /* box-shadow: 4px 6px 12px #888888; */
     transition: 0.5s ease;
+    margin-bottom: -10px;
 }
-
 .btnPlay:hover {
-    background-color: #00cccc;
+    /* background-color: #00cccc; */
+    background-color: rgba(33,37,41, 0.5);
 }
-
 .btnPlay:focus {
     outline: 0;
 }
 
 #pianoGioco {
 
-    border: 1px solid;
+    /* border: 1px solid; */
     width: 89%;
     background-color: rgb(34, 160, 76);
     margin: auto;
@@ -37,6 +50,13 @@ table, th, td {
 
 img {
     margin: 0 0.0167236px ;
+}
+
+.pixel-font {
+    font-family: "prstartk";
+    color: #1a73e8;
+    -webkit-filter: drop-shadow(0 0.05em 0 #185ABC);
+    filter: drop-shadow(0 0.05em 0 #185ABC);
 }
 
 audio {
@@ -139,3 +159,33 @@ audio {
 	border-radius: 15px;
 	position: relative;
 }
+
+
+#container-score, #title-score, #score-table {
+	border-radius: 20px;
+}
+#container-score {
+	width: 635px;
+}
+#container-game {
+	width: 635px;
+}
+.outerContainer {
+	width: 800px;
+	border-radius: 20px;
+	margin-top: 20px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.div-container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+
