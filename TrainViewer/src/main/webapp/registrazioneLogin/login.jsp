@@ -12,25 +12,30 @@
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="../css/styles.css">
 <title>Login</title>
 
 </head>
-<body>
+<body class="body-login">
 	<jsp:include page="../menu.jsp"></jsp:include>
 	<%
 	String user = (String)request.getAttribute("user");
 	%>
-	<div align="center">
+	<div align="center" class="card2" style="border-radius: 20px;margin-left: auto;margin-right: auto; margin-top: 50px;background-color: rgba(0, 0, 0, 0.5);height: 100%;width: 60%;">
+	<h1 class="py-4 text-center text-white">Login</h1>
 		<form id="login-form" action="/TrainViewer/LoginServlet" method="POST">
-			<label for="email" required>Indirizzo email:</label> <br> <input
-				type="email" id="email" name="email"> <br> <label
-				for="password">Password:</label> <br> <input type="password"
-				id="password" name="password" required><br> <br> <input
-				type="submit" value="Entra">
+			<label class="mb-1 text-center text-white" for="email" required>Indirizzo email:</label> <br> <input
+				type="email" id="email" class="mb-1" name="email"> <br> 
+				<label
+				for="password" class="mb-1 text-center text-white">Password:</label> <br> 
+				<input type="password"
+				id="password" name="password" required><br> <br> 
+		<div class="div-submit">
+					<input type="submit" class="input-submit" value="Login">
+					<br>
+					<a href="registrazione.jsp" class="text-center text-white" id="already-registered">Non sei registrato? FALLO!</a>
+		</div>
 		</form>
-		<br> <a href="/TrainViewer/registrazioneLogin/registrazione.jsp">Non sei registrato? FALLO!</a>
-
 		<c:set var="msg" value="${requestScope.msg}" />
         <script>
         if("${msg}"!="")
