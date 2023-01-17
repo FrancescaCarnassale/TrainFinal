@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.beans.Reservation;
 import com.beans.Trip;
+import com.manager.ReservationManager;
 import com.manager.TripManager;
+import com.manager.UserManager;
 import com.manager.strategy.StrategyDB;
 
 @Controller
@@ -55,12 +58,18 @@ public class BuyingTicketController {
 	}
 	
 	@RequestMapping(path = {"/buy"}, method= {RequestMethod.GET,RequestMethod.POST})
-	public String buy(HttpServletRequest request, @WebParam Trip trip, @WebParam int seats){
+	public String buy(HttpServletRequest request, @WebParam int tripId, @WebParam int seats){
 		//CARICA LA NUOVA PAGINA OVE L'UTENTE COMPRA IL BIGLIETTO
+		HttpSession session = request.getSession();
+		String email=(String)session.getAttribute("email");
+		UserManager userManager= new UserManager();
+		TripManager tripManager= new TripManager();
 		Reservation res= new Reservation();
-		res.setIdTrip(trip);
+		res.setIdTrip(tripManager.getTripDao().get(tripId));
 		res.setNumberTickets(seats);
-		res.setUser();
+		res.setUser(userManager.getUserFromEmail(email));
+		ReservationManager resManager= new ReservationManager();
+		resManager.setReservation(res);
 		return "index";
 	}
 }

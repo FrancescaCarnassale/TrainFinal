@@ -8,6 +8,9 @@ public class UserManager {
 	public User getUser(Login login) {
 		return userDao.getUser(login);
 	}
+	public User getUserFromEmail(String email) {
+		return userDao.get(email);
+	}
 	
 	public void setUser(User newUser) {
 		userDao.setUser(newUser);
