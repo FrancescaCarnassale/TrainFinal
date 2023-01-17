@@ -17,7 +17,9 @@ import com.TrenoFactory.factory.FRFactory;
 import com.TrenoFactory.factory.TNFactory;
 import com.TrenoFactory.factory.VagoneFactory;
 import com.TrenoFactory.treno.Treno;
-import com.strategy.StrategyDB;
+import com.beans.Train;
+import com.manager.TrainManager;
+import com.manager.strategy.StrategyDB;
 
 @WebServlet("/CreazionTrenoServlet")
 public class CreazionTrenoServlet extends HttpServlet{
@@ -33,7 +35,7 @@ public class CreazionTrenoServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		response.setContentType("text/html");
-		StrategyDB s = new StrategyDB();
+		TrainManager s = new TrainManager();
 		String produttore = request.getParameter("produttore");
 		String serialNumber = request.getParameter("serialNumber");
 		
@@ -46,22 +48,24 @@ public class CreazionTrenoServlet extends HttpServlet{
 			vagoneFactory = new TNFactory();
 		
 		TrenoBuilder builder = new ConcreteBuilder(vagoneFactory);
-		Treno t;
+		Treno t;	//rimuovere
+		Train train = new Train();
+		
 		String msg;
 			try {
+				//controllo composizione treno inserito
 				t = builder.buildTreno(serialNumber.toUpperCase());
-				s.setTrain(produttore, serialNumber, false);
+				
+				//costruzione istanza treno
+				train.setBrand(produttore);
+				train.setSerialNumber(serialNumber);
+				train.setIsCargo(false);
+				s.setTrain(train);
 				msg = "Operazione avvenuta con successo!";
-			} catch (NumeroPostiInEccesso e) {
+			} catch ( TrenoException | IllegalArgumentException /*| NumeroPostiInEccesso */  e) {
 				// TODO Auto-generated catch block
 				msg=e.getMessage();
-			} catch (TrenoException e) {
-				// TODO Auto-generated catch block
-				msg=e.getMessage();
-			}
-			catch(IllegalArgumentException e) {
-				msg=e.getMessage();
-			}
+			} 
 		// CREAZIONE TRENO CORRETTO
 		request.setAttribute("msg", msg);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/creazioneTrenoAdmin/creazioneTreno.jsp");

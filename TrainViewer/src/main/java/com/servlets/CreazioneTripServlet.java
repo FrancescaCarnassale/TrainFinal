@@ -31,8 +31,16 @@ import com.TrenoFactory.factory.FRFactory;
 import com.TrenoFactory.factory.TNFactory;
 import com.TrenoFactory.factory.VagoneFactory;
 import com.TrenoFactory.treno.Treno;
-import com.strategy.Strategy;
-import com.strategy.StrategyDB;
+import com.beans.Alias;
+import com.beans.Country;
+import com.beans.Train;
+import com.beans.Trip;
+import com.dao.TripDao;
+import com.dao.impl.TripDaoImpl;
+import com.manager.AliasManager;
+import com.manager.TripManager;
+import com.manager.strategy.Strategy;
+import com.manager.strategy.StrategyDB;
 @WebServlet("/CreazioneTripServlet")
 public class CreazioneTripServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -48,6 +56,8 @@ public class CreazioneTripServlet extends HttpServlet {
 		String msg = null;
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
+		AliasManager aliasManager = new AliasManager();
+		TripManager tr = new TripManager();
 		int idTrain = Integer.valueOf(request.getParameter("idTrain"));
 		String departure = request.getParameter("departure");
 		String arrive = request.getParameter("arrive");
@@ -67,20 +77,35 @@ public class CreazioneTripServlet extends HttpServlet {
 		CheckChain checkChain=s.getChain();
 		String partenza= checkChain.check(departure);
 		String arrivo= checkChain.check(arrive);
+		TripDaoImpl td = (TripDaoImpl)tr.getTripDao();
 		if(partenza!=null) {
 			if(arrivo!=null) {
-				s.setTrip(idTrain, departure, arrive, timeStart, timeEnd);
+				Trip trip= new Trip();         
+				trip.setArrive(td.getSession().get(Country.class,arrive));         
+				trip.setDeparture(td.getSession().get(Country.class,departure));         
+				trip.setIdTrain(td.getSession().get(Train.class,idTrain));         
+				trip.setTimeArrive(timeEnd);         
+				trip.setTimeDeparture(timeStart);
+				tr.setTrip(trip);
 				//I DATI SONO TUTTI CORRETTI
 				msg = "idTrain: " + idTrain+ " Departure: "+partenza + " Arrive: "+ arrivo
 						+" TimeDeparture: "+timeStart+" TimeArrrive: "+timeEnd;
 			}
 			else {
-				s.addAliasUnknown(arrive);
+				Alias a= new Alias();
+				a.setAlias(arrive);
+				a.setCountry(null);
+				a.setApproved(false);
+				aliasManager.setAlias(a);
 				msg = "Arrivo non trovato!";
 			}
 		}
 		else {
-			s.addAliasUnknown(departure);
+			Alias a= new Alias();
+			a.setAlias(departure);
+			a.setCountry(null);
+			a.setApproved(false);
+			aliasManager.setAlias(a);
 			msg = "Partenza non trovata!";
 		}
 		

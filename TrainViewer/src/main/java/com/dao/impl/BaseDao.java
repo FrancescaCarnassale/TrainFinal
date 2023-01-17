@@ -41,6 +41,7 @@ public abstract class BaseDao {
 		this.session.beginTransaction();
 		Bean b =this.session.get(class1, id);
 		this.session.getTransaction().commit();
+		this.session.close();
 		return b;
 	}
 	
@@ -48,6 +49,8 @@ public abstract class BaseDao {
 		this.session.beginTransaction();
 		Bean b =this.session.get(class1, id);
 		this.session.getTransaction().commit();
+		this.session.close();
 		return b;
 	}
+
 }

@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"
-	import="java.util.*,com.beans.*,com.strategy.*"%>
-
+	import="java.util.*,com.beans.*,com.manager.strategy.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 Strategy db = new StrategyDB();
 Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
+Collection<?> countries = (Collection<?>) db.getAllCountries();
 %>
 <!DOCTYPE html>
 <html>
@@ -27,13 +28,14 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 
 	<div class="container">
 		<h1 class="py-4 text-center text-white bg-dark">Alias Table</h1>
-		<form action="AliasApprovingServlet" method="GET">
+		<form action="aliasApproving/approve" method="GET">
 			<table class="table table-dark table-striped">
 				<thead>
 					<tr>
 						<th scope="col">Alias</th>
 						<th scope="col">Country</th>
 						<th scope="col">Approved</th>
+						<th scope="col">Deleted</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,8 +47,24 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 								Alias a = (Alias) it.next();
 						%>
 						<td><%=a.getAlias()%></td>
-						<td><%=a.getCountry().getCountryName()%></td>
+						<td>
+								<select name="newCountry" id="newCountry">
+								<% 
+									if(countries != null && countries.size() != 0) {
+										Iterator<?> it2 = countries.iterator();
+										while(it2.hasNext()) {
+											Country c = (Country) it2.next();
+								%>
+											<option><%=c.getCountryName()%></option >
+										<%
+									}
+							
+								}
+								%>
+						</td>
 						<td><input type="checkbox" name="checkAlias"
+							value="<%=a.getAlias()%>"></td>
+						<td><input type="checkbox" name="checkDelete"
 							value="<%=a.getAlias()%>"></td>
 					</tr>
 					<%
@@ -59,6 +77,11 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 				<input class="btn btn-outline-light" id="btn-approve" type="submit" value="Approve">
 			</p>
 		</form>
+		<c:set var="msg" value="${requestScope.msg}" />
+        <script>
+        if("${msg}"!="")
+            alert("${msg}");
+        </script>
 
 
 	</div>
