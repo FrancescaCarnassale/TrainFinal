@@ -1,3 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"
+	import="java.util.*,com.beans.*,com.manager.strategy.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%
+Strategy db = new StrategyDB();
+Collection<?> trains = (Collection<?>) db.getAllTrains();
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +26,46 @@
 	
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin-top:6%">
   <div class="carousel-indicators">
+  <div class="carousel-caption" style="position: absolute;top: 50%; left: 52%;transform: translate(-50%, -50%);color: white;text-align: center; ">
+    <div align="center" style="position: absolute; display: inline-block; bottom:50px; left:-80%; width: 1080px;">
+		<form id="creazioneTrip-form" onsubmit="return handleSubmit()"
+			action="/TrainViewer/CreazioneTripServlet" method="POST">
+			<select name="idTrain" id="idTrain" style="width: 150px;">
+				<%
+				if (trains != null && trains.size() != 0) {
+					Iterator<?> it = trains.iterator();
+					while (it.hasNext()) {
+						Train c = (Train) it.next();
+				%>
+				<option value="<%=c.getIdTrain()%>"><%=c.getBrand()%>
+					<%=c.getSerialNumber()%></option>
+				<%
+				}
+
+				}
+				%>
+				<%
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+				Date today = new Date();
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime(today);
+				calendar.add(Calendar.MINUTE, 30);
+				Date later = calendar.getTime();
+				%>
+			</select>
+				<input type="text" id="departure" name="departure" placeholder="Partenza" style="width: 400px; height: 50px; border: 3px solid #9E579D;">
+                <input type="text" id="arrive"name="arrive" placeholder="Arrivo" style="width: 400px; border: 3px solid #9E579D; height: 50px;">
+				<input type="datetime-local" id="start" name="start"value="<%=sdf.format(today)%>" style="width: 650px; border: 3px solid #9E579D;">
+				<input type="datetime-local" id="end" name="end"value="<%=sdf.format(later)%>" style="width: 650px; border: 3px solid #9E579D;"> 
+				<input type="submit" value="CREA TRIP!" style="width:400px; background: linear-gradient(to right, #574B90, #9E579D); color: white; height:40px">
+		</form>
+		<c:set var="msg" value="${requestScope.msg}" />
+		<script>
+			if ("${msg}" != "")
+				alert("${msg}");
+		</script>
+	</div>
+	</div>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -151,8 +201,13 @@
     <a href="#" class ="FinalText"><strong>Lavora con noi</strong></a>
   </div>
   <div class="col-4">
-    <p style="color:white; font-size: 30px;text-decoration: none; margin-bottom: 20px;display: block;"><strong>Seguici su</strong></p>
-<div class="container d-flex justify-content-center">
+<p style="color:white; font-size: 30px;text-decoration: none; margin-bottom: 20px;display: block;"><strong>Seguici su</strong></p>
+    <div class="container d-flex">
+        <a href="#" style="margin-right: 10px;" ><img src="https://cdn-icons-png.flaticon.com/128/1384/1384005.png"  alt="Facebook" style="width:35px; "></a>
+        <a href="#" style="margin-right: 10px;"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384015.png" alt="Instagram" style="width:35px"></a>
+        <a href="#"style="margin-right: 10px;"><img src="https://cdn-icons-png.flaticon.com/128/2168/2168336.png" alt="Twitter" style="width:35px"></a>
+        <a href="#"style="margin-right: 10px;"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384012.png" alt="YouTube" style="width:35px"></a>
+    </div><div class="container d-flex justify-content-center">
 </div>    <a href="#" class ="FinalText">Scarica App</a>
   </div>
 </div>

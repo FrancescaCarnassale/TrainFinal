@@ -7,8 +7,30 @@
 	width: 60%;
 }
 
+input[type="text"] {
+width: 300px;
+height: 40px;
+}
+
 body {
 	margin-top: 50px !important;
+}
+
+#creazioneTrip-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+#creazioneTrip-form input, #creazioneTrip-form label, #creazioneTrip-form select {
+    width: 100%;
+    margin: 5px;
+}
+
+#idTrain {
+    display: block;
+}
+#departure, #arrive, #start, #end {
+    display: inline-block;
 }
 
 @media
