@@ -23,7 +23,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		return (User) super.get(User.class, user);
 	}
 	public void setUser(User user) {
-		
+	
 		this.create(user);
 	}
 

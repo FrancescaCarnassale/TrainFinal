@@ -15,9 +15,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ricerca Trip</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
 </head>
 <body>
-	<jsp:include page="../menu.jsp"></jsp:include>
+	<jsp:include page="../menuLogged.jsp"></jsp:include>
+	
 	 <div align="center">
 	<form id="ricercaTreno-form" action = "/TrainViewer/buyingTickets/search" method = "POST" >
 		PARTENZA:

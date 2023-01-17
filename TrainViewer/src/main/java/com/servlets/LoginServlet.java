@@ -55,10 +55,11 @@ public class LoginServlet extends HttpServlet {
 				
 				session.setAttribute("user", user.getName());
 				session.setAttribute("role", user.getAdmin());
+				session.setAttribute("email", user.getEmail());
 				
 				dispatcher = getServletContext().getRequestDispatcher("/");
 			}else{
-				msg="login non riuscita";
+				msg="Email o password errati";
 				request.setAttribute("msg", msg);
 				dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
 			}

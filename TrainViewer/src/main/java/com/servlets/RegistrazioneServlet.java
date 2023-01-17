@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.beans.Alias;
+import com.beans.Login;
 import com.beans.User;
 import com.dao.impl.AliasDaoImpl;
 import com.manager.UserManager;
@@ -42,9 +43,24 @@ public class RegistrazioneServlet extends HttpServlet {
 		u.setEmail(email);
 		u.setPassword(password);
 		u.setAdmin(admin);
-		s.setUser(u);
-		request.setAttribute("msg", "Utente creato con successo!");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
+		
+		Login check = new Login();
+		check.setEmail(email);
+		check.setPassword(password);
+		
+		RequestDispatcher dispatcher;
+		
+		if(s.getUser(check)== null) {
+			s.setUser(u);
+			request.setAttribute("msg", "Utente creato con successo!");
+			 dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
+		}else {
+			request.setAttribute("msg", "Utente esistente!");
+			 dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/registrazione.jsp");
+		}
+		
+		
+		
 		dispatcher.forward(request, response);
 	}
 
