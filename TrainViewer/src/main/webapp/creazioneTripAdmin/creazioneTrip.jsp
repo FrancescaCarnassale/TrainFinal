@@ -45,11 +45,6 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 
 				}
 				%>
-				<%
-			}
-	
-		}
-		%>
 		<%
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
 		Date today = new Date();
