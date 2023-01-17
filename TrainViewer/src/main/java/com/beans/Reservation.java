@@ -3,7 +3,7 @@ package com.beans;
 public class Reservation implements Bean {
 	private int idReservation;
 	private Trip idTrip;
-	private User usermail;
+	private User user;
 	private int numberTickets;
 	
 	public int getIdReservation() {
@@ -18,11 +18,11 @@ public class Reservation implements Bean {
 	public void setIdTrip(Trip idTrip) {
 		this.idTrip = idTrip;
 	}
-	public User getUsermail() {
-		return usermail;
+	public User getUser() {
+		return user;
 	}
-	public void setUsermail(User usermail) {
-		this.usermail = usermail;
+	public void setUser(User usermail) {
+		this.user = usermail;
 	}
 	public int getNumberTickets() {
 		return numberTickets;
@@ -33,7 +33,7 @@ public class Reservation implements Bean {
 	
 	@Override
 	public String toString() {
-		return "Reservation [idReservation=" + idReservation + ", idTrip=" + idTrip + ", usermail=" + usermail
+		return "Reservation [idReservation=" + idReservation + ", usermail=" + user
 				+ ", numberTickets=" + numberTickets + "]";
 	}
 		

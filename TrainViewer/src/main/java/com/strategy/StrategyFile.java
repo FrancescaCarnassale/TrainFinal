@@ -134,7 +134,7 @@ public class StrategyFile implements Strategy {
 	}
 	
 	@Override
-	public void setTrain(String brand, String serialNumber, boolean isCargo) {
+	public void setTrain(String brand, String serialNumber, int seats, boolean isCargo) {
 		// TODO Auto-generated method stub
 	}
 	

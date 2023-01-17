@@ -8,7 +8,7 @@
 
 	<id name="idReservation" column="id_reservation"> <generator class="increment"></generator></id>
 	      <many-to-one name="idTrip" class="com.beans.Trip" column="id_trip"></many-to-one>
-	      <many-to-one name="usermail" class="com.beans.User" column="user_mail"></many-to-one>
+	      <many-to-one name="user" class="com.beans.User" column="user_mail"></many-to-one>
 	      <property name="numberTickets" column="number_tickets"> </property>
   </class>  
             

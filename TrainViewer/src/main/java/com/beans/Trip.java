@@ -14,7 +14,8 @@ import com.TrenoFactory.treno.Treno;
 		private Country arrive;
 		private Timestamp timeDeparture;
 		private Timestamp timeArrive;
-		//private List<Passeggeri> passeggeri;
+		private int seats_available;
+
 		public int getIdTrip() {
 			return idTrip;
 		}
@@ -55,6 +56,12 @@ import com.TrenoFactory.treno.Treno;
 		public String toString() {
 			return "Trip [idTrip=" + idTrip + ", idTrain=" + idTrain + ", departure=" + departure + ", arrive=" + arrive
 					+ ", timeDeparture=" + timeDeparture + ", timeArrive=" + timeArrive + "]";
+		}
+		public int getSeats_available() {
+			return seats_available;
+		}
+		public void setSeats_available(int seats_available) {
+			this.seats_available = seats_available;
 		}
 
 		

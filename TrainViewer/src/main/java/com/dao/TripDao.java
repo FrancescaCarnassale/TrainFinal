@@ -13,5 +13,6 @@ public interface TripDao {
 	public Collection<Trip> getTrips(Country departure, Country arrive, Timestamp timeDeparture);
 	public Collection<Country> getArriveCountries();
 	public Collection<Country> getDepartureCountries();
+	public void updateSeats(Trip t, int bookedSeats);
 
 }

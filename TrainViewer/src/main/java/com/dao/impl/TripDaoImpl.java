@@ -35,11 +35,13 @@ public class TripDaoImpl extends BaseDao implements TripDao{
 	@Override
 	public void setTrip(int idTrain, String departure, String arrive, Timestamp timeDeparture, Timestamp timeArrive) {
 		Trip tr= new Trip();
-		tr.setArrive((Country)super.get(Country.class,arrive));
-		tr.setDeparture((Country)super.get(Country.class,departure));
-		tr.setIdTrain((Train)super.get(Train.class,idTrain));
+		TrainDao trainDao = new TrainDaoImpl();
+		tr.setArrive(this.getSession().get(Country.class,arrive));
+		tr.setDeparture(this.getSession().get(Country.class,departure));
+		tr.setIdTrain(this.getSession().get(Train.class,idTrain));
 		tr.setTimeArrive(timeArrive);
 		tr.setTimeDeparture(timeDeparture);
+		tr.setSeats_available(trainDao.get(idTrain).getSeats());
 		this.create(tr);
 	}
 	
@@ -82,6 +84,19 @@ public class TripDaoImpl extends BaseDao implements TripDao{
         List<Trip> trips = mq.getResultList();
         Collection<Trip> c = trips;
 		return c;
+	}
+
+	@Override
+	public void updateSeats(Trip t, int bookedSeats) {
+		Trip newTrip = new Trip();
+		newTrip.setIdTrip(t.getIdTrip());
+		newTrip.setIdTrain(t.getIdTrain());
+		newTrip.setArrive(t.getArrive());
+		newTrip.setDeparture(t.getDeparture());
+		newTrip.setTimeArrive(t.getTimeArrive());
+		newTrip.setTimeDeparture(t.getTimeDeparture());
+		newTrip.setSeats_available(t.getSeats_available()-bookedSeats);
+		super.update(newTrip);
 	}
 	
 	

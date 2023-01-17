@@ -4,6 +4,7 @@ public class Train implements Bean {
 	private int idTrain;
     private String serialNumber;
     private String brand;
+    private int seats;
     private boolean isCargo;
 
     public boolean getIsCargo() {
@@ -30,4 +31,10 @@ public class Train implements Bean {
     public void setIdTrain(int idTrain) {
         this.idTrain = idTrain;
     }
+	public int getSeats() {
+		return seats;
+	}
+	public void setSeats(int seats) {
+		this.seats = seats;
+	}
 }
