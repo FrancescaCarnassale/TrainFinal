@@ -19,8 +19,12 @@
 <title>Creazione Treno</title>
 </head>
 <body class="body-createTrain">
+<% 
+        	String user = (String)session.getAttribute("user");
+			String role = (String)session.getAttribute("role");
+if (user != null && role.equals("train factory")) {%>
+	<jsp:include page="../menuLogged.jsp"></jsp:include>
 	<script src="handlerCreazioneTreno.js"></script>
-	<jsp:include page="../menu.jsp"></jsp:include>
     <div align="center" class="card2" style="border-radius: 20px;margin-left: auto;margin-right: auto; margin-top: 50px;background-color: rgba(0, 0, 0, 0.5);height: 100%;width: 60%;">		<h1 class="py-4 text-center text-white">Creazione Treno</h1>
 		<form id="creazioneTreno-form" onsubmit="return handleSubmit()"
 			action="/TrainViewer/CreazionTrenoServlet" method="POST"
@@ -40,4 +44,9 @@
 		</script>
 	</div>
 </body>
+	<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<% 
+}; %>
 </html>

@@ -10,9 +10,15 @@
 <title>TrainViewer</title>
 </head>
 <body>
-
+<% 
+	String user = (String)session.getAttribute("user");
+if (user != null) {%>
+	<jsp:include page="menuLogged.jsp"></jsp:include>
+	<% 
+}else{ %>
 	<jsp:include page="menu.jsp"></jsp:include>
-	
+	<% 
+}; %>
 	
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin-top:6%">
   <div class="carousel-indicators">

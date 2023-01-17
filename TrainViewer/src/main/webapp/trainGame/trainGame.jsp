@@ -31,7 +31,9 @@ Collection<?> scores = (Collection<?>) db.getGameData();
 <link rel="stylesheet" href="css/styles_game.css">
 <title>TrainGame</title>
 </head>
-
+<% 
+        	String user = (String)session.getAttribute("user");
+if (user != null) {%>
 <body onkeydown="checkKeyDown(event);" onkeypress="checkKeyPress(event)">
 	<jsp:include page="../menu.jsp"></jsp:include>
 
@@ -73,5 +75,9 @@ Collection<?> scores = (Collection<?>) db.getGameData();
 		</div>
 	</div>
 </body>
-
+<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<% 
+}; %>
 </html>

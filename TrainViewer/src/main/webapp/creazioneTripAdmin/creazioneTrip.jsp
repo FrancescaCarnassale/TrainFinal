@@ -25,9 +25,13 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 <link rel="stylesheet" href="../css/styles.css">
 <title>Creazione Trip</title>
 </head>
+<% 
+        	String user = (String)session.getAttribute("user");
+			String role = (String)session.getAttribute("role");
+if (user != null && role .equals("train manager")) {%>
 <body class="body-createTrip">
 	<script src="handlerCreazioneTrip.js"></script>
-	<jsp:include page="../menu.jsp"></jsp:include>
+	<jsp:include page="../menuLogged.jsp"></jsp:include>
 	<div align="center">
 		<form id="creazioneTrip-form" onsubmit="return handleSubmit()"
 			action="/TrainViewer/CreazioneTripServlet" method="POST">
@@ -74,4 +78,9 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
         </script>
 	</div>
 </body>
+	<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<%
+}; %>
 </html>

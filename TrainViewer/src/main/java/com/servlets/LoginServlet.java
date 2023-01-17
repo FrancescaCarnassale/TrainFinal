@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.User.exceptions.UserNotFound;
 import com.beans.Alias;
@@ -38,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		RequestDispatcher dispatcher;
-		
+        HttpSession session = request.getSession();
 		String msg = "";
 			//bean login oppure bean user
 			Login login = new Login();
@@ -49,9 +50,13 @@ public class LoginServlet extends HttpServlet {
 			if(user != null) {
 				msg = "Benvenuto "+ user.getName()+"!";
 				request.setAttribute("user", user.getName());
-				//vanno segnate informazioni sulla sessione
+				request.setAttribute("role", user.getAdmin());
 				request.setAttribute("msg", msg);
-				dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/welcome.jsp");
+				
+				session.setAttribute("user", user.getName());
+				session.setAttribute("role", user.getAdmin());
+				
+				dispatcher = getServletContext().getRequestDispatcher("/");
 			}else{
 				msg="login non riuscita";
 				request.setAttribute("msg", msg);

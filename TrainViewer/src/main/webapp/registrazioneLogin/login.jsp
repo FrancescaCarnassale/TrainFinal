@@ -33,7 +33,7 @@
 		<div class="div-submit">
 					<input type="submit" class="input-submit" value="Login">
 					<br>
-					<a href="registrazione.jsp" class="text-center text-white" id="already-registered">Non sei registrato? FALLO!</a>
+					<a href="registrazione.jsp" class="text-center text-white" id="already-registered">Non sei registrato? Registrati!</a>
 		</div>
 		</form>
 		<c:set var="msg" value="${requestScope.msg}" />
@@ -41,6 +41,7 @@
         if("${msg}"!="")
             alert("${msg}");
         </script>
+       
        </div>
 </body>
 

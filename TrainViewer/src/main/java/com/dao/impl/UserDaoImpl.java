@@ -32,7 +32,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	public User getUser(Login login){
 		//User u = getSession().get(User.class, login.getEmail());
 		//controllare la pwd
-		User u = null;
+		//User u = null;
 		TypedQuery<User > mq = getSession().createQuery("from User u where u.email = :email and u.password = :password", User.class);
 		mq.setParameter("email", login.getEmail());
 		mq.setParameter("password", login.getPassword());
