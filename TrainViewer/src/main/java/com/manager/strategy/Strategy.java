@@ -21,9 +21,9 @@ public interface Strategy {
 	public Collection<Alias> getUnapprovedAliases();
 	public Collection<Leaderboard> getGameData();
 	public void updateGameData(String[] list);
-	//public String getUser(String email, String password) throws UserNotFound;
-	//public void setUser(String name, String password, String email, String admin);
 	public void approveAndCancelAlias(String[] checkAlias, String[] checkDelete, String[] newCountry);
 	public Collection<Train> getAllTrains();
 	public CheckChain getChain();
+	public void updateScore(Leaderboard leaderboardEntry);
+	public Leaderboard getOldScore(User user);
 }

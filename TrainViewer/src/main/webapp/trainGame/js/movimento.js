@@ -108,10 +108,6 @@ function incrementaDiff(){
 }
 function gameOver(){
 	stopEnemies();
-	while(username == null || username == "") {
-		 username = prompt("Enter your username to continue");
-	} 
-	alert("Hello " + username + " you scored: " + punteggio.innerHTML);
 }
 
 
