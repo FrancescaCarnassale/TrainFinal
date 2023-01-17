@@ -24,7 +24,7 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 <% 
         	String user = (String)session.getAttribute("user");
 			String role = (String)session.getAttribute("role");
-if (user != null && role == "admin") {%>
+if (user != null && role.equals("admin")) {%>
 
 <body class="bg-dark">
 

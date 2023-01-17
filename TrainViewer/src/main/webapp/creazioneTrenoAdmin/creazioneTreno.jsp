@@ -18,7 +18,7 @@
 <% 
         	String user = (String)session.getAttribute("user");
 			String role = (String)session.getAttribute("role");
-if (user != null && role == "train factory") {%>
+if (user != null && role.equals("train factory")) {%>
 <body>
 	<jsp:include page="../menuLogged.jsp"></jsp:include>
 	<script src="handlerCreazioneTreno.js"></script>

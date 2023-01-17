@@ -27,7 +27,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 <% 
         	String user = (String)session.getAttribute("user");
 			String role = (String)session.getAttribute("role");
-if (user != null && role == "train manager") {%>
+if (user != null && role .equals("train manager")) {%>
 <body>
 	<script src="handlerCreazioneTrip.js"></script>
 	<jsp:include page="../menuLogged.jsp"></jsp:include>
