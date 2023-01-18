@@ -24,7 +24,7 @@ CREATE TABLE user_train (
   user_mail VARCHAR(50) NOT NULL PRIMARY KEY,
   user_name VARCHAR(20) NOT NULL,
   user_password VARCHAR(20) NOT NULL,
-  user_role ENUM ('client','train manager','train factory', 'admin') NOT NULL
+  user_role ENUM ('client','conductor','factory', 'admin') NOT NULL
 );
 
 DROP TABLE IF EXISTS train;
