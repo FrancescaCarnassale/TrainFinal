@@ -39,7 +39,9 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		RequestDispatcher dispatcher;
+		
         HttpSession session = request.getSession();
+        
 		String msg = "";
 			//bean login oppure bean user
 			Login login = new Login();
