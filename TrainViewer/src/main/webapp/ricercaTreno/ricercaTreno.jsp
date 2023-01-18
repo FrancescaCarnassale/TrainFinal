@@ -84,10 +84,10 @@
 <c:set var="tripsJSP" value="${requestScope.trips}" />
 <table>
   <tr>
-    <th>Partenza</th>
-    <th>Arrivo</th>
-    <th>Orario di Partenza</th>
-    <th>Orario d'Arrivo</th>
+    <th>Partenza:</th>
+    <th>Arrivo:</th>
+    <th>Orario di Partenza:</th>
+    <th>Orario d'Arrivo:</th>
   </tr>
   <c:forEach items="${tripsJSP}" var="trip">
     <tr>
