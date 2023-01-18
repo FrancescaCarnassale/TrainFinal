@@ -1,5 +1,8 @@
 package com.beans;
-
+/** The class Trip refers to the table trip in the DB.
+ * It contains the train used for the trip, the country of departure and arrival, the time of departure and arrival
+ * and the seats available.
+ */
 import java.sql.Timestamp;
 import java.util.List;
 import com.TrenoFactory.treno.Carrozza;
