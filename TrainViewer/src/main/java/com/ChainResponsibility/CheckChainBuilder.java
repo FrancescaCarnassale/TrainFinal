@@ -1,5 +1,7 @@
 package com.ChainResponsibility;
-
+/** The class CheckChainBuilder creates the standard CheckChain that will be used throughout the web-page.
+ * It's a singleton.
+ *  **/
 import com.ChainResponsibility.algorithm.Contained;
 import com.ChainResponsibility.algorithm.Contains;
 import com.ChainResponsibility.algorithm.ContainsPartial;

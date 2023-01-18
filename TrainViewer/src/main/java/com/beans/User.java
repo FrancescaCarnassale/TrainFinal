@@ -1,5 +1,7 @@
 package com.beans;
-
+/** The class user refers to the table user_train in the DB.
+ * It is used to recognize the user and its role in the page.
+ */
 public class User implements Bean {
 	private String name, email, password;
 	private String role;
