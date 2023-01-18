@@ -107,7 +107,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
                     <div class="card-body">
                         <h5 class="card-title">Speciale A/R in giornata -70%</h5>
                         <p class="card-text">L'offerta è valida sui treni AV Frecciarossa, Frecciargento e sul Frecciabianca, su tutti i livelli di servizio. Puoi acquistare l'offerta fino al giorno precedente la partenza del treno.</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
                     <div class="card-body">
                         <h5 class="card-title">In montagna con le Frecce e Freccialink</h5>
                         <p class="card-text">L'inverno è il periodo perfetto per scoprire le più belle località di montagna: sai che puoi raggiungerle con le Frecce e Freccialink? Scopri i collegamenti e organizza la tua vacanza invernale!</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
                     <div class="card-body">
                         <h5 class="card-title">Wetaxi e Trenitalia: l'integrazione che semplifica il viaggio</h5>
                         <p class="card-text">Grazie alla collaborazione tra Trenitalia e Wetaxi la velocità e il comfort dei treni si unisce alla capillarità del servizio taxi per realizzare una vera e propria esperienza door-to-door.</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
                     <div class="card-body">
                         <h5 class="card-title">In montagna con Intercity rispetti l'ambiente e viaggi sicuro</h5>
                         <p class="card-text">Scegliere il treno è il primo passo per una vera vacanza rispettosa della natura e dei luoghi da visitare e per tutti gli appassionati ciclisti, che siano amatori o professionisti, con Intercity puoi anche trasportare la tua bicicletta montata.</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
                     <div class="card-body">
                         <h5 class="card-title">Cortina Link</h5>
                         <p class="card-text">Cortina Link è il servizio combinato treno + bus, grazie al quale Trenitalia e Dolomiti Bus ti offrono la possibilità di raggiungere Cortina d'Ampezzo con un unico biglietto direttamente dalla stazione di Calalzo.</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
                     <div class="card-body">
                         <h5 class="card-title">Garda Link</h5>
                         <p class="card-text">Garda Link è il servizio combinato treno + bus che, a partire dal 13 giugno, collega la stazione ferroviaria di Verona Porta Nuova ad alcune delle località più rinomate del Lago di Garda</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
