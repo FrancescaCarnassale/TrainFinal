@@ -9,7 +9,6 @@ public interface LeaderboardDao {
 	public void create(Leaderboard a);
 	public Leaderboard get(String leaderboard);
 	public Collection<Leaderboard> getGameData();
-	
 	public void updateScore(Leaderboard leaderboardEntry);
 	public Leaderboard getOldScore(User u);
 }

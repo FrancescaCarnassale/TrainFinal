@@ -109,21 +109,38 @@ function incrementaDiff(){
 		}
 	}
 }
-function gameOver(){
-	
-	giocoFinito=true;
-	stopEnemies();
-	var e = document.getElementById("paginaUpdate");
-	e.href = e.href + "?" + "punteggio=" +actualScore;
-	window.close();
-	window.open(e);
-}
+
+
 
 
 var punteggio = document.getElementById("punteggio");
 var actualScore = 0;
-
-
+function sleep(seconds) 
+{
+  var e = new Date().getTime() + (seconds * 1000);
+  while (new Date().getTime() <= e) {}
+}
+function submitPunteggio(){
+	
+	var e = document.getElementById("paginaUpdate");
+	e.href = e.href + "?" + "punteggio=" +actualScore;
+	//alert(e.href)
+	location.href = e.href;
+}
+function gameOver(){
+	
+	giocoFinito=true;
+	stopEnemies();
+	swal({
+		 title: "Clicca ok per inviare il tuo punteggio",
+    	type: "success"
+	}).then(function() {
+   var e = document.getElementById("paginaUpdate");
+	e.href = e.href + "?" + "punteggio=" +actualScore;
+	//alert(e.href)
+	location.href = e.href;
+});
+}
 function controllaCella(x, y) {
 	controllaGameOver(x, y);
 	const val = piano[x][y];

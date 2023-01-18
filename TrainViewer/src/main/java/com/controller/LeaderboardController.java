@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.io.IOException;
+
 import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,10 +35,9 @@ public class LeaderboardController {
 		Leaderboard l = null;
 		HttpSession session = request.getSession();
 		String user = (String)session.getAttribute("email");
-		System.out.println("stampo utente " + user + " e punteggio " + punteggio);
-		User u = userdao.get(user);
-		String punteggio2 = "10";
 		
+		User u = userdao.get(user);
+	
 		//recupero il punteggio precedente di utente
 		l = s.getOldScore(u);
 		
@@ -51,10 +52,8 @@ public class LeaderboardController {
 			l.setScore(Integer.valueOf(punteggio));
 			s.updateScore(l);
 		}
-		httpServletResponse.setHeader("Location", "/TrainViewer/trainGame/Game.jsp");
-	    httpServletResponse.setStatus(302);
 		
-		return "";
+		return "/TrainViewer/trainGame/Game";
 	}
 	
 }
