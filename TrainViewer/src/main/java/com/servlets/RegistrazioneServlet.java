@@ -1,8 +1,6 @@
 package com.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,12 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.beans.Alias;
 import com.beans.Login;
 import com.beans.User;
-import com.dao.impl.AliasDaoImpl;
 import com.manager.UserManager;
-import com.manager.strategy.StrategyDB;
+
+/**
+ * 
+ * The servlet will pass the data from registrazione.jsp to the controllers, to manage data for the db
+ *
+ */
 
 @WebServlet("/RegistrazioneServlet")
 public class RegistrazioneServlet extends HttpServlet {
@@ -32,24 +33,30 @@ public class RegistrazioneServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
+		
 		UserManager s = new UserManager();
-		String name = request.getParameter("name");
-		String password = request.getParameter("password");
-		String email = request.getParameter("email");
-		String role= "client";
 
+		//creation of the user object with the input parameter that will be use to create the record in the DB
 		User u = new User();
+		String name = request.getParameter("name");
 		u.setName(name);
+		String email = request.getParameter("email");
 		u.setEmail(email);
+		
+		String password = request.getParameter("password");
 		u.setPassword(password);
-		u.setRole(role);
+		u.setRole("client");
 		
 		Login check = new Login();
-		check.setEmail(email);
+		
+		check.setEmail(email); 
 		check.setPassword(password);
 		
 		RequestDispatcher dispatcher;
 		
+		//check if the user already exists. If not, new user will be added in the DB and will be displayed a successful message. 
+		//Otherwise an error message will be displayed
+	
 		if(s.getUser(check)== null) {
 			s.setUser(u);
 			request.setAttribute("msg", "Utente creato con successo!");

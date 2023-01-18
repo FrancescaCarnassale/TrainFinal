@@ -5,9 +5,6 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,31 +13,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ChainResponsibility.CheckChain;
-import com.ChainResponsibility.algorithm.Contained;
-import com.ChainResponsibility.algorithm.Contains;
-import com.ChainResponsibility.algorithm.ContainsPartial;
-import com.ChainResponsibility.algorithm.EqualsInputCS;
-import com.ChainResponsibility.algorithm.EqualsStandardCS;
-import com.ChainResponsibility.algorithm.JaroDistance;
-import com.ChainResponsibility.algorithm.Levenshtein;
-import com.TrenoFactory.builder.ConcreteBuilder;
-import com.TrenoFactory.builder.TrenoBuilder;
-import com.TrenoFactory.exceptions.NumeroPostiInEccesso;
-import com.TrenoFactory.exceptions.TrenoException;
-import com.TrenoFactory.factory.FRFactory;
-import com.TrenoFactory.factory.TNFactory;
-import com.TrenoFactory.factory.VagoneFactory;
-import com.TrenoFactory.treno.Treno;
 import com.beans.Alias;
 import com.beans.Country;
 import com.beans.Train;
 import com.beans.Trip;
-import com.dao.TripDao;
 import com.dao.impl.TripDaoImpl;
 import com.manager.AliasManager;
 import com.manager.TripManager;
-import com.manager.strategy.Strategy;
 import com.manager.strategy.StrategyDB;
+
+/**
+ * 
+ * The servlet will pass the data from creazioneTrip.jsp to the controllers, to manage data for the db
+ *
+ */
+
 @WebServlet("/CreazioneTripServlet")
 public class CreazioneTripServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -58,9 +45,13 @@ public class CreazioneTripServlet extends HttpServlet {
 		StrategyDB s = new StrategyDB();
 		AliasManager aliasManager = new AliasManager();
 		TripManager tr = new TripManager();
+		
+		//getting data from jsp
 		int idTrain = Integer.valueOf(request.getParameter("idTrain"));
 		String departure = request.getParameter("departure");
 		String arrive = request.getParameter("arrive");
+		
+		//converting input into Timestamp
 		SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
 		Date dateStart = null;
 		Date dateEnd = null;
@@ -68,17 +59,21 @@ public class CreazioneTripServlet extends HttpServlet {
 			dateStart = isoFormat.parse(request.getParameter("start"));
 			dateEnd = isoFormat.parse(request.getParameter("end"));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Timestamp timeStart = new Timestamp(dateStart.getTime());
 		Timestamp timeEnd = new Timestamp(dateEnd.getTime());
-		Map<String, List<String>> map = s.dataMap();
+		
+		//getting chain for check the input string following the chain of responsability pattern 
 		CheckChain checkChain=s.getChain();
+		//checking if from the input we retrive an official country
 		String partenza= checkChain.check(departure);
 		String arrivo= checkChain.check(arrive);
 		TripDaoImpl td = (TripDaoImpl)tr.getTripDao();
+		
+		//if partenza!=null the check has found the related country
 		if(partenza!=null) {
+			//if arrivo!=null the check has found the related country
 			if(arrivo!=null) {
 				Trip trip= new Trip();  
 				Train tp= td.getSession().get(Train.class,idTrain);
@@ -93,6 +88,7 @@ public class CreazioneTripServlet extends HttpServlet {
 				msg = "idTrain: " + idTrain+ " Departure: "+partenza + " Arrive: "+ arrivo
 						+" TimeDeparture: "+timeStart+" TimeArrrive: "+timeEnd + " Seats avaiable: " +tp.getSeats();
 			}
+			//arrivo has no correspondence
 			else {
 				Alias a= new Alias();
 				a.setAlias(arrive);
@@ -102,6 +98,7 @@ public class CreazioneTripServlet extends HttpServlet {
 				msg = "Arrivo non trovato!";
 			}
 		}
+		//partenza has no correspondence
 		else {
 			Alias a= new Alias();
 			a.setAlias(departure);
@@ -111,7 +108,6 @@ public class CreazioneTripServlet extends HttpServlet {
 			msg = "Partenza non trovata!";
 		}
 		
-		// CREAZIONE TRENO CORRETTO
 		request.setAttribute("msg", msg);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/creazioneTripAdmin/creazioneTrip.jsp");
 		dispatcher.forward(request, response);

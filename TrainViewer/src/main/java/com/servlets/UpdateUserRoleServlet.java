@@ -1,8 +1,6 @@
 package com.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,9 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.beans.Alias;
-import com.dao.impl.AliasDaoImpl;
 import com.manager.strategy.StrategyDB;
+
+/**
+ * 
+ * The servlet will pass the data from updateUserRole.jsp to the controllers, to manage data for the db
+ *
+ */
 
 @WebServlet("/UpdateUserRoleServlet")
 public class UpdateUserRoleServlet extends HttpServlet {
