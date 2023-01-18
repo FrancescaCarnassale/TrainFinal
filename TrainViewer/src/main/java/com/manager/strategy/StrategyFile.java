@@ -119,6 +119,7 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
 	public List<User> getUsersWithRole(String role) {
 		// TODO Auto-generated method stub

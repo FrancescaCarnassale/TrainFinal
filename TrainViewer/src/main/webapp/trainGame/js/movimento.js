@@ -108,14 +108,10 @@ function incrementaDiff(){
 }
 function gameOver(){
 	stopEnemies();
-	while(username == null || username == "") {
-		 username = prompt("Enter your username to continue");
-	} 
-	alert("Hello " + username + " you scored: " + punteggio.innerHTML);
 }
 
 
-var punteggio = document.getElementById("counter");
+var punteggio = document.getElementById("punteggio");
 var actualScore = 0;
 
 

@@ -43,12 +43,10 @@ public class StrategyDB implements Strategy{
 	//WIP serve l'RMI
 	static Session session = ConnectionToDB.getSession();
 	private AliasDao aliasDao = new AliasDaoImpl();
-	private UserDao userDao = new UserDaoImpl();
-	private LeaderboardDao LeaderboardDao = new LeaderboardDaoImpl();
 	private TrainDao trainDao= new TrainDaoImpl();
-	private TripDao tripDao= new TripDaoImpl();
 	private CountryDao countryDao= new CountryDaoImpl();
 	private LeaderboardDao leaderboardDao= new LeaderboardDaoImpl();
+	private UserDao userDao= new UserDaoImpl();
 	private static CheckChain checkStringSingleton;
 	
 	public String getAliasCountry(String input) {

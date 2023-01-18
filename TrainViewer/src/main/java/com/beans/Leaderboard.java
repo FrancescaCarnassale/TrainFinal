@@ -4,6 +4,7 @@ public class Leaderboard implements Bean {
     private int idScore;
 	private  User user;
     private int score;
+  
     public User getUser() {
         return user;
     }
