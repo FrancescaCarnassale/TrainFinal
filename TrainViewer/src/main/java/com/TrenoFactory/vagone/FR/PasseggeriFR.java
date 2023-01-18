@@ -2,6 +2,12 @@ package com.TrenoFactory.vagone.FR;
 
 import com.TrenoFactory.treno.Passeggeri;
 
+/**
+ * 
+ * This class represent the passenger wagon made by FrecciaRossa Factory
+ *
+ */
+
 public class PasseggeriFR implements Passeggeri{
 	
 	private final int numeroPostiFR = 100, postiDisabiliFR = 10, pesoFR = 250;

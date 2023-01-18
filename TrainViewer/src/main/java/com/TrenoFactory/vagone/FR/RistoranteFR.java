@@ -5,6 +5,12 @@ import java.util.List;
 
 import com.TrenoFactory.treno.Ristorante;
 
+/**
+ * 
+ * This class represent the restaurant wagon made by FrecciaRossa Factory
+ *
+ */
+
 public class RistoranteFR implements Ristorante {
 	
 	private final int numeroTavoliFR=200, pesoFR=200;

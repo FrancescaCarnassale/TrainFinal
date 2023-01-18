@@ -6,13 +6,19 @@ import com.TrenoFactory.treno.Ristorante;
 import com.TrenoFactory.vagone.TN.LocomotivaTN;
 import com.TrenoFactory.vagone.TN.PasseggeriTN;
 import com.TrenoFactory.vagone.TN.RistoranteTN;
-
+/**
+ * 
+ *This class, used for apply the factory pattern in the creation wagons process.
+ *This factory is specified for the TreNord brand
+ *
+ *
+ */
 public class TNFactory implements VagoneFactory {
 	
 private int massimoPostiTN=1000;
-	/*
-	 * SONO STATI USATI DUE COSTRUTTORI IN MODO DA AVERE UN CASO DI MASSIMO POSTI GIà DEFINITO E UNO DEFINIBILE DALL'UTENTE
-	 */
+/**
+ * There are two constructor for two use-cases. One for the seats setted by default and onther one for the seats setted by the user.
+ */
 	public TNFactory() {
 	}
 

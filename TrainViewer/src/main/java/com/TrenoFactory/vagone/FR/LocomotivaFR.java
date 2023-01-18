@@ -2,6 +2,12 @@ package com.TrenoFactory.vagone.FR;
 
 import com.TrenoFactory.treno.Locomotiva;
 
+/**
+ * 
+ * This class represent the locomotive made by FrecciaRossa Factory
+ *
+ */
+
 public class LocomotivaFR implements Locomotiva {
 
 	private final int potenzaFR=1000;

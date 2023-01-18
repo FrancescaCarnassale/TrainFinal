@@ -1,7 +1,11 @@
 package com.TrenoFactory.vagone.TN;
 
 import com.TrenoFactory.treno.Locomotiva;
-
+/**
+ * 
+ * This class represent the locomotive made by TreNord Factory
+ *
+ */
 public class LocomotivaTN implements Locomotiva {
 	
 	private final int potenzaTN=1000;
