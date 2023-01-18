@@ -57,7 +57,7 @@ if (user != null) {%>
 		</div>
 
 		<div class="container bg-dark" id="container-score" style="background: linear-gradient(to right, #574B90, #9E579D);">
-			<div id="counter"></div>
+			<div id="punteggio" name="punteggio"></div>
 			<h1 class="py-4 text-center text-white bg-dark" id="title-score" style="background: linear-gradient(to right, #574B90, #9E579D);">Best
 				Scores</h1>
 			<form action="GameServlet" method="GET">

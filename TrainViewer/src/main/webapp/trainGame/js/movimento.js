@@ -111,7 +111,7 @@ function gameOver(){
 }
 
 
-var punteggio = document.getElementById("counter");
+var punteggio = document.getElementById("punteggio");
 var actualScore = 0;
 
 

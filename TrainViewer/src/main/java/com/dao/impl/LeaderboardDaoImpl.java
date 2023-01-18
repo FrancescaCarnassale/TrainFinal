@@ -56,7 +56,7 @@ public class LeaderboardDaoImpl extends BaseDao implements LeaderboardDao{
 
 	@Override
 	public Leaderboard getOldScore(User u) {
-		TypedQuery<Leaderboard > mq = getSession().createQuery("from Leaderboard u where u.email = :email ", Leaderboard.class);
+		TypedQuery<Leaderboard > mq = getSession().createQuery("from Leaderboard u where u.user.email = :email ", Leaderboard.class);
 		mq.setParameter("email", u.getEmail());
 		
 		List<Leaderboard> ris = mq.getResultList();

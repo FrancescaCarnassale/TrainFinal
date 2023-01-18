@@ -25,21 +25,22 @@ public class LeaderboardController {
 			method= { RequestMethod.POST, RequestMethod.GET}
 	)
 	//nome parametro e id devono coincidere
-	public String updateScore(HttpServletRequest request, @WebParam String counter){
+	public String updateScore(HttpServletRequest request, @WebParam String punteggio){
+		String[] score = request.getParameterValues("punteggio");
 		UserDaoImpl userdao = new UserDaoImpl();
 		StrategyDB s = new StrategyDB();
 		Leaderboard l = null;
 		HttpSession session = request.getSession();
-		String user = (String)session.getAttribute("user");
-		System.out.println("stampo utente " + user);
+		String user = (String)session.getAttribute("email");
+		System.out.println("stampo utente " + user + " e punteggio " + score);
 		User u = userdao.get(user);
 		
 		
 		//recupero il punteggio precedente di utente
 		l = s.getOldScore(u);
 		
-		if(l ==  null || l.getScore() < Integer.valueOf(counter)) {
-			l.setIdScore(Integer.valueOf(counter));
+		if(l ==  null || l.getScore() < Integer.valueOf(punteggio)) {
+			l.setScore(Integer.valueOf(punteggio));
 			s.updateScore(l);
 		}
 		

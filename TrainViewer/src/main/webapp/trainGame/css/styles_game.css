@@ -152,7 +152,7 @@ audio {
 	100% {transform: rotate(0);}
 }
 
-#counter{
+#punteggio{
 	align: center;
 	font-size: 1.8em;
 	color: white;
