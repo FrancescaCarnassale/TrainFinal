@@ -24,7 +24,7 @@ public class TripManager {
 		return this.tripDao;
 	}
 	public Collection<Trip> getTripsWithDate(String departure, String arrive, Timestamp departureTime) {
-        TypedQuery<Trip> mq = tripDao.getSession().createQuery("Select t from Trip t where t.departure = :departure and t.arrive = :arrive and t.timeDeparture > : timeDeparture", Trip.class); 
+        TypedQuery<Trip> mq = tripDao.getSession().createQuery("Select t from Trip t where t.departure = :departure and t.arrive = :arrive and t.timeDeparture > : timeDeparture and t.seatsAvailable > 0", Trip.class); 
         CountryDaoImpl countryDao= new CountryDaoImpl();
         mq.setParameter("departure", countryDao.getSession().get(Country.class,departure));
         mq.setParameter("arrive", countryDao.getSession().get(Country.class,arrive));
@@ -32,5 +32,8 @@ public class TripManager {
         List<Trip> trips = mq.getResultList();
         Collection<Trip> c = trips;
         return c;
+	}
+	public boolean updateSeats(Trip trip, int seatsTaken) {
+		return tripDao.updateSeats(trip, seatsTaken);
 	}
 }

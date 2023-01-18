@@ -26,7 +26,7 @@ public class TripDaoImpl extends BaseDao implements TripDao{
 	@Override
 	public Trip get(int id) {
 		// TODO Auto-generated method stub
-		return (Trip) super.get(Trip.class, id);
+		return (Trip) super.getSession().get(Trip.class, id);
 	}
 
 	@Override
@@ -34,19 +34,26 @@ public class TripDaoImpl extends BaseDao implements TripDao{
 		this.create(tr);
 	}
 	
-
+	/** The function updates the number of seats when the user buys tickets 
+	 * for the relative Trip. If the number of seats the user wish to buy is > 
+	 * than the ones available, the function returns true. If not, returns false. **/
 	@Override
-	public void updateSeats(Trip t, int bookedSeats) {
-		Trip newTrip = new Trip();
-		newTrip.setIdTrip(t.getIdTrip());
-		newTrip.setIdTrain(t.getIdTrain());
-		newTrip.setArrive(t.getArrive());
-		newTrip.setDeparture(t.getDeparture());
-		newTrip.setTimeArrive(t.getTimeArrive());
-		newTrip.setTimeDeparture(t.getTimeDeparture());
-		newTrip.setSeatsAvailable(t.getSeatsAvailable()-bookedSeats);
-		super.update(newTrip);
+	public boolean updateSeats(Trip t, int bookedSeats) {
+		if(!checkSeats(t,bookedSeats)) {
+			return false;
+		}
+		t.setSeatsAvailable(t.getSeatsAvailable()-bookedSeats);
+		super.getSession().beginTransaction();
+		super.getSession().update(t);
+		super.getSession().getTransaction().commit();
+		return true;
 	}
+	
+	/** Checks that there are at least a number of seats available for booking. **/
+	@Override
+	public boolean checkSeats(Trip t, int bookedSeats) {
+	    return  t.getSeatsAvailable()>=bookedSeats;
+	  }
 	
 
 }

@@ -10,6 +10,7 @@ public interface TripDao {
 	public void create(Trip t);
 	public Trip get(int id);
 	public void setTrip(Trip Tr);
-	public void updateSeats(Trip t, int bookedSeats);
+	public boolean updateSeats(Trip t, int bookedSeats);
+	boolean checkSeats(Trip t, int bookedSeats);
 
 }

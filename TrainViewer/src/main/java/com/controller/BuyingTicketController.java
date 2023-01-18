@@ -61,15 +61,25 @@ public class BuyingTicketController {
 	public String buy(HttpServletRequest request, @WebParam int tripId, @WebParam int seats){
 		//CARICA LA NUOVA PAGINA OVE L'UTENTE COMPRA IL BIGLIETTO
 		HttpSession session = request.getSession();
+		String bought="";
 		String email=(String)session.getAttribute("email");
 		UserManager userManager= new UserManager();
 		TripManager tripManager= new TripManager();
-		Reservation res= new Reservation();
-		res.setIdTrip(tripManager.getTripDao().get(tripId));
-		res.setNumberTickets(seats);
-		res.setUser(userManager.getUserFromEmail(email));
-		ReservationManager resManager= new ReservationManager();
-		resManager.setReservation(res);
+		Trip t= tripManager.getTripDao().get(tripId);
+		if(!tripManager.updateSeats(t, seats)) {
+			bought="Acquisto non effettuato, il numero di biglietti che desidera "
+					+ "acquistare è superiore al numero disponibile per questo viaggio.";
+		}
+		else {
+			Reservation res= new Reservation();
+			res.setIdTrip(t);
+			res.setNumberTickets(seats);
+			res.setUser(userManager.getUserFromEmail(email));
+			ReservationManager resManager= new ReservationManager();
+			resManager.setReservation(res);
+			bought="Acquisto effettuato! Sei in partenza per "+ t.getArrive().getCountryName()+"!";
+		}
+		request.setAttribute("bought", bought);
 		return "index";
 	}
 }

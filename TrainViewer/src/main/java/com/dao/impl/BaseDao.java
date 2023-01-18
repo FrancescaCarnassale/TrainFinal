@@ -11,6 +11,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import com.beans.Bean;
+import com.beans.Trip;
 
 public abstract class BaseDao {
 	private Session session;
@@ -66,4 +67,5 @@ public abstract class BaseDao {
 		this.session.getTransaction().commit();
 		this.session.close();
 	}
+
 }
