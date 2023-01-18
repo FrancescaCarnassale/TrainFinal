@@ -24,7 +24,7 @@
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTrenoAdmin/creazioneTreno.jsp">CreazioneTreno</a>
         	        </li>      	                	      
         	                	        <li class="nav-item">
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/ricercaTreno/ricercaTreno.jsp">Ricerca Treno</a>
+        	          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTripAdmin/creazioneTrip.jsp">Crazione Trip</a>
         	        </li>
         	      </ul>
         	    </div>
@@ -87,7 +87,7 @@
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTrenoAdmin/creazioneTreno.jsp">CreazioneTreno</a>
         	        </li>
         	                	        <li class="nav-item">
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/ricercaTreno/ricercaTreno.jsp">Ricerca Treno</a>
+        	          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTripAdmin/creazioneTrip.jsp">Creazione Trip</a>
         	        </li>
         	      </ul>
         	    </div>

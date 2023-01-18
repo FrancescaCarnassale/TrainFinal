@@ -16,12 +16,12 @@ body {
 	margin-top: 50px !important;
 }
 
-#creazioneTrip-form {
+#ricercaTreno-form {
     display: flex;
     justify-content: space-between;
 }
 
-#creazioneTrip-form input, #creazioneTrip-form label, #creazioneTrip-form select {
+#ricercaTreno-form input, #ricercaTreno-form label, #ricercaTreno-form select {
     width: 100%;
     margin: 5px;
 }
@@ -90,6 +90,17 @@ and
 	.card2 {
 		width: 50%
 	}
+}
+
+.container-form-carousel{
+	position: absolute; 
+	display: inline-block; 
+	bottom:50px; left:-80%; 
+	width: 1080px; 
+	background: linear-gradient(to right, #574B90, #9E579D);
+	height:80px; 
+	border-radius:20px; 
+	padding: 15px
 }
 
 .btn {
