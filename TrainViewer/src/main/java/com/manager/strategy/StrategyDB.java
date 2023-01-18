@@ -87,10 +87,7 @@ public class StrategyDB implements Strategy{
 	}
 
 
-	@Override
-	public void updateGameData(String[] list) {
-		leaderboardDao.updateGameData(list);
-	}
+	
 
 
 	@Override

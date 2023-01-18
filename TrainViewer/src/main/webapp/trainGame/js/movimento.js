@@ -1,11 +1,13 @@
 //gestione dell'evento onkeydown:
 function checkKeyDown(e) {
 	e = e || window.event;
-	switch (e.keyCode) {
-		case 39: destra(); break;
-		case 40: giu(); break;
-		case 37: sinistra(); break;
-		case 38: su(); break;
+	if(!giocoFinito){
+		switch (e.keyCode) {
+			case 39: destra(); break;
+			case 40: giu(); break;
+			case 37: sinistra(); break;
+			case 38: su(); break;
+		}
 	}
 	//alert ("The Unicode character code is (key down): " + e.keyCode);   
 }
@@ -13,12 +15,13 @@ function checkKeyDown(e) {
 // gestione dell'evento onkey press:
 function checkKeyPress(event) {
 	var chCode = ('charCode' in event) ? event.charCode : event.keyCode;
-
-	switch (chCode) {
-		case 100: destra(); break;
-		case 115: giu(); break;
-		case 97: sinistra(); break;
-		case 119: su(); break;
+	if(!giocoFinito){
+		switch (chCode) {
+			case 100: destra(); break;
+			case 115: giu(); break;
+			case 97: sinistra(); break;
+			case 119: su(); break;
+		}
 	}
 	//alert ("The Unicode character code is (key press): " + chCode);   
 }
@@ -29,7 +32,7 @@ Audio.prototype.rewindAndPlay = function () {
 	this.currentTime = 0.0;
 	this.play();
 }
-
+var giocoFinito=false;
 var username = null;
 var om1 = new OggettoInMovimento(3, 0, 10, false, "nemico1");
 var om2 = new OggettoInMovimento(0, 9, 10, true, "nemico4");
@@ -107,7 +110,13 @@ function incrementaDiff(){
 	}
 }
 function gameOver(){
+	
+	giocoFinito=true;
 	stopEnemies();
+	var e = document.getElementById("paginaUpdate");
+	e.href = e.href + "?" + "punteggio=" +actualScore;
+	window.close();
+	window.open(e);
 }
 
 
@@ -137,12 +146,12 @@ function controllaCella(x, y) {
 		case NEMICO:
 			nemico.rewindAndPlay();
 			gameOver();
-			alert("Hai investito un passante!");
+			
 			return false;
 			break;
 		default:
 			if (val  >= 1 && val <= testa-1) { // toccato il serpente
-				//alert("Ti sei mangiato le mani, eheheh");
+				
 				gameOver();
 				return false;
 			}

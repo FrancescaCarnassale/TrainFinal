@@ -2,6 +2,7 @@ package com.controller;
 
 import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -25,30 +26,35 @@ public class LeaderboardController {
 			method= { RequestMethod.POST, RequestMethod.GET}
 	)
 	//nome parametro e id devono coincidere
-	public String updateScore(HttpServletRequest request, @WebParam String punteggio){
-		String[] score = request.getParameterValues("punteggio");
+	public String updateScore(HttpServletRequest request,HttpServletResponse httpServletResponse, @WebParam String punteggio){
+		
 		UserDaoImpl userdao = new UserDaoImpl();
 		StrategyDB s = new StrategyDB();
 		Leaderboard l = null;
 		HttpSession session = request.getSession();
 		String user = (String)session.getAttribute("email");
-		System.out.println("stampo utente " + user + " e punteggio " + score);
+		System.out.println("stampo utente " + user + " e punteggio " + punteggio);
 		User u = userdao.get(user);
-		
+		String punteggio2 = "10";
 		
 		//recupero il punteggio precedente di utente
 		l = s.getOldScore(u);
 		
-		if(l ==  null || l.getScore() < Integer.valueOf(punteggio)) {
+		if(l ==  null ) {
+			l = new Leaderboard();
+			l.setScore(0);
+		}
+		
+		//se il punteggio precedente e' minore di quello attuale aggiorno
+		if(l.getScore() < Integer.valueOf(punteggio)) {
+			l.setUser(u);
 			l.setScore(Integer.valueOf(punteggio));
 			s.updateScore(l);
 		}
+		httpServletResponse.setHeader("Location", "/TrainViewer/trainGame/Game.jsp");
+	    httpServletResponse.setStatus(302);
 		
-		
-		
-		String msg = "Il tuo punteggio è stato aggiornato!";
-		request.setAttribute("msg", msg);
-		return "admin";
+		return "";
 	}
 	
 }
