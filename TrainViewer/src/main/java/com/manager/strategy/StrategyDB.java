@@ -127,5 +127,14 @@ public class StrategyDB implements Strategy{
 	public void updateUserRole(String[] email, String[] newRoles) {
 		userDao.updateUsers(email, newRoles);
 	}
+	@Override
+    public void updateScore(Leaderboard leaderboardEntry) {
+        // TODO Auto-generated method stub
+        leaderboardDao.updateScore(leaderboardEntry);
+    }
+	@Override
+    public Leaderboard getOldScore(User user) {
+        return leaderboardDao.getOldScore(user);
 
+    }
 }

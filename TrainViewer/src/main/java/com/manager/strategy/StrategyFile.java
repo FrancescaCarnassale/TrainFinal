@@ -127,5 +127,15 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void updateScore(Leaderboard leaderboardEntry) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Leaderboard getOldScore(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
