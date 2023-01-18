@@ -1,19 +1,13 @@
 package com.dao.impl;
 
 import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-
 import javax.persistence.TypedQuery;
-
-import org.hibernate.query.NativeQuery;
-
-import com.beans.Alias;
-import com.beans.Leaderboard;
 import com.beans.Train;
-import com.dao.AliasDao;
 import com.dao.TrainDao;
 
+/**
+ * Class to manage train manipulation of Train DB
+ */
 public class TrainDaoImpl extends BaseDao implements TrainDao {
 	public void create(Train a) {
 		super.create(a);
@@ -29,7 +23,9 @@ public class TrainDaoImpl extends BaseDao implements TrainDao {
 		this.create(t);
 		
 	}
-
+	/**
+	 * Retrieves all the trains from DB
+	 */
 	@Override
 	public Collection<Train> getAllTrains() {
 		TypedQuery<Train > mq = getSession().createQuery("Select t From Train t", Train.class);

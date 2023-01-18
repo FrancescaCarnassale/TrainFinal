@@ -11,6 +11,9 @@ import com.beans.User;
 import com.dao.ReservationDao;
 import com.dao.TripDao;
 
+/**
+ * Class to manage reservation manipulation of Reservation DB
+ */
 public class ReservationDaoImpl extends BaseDao implements ReservationDao {
 
 	
@@ -19,7 +22,10 @@ public class ReservationDaoImpl extends BaseDao implements ReservationDao {
 	public void create(Reservation reservation) {
 		super.create(reservation);
 	}
-
+	
+	/**
+	 * Creates a reservation of a trip for a user and a number of tickets from DB
+	 */
 	@Override
 	public void setReservation(Trip trip, User user, int tickets) {
 		TripDao tripDao = new TripDaoImpl();
@@ -31,6 +37,9 @@ public class ReservationDaoImpl extends BaseDao implements ReservationDao {
 		this.create(reservation);
 	}
 	
+	/**
+	 * Gets reservations from a trip from a DB
+	 */
 	@Override
 	public Collection<Reservation> getReservationsForTrip(Trip trip) {
 		
@@ -41,6 +50,9 @@ public class ReservationDaoImpl extends BaseDao implements ReservationDao {
         return c;
 	}
 
+	/**
+	 * Gets reservations from a user from a DB
+	 */
 	@Override
 	public Collection<Reservation> getReservationsForUser(User user) {
 		TypedQuery<Reservation> mq = getSession().createQuery("SELECT r FROM Reservation r WHERE r.usermail.email = :usermail", Reservation.class);
@@ -50,14 +62,10 @@ public class ReservationDaoImpl extends BaseDao implements ReservationDao {
         Collection<Reservation> c = reservations;
         return c;
 	}
-
+	
 	@Override
 	public void deleteReservation(Reservation reservation) {
-		/*TypedQuery<Reservation> query = getSession().createQuery("DELETE FROM Reservation r WHERE r.idReservation = :idReservation", Reservation.class);
-		query.setParameter("idReservation", reservation.getIdReservation());
-		query.executeUpdate();*/
 		super.delete(reservation);
-		
 	}
 	
 

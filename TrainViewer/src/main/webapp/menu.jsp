@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <!-- componente HTML da mostrare se loggati -->
+    <!-- HTML menu component to be shown if the user is not logged in -->
         	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         	  <div class="container-fluid">
         	    <a class="navbar-brand" href="/TrainViewer">TrainViewer</a>

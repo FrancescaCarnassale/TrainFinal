@@ -4,7 +4,7 @@
 	String role = (String)session.getAttribute("role");
 	%>
 	 <c:set var = "role" scope = "session" value = "${role}"/>
-    <!-- componente HTML da mostrare se loggati -->
+    <!-- HTML menu component to be shown if user is logged in, display varies depending on user role -->
         	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         	  <div class="container-fluid">
         	    <a class="navbar-brand" href="/TrainViewer">TrainViewer</a>

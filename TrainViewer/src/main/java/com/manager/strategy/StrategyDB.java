@@ -1,10 +1,7 @@
 package com.manager.strategy;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
+
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -15,14 +12,11 @@ import com.dao.AliasDao;
 import com.dao.CountryDao;
 import com.dao.LeaderboardDao;
 import com.dao.TrainDao;
-import com.dao.TripDao;
 import com.dao.UserDao;
 import com.dao.impl.LeaderboardDaoImpl;
 import com.dao.impl.TrainDaoImpl;
-import com.dao.impl.TripDaoImpl;
 import com.dao.impl.UserDaoImpl;
 import com.dao.impl.AliasDaoImpl;
-import com.User.exceptions.UserNotFound;
 import com.dao.impl.CountryDaoImpl;
 import com.ChainResponsibility.CheckChain;
 import com.ChainResponsibility.algorithm.Contained;
@@ -36,11 +30,13 @@ import com.beans.Alias;
 import com.beans.Country;
 import com.beans.Leaderboard;
 import com.beans.Train;
-import com.beans.Trip;
 import com.beans.User;
 
+/**
+ * Strategy that manage all the data and calls from DB
+ */
+
 public class StrategyDB implements Strategy{
-	//WIP serve l'RMI
 	static Session session = ConnectionToDB.getSession();
 	private AliasDao aliasDao = new AliasDaoImpl();
 	private TrainDao trainDao= new TrainDaoImpl();
@@ -49,30 +45,44 @@ public class StrategyDB implements Strategy{
 	private UserDao userDao= new UserDaoImpl();
 	private static CheckChain checkStringSingleton;
 	
+	
+	/**
+	 * Gets a country from an alias in input
+	 */
 	public String getAliasCountry(String input) {
 	    String query = "select nome_paese from alias where alias_paese = " + input;
 	    NativeQuery<String> q = session.createSQLQuery(query);
 	    return q.getSingleResult();
 	}	
 	
+	/**
+	 * Returns the data map of the countries
+	 */
 	public Map<String,List<String>> dataMap() {
        return countryDao.dataMap();
     }
 	
 	
+	/**
+	 * Gets a set of country names
+	 */
 	@Override
 	public Set<String> getCountryNames() {
 		// TODO Auto-generated method stub
 		return countryDao.dataMap().keySet();
 	}
 
-
+	/**
+	 * Gets all the countries
+	 */
 	@Override
 	public Collection<Country> getAllCountries() {
 		return countryDao.getAllCountries();
 	}
 
-
+	/**
+	 * Gets all the unapproved aliases
+	 */
 	@Override
 	public Collection<Alias> getUnapprovedAliases() {
 		return aliasDao.getUnapprovedAliases();
@@ -80,22 +90,26 @@ public class StrategyDB implements Strategy{
 
 
 
-
+	/**
+	 * Gets the leadboard data
+	 */
 	@Override
 	public Collection<Leaderboard> getGameData() {
 		return leaderboardDao.getGameData();
 	}
 
 
-	
-
-
+	/**
+	 *  Gets all the builded trains
+	 */
 	@Override
 	public Collection<Train> getAllTrains() {
 		return trainDao.getAllTrains();
 	}
 
-
+	/**
+	 *  gets the check chain method
+	 */
 	@Override
 	public CheckChain getChain() {
 		if (checkStringSingleton == null) {
@@ -111,26 +125,42 @@ public class StrategyDB implements Strategy{
         return checkStringSingleton;
 	}
 
+	/**
+	 *  recalls the approve and cancel alias
+	 */
 	@Override
 	public void approveAndCancelAlias(String[] checkAlias, String[] checkDelete, String[] newCountry) {
 		// TODO Auto-generated method stub
 		aliasDao.approveAliasAndCancel(checkAlias, checkDelete, newCountry);
 	}
 
+	/**
+	 * Gets list of users with specific role
+	 */
 	@Override
 	public List<User> getUsersWithRole(String role) {
 		return userDao.getUsersWithRole(role);
 	}
-
+	/**
+	 * Updates list of users with the new specific role
+	 */
 	@Override
 	public void updateUserRole(String[] email, String[] newRoles) {
 		userDao.updateUsers(email, newRoles);
 	}
+	
+	/**
+	 * Updates score
+	 */
 	@Override
     public void updateScore(Leaderboard leaderboardEntry) {
         // TODO Auto-generated method stub
         leaderboardDao.updateScore(leaderboardEntry);
     }
+	
+	/**
+	 * Retrieves old score
+	 */
 	@Override
     public Leaderboard getOldScore(User user) {
         return leaderboardDao.getOldScore(user);

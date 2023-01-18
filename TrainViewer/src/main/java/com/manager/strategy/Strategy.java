@@ -5,13 +5,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.User.exceptions.UserNotFound;
 import com.ChainResponsibility.CheckChain;
 import com.beans.Alias;
 import com.beans.Country;
 import com.beans.Leaderboard;
 import com.beans.Train;
 import com.beans.User;
+
+/**
+ * Interface of Strategy to manage the data from database or  a file
+ */
 
 public interface Strategy {
 	public String getAliasCountry(String alias);
@@ -20,7 +23,6 @@ public interface Strategy {
 	public Collection<Country> getAllCountries();
 	public Collection<Alias> getUnapprovedAliases();
 	public Collection<Leaderboard> getGameData();
-
 	public void approveAndCancelAlias(String[] checkAlias, String[] checkDelete, String[] newCountry);
 	public Collection<Train> getAllTrains();
 	public CheckChain getChain();

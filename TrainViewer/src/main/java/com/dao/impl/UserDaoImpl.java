@@ -2,13 +2,13 @@ package com.dao.impl;
 
 import java.util.List;
 import javax.persistence.TypedQuery;
-
-import com.beans.Alias;
-import com.beans.Country;
 import com.beans.Login;
 import com.beans.User;
 import com.dao.UserDao;
 
+/**
+ * Class to manage user manipulation of User database table
+ */
 public class UserDaoImpl extends BaseDao implements UserDao {
 	public void create(User a) {
 		super.create(a);
@@ -23,12 +23,11 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		this.create(user);
 	}
 
-
+	/**
+	 * Gets the user email and password for a login from database table
+	 */
 	@Override
 	public User getUser(Login login){
-		//User u = getSession().get(User.class, login.getEmail());
-		//controllare la pwd
-		//User u = null;
 		TypedQuery<User > mq = getSession().createQuery("from User u where u.email = :email and u.password = :password", User.class);
 		mq.setParameter("email", login.getEmail());
 		mq.setParameter("password", login.getPassword());
@@ -46,7 +45,9 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		super.update(user);
 		
 	}
-
+	/**
+	 * Retrieves all the users with set role
+	 */
 	@Override
 	public List<User> getUsersWithRole(String role) {
 		TypedQuery<User > mq = getSession().createQuery("from User u where u.role = :role", User.class);
@@ -55,7 +56,9 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	}
 	
 	
-
+	/**
+	 * Changes the user's role.
+	 */
 	@Override
 	public void updateUsers(String[] email, String[] newRoles) {
 		getSession().beginTransaction();

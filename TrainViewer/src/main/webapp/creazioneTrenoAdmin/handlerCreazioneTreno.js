@@ -5,6 +5,6 @@ function handleSubmit() {
   const produttore = form.elements.produttore.value;
   const serialNumber = form.elements.serialNumber.value;
 
-  // Se i controlli sono superati, inviare i dati al server
+  // If controls are passed , send data to server
   const data = { produttore, serialNumber};
 }

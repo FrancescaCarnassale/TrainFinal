@@ -13,6 +13,7 @@ import com.manager.strategy.StrategyDB;
 @Controller
 @RequestMapping(value = "/aliasApproving", method = RequestMethod.GET)
 public class AdminController {
+	
 	/**
 	 * The /approve controller approves or deletes the list of aliases selected by the admin.
 	 * @param request 

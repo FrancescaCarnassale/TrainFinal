@@ -4,7 +4,6 @@ import java.io.File;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +18,10 @@ import com.beans.Leaderboard;
 import com.beans.Train;
 import com.beans.User;
 
+/**
+ * Strategy that manage the map data of country list from a file
+ */
+
 public class StrategyFile implements Strategy {
 	
 	private static Set<String> standards;
@@ -28,7 +31,9 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	//NON HO UN DB
+	
+	//Find the file in csv format. Add element to a map for every country in the list
+	
 	@Override
 	public Map<String, List<String>> dataMap() {
         HashMap<String, List<String>> map = new HashMap<String, List<String>>();
@@ -48,7 +53,6 @@ public class StrategyFile implements Strategy {
 				}
 				else {
 					String[] dati=current.trim().split(","); 
-					//dati[0] contiene il country, dati[1] contiene l'alias
 					List<String> x= new ArrayList<String>();
 					x.add(dati[1]);
 					map.put(dati[0], x);

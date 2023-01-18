@@ -5,7 +5,6 @@ import com.dao.CountryDao;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +14,9 @@ import org.hibernate.query.NativeQuery;
 
 import com.beans.Country;
 
+/**
+ * Class to manage country manipulation of Country DB
+ */
 public class CountryDaoImpl extends BaseDao implements CountryDao {
 	public void create(Country c) {
 		super.create(c);
@@ -24,7 +26,9 @@ public class CountryDaoImpl extends BaseDao implements CountryDao {
 	public Country get(String countryName) {
 		return (Country) super.get(Country.class, countryName);
 	}
-
+	/**
+	 * Gets all the countries in the list and set it in a Map from DB
+	 */
 	@Override
 	public Map<String, List<String>> dataMap() {
 		 	NativeQuery<String> q = getSession().createSQLQuery("Select country_name From country");
@@ -42,7 +46,10 @@ public class CountryDaoImpl extends BaseDao implements CountryDao {
 	        }
 	        return map;
 	}
-
+	
+	/**
+	 * Gets all the countries in a collection from DB
+	 */
 	@Override
 	public Collection<Country> getAllCountries() {
 		

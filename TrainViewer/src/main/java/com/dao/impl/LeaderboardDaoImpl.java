@@ -1,20 +1,16 @@
 package com.dao.impl;
 
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
-
-import org.hibernate.query.NativeQuery;
-
-import com.beans.Alias;
-import com.beans.Country;
 import com.beans.Leaderboard;
 import com.beans.User;
-import com.dao.AliasDao;
 import com.dao.LeaderboardDao;
 
+/**
+ * Class to manage leadboard manipulation of Leadboard DB
+ */
 public class LeaderboardDaoImpl extends BaseDao implements LeaderboardDao{
 	public void create(Leaderboard a) {
 		super.create(a);
@@ -25,6 +21,9 @@ public class LeaderboardDaoImpl extends BaseDao implements LeaderboardDao{
 		return (Leaderboard) super.get(Leaderboard.class, leaderboard);
 	}
 	
+	/**
+	 * Gets a leadboard list in a collection from DB
+	 */
 	@Override
 	public Collection<Leaderboard> getGameData() {
 	
@@ -33,12 +32,17 @@ public class LeaderboardDaoImpl extends BaseDao implements LeaderboardDao{
         return ld;
 	}
 	
-	
+	/**
+	 * Updates the data of the leaderboard score from DB
+	 */
 	@Override
 	public void updateScore(Leaderboard leaderboardEntry) {
 		this.create(leaderboardEntry);
 	}
-
+	
+	/**
+	 * Retrieves the old score of the user
+	 */
 	@Override
 	public Leaderboard getOldScore(User u) {
 		TypedQuery<Leaderboard > mq = getSession().createQuery("from Leaderboard u where u.user.email = :email ", Leaderboard.class);

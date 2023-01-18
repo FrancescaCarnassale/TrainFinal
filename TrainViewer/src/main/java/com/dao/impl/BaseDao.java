@@ -1,7 +1,5 @@
 package com.dao.impl;
 
-import java.io.Serializable;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -11,8 +9,10 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import com.beans.Bean;
-import com.beans.Trip;
 
+/**
+ * Class to manage all the beans in the session. The class allows the connection between beans and dao impl java files
+ */
 public abstract class BaseDao {
 	private Session session;
 	

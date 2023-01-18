@@ -1,20 +1,15 @@
 package com.dao.impl;
 
 import com.dao.AliasDao;
-
 import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-
 import javax.persistence.TypedQuery;
-
 import org.hibernate.query.NativeQuery;
-
 import com.beans.Alias;
-import com.beans.Bean;
 import com.beans.Country;
-import com.beans.Leaderboard;
 
+/**
+ * Class to manage alias manipulation of Alias database table
+ */
 public class AliasDaoImpl extends BaseDao implements AliasDao {
 	
 	public void create(Alias a) {
@@ -26,6 +21,9 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 		return (Alias) super.get(Alias.class, aliasCountry);
 	}
 	
+	/**
+	 * Gets unapproved aliases from DB
+	 */
 	@Override
 	public Collection<Alias> getUnapprovedAliases() {
 	
@@ -34,6 +32,9 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
         return a;
 	}
 	
+	/**
+	 * Updates the alias status or delete it from the alias DB
+	 */
 	@Override
 	public void approveAliasAndCancel(String[] approve, String[] cancel, String[] newCountries) {
 		    getSession().beginTransaction();
@@ -60,7 +61,9 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 		    
 	}
 	
-	
+	/**
+	 * Gets the country of respective input alias from DB
+	 */
 	@Override
 	public String getAliasCountry(String input) {
 	    String query = "select nome_paese from alias where alias_paese = " + input;

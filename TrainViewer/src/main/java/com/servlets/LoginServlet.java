@@ -40,30 +40,30 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		RequestDispatcher dispatcher;
-        HttpSession session = request.getSession();
-		Login login = new Login();
-		login.setEmail(email);
-		login.setPassword(password);
 		
-		//If the data from user are correct, the user will be not null. Otherwise will be null
-		User user = us.getUser(login);
-		
-		if(user != null) {
-			String msg = "Benvenuto "+ user.getName()+"!";
-			request.setAttribute("user", user.getName());
-			request.setAttribute("role", user.getRole());
-			request.setAttribute("msg", msg);
-			
-			//settings attributes in the session to maintain the user logged 
-			session.setAttribute("user", user.getName());
-			session.setAttribute("role", user.getRole());
-			session.setAttribute("email", user.getEmail());
-			dispatcher = getServletContext().getRequestDispatcher("/");
-		}else{
-			String msg="Email o password errati";
-			request.setAttribute("msg", msg);
-			dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
-		}
+        HttpSession session = request.getSession();     
+		String msg = "";
+			//bean login oppure bean user
+			Login login = new Login();
+			login.setEmail(email);
+			login.setPassword(password);
+			User user = us.getUser(login);
+			if(user != null) {
+				msg = "Benvenuto "+ user.getName()+"!";
+				request.setAttribute("user", user.getName());
+				request.setAttribute("role", user.getRole());
+				request.setAttribute("msg", msg);
+				
+				session.setAttribute("user", user.getName());
+				session.setAttribute("role", user.getRole());
+				session.setAttribute("email", user.getEmail());
+				
+				dispatcher = getServletContext().getRequestDispatcher("/");
+			}else{
+				msg="Email o password errati";
+				request.setAttribute("msg", msg);
+				dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
+			}
 	
 		dispatcher.forward(request, response);
 	}

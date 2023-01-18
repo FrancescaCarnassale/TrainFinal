@@ -7,6 +7,9 @@ Strategy db = new StrategyDB();
 Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 Collection<?> countries = (Collection<?>) db.getAllCountries();
 %>
+
+<!-- Admin page where the user can add aliases to the database or delete them -->
+
 <!DOCTYPE html>
 <html>
 <head>

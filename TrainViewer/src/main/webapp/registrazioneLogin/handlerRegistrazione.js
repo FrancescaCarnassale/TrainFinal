@@ -1,11 +1,11 @@
-
+/**Handler to check if registration is correct */
 function handleSubmit() {
 	var form = document.getElementById('registration-form');
 
   const name = form.elements.name.value;
   const email = form.elements.email.value;
   const password = form.elements.password.value;
-  // Eseguire i controlli qui
+  // Controls
   if (name.length < 4) {
     alert("Il nome deve essere lungo almeno 4 caratteri");
     return false;;
@@ -20,6 +20,6 @@ function handleSubmit() {
     alert("La password deve essere lunga almeno 8 caratteri");
     return false;
   }
-  // Se i controlli sono superati, inviare i dati al server
+  // If controls are passed , send data to server
   const data = { name, email, password };
 }
