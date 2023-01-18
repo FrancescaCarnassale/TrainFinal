@@ -1,11 +1,6 @@
 package com.ChainResponsibility;
 
-import com.dao.AliasDao;
-import com.dao.CountryDao;
-import com.dao.impl.AliasDaoImpl;
-import com.dao.impl.CountryDaoImpl;
 import com.manager.strategy.Strategy;
-import com.beans.Alias;
 /** The class CheckChain is used to create the final chain that will be used as a word-finder in the project.
  * Its use is to find the most-similar word to the one inserted by the user using different algorithms.
  * Every chain is composed of multiple chains that are connected through the nextChain field. 
@@ -14,8 +9,6 @@ import com.beans.Alias;
 public abstract class CheckChain {
 	private CheckChain nextChain;
 	private static Strategy strategy;
-	private AliasDao dao = new AliasDaoImpl();
-	private CountryDao cdao = new CountryDaoImpl();	
 	
 	public void setNextChain(CheckChain nextChain) {
 		this.nextChain=nextChain;
@@ -31,19 +24,12 @@ public abstract class CheckChain {
 	public final String check(String input) {
 		String result = checkInternal(input);
 		if(result != null) {
-			/*Alias a = new Alias();
-			a.setAlias(input);
-			a.setCountry(cdao.get(result));
-			a.setApproved(false);
-			dao.create(a);
-			System.out.println("Il risultato è "+result);*/
 			return result;
 		}
 		//non ho trovato la soluzione, procedo col successivo se c'è
 		if (nextChain!= null)
 			return this.nextChain.check(input);
 		else {
-			//strategy.addAliasUnknown(input);
         	return null;
 			}
 		}
