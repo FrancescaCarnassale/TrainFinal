@@ -14,12 +14,25 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+	crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
 <title>Ricerca Trip</title>
 </head>
-<body>
+<body class="body-searchTrain" style="background: rgb(2, 0, 36);background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(224, 85, 255, 1) 0%, rgba(123, 0, 255, 1) 100%);">
 	<jsp:include page="../menu.jsp"></jsp:include>
-	 <div align="center">
-	<form id="ricercaTreno-form" action = "/TrainViewer/buyingTickets/search" method = "POST" >
+    <div align="center" class="card2" style="border-radius: 20px;margin-left: auto;margin-right: auto; margin-top: 50px;background-color: rgba(0, 0, 0, 0.5);height: 100%;width: 60%;">	
+    <h1 class="py-4 text-center text-white">Ricerca Treno</h1>
+	<form id="ricercaTreno-form" action = "/TrainViewer/buyingTickets/search" method = "POST" style="display: flex;flex-direction: column;align-items: center;justify-content: center; color:white">
+	<div>
 		PARTENZA:
 		<select name="departures" id="departures">
 		<% 
@@ -51,6 +64,7 @@
 		}
 		%>
 		</select>
+		</div>
 		<%
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
 		Date today = new Date();

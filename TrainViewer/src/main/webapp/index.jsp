@@ -30,7 +30,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
     <div align="center" style="position: absolute; display: inline-block; bottom:50px; left:-80%; width: 1080px;">
 		<form id="creazioneTrip-form" onsubmit="return handleSubmit()"
 			action="/TrainViewer/CreazioneTripServlet" method="POST">
-			<select name="idTrain" id="idTrain" style="width: 150px;">
+			<select name="idTrain" id="idTrain" style="width: 150px; height:30px">
 				<%
 				if (trains != null && trains.size() != 0) {
 					Iterator<?> it = trains.iterator();
@@ -172,7 +172,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
    			<img src="https://knowledge.wharton.upenn.edu/wp-content/uploads/2019/01/country-flags-rankings.jpg" class="img-fluid w-100" alt="Immagine" style="margin: 5% 0px 5% 0px; height: 28rem;">
    			  <div class="bg-black" style="width:100%;height:28rem; position:absolute;opacity:0.5;z-index:0;"></div>
             <h2 class="position-absolute" style="margin-bottom: 10%; color:white">Scopri i paesi in cui puoi viaggiare</h2>
-            <button type="button" class="position-absolute btn btn-dark btn-lg" onClick="location.href='/TrainViewer/countryList.jsp'">Scopri di più</button>
+            <button type="button" class="position-absolute btn btn-dark btn-lg" onClick="location.href=#">Scopri di più</button>
         </div>
       </div>
     </div>
