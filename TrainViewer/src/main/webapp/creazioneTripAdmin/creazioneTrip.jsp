@@ -7,7 +7,7 @@
 Strategy db = new StrategyDB();
 Collection<?> trains = (Collection<?>) db.getAllTrains();
 %>
-
+<!-- Train manager page to create Trip -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +36,7 @@ if (user != null && role .equals("train manager")) {%>
 		<form id="creazioneTrip-form" onsubmit="return handleSubmit()"
 			action="/TrainViewer/CreazioneTripServlet" method="POST">
 			<select name="idTrain" id="idTrain">
+			<!-- Load all created trains -->
 				<%
 				if (trains != null && trains.size() != 0) {
 					Iterator<?> it = trains.iterator();
@@ -49,6 +50,8 @@ if (user != null && role .equals("train manager")) {%>
 
 				}
 				%>
+				
+				
 		<%
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
 		Date today = new Date();
@@ -57,7 +60,9 @@ if (user != null && role .equals("train manager")) {%>
 		calendar.add(Calendar.MINUTE, 30);
 		Date later = calendar.getTime();
 		%>
+		
 		</select>
+		<!-- Form with date to create a trip from a selected train -->
 		<br>
 		<label for="departure" required>Partenza:</label>
 		<input type="text" id="departure" name="departure">

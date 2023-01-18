@@ -8,7 +8,7 @@ Strategy db = new StrategyDB();
 Collection<?> countries = (Collection<?>) db.getAllCountries();
 
 %>
-
+<!-- Admin page where you can see the list of all countries entered in the database. -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +41,9 @@ if (user != null && role.equals("admin")) {%>
 		<% 
 			if(countries == null && countries.size() == 0) {
 				%>
+				
+				<!-- Loading screen when waiting for the list -->
+				
 				<div id="loader" style="align-items: center; justify-content: center; display: flex;">
 		  		<img src="https://thumbs.gfycat.com/InferiorDecentAsianporcupine-max-1mb.gif" alt="Loading...">
 		  		<h3 style="color:white">Loading...</h3>
@@ -48,7 +51,6 @@ if (user != null && role.equals("admin")) {%>
 			<%
 			}
 		%>
-		
 		<div id="loader" style="align-items: center; justify-content: center; display: flex; flex-direction:row; padding-top: 20%">
 			<div style="align-items: center; display: flex; flex-direction: column;">
 		  		<img src="https://thumbs.gfycat.com/InferiorDecentAsianporcupine-max-1mb.gif" style="padding-left: 5rem; width: 25rem" alt="Loading...">

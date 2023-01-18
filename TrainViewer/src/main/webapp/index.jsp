@@ -19,7 +19,7 @@ if (user != null) {%>
 	<jsp:include page="menu.jsp"></jsp:include>
 	<% 
 }; %>
-	
+	<!-- Main page of the site, you can see the offers proposed by carousel and card -->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin-top:6%">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

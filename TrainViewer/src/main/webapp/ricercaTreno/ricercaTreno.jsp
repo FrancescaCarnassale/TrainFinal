@@ -9,7 +9,7 @@
 		Collection<Country> countries = db.getAllCountries();
 		
 %>
-
+<!-- Customer page to search for trains and book tickets -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +22,7 @@
 	
 	 <div align="center">
 	<form id="ricercaTreno-form" action = "/TrainViewer/buyingTickets/search" method = "POST" >
+	<!-- Select the train from the place of departure -->
 		PARTENZA:
 		<select name="departures" id="departures">
 		<% 
@@ -37,7 +38,7 @@
 		}
 		%>
 		</select>
-		
+		<!-- Select the train from the place of arrival -->
 		ARRIVO:
 		<select name="arrives" id="arrives">
 		<% 
@@ -53,6 +54,7 @@
 		}
 		%>
 		</select>
+		<!--  Select departure and arrival dates  -->
 		<%
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
 		Date today = new Date();
@@ -68,7 +70,7 @@
 		<input type="submit" value="Cerca viaggi"/>
 		
 		
-		
+	<!--  List of trains filtered above -->	
 <c:set var="tripsJSP" value="${requestScope.trips}" />
 <table>
   <tr>
