@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
-    import="java.util.*,com.beans.*,com.manager.strategy.*"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.text.SimpleDateFormat" %>
+	pageEncoding="ISO-8859-1"
+	import="java.util.*,com.beans.*,com.manager.strategy.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%
 Strategy db = new StrategyDB();
 Collection<?> trains = (Collection<?>) db.getAllTrains();
@@ -22,7 +22,7 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 	crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
 <title>Creazione Trip</title>
 </head>
 <% 

@@ -1,103 +1,212 @@
-
-.btn {
-  background: linear-gradient(to right, #574B90, #9E579D);
+.card2 {
+	border-radius: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 60%;
 }
 
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-  display: inline-block;
-  width: 5rem;
-  height: 5rem;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: 100% 100%;
+input[type="text"] {
+width: 300px;
+height: 40px;
 }
 
-.body-registration, .body-login, .body-createTrain, .body-createTrip{
-  background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(224, 85, 255, 1) 0%, rgba(123, 0, 255, 1) 100%);
+body {
+	margin-top: 50px !important;
 }
 
-#title-registration {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+#ricercaTreno-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+#ricercaTreno-form input, #ricercaTreno-form label, #ricercaTreno-form select {
+    width: 100%;
+    margin: 5px;
+}
+
+#idTrain {
+    display: block;
+}
+#departure, #arrive, #start, #end {
+    display: inline-block;
+}
+
+@media
+screen
+and
+(max-width:
+992px)
+{
+.mobile {
+	display: block;
+}
+
+.web {
+	display: none;
+}
+
+.body-registration, .body-login {
+	display: flex;
+	margin-top: 0px !important;
+}
+
+.mobile {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
 }
 
 .card2 {
-  border-radius: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  width: 60%;
+	width: 90%;
+	transition: width 0.15s ease;
+	font-size: 40px;
+	position: absolute;
 }
 
+}
+@media screen and (min-width: 992px) {
+	.mobile {
+		display: none;
+		position: absolute;
+	}
+	.body-registration, .body-login {
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 0px !important;
+	}
+	.web {
+		margin-top: auto;
+		margin-bottom: auto;
+		width: 100%;
+		position: absolute;
+	}
+	.card2 {
+		width: 50%
+	}
+}
 
-.FinalText{
-	color:white; 
+.container-form-carousel{
+	position: absolute; 
+	display: inline-block; 
+	bottom:50px; left:-80%; 
+	width: 1080px; 
+	background: linear-gradient(to right, #574B90, #9E579D);
+	height:80px; 
+	border-radius:20px; 
+	padding: 15px
+}
+
+.btn {
+	background: linear-gradient(to right, #574B90, #9E579D);
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+	display: inline-block;
+	width: 5rem;
+	height: 5rem;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: 100% 100%;
+}
+
+.body-registration, .body-login, .body-createTrain, .body-createTrip, .body-searchTrain {
+	background: rgb(2, 0, 36);
+	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%,
+		rgba(224, 85, 255, 1) 0%, rgba(123, 0, 255, 1) 100%);
+}
+
+#title-registration {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+.FinalText {
+	color: white;
 	font-size: 30px;
-	text-decoration: none; 
+	text-decoration: none;
 	margin-bottom: 20px;
 	display: block;
 }
 
-.FinalText2{
-	color:white; 
+.FinalText2 {
+	color: white;
 	font-size: 20px;
-	text-decoration: none; 
+	text-decoration: none;
 	margin-bottom: 10px;
 	display: block;
 }
 
-.container{
-	margin-bottom:20px;
+.container {
+	margin-bottom: 20px;
 }
 
 input {
-  border-radius: 8px;
-  border: none;
-  text-align: center;
+	border-radius: 8px;
+	border: none;
+	text-align: center;
 }
+
 .input-submit {
-  width: auto;
-  padding-left: 12px;
-  padding-right: 12px;
-  transition: 0.15s;
+	width: auto;
+	padding-left: 12px;
+	padding-right: 12px;
+	transition: 0.15s;
 }
+
 .input-submit:hover {
-  background-color: rgba(224, 85, 255, 1)!important;
-  color: white;
+	background-color: rgba(224, 85, 255, 1) !important;
+	color: white;
 }
+
 .div-submit {
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  display: flex;
-  padding-bottom: 15px;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	display: flex;
+	padding-bottom: 15px;
 }
+
 a {
-  text-decoration: none;
-  transition: 0.15s;
+	text-decoration: none;
+	transition: 0.15s;
 }
+
 a:hover {
-  color:rgba(224, 85, 255, 1)!important;
+	color: rgba(224, 85, 255, 1) !important;
 }
+
 .btn.btn-primary {
 	border: none;
 }
+
 #btn-approve {
 	border: none;
 }
+
 .createTrainForm {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;	
+	justify-content: center;
 }
+
 option {
 	text-align: center;
 }
+
 #produttore {
 	border-radius: 8px;
+}
+
+.navbar.navbar-expand-lg.navbar-dark.bg-dark {
+	position: absolute;
+	width: 100%;
+	top: 0;
 }

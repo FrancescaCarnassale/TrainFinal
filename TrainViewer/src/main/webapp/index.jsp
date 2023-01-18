@@ -1,3 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"
+    import="java.util.*,com.beans.*,com.manager.strategy.*"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<%
+		Strategy db = new StrategyDB();
+		Collection<Country> countries = db.getAllCountries();
+		
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +18,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
 <title>TrainViewer</title>
 </head>
 <body>
@@ -26,6 +38,51 @@ if (user != null) {%>
         </script>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin-top:6%">
   <div class="carousel-indicators">
+  <div class="carousel-caption" style="position: absolute;top: 50%; left: 52%;transform: translate(-50%, -50%);color: white;text-align: center; ">
+    <div align="center" class="container-form-carousel">
+		<form id="ricercaTreno-form" action = "/TrainViewer/buyingTickets/search" method = "POST">
+		<select name="departures" id="departures" style="width:80%; border: 3px solid #9E579D; border-radius: 15px; margin-right:15px">
+<option value="" disabled selected hidden >PARTENZA</option>
+	<% 
+		if(countries != null && countries.size() != 0) {
+			Iterator<?> it = countries.iterator();
+			while(it.hasNext()) {
+				Country c = (Country) it.next();
+	%>
+				<option><%=c.getCountryName()%></option >
+			<%
+		}
+	}
+	%>
+</select>
+		
+		<select name="arrives" id="arrives" style="width:80%; border: 3px solid #9E579D; border-radius: 15px; margin-right:15px; height: 40px">
+<option value="" disabled selected hidden>ARRIVO</option>
+	<% 
+		if(countries != null && countries.size() != 0) {
+			Iterator<?> it = countries.iterator();
+			while(it.hasNext()) {
+				Country c = (Country) it.next();
+	%>
+				<option><%=c.getCountryName()%></option >
+			<%
+		}
+	}
+	%>
+</select>
+		<%
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+		Date today = new Date();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(today);
+		calendar.add(Calendar.MINUTE, 30);
+		Date later = calendar.getTime();
+		%>
+       	<input type="datetime-local" id="timeDeparture" name="timeDeparture" value="<%=sdf.format(today)%>" oninput="getTrainsFromDb()">
+		<input type="submit" value="Cerca viaggi" style="background-color:blue; color:white; width:60%">
+	</form>
+	</div>
+	</div>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -67,7 +124,7 @@ if (user != null) {%>
                     <div class="card-body">
                         <h5 class="card-title">Speciale A/R in giornata -70%</h5>
                         <p class="card-text">L'offerta è valida sui treni AV Frecciarossa, Frecciargento e sul Frecciabianca, su tutti i livelli di servizio. Puoi acquistare l'offerta fino al giorno precedente la partenza del treno.</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -77,7 +134,7 @@ if (user != null) {%>
                     <div class="card-body">
                         <h5 class="card-title">In montagna con le Frecce e Freccialink</h5>
                         <p class="card-text">L'inverno è il periodo perfetto per scoprire le più belle località di montagna: sai che puoi raggiungerle con le Frecce e Freccialink? Scopri i collegamenti e organizza la tua vacanza invernale!</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -87,7 +144,7 @@ if (user != null) {%>
                     <div class="card-body">
                         <h5 class="card-title">Wetaxi e Trenitalia: l'integrazione che semplifica il viaggio</h5>
                         <p class="card-text">Grazie alla collaborazione tra Trenitalia e Wetaxi la velocità e il comfort dei treni si unisce alla capillarità del servizio taxi per realizzare una vera e propria esperienza door-to-door.</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -97,7 +154,7 @@ if (user != null) {%>
                     <div class="card-body">
                         <h5 class="card-title">In montagna con Intercity rispetti l'ambiente e viaggi sicuro</h5>
                         <p class="card-text">Scegliere il treno è il primo passo per una vera vacanza rispettosa della natura e dei luoghi da visitare e per tutti gli appassionati ciclisti, che siano amatori o professionisti, con Intercity puoi anche trasportare la tua bicicletta montata.</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -107,7 +164,7 @@ if (user != null) {%>
                     <div class="card-body">
                         <h5 class="card-title">Cortina Link</h5>
                         <p class="card-text">Cortina Link è il servizio combinato treno + bus, grazie al quale Trenitalia e Dolomiti Bus ti offrono la possibilità di raggiungere Cortina d'Ampezzo con un unico biglietto direttamente dalla stazione di Calalzo.</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -117,7 +174,7 @@ if (user != null) {%>
                     <div class="card-body">
                         <h5 class="card-title">Garda Link</h5>
                         <p class="card-text">Garda Link è il servizio combinato treno + bus che, a partire dal 13 giugno, collega la stazione ferroviaria di Verona Porta Nuova ad alcune delle località più rinomate del Lago di Garda</p>
-                        <a href="#" class="btn btn-primary">Scopri</a>
+            <button type="button" class=" btn btn-dark btn-md" onClick="location.href=#">Scopri</button>
                     </div>
                 </div>
             </div>
@@ -132,7 +189,7 @@ if (user != null) {%>
    			<img src="https://knowledge.wharton.upenn.edu/wp-content/uploads/2019/01/country-flags-rankings.jpg" class="img-fluid w-100" alt="Immagine" style="margin: 5% 0px 5% 0px; height: 28rem;">
    			  <div class="bg-black" style="width:100%;height:28rem; position:absolute;opacity:0.5;z-index:0;"></div>
             <h2 class="position-absolute" style="margin-bottom: 10%; color:white">Scopri i paesi in cui puoi viaggiare</h2>
-            <button type="button" class="position-absolute btn btn-dark btn-lg" onClick="location.href='/TrainViewer/countryList.jsp'">Scopri di più</button>
+            <button type="button" class="position-absolute btn btn-dark btn-lg" onClick="location.href=#">Scopri di più</button>
         </div>
       </div>
     </div>
@@ -161,8 +218,13 @@ if (user != null) {%>
     <a href="#" class ="FinalText"><strong>Lavora con noi</strong></a>
   </div>
   <div class="col-4">
-    <p style="color:white; font-size: 30px;text-decoration: none; margin-bottom: 20px;display: block;"><strong>Seguici su</strong></p>
-<div class="container d-flex justify-content-center">
+<p style="color:white; font-size: 30px;text-decoration: none; margin-bottom: 20px;display: block;"><strong>Seguici su</strong></p>
+    <div class="container d-flex">
+        <a href="#" style="margin-right: 10px;" ><img src="https://cdn-icons-png.flaticon.com/128/1384/1384005.png"  alt="Facebook" style="width:35px; "></a>
+        <a href="#" style="margin-right: 10px;"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384015.png" alt="Instagram" style="width:35px"></a>
+        <a href="#"style="margin-right: 10px;"><img src="https://cdn-icons-png.flaticon.com/128/2168/2168336.png" alt="Twitter" style="width:35px"></a>
+        <a href="#"style="margin-right: 10px;"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384012.png" alt="YouTube" style="width:35px"></a>
+    </div><div class="container d-flex justify-content-center">
 </div>    <a href="#" class ="FinalText">Scarica App</a>
   </div>
 </div>
