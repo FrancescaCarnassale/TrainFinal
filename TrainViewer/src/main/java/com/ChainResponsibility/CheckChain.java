@@ -25,7 +25,8 @@ public abstract class CheckChain {
 	 * Finds the string closer to the input
 	 * @param input
 	 * 		The word we are trying to connect to a Country
-	 * @return String corresponding to the result found by the checkInternal(input). null if nothing was found
+	 * @return 
+	 * 		String corresponding to the result found by the checkInternal(input). null if nothing was found
 	 */
 	public final String check(String input) {
 		String result = checkInternal(input);
@@ -46,7 +47,13 @@ public abstract class CheckChain {
         	return null;
 			}
 		}
-	
+	/**
+	 * Returns the result of the singular algorithm.
+	 * @param 
+	 * 		String input
+	 * @return
+	 * 		the closest string to the input using the algorithm. null if nothing was found.
+	 */
 	protected abstract String checkInternal(String input);
 	
 	
