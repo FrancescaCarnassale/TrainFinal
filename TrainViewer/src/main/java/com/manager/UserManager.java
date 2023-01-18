@@ -15,4 +15,8 @@ public class UserManager {
 	public void setUser(User newUser) {
 		userDao.setUser(newUser);
 	}
+	
+	public void updateRole(User user, String role) {
+		userDao.updateRole(user, role);
+	}
 }

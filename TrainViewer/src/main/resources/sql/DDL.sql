@@ -32,9 +32,8 @@ CREATE TABLE train (
   id_train INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   serial_number_train VARCHAR(10) NOT NULL,
   brand VARCHAR(20) NOT NULL,
-  seats INT NOT NULL,
-  isCargo TINYINT(1) NOT NULL
-);
+  seats INT NOT NULL
+ );
 
 DROP TABLE IF EXISTS trip;
 CREATE TABLE trip(
@@ -58,8 +57,7 @@ CREATE TABLE trip(
 
 DROP TABLE IF EXISTS leaderboard;
 CREATE TABLE leaderboard (
-  id_score INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  user_mail VARCHAR(20) NOT NULL,
+  user_mail VARCHAR(20) NOT NULL PRIMARY KEY,
   user_score INT NOT NULL,
   FOREIGN KEY (user_mail) REFERENCES user_train(user_mail) 
   		ON UPDATE CASCADE

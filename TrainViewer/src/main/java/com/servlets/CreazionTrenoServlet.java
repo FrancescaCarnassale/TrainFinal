@@ -60,7 +60,6 @@ public class CreazionTrenoServlet extends HttpServlet{
 				//costruzione istanza treno
 				train.setBrand(produttore);
 				train.setSerialNumber(serialNumber);
-				train.setIsCargo(false);
 				train.setSeats(t.getNumPosti());
 				System.out.println(t.getNumPosti());
 				s.setTrain(train);

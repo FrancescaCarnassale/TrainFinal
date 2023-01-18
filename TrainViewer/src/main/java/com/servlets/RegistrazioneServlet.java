@@ -36,13 +36,13 @@ public class RegistrazioneServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
-		String admin= "client";
+		String role= "client";
 
 		User u = new User();
 		u.setName(name);
 		u.setEmail(email);
 		u.setPassword(password);
-		u.setAdmin(admin);
+		u.setRole(role);
 		
 		Login check = new Login();
 		check.setEmail(email);

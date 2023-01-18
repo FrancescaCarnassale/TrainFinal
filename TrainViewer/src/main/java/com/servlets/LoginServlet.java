@@ -50,11 +50,11 @@ public class LoginServlet extends HttpServlet {
 			if(user != null) {
 				msg = "Benvenuto "+ user.getName()+"!";
 				request.setAttribute("user", user.getName());
-				request.setAttribute("role", user.getAdmin());
+				request.setAttribute("role", user.getRole());
 				request.setAttribute("msg", msg);
 				
 				session.setAttribute("user", user.getName());
-				session.setAttribute("role", user.getAdmin());
+				session.setAttribute("role", user.getRole());
 				session.setAttribute("email", user.getEmail());
 				dispatcher = getServletContext().getRequestDispatcher("/");
 			}else{

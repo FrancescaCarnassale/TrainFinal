@@ -123,6 +123,14 @@ public class StrategyDB implements Strategy{
 		aliasDao.approveAliasAndCancel(checkAlias, checkDelete, newCountry);
 	}
 
+	@Override
+	public List<User> getUsersWithRole(String role) {
+		return userDao.getUsersWithRole(role);
+	}
 
+	@Override
+	public void updateUserRole(String[] email, String[] newRoles) {
+		userDao.updateUsers(email, newRoles);
+	}
 
 }

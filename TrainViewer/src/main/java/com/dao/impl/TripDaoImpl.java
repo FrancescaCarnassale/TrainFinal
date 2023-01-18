@@ -1,17 +1,6 @@
 package com.dao.impl;
 
-import java.sql.Timestamp;
-import java.util.Collection;
-
-import javax.persistence.TypedQuery;
-
-import org.hibernate.query.NativeQuery;
-
-import com.beans.Alias;
-import com.beans.Country;
-import com.beans.Train;
 import com.beans.Trip;
-import com.dao.TrainDao;
 import com.dao.TripDao;
 
 
@@ -47,8 +36,10 @@ public class TripDaoImpl extends BaseDao implements TripDao{
 		super.getSession().update(t);
 		super.getSession().getTransaction().commit();
 		return true;
-	}
-	
+
+    }
+
+
 	/** Checks that there are at least a number of seats available for booking. **/
 	@Override
 	public boolean checkSeats(Trip t, int bookedSeats) {

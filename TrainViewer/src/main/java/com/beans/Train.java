@@ -5,14 +5,8 @@ public class Train implements Bean {
     private String serialNumber;
     private String brand;
     private int seats;
-    private boolean isCargo;
 
-    public boolean getIsCargo() {
-		return isCargo;
-	}
-    public void setIsCargo(boolean isCargo) {
-		this.isCargo = isCargo;
-	}
+    
 	public String getSerialNumber() {
         return serialNumber;
     }

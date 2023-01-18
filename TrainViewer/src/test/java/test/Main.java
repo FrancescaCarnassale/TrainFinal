@@ -1,5 +1,6 @@
 package test;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -13,10 +14,16 @@ import com.TrenoFactory.factory.FRFactory;
 import com.TrenoFactory.factory.TNFactory;
 import com.TrenoFactory.factory.VagoneFactory;
 import com.TrenoFactory.treno.Treno;
+import com.beans.Country;
+import com.beans.Train;
 import com.beans.Trip;
+import com.beans.User;
 import com.dao.ReservationDao;
+import com.dao.TripDao;
+import com.dao.UserDao;
 import com.dao.impl.ReservationDaoImpl;
 import com.manager.TripManager;
+
 import com.manager.strategy.Strategy;
 import com.manager.strategy.StrategyDB;
 
@@ -52,6 +59,7 @@ public class Main {
 		Trip t=new Trip();
 		t= tm.getTripDao().get(1);
 		System.out.println(tm.updateSeats(t, 1));
+
 	}
 
 }

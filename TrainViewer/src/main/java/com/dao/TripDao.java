@@ -1,9 +1,5 @@
 package com.dao;
 
-import java.sql.Timestamp;
-import java.util.Collection;
-
-import com.beans.Country;
 import com.beans.Trip;
 
 public interface TripDao {
@@ -11,6 +7,7 @@ public interface TripDao {
 	public Trip get(int id);
 	public void setTrip(Trip Tr);
 	public boolean updateSeats(Trip t, int bookedSeats);
-	boolean checkSeats(Trip t, int bookedSeats);
+	public boolean checkSeats(Trip t, int bookedSeats);
+
 
 }
