@@ -7,7 +7,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.*;
 
-
+//Class used to create a connection between the project and the hibernate file need to connect to database
 public abstract class ConnectionToDB {
 	public static Session getSession() {
 		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();  
