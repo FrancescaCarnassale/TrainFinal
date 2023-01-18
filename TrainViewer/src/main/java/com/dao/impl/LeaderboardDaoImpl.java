@@ -33,25 +33,10 @@ public class LeaderboardDaoImpl extends BaseDao implements LeaderboardDao{
         return ld;
 	}
 	
-	@Override
-	public void updateGameData(String[] list) {
-		// TODO Auto-generated method stub
-		for(String s : list)
-		{
-			Leaderboard gs = this.get(s);
-			//a.setApproved(true);
-			getSession().beginTransaction();
-			getSession().update(gs);
-			getSession().getTransaction().commit();
-		}
-		getSession().close();
-	}
-
+	
 	@Override
 	public void updateScore(Leaderboard leaderboardEntry) {
-        getSession().update(leaderboardEntry);
-        getSession().getTransaction().commit();
-        getSession().close();
+		this.create(leaderboardEntry);
 	}
 
 	@Override

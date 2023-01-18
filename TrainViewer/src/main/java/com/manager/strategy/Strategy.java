@@ -20,7 +20,7 @@ public interface Strategy {
 	public Collection<Country> getAllCountries();
 	public Collection<Alias> getUnapprovedAliases();
 	public Collection<Leaderboard> getGameData();
-	public void updateGameData(String[] list);
+
 	public void approveAndCancelAlias(String[] checkAlias, String[] checkDelete, String[] newCountry);
 	public Collection<Train> getAllTrains();
 	public CheckChain getChain();

@@ -6,7 +6,7 @@
  <hibernate-mapping>  
    <class name="com.beans.Leaderboard" table="leaderboard">
 
-    <id name="idScore" column="id_score"></id>
+    <id name="idScore" column="id_score"><generator class="increment"></generator></id>
        <many-to-one name="user" class="com.beans.User" column="user_mail"></many-to-one>
        <property name="score" column="user_score"></property>
             

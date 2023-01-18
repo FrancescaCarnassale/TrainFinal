@@ -57,7 +57,9 @@ if (user != null) {%>
 		</div>
 
 		<div class="container bg-dark" id="container-score" style="background: linear-gradient(to right, #574B90, #9E579D);">
-			<div id="punteggio" name="punteggio"></div>
+			<div id="punteggio" name="punteggio"></div><br>
+			<a id="paginaUpdate" href= "/TrainViewer/leaderboardController/updateScore"></a>
+            
 			<h1 class="py-4 text-center text-white bg-dark" id="title-score" style="background: linear-gradient(to right, #574B90, #9E579D);">Best
 				Scores</h1>
 			<form action="GameServlet" method="GET">
@@ -94,8 +96,7 @@ if (user != null) {%>
                 <button onClick="location.href='/TrainViewer/index.jsp" style="background-color: #1a73e8;color: white;box-shadow: 0 4px 0 #185abc;border: none;display: block; font-size: .875rem;font-weight: 500;height: 36px;margin: 12px;min-width: 200px;padding: 0px 24px;" id="title-start-btn" class="btn primary-btn" dir="auto">HomePage</button>
                 -->	
               
-			<a href= "/TrainViewer/leaderboardController/updateScore">Aggiorna il tuo Punteggio!!</a>
-            </div>   
+			</div>   
              	
 	</div>
 	<br>
