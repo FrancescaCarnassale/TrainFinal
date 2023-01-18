@@ -2,14 +2,14 @@ package com.beans;
 
 public class User implements Bean {
 	private String name, email, password;
-	private String admin;
+	private String role;
 
-    public String getAdmin() {
-		return admin;
+    public String getRole() {
+		return role;
 	}
 
-	public void setAdmin(String admin) {
-		this.admin = admin;
+	public void setRole(String admin) {
+		this.role = admin;
 	}
 
 	public String getName() {
@@ -38,6 +38,6 @@ public class User implements Bean {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", email=" + email + ", password=" + password + ", admin=" + admin + "]";
+		return "User [name=" + name + ", email=" + email + ", password=" + password + ", admin=" + role + "]";
 	}
 }

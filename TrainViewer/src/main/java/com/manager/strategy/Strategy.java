@@ -26,4 +26,6 @@ public interface Strategy {
 	public void approveAndCancelAlias(String[] checkAlias, String[] checkDelete, String[] newCountry);
 	public Collection<Train> getAllTrains();
 	public CheckChain getChain();
+	public List<User> getUsersWithRole(String role);
+	public void updateUserRole(String[] email, String[] newRoles);
 }

@@ -119,5 +119,16 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public List<User> getUsersWithRole(String role) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public void updateUserRole(String[] email, String[] newRoles) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

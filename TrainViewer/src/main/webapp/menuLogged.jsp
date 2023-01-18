@@ -62,6 +62,12 @@
         	            <li class="nav-item">
         	           
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/admin.jsp">Admin</a>
+        	          
+        	          <li class="nav-item" >
+        	           
+        	          <a class="nav-link" aria-current="page" href="/TrainViewer/updateUserRole.jsp">Users Roles</a>
+        	          
+        	        </li>
         	         
   					</c:if>
         	      
