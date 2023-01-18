@@ -28,7 +28,7 @@ import com.ChainResponsibility.CheckChain;
 import com.ChainResponsibility.algorithm.Contained;
 import com.ChainResponsibility.algorithm.Contains;
 import com.ChainResponsibility.algorithm.ContainsPartial;
-import com.ChainResponsibility.algorithm.EqualsInputCS;
+
 import com.ChainResponsibility.algorithm.EqualsStandardCS;
 import com.ChainResponsibility.algorithm.JaroDistance;
 import com.ChainResponsibility.algorithm.Levenshtein;
@@ -99,15 +99,14 @@ public class StrategyDB implements Strategy{
 	@Override
 	public CheckChain getChain() {
 		if (checkStringSingleton == null) {
-			CheckChain es = new EqualsStandardCS();
-			CheckChain cd = new Contained(); cd.setNextChain(es);
-			CheckChain cs = new Contains(); cs.setNextChain(cd);
-			CheckChain cp = new ContainsPartial(); cp.setNextChain(cs);
+			CheckChain cp = new ContainsPartial(); 
 			CheckChain lev = new Levenshtein(2); lev.setNextChain(cp);
-			CheckChain jd = new JaroDistance(0.8); jd.setNextChain(lev);
-			CheckChain ei = new EqualsInputCS(); ei.setNextChain(jd);
-			ei.setStrategy(this);
-			checkStringSingleton = ei;
+			CheckChain jd = new JaroDistance(0.75); jd.setNextChain(lev);
+			CheckChain cd = new Contained(); cd.setNextChain(jd);
+			CheckChain cs = new Contains(); cs.setNextChain(cd);
+			CheckChain es = new EqualsStandardCS(); es.setNextChain(cs);
+			es.setStrategy(this);
+			checkStringSingleton = es;
         }
         return checkStringSingleton;
 	}

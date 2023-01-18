@@ -1,10 +1,9 @@
 package com.beans;
-
+/** The class Trip refers to the table trip in the DB.
+ * It contains the train used for the trip, the country of departure and arrival, the time of departure and arrival
+ * and the seats available.
+ */
 import java.sql.Timestamp;
-import java.util.List;
-import com.TrenoFactory.treno.Carrozza;
-import com.TrenoFactory.treno.Passeggeri;
-import com.TrenoFactory.treno.Treno;
 //L'oggetto treno è caratterizzato dalla sigla e dalla lista delle sue carrozze.
 //Nel DB sarà presente assieme al tipo di Treno (TN o FR, che infatti decisono il creatore) e alla lista dei passeggeri.
 	public class Trip implements Bean {

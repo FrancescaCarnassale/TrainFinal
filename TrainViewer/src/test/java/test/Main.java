@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.ChainResponsibility.CheckChain;
-import com.ChainResponsibility.CheckChainBuilder;
 import com.TrenoFactory.builder.ConcreteBuilder;
 import com.TrenoFactory.builder.TrenoBuilder;
 import com.TrenoFactory.exceptions.NumeroPostiInEccesso;

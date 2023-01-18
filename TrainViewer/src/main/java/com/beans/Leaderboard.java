@@ -1,5 +1,8 @@
 package com.beans;
-
+/** The class Leaderboard refers to the table leaderboard in the DB.
+ * It's used in the project as an element of the Database that saves the score from the user
+ * after he/she finishes playing the trainGame. It saves the user and the relative score.
+ */
 public class Leaderboard implements Bean {
     private int idScore;
 	private  User user;
