@@ -19,7 +19,11 @@ if (user != null) {%>
 	<jsp:include page="menu.jsp"></jsp:include>
 	<% 
 }; %>
-	
+		<c:set var="bought" value="${requestScope.bought}" />
+        <script>
+        if("${bought}"!="")
+            alert("${bought}");
+        </script>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin-top:6%">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

@@ -56,7 +56,6 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("user", user.getName());
 				session.setAttribute("role", user.getAdmin());
 				session.setAttribute("email", user.getEmail());
-				
 				dispatcher = getServletContext().getRequestDispatcher("/");
 			}else{
 				msg="Email o password errati";

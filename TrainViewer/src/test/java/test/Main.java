@@ -16,6 +16,7 @@ import com.TrenoFactory.treno.Treno;
 import com.beans.Trip;
 import com.dao.ReservationDao;
 import com.dao.impl.ReservationDaoImpl;
+import com.manager.TripManager;
 import com.manager.strategy.Strategy;
 import com.manager.strategy.StrategyDB;
 
@@ -47,7 +48,10 @@ public class Main {
 			}*/
 		
 		ReservationDao reservationDao = new ReservationDaoImpl();
-
+		TripManager tm= new TripManager();
+		Trip t=new Trip();
+		t= tm.getTripDao().get(1);
+		System.out.println(tm.updateSeats(t, 1));
 	}
 
 }

@@ -19,7 +19,7 @@
 
 				<li class="nav-item"></li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/ricercaTreno/ricercaTreno.jsp">Prenota il Biglietto</a></li>
+					href="/TrainViewer/ricercaTrip/ricercaTrip.jsp">Prenota il Biglietto</a></li>
 
 				<li class="nav-item">
         	        </li>
