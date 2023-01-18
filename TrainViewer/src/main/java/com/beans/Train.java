@@ -1,5 +1,7 @@
 package com.beans;
-
+/** The class Train refers to the table trains in the DB.
+ * They are defined by a serialNumber inserted by the factory, a brand and the number of seats available.
+ */
 public class Train implements Bean {
 	private int idTrain;
     private String serialNumber;

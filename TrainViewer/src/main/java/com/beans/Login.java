@@ -1,5 +1,5 @@
 package com.beans;
-
+/** The Login class is used to let the users login on the webpage **/
 public class Login implements BeanVo{
 	private String email, password;
 

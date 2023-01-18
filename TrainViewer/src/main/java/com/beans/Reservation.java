@@ -1,5 +1,8 @@
 package com.beans;
-
+/** The class Reservation refers to the table reservation in the DB.
+ * It is used in the Database to serve the reservation of a ticket the user bought.
+ * It saves the trip the user bought, the user itself and how many tickets were bought.
+ */
 public class Reservation implements Bean {
 	private int idReservation;
 	private Trip idTrip;
