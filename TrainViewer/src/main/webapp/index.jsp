@@ -79,8 +79,25 @@ if (user != null) {%>
 		Date later = calendar.getTime();
 		%>
        	<input type="datetime-local" id="timeDeparture" name="timeDeparture" value="<%=sdf.format(today)%>" oninput="getTrainsFromDb()">
-		<input type="submit" value="Cerca viaggi" style="background-color:blue; color:white; width:60%">
-	</form>
+       	<script>
+       	document.getElementById("departures").addEventListener("change", checkForm);
+       	document.getElementById("arrives").addEventListener("change", checkForm);
+       	
+       	function checkForm() {
+       	    var departure = document.getElementById("departures").value;
+       	    var arrive = document.getElementById("arrives").value;
+       	    var submitBtn = document.getElementById("submitBtn");
+       	    if (departure == "" || arrive == "") {
+       	        return false;
+       	    } else {
+       	        submitBtn.disabled = false;
+       	        return true;
+       	    }
+       	}
+       	</script>
+       	
+        <input type="submit" value="Cerca viaggi" style="background-color:blue; color:white; width:60%" id="submitBtn" disabled onclick="return checkForm()">
+        	</form>
 	</div>
 	</div>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

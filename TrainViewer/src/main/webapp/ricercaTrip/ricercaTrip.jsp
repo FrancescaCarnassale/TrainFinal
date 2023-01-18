@@ -16,66 +16,25 @@
 <meta charset="ISO-8859-1">
 <title>Ricerca Trip</title>
 </head>
-<body>
-	<jsp:include page="../menuLogged.jsp"></jsp:include>
-	 <div align="center">
-	<form id="ricercaTreno-form" action = "/TrainViewer/buyingTickets/search" method = "POST" >
-		PARTENZA:
-		<select name="departures" id="departures">
-		<% 
-			if(countries != null && countries.size() != 0) {
-				Iterator<?> it = countries.iterator();
-				while(it.hasNext()) {
-					Country c = (Country) it.next();
-		%>
-					<option><%=c.getCountryName()%></option >
-				<%
-			}
-	
-		}
-		%>
-		</select>
-		
-		ARRIVO:
-		<select name="arrives" id="arrives">
-		<% 
-			if(countries != null && countries.size() != 0) {
-				Iterator<?> it = countries.iterator();
-				while(it.hasNext()) {
-					Country c = (Country) it.next();
-		%>
-					<option><%=c.getCountryName()%></option >
-				<%
-			}
-	
-		}
-		%>
-		</select>
-		<%
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-		Date today = new Date();
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(today);
-		calendar.add(Calendar.MINUTE, 30);
-		Date later = calendar.getTime();
-		%>
-		<br>
-		<label for="start">Orario di partenza:</label>
-       	<input type="datetime-local" id="timeDeparture" name="timeDeparture" value="<%=sdf.format(today)%>" oninput="getTrainsFromDb()">
-		<br>
-		<input type="submit" value="Cerca viaggi"/>
-		
-		
-		
-<c:set var="tripsJSP" value="${requestScope.trips}" />
-<table>
-  <tr>
-    <th>Partenza</th>
-    <th>Arrivo</th>
-    <th>Orario di Partenza</th>
-    <th>Orario d'Arrivo</th>
+<body style="background: linear-gradient(to right, #574B90, #9E579D)">
+		<form id="ricercaBiglietto-form" action = "/TrainViewer/buyingTickets/search" method = "POST">
+				
+		<a href="/TrainViewer" style="display: inline-block;">
+    <img src="https://cdn-icons-png.flaticon.com/128/507/507257.png" alt="Indietro" style="max-width: 25%; margin-top:10%; margin-left:10%">
+</a>
+<div style="text-align: center;">
+    <h1 style="color:white">TROVA IL BIGLIETTO GIUSTO PER TE</h1>
+</div>		<table class="tableTrip" style="color:white; width:100%; margin-top:50px; border-collapse: collapse; border: 3px solid white; font-size:15px; ">
+			<thead>
+				<tr>
+    <th style="font-size:22px; width:25%">Partenza</th>
+    <th style="font-size:22px; width:25%">Arrivo</th>
+    <th style="font-size:22px; width:15">Orario di Partenza</th>
+    <th style="font-size:22px; width:15">Orario d'Arrivo</th>
   </tr>
-  <c:set var="counter" value="0" />
+			</thead>
+			<tbody>
+				<c:set var="counter" value="0" />
 <c:forEach items="${tripsJSP}" var="trip">
     <tr>
       <td>${trip.getDeparture().getCountryName()}</td>
@@ -88,9 +47,10 @@
     </tr>
     <c:set var="counter" value="${counter + 1}" />
 </c:forEach>
-</table>
+
+			</tbody>
+		</table>
 
 	</form>
-	</div>
 </body>
 </html>

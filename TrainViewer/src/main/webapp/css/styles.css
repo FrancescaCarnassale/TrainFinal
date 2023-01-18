@@ -7,9 +7,26 @@
 	width: 60%;
 }
 
+
+
 input[type="text"] {
 width: 300px;
 height: 40px;
+}
+
+.ricercaBiglietto-form{
+	display: flex;
+    justify-content: space-between;
+}
+
+#ricercaBiglietto-form input, #ricercaBiglietto-form label, #ricercaBiglietto-form select {
+    width: 100%;
+    margin: 5px;
+}
+
+.tableTrip{
+	  width: 100%;
+      overflow-x: hidden;
 }
 
 body {
