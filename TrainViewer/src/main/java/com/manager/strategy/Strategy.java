@@ -13,6 +13,8 @@ import com.beans.Leaderboard;
 import com.beans.Train;
 import com.beans.User;
 
+//Interface of Strategy to manage the data from database or  a file
+
 public interface Strategy {
 	public String getAliasCountry(String alias);
 	public Map<String,List<String>> dataMap();
@@ -21,8 +23,6 @@ public interface Strategy {
 	public Collection<Alias> getUnapprovedAliases();
 	public Collection<Leaderboard> getGameData();
 	public void updateGameData(String[] list);
-	//public String getUser(String email, String password) throws UserNotFound;
-	//public void setUser(String name, String password, String email, String admin);
 	public void approveAndCancelAlias(String[] checkAlias, String[] checkDelete, String[] newCountry);
 	public Collection<Train> getAllTrains();
 	public CheckChain getChain();

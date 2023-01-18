@@ -15,6 +15,7 @@ import org.hibernate.query.NativeQuery;
 
 import com.beans.Country;
 
+//Class to manage country manipulation of Country database table
 public class CountryDaoImpl extends BaseDao implements CountryDao {
 	public void create(Country c) {
 		super.create(c);
@@ -24,7 +25,7 @@ public class CountryDaoImpl extends BaseDao implements CountryDao {
 	public Country get(String countryName) {
 		return (Country) super.get(Country.class, countryName);
 	}
-
+	//Method to get all the countries in the list and set it in a Map from database table
 	@Override
 	public Map<String, List<String>> dataMap() {
 		 	NativeQuery<String> q = getSession().createSQLQuery("Select country_name From country");
@@ -42,7 +43,8 @@ public class CountryDaoImpl extends BaseDao implements CountryDao {
 	        }
 	        return map;
 	}
-
+	
+	//Method to get all the countries in a collection from database table
 	@Override
 	public Collection<Country> getAllCountries() {
 		

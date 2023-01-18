@@ -11,6 +11,7 @@ import com.beans.User;
 import com.dao.ReservationDao;
 import com.dao.TripDao;
 
+//Class to manage reservation manipulation of Reservation database table
 public class ReservationDaoImpl extends BaseDao implements ReservationDao {
 
 	
@@ -19,7 +20,7 @@ public class ReservationDaoImpl extends BaseDao implements ReservationDao {
 	public void create(Reservation reservation) {
 		super.create(reservation);
 	}
-
+	//Method to create a reservation of a trip for a user and a number of tickets from database table
 	@Override
 	public void setReservation(Trip trip, User user, int tickets) {
 		TripDao tripDao = new TripDaoImpl();
@@ -31,6 +32,7 @@ public class ReservationDaoImpl extends BaseDao implements ReservationDao {
 		this.create(reservation);
 	}
 	
+	//Method to get reservations from a trip from a database table
 	@Override
 	public Collection<Reservation> getReservationsForTrip(Trip trip) {
 		
@@ -41,6 +43,7 @@ public class ReservationDaoImpl extends BaseDao implements ReservationDao {
         return c;
 	}
 
+	//Method to get reservations from a user  from a database table
 	@Override
 	public Collection<Reservation> getReservationsForUser(User user) {
 		TypedQuery<Reservation> mq = getSession().createQuery("SELECT r FROM Reservation r WHERE r.usermail.email = :usermail", Reservation.class);

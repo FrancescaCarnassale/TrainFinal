@@ -8,9 +8,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+//Standardizes controllers
 
-@Configuration // qui si creano i bean per Spring core
-@EnableWebMvc  // indica che � una applicazioen web
+@Configuration // Here you create the beans for Spring core
+@EnableWebMvc  // Indicates that it is a web application
 @ComponentScan(basePackages={"com.controller"})
 public class WebConfig implements WebMvcConfigurer{
 

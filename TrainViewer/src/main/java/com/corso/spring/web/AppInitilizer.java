@@ -5,6 +5,8 @@ import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.FrameworkServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+//Initialize the Spring core connection. Comunicate to servlet 
+
 public class AppInitilizer extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	@Override

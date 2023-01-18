@@ -15,6 +15,7 @@ import com.dao.impl.CountryDaoImpl;
 import com.dao.impl.TrainDaoImpl;
 import com.dao.impl.TripDaoImpl;
 
+//Class used to create a trip manager to manage comunication with dao
 public class TripManager {
 	private TripDaoImpl tripDao= new TripDaoImpl();
 	public void setTrip(Trip trip) {
@@ -23,6 +24,7 @@ public class TripManager {
 	public TripDao getTripDao() {
 		return this.tripDao;
 	}
+	//Method to get trips with a given date from database table
 	public Collection<Trip> getTripsWithDate(String departure, String arrive, Timestamp departureTime) {
         TypedQuery<Trip> mq = tripDao.getSession().createQuery("Select t from Trip t where t.departure = :departure and t.arrive = :arrive and t.timeDeparture > : timeDeparture", Trip.class); 
         CountryDaoImpl countryDao= new CountryDaoImpl();

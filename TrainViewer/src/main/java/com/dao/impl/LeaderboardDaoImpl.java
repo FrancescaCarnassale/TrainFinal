@@ -15,6 +15,7 @@ import com.beans.User;
 import com.dao.AliasDao;
 import com.dao.LeaderboardDao;
 
+//Class to manage leadboard manipulation of Leadboard database table
 public class LeaderboardDaoImpl extends BaseDao implements LeaderboardDao{
 	public void create(Leaderboard a) {
 		super.create(a);
@@ -24,7 +25,7 @@ public class LeaderboardDaoImpl extends BaseDao implements LeaderboardDao{
 	public Leaderboard get(String leaderboard) {
 		return (Leaderboard) super.get(Leaderboard.class, leaderboard);
 	}
-	
+	//Method to get a leadboard list in a collection from database table
 	@Override
 	public Collection<Leaderboard> getGameData() {
 	
@@ -33,6 +34,7 @@ public class LeaderboardDaoImpl extends BaseDao implements LeaderboardDao{
         return ld;
 	}
 	
+	//Method to update the data of the leadbord score from database table
 	@Override
 	public void updateGameData(String[] list) {
 		// TODO Auto-generated method stub

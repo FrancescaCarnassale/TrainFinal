@@ -15,6 +15,7 @@ import com.beans.Bean;
 import com.beans.Country;
 import com.beans.Leaderboard;
 
+//Class to manage alias manipulation of Alias database table
 public class AliasDaoImpl extends BaseDao implements AliasDao {
 	
 	public void create(Alias a) {
@@ -26,6 +27,7 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 		return (Alias) super.get(Alias.class, aliasCountry);
 	}
 	
+	//Method to get unapproved aliases from database table
 	@Override
 	public Collection<Alias> getUnapprovedAliases() {
 	
@@ -34,6 +36,7 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
         return a;
 	}
 	
+	//Method to update the alias status or delete it from the alias database table
 	@Override
 	public void approveAliasAndCancel(String[] approve, String[] cancel, String[] newCountries) {
 		    getSession().beginTransaction();
@@ -58,7 +61,7 @@ public class AliasDaoImpl extends BaseDao implements AliasDao {
 		    
 	}
 	
-	
+	//Method to get the country of respective input alias from database table
 	@Override
 	public String getAliasCountry(String input) {
 	    String query = "select nome_paese from alias where alias_paese = " + input;

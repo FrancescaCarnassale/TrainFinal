@@ -39,8 +39,9 @@ import com.beans.Train;
 import com.beans.Trip;
 import com.beans.User;
 
+//Strategy that manage all the data and calls from database
+
 public class StrategyDB implements Strategy{
-	//WIP serve l'RMI
 	static Session session = ConnectionToDB.getSession();
 	private AliasDao aliasDao = new AliasDaoImpl();
 	private UserDao userDao = new UserDaoImpl();
@@ -51,30 +52,33 @@ public class StrategyDB implements Strategy{
 	private LeaderboardDao leaderboardDao= new LeaderboardDaoImpl();
 	private static CheckChain checkStringSingleton;
 	
+	
+	//Method to get a country from an alias in input
 	public String getAliasCountry(String input) {
 	    String query = "select nome_paese from alias where alias_paese = " + input;
 	    NativeQuery<String> q = session.createSQLQuery(query);
 	    return q.getSingleResult();
 	}	
-	
+	//Method to return the data map of the countries
 	public Map<String,List<String>> dataMap() {
        return countryDao.dataMap();
     }
 	
 	
+	//Method to get- a set of country names
 	@Override
 	public Set<String> getCountryNames() {
 		// TODO Auto-generated method stub
 		return countryDao.dataMap().keySet();
 	}
 
-
+	//Method to get all the countries
 	@Override
 	public Collection<Country> getAllCountries() {
 		return countryDao.getAllCountries();
 	}
 
-
+	//Method to get all the unapproved aliases
 	@Override
 	public Collection<Alias> getUnapprovedAliases() {
 		return aliasDao.getUnapprovedAliases();
@@ -82,25 +86,25 @@ public class StrategyDB implements Strategy{
 
 
 
-
+	//Method to get the leadboard data
 	@Override
 	public Collection<Leaderboard> getGameData() {
 		return leaderboardDao.getGameData();
 	}
 
-
+	//Method to update the list of game score data
 	@Override
 	public void updateGameData(String[] list) {
 		leaderboardDao.updateGameData(list);
 	}
 
-
+	//Method to get all the builded trains
 	@Override
 	public Collection<Train> getAllTrains() {
 		return trainDao.getAllTrains();
 	}
 
-
+	//Method to get the check chain method
 	@Override
 	public CheckChain getChain() {
 		if (checkStringSingleton == null) {
@@ -117,6 +121,7 @@ public class StrategyDB implements Strategy{
         return checkStringSingleton;
 	}
 
+	//Method to recall the approve and cancel alias
 	@Override
 	public void approveAndCancelAlias(String[] checkAlias, String[] checkDelete, String[] newCountry) {
 		// TODO Auto-generated method stub

@@ -14,6 +14,7 @@ import com.beans.Train;
 import com.dao.AliasDao;
 import com.dao.TrainDao;
 
+//Class to manage train manipulation of Train database table
 public class TrainDaoImpl extends BaseDao implements TrainDao {
 	public void create(Train a) {
 		super.create(a);
@@ -29,7 +30,7 @@ public class TrainDaoImpl extends BaseDao implements TrainDao {
 		this.create(t);
 		
 	}
-
+	//Method to get all the trains from database table
 	@Override
 	public Collection<Train> getAllTrains() {
 		TypedQuery<Train > mq = getSession().createQuery("Select t From Train t", Train.class);

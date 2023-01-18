@@ -12,6 +12,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import com.beans.Bean;
 
+//Class to manage all the beans in the session. The class allows the connection between beans and dao impl java files
 public abstract class BaseDao {
 	private Session session;
 	
