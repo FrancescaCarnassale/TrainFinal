@@ -2,6 +2,10 @@ package com.TrenoFactory.exceptions;
 
 public class NumeroPostiInEccesso extends TrenoException {
 
+	/**
+	 * This exception is throwed when there are too much passengers wagons, checked out with the max seats the train can have 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int postiTreno, postiTrenoMax, postiVagone;
 	private String message;
 	

@@ -7,7 +7,6 @@ import com.dao.impl.TrainDaoImpl;
 public class TrainManager {
 	TrainDao trainDao = new TrainDaoImpl();
 	public void setTrain(Train t) {
-	
 		trainDao.setTrain(t);
 	}
 }
