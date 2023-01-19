@@ -7,6 +7,18 @@
 	width: 60%;
 }
 
+.navbar-toggler {
+	position: absolute;
+	right: 80px;
+	top: 16.5px;
+}
+
+.btn-group.dropstart {
+	right: 0;
+	top: 11.5px;
+	position: absolute;
+}
+
 .dropdown-menu.show {
 	text-align: center;
 }
@@ -15,9 +27,10 @@ input[type="text"] {
 	width: 300px;
 	height: 40px;
 }
+
 .username {
-	width: auto!important;
-	height: auto!important;
+	width: auto !important;
+	height: auto !important;
 }
 
 .ricercaBiglietto-form {
@@ -81,7 +94,6 @@ body {
 	.card2 {
 		width: 90%;
 		transition: width 0.15s ease;
-		font-size: 40px;
 		position: absolute;
 	}
 }
@@ -115,6 +127,7 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
 .container-form-carousel {
 	z-index: 1;
 	font-size: 1rem;
@@ -127,15 +140,18 @@ body {
 	border-radius: 20px;
 	padding: 15px
 }
+
 #departures, #arrives {
 	text-align: center;
 }
+
 #submitBtn {
 	
 }
 
 .btn {
 	/*background: linear-gradient(to right, #574B90, #9E579D);*/
+	
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {

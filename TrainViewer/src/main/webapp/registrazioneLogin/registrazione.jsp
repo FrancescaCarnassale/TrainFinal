@@ -52,7 +52,7 @@
 			<form id="registration-form" onsubmit="return handleSubmit()">
 				<h1 class="py-4 text-center text-white" id="title-registration">Registrazione</h1>
 				<label class="mb-1 text-center text-white" for="name">Nome
-					Utente:</label> <br> <input type="text" class="mb-1" id="name"
+					Utente:</label> <br> <input type="text" class="username mb-1" id="name"
 					name="name" required> <br> <label
 					class="mb-1 text-center text-white" for="email" required>Indirizzo
 					email:</label> <br> <input type="email" class="mb-1" id="email"
