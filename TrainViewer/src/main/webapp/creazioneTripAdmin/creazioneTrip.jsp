@@ -22,7 +22,8 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 	crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/styles.css">
 <title>Creazione Trip</title>
 </head>
 <% 
@@ -32,8 +33,11 @@ if (user != null && role .equals("conductor")) {%>
 <body class="body-createTrip">
 	<script src="handlerCreazioneTrip.js"></script>
 	<jsp:include page="../menuLogged.jsp"></jsp:include>
-	<div align="center">
-		<form id="creazioneTrip-form" onsubmit="return handleSubmit()"
+	<div align="center" class="card2">
+		<h1 class="py-4 text-center text-white">Creazione Viaggio</h1>
+		<form id="creazioneTrip-form"
+			class="pb-4 text-center text-white createTripForm"
+			onsubmit="return handleSubmit()"
 			action="/TrainViewer/CreazioneTripServlet" method="POST">
 			<select name="idTrain" id="idTrain">
 			<!-- Load all created trains -->
@@ -83,9 +87,12 @@ if (user != null && role .equals("conductor")) {%>
         </script>
 	</div>
 </body>
-	<% 
-}else{ %>
-	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
-	<%
-}; %>
+<%
+} else {
+%>
+<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+<%
+}
+;
+%>
 </html>

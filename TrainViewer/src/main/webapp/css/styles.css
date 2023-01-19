@@ -1,3 +1,7 @@
+.body-game, .body-createTrain, .body-createTrip {
+	margin-top: 100px!important;	
+}
+
 .card2 {
 	border-radius: 20px;
 	margin-left: auto;
@@ -7,9 +11,50 @@
 	width: 60%;
 }
 
+.navbar-toggler {
+	position: absolute;
+	right: 80px;
+	top: 16.5px;
+}
+
+.navbar {
+	z-index: 2;
+}
+
+.btn-group.dropstart {
+	right: 0;
+	top: 11.5px;
+	position: absolute;
+}
+
+.dropdown-menu.show {
+	text-align: center;
+}
+
 input[type="text"] {
-width: 300px;
-height: 40px;
+	width: 300px;
+	height: 40px;
+}
+
+.username {
+	width: auto !important;
+	height: auto !important;
+}
+
+.ricercaBiglietto-form {
+	display: flex;
+	justify-content: space-between;
+}
+
+#ricercaBiglietto-form input, #ricercaBiglietto-form label,
+	#ricercaBiglietto-form select {
+	width: 100%;
+	margin: 5px;
+}
+
+.tableTrip {
+	width: 100%;
+	overflow-x: hidden;
 }
 
 body {
@@ -17,58 +62,50 @@ body {
 }
 
 #ricercaTreno-form {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
-#ricercaTreno-form input, #ricercaTreno-form label, #ricercaTreno-form select {
-    width: 100%;
-    margin: 5px;
+#ricercaTreno-form input, #ricercaTreno-form label, #ricercaTreno-form select
+	{
+	width: 100%;
+	margin: 5px;
 }
 
 #idTrain {
-    display: block;
-}
-#departure, #arrive, #start, #end {
-    display: inline-block;
-}
-
-@media
-screen
-and
-(max-width:
-992px)
-{
-.mobile {
 	display: block;
 }
 
-.web {
-	display: none;
+#departure, #arrive, #start, #end {
+	display: inline-block;
 }
 
-.body-registration, .body-login {
-	display: flex;
-	margin-top: 0px !important;
+@media screen and (max-width: 992px) {
+	.mobile {
+		display: block;
+	}
+	.web {
+		display: none;
+	}
+	.body-registration, .body-login {
+		display: flex;
+		margin-top: 0px !important;
+	}
+	.mobile {
+		display: flex;
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		justify-content: center;
+		align-items: center;
+	}
+	.card2 {
+		width: 90%;
+		transition: width 0.15s ease;
+		position: absolute;
+	}
 }
 
-.mobile {
-	display: flex;
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	justify-content: center;
-	align-items: center;
-}
-
-.card2 {
-	width: 90%;
-	transition: width 0.15s ease;
-	font-size: 40px;
-	position: absolute;
-}
-
-}
 @media screen and (min-width: 992px) {
 	.mobile {
 		display: none;
@@ -92,19 +129,37 @@ and
 	}
 }
 
-.container-form-carousel{
-	position: absolute; 
-	display: inline-block; 
-	bottom:50px; left:-80%; 
-	width: 1080px; 
+.carousel {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container-form-carousel {
+	z-index: 1;
+	font-size: 1rem;
+	position: absolute;
+	display: inline-block;
+	bottom: 50px;
+	width: 50%;
 	background: linear-gradient(to right, #574B90, #9E579D);
-	height:80px; 
-	border-radius:20px; 
+	height: 80px;
+	border-radius: 20px;
 	padding: 15px
 }
 
+#departures, #arrives {
+	text-align: center;
+}
+
+#submitBtn {
+	
+}
+
 .btn {
-	background: linear-gradient(to right, #574B90, #9E579D);
+	/*background: linear-gradient(to right, #574B90, #9E579D);*/
+	
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -116,7 +171,8 @@ and
 	background-size: 100% 100%;
 }
 
-.body-registration, .body-login, .body-createTrain, .body-createTrip, .body-searchTrain {
+.body-registration, .body-login, .body-createTrain, .body-createTrip,
+	.body-searchTrain {
 	background: rgb(2, 0, 36);
 	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%,
 		rgba(224, 85, 255, 1) 0%, rgba(123, 0, 255, 1) 100%);
