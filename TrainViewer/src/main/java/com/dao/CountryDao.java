@@ -16,5 +16,4 @@ public interface CountryDao {
 	public Country get(String countryName);
 	public Map<String,List<String>> dataMap();
 	public Collection<Country> getAllCountries();
-	public Set<String> approvedAlias();
 }

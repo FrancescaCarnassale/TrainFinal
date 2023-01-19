@@ -60,14 +60,4 @@ public class CountryDaoImpl extends BaseDao implements CountryDao {
 		
 	}
 
-	@Override
-	public Set<String> approvedAlias() {
-		 NativeQuery<String> mq = getSession().createSQLQuery("Select alias_country from alias where approved=1");
-		 List<String> list= new ArrayList<String>();
-	        for (String s: mq.getResultList()) {
-	            list.add(s.toLowerCase());
-	        }
-	     Set<String> set=(Set<String>) list;
-		return set;
-	}
 }
