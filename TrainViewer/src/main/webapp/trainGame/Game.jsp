@@ -43,7 +43,7 @@ Collection<?> scores = (Collection<?>) db.getGameData();
 <link rel="stylesheet" href="css/styles_game.css">
 <title>Game</title>
 </head>
-<body id="b01" class="bg-white" onkeydown="checkKeyDown(event);"
+<body id="b01" class="bg-white body-game" onkeydown="checkKeyDown(event);"
 	onkeypress="checkKeyPress(event)">
 	<jsp:include page="../menu.jsp"></jsp:include>
 	<div id="loader"

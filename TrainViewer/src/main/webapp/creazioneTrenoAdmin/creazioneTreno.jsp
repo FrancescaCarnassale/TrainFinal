@@ -15,17 +15,21 @@
 	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 	crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/styles.css">
 <title>Creazione Treno</title>
 </head>
 <body class="body-createTrain">
-<% 
-        	String user = (String)session.getAttribute("user");
-			String role = (String)session.getAttribute("role");
-if (user != null && role.equals("train factory")) {%>
+	<%
+	String user = (String) session.getAttribute("user");
+	String role = (String) session.getAttribute("role");
+	if (user != null && role.equals("train factory")) {
+	%>
 	<jsp:include page="../menuLogged.jsp"></jsp:include>
 	<script src="handlerCreazioneTreno.js"></script>
-    <div align="center" class="card2" style="border-radius: 20px;margin-left: auto;margin-right: auto; margin-top: 50px;background-color: rgba(0, 0, 0, 0.5);height: 100%;width: 60%;">		<h1 class="py-4 text-center text-white">Creazione Treno</h1>
+	<div align="center" class="card2"
+		style="border-radius: 20px; margin-left: auto; margin-right: auto; margin-top: 50px; background-color: rgba(0, 0, 0, 0.5); height: 100%; width: 60%;">
+		<h1 class="py-4 text-center text-white">Creazione Treno</h1>
 		<form id="creazioneTreno-form" onsubmit="return handleSubmit()"
 			action="/TrainViewer/CreazionTrenoServlet" method="POST"
 			class="pb-4 text-center text-white createTrainForm">
@@ -33,9 +37,10 @@ if (user != null && role.equals("train factory")) {%>
 				<option style="display: none">-- Seleziona un brand --</option>
 				<option>Frecciarossa</option>
 				<option>Trenord</option>
-			</select> <label for="serialNumber" class="mt-1" required>Numero seriale:</label> <input
-				type="text" id="serialNumber" name="serialNumber"> <br>
-			<input type="submit" class="input-submit" value="Crea treno!">
+			</select> <label for="serialNumber" class="mt-1" required>Numero
+				seriale:</label> <input type="text" id="serialNumber" name="serialNumber">
+			<br> <input type="submit" class="input-submit"
+				value="Crea treno!">
 		</form>
 		<c:set var="msg" value="${requestScope.msg}" />
 		<script>
@@ -44,9 +49,12 @@ if (user != null && role.equals("train factory")) {%>
 		</script>
 	</div>
 </body>
-	<% 
-}else{ %>
-	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
-	<% 
-}; %>
+<%
+} else {
+%>
+<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+<%
+}
+;
+%>
 </html>

@@ -1,3 +1,7 @@
+.body-game, .body-createTrain, .body-createTrip {
+	margin-top: 100px!important;	
+}
+
 .card2 {
 	border-radius: 20px;
 	margin-left: auto;
