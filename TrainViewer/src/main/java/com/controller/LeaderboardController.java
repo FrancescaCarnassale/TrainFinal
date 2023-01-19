@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.beans.Leaderboard;
 import com.beans.User;
 import com.dao.impl.UserDaoImpl;
+import com.manager.LeaderboardManager;
 import com.manager.strategy.StrategyDB;
 /**
  * Controller of the trainGame
@@ -29,13 +30,13 @@ public class LeaderboardController {
 	@ResponseBody
 	@RequestMapping( 
 			path={"/updateScore"},
-			method= { RequestMethod.POST, RequestMethod.GET}
+			method= { RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT}
 	)
 	//nome parametro e id devono coincidere
 		public String updateScore(HttpServletRequest request,HttpServletResponse httpServletResponse, @WebParam String punteggio){
 			
 			UserDaoImpl userdao = new UserDaoImpl();
-			StrategyDB s = new StrategyDB();
+			LeaderboardManager lm = new LeaderboardManager();
 			Leaderboard l = null;
 			HttpSession session = request.getSession();
 			String user = (String)session.getAttribute("email");
@@ -43,18 +44,25 @@ public class LeaderboardController {
 			User u = userdao.get(user);
 		
 			//recupero il punteggio precedente di utente
-			l = s.getOldScore(u);
+			l = lm.getOldScore(u);
 			
 			if(l ==  null ) {
 				l = new Leaderboard();
-				l.setScore(0);
-			}
-			
-			//se il punteggio precedente e' minore di quello attuale aggiorno
-			if(l.getScore() < Integer.valueOf(punteggio)) {
 				l.setUser(u);
-				l.setScore(Integer.valueOf(punteggio));
-				s.updateScore(l);
+				try {
+					l.setScore(Integer.valueOf(punteggio));
+				}catch(NumberFormatException e) {
+					l.setIdScore(0);
+				}
+				lm.createScore(l);
+			}else {
+				
+				//se il punteggio precedente e' minore di quello attuale aggiorno
+				if(l.getScore() < Integer.valueOf(punteggio)) {
+					l.setUser(u);
+					l.setScore(Integer.valueOf(punteggio));
+					lm.updateScore(l);
+				}
 			}
 			httpServletResponse.setHeader("Location", "/TrainViewer/trainGame/trainGame.jsp");
 		    httpServletResponse.setStatus(302);

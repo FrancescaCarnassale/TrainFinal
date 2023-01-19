@@ -37,7 +37,7 @@ public class LeaderboardDaoImpl extends BaseDao implements LeaderboardDao{
 	 */
 	@Override
 	public void updateScore(Leaderboard leaderboardEntry) {
-		this.create(leaderboardEntry);
+		super.update(leaderboardEntry);
 	}
 	
 	/**
