@@ -131,13 +131,9 @@ function gameOver(){
 	
 	giocoFinito=true;
 	stopEnemies();
-	
 	swal({
 		 title: "Clicca ok per inviare il tuo punteggio",
-    	type: "success",
-    	 customClass: {
-		    actions: 'vertical-buttons',
-		  }
+    	type: "success"
 	}).then(function() {
    var e = document.getElementById("paginaUpdate");
 	e.href = e.href + "?" + "punteggio=" +actualScore;
@@ -145,6 +141,13 @@ function gameOver(){
 	location.href = e.href;
 });
 }
+
+//impedisce lo scrolling della pagina con le frecce direzionali
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
 function controllaCella(x, y) {
 	controllaGameOver(x, y);
 	const val = piano[x][y];
