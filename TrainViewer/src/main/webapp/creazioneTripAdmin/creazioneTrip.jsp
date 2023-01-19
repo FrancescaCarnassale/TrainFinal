@@ -78,7 +78,7 @@ if (user != null && role .equals("conductor")) {%>
 		<label for="end">Orario di arrivo:</label>
        	<input type="datetime-local" id="end" name="end" value="<%=sdf.format(later)%>">
        	<br>
-		<input type="submit" value="Crea trip!">
+		<input type="submit" value="Crea il viaggio!">
 	</form>
 	<c:set var="msg" value="${requestScope.msg}" />
         <script>

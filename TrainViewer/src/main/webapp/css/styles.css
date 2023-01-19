@@ -74,6 +74,7 @@ body {
 
 #idTrain {
 	display: block;
+	border-radius: 8px;
 }
 
 #departure, #arrive, #start, #end {
