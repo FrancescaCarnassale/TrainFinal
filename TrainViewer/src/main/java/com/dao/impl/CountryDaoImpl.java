@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.TypedQuery;
 
@@ -41,7 +42,7 @@ public class CountryDaoImpl extends BaseDao implements CountryDao {
 	        System.out.println(l.size());
 	        for(Object[] o: l) { 
 		        List<String> temp = map.get(((String)o[1]).toLowerCase());
-		        temp.add((String) o[0]);
+		        temp.add(((String) o[0]).toLowerCase());
 		        map.put((String) o[1], temp);            
 	        }
 	        return map;
@@ -57,5 +58,16 @@ public class CountryDaoImpl extends BaseDao implements CountryDao {
         Collection<Country> countries = mq.getResultList();
         return countries;
 		
+	}
+
+	@Override
+	public Set<String> approvedAlias() {
+		 NativeQuery<String> mq = getSession().createSQLQuery("Select alias_country from alias where approved=1");
+		 List<String> list= new ArrayList<String>();
+	        for (String s: mq.getResultList()) {
+	            list.add(s.toLowerCase());
+	        }
+	     Set<String> set=(Set<String>) list;
+		return set;
 	}
 }

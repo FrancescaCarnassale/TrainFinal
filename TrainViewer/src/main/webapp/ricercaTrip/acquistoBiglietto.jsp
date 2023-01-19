@@ -23,7 +23,7 @@
     <tr>
     <form action = "/TrainViewer/buyingTickets/buy" method = "POST">
       <td><img id="depImg" src="" width="30" height="30"> ${trip.getDeparture().getCountryName()}</td> 
-      <td><img id="arrImg" src="" width="30" height="30">${trip.getArrive().getCountryName()}</td>
+      <td><img id="arrImg" src="" width="30" height="30"> ${trip.getArrive().getCountryName()}</td>
       <td>${trip.getTimeDeparture()}</td>
       <td>${trip.getTimeArrive()}</td>
       <td><input type="number" id="seats" name="seats" min="1"></td>
