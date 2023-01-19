@@ -32,34 +32,34 @@ public class LeaderboardController {
 			method= { RequestMethod.POST, RequestMethod.GET}
 	)
 	//nome parametro e id devono coincidere
-	public String updateScore(HttpServletRequest request,HttpServletResponse httpServletResponse, @WebParam String punteggio){
+		public String updateScore(HttpServletRequest request,HttpServletResponse httpServletResponse, @WebParam String punteggio){
+			
+			UserDaoImpl userdao = new UserDaoImpl();
+			StrategyDB s = new StrategyDB();
+			Leaderboard l = null;
+			HttpSession session = request.getSession();
+			String user = (String)session.getAttribute("email");
+			
+			User u = userdao.get(user);
 		
-		UserDaoImpl userdao = new UserDaoImpl();
-		StrategyDB s = new StrategyDB();
-		Leaderboard l = null;
-		HttpSession session = request.getSession();
-		String user = (String)session.getAttribute("email");
-		System.out.println("stampo utente " + user + " e punteggio " + punteggio);
-		User u = userdao.get(user);
-		
-		//recupero il punteggio precedente di utente
-		l = s.getOldScore(u);
-		
-		if(l ==  null ) {
-			l = new Leaderboard();
-			l.setScore(0);
+			//recupero il punteggio precedente di utente
+			l = s.getOldScore(u);
+			
+			if(l ==  null ) {
+				l = new Leaderboard();
+				l.setScore(0);
+			}
+			
+			//se il punteggio precedente e' minore di quello attuale aggiorno
+			if(l.getScore() < Integer.valueOf(punteggio)) {
+				l.setUser(u);
+				l.setScore(Integer.valueOf(punteggio));
+				s.updateScore(l);
+			}
+			httpServletResponse.setHeader("Location", "/TrainViewer/trainGame/Game.jsp");
+		    httpServletResponse.setStatus(302);
+			return "/TrainViewer/trainGame/Game";
 		}
 		
-		//se il punteggio precedente e' minore di quello attuale aggiorno
-		if(l.getScore() < Integer.valueOf(punteggio)) {
-			l.setUser(u);
-			l.setScore(Integer.valueOf(punteggio));
-			s.updateScore(l);
-		}
-		httpServletResponse.setHeader("Location", "/TrainViewer/trainGame/Game.jsp");
-	    httpServletResponse.setStatus(302);
-		
-		return "";
-	}
 	
 }

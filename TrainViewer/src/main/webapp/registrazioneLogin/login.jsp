@@ -31,15 +31,11 @@
 				<br>
 				<div class="div-submit">
 					<input type="submit" class="input-submit" value="Login"> <br>
-					<a href="registrazione.jsp" class="text-center text-white" id="already-registered">Non sei
-						registrato? FALLO!</a>
+					<a href="registrazioneLogin/registrazione.jsp" class="text-center text-white" id="already-registered">Non sei
+						registrato? Registrati!</a>
 				</div>
 			</form>
-            <c:set var="msg" value="${requestScope.msg}" />
-			<script>
-				if ("${msg}" != "")
-					alert("${msg}");
-			</script>
+            
 		</div>
 	</div>
 	<div class="mobile">
@@ -53,17 +49,18 @@
 				<br>
 				<div class="div-submit">
 					<input type="submit" class="input-submit" value="Login"> <br>
-					<a href="registrazione.jsp" class="text-center text-white" id="already-registered">Non sei
-						registrato? FALLO!</a>
+					<a href="registrazioneLogin/registrazione.jsp" class="text-center text-white" id="already-registered">Non sei
+						registrato? Registrati!</a>
 				</div>
 			</form>
-            <c:set var="msg" value="${requestScope.msg}" />
-			<script>
+
+		</div>
+	</div>
+	<c:set var="msg" value="${requestScope.msg}" />
+				<script>
 				if ("${msg}" != "")
 					alert("${msg}");
 			</script>
-		</div>
-	</div>
 </body>
 
 </html>

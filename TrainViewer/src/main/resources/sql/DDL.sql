@@ -57,11 +57,12 @@ CREATE TABLE trip(
 
 DROP TABLE IF EXISTS leaderboard;
 CREATE TABLE leaderboard (
-  user_mail VARCHAR(20) NOT NULL PRIMARY KEY,
+  id_score INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  user_mail VARCHAR(20) NOT NULL,
   user_score INT NOT NULL,
   FOREIGN KEY (user_mail) REFERENCES user_train(user_mail) 
-  		ON UPDATE CASCADE
-  		ON DELETE CASCADE
+          ON UPDATE CASCADE
+          ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS reservation;

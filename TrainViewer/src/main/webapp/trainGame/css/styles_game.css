@@ -188,4 +188,7 @@ audio {
 	flex-direction: column;
 }
 
+.vertical-buttons {
+  flex-direction: column;
+}
 

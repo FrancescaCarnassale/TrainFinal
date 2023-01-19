@@ -85,8 +85,9 @@ public class CreazioneTripServlet extends HttpServlet {
 				trip.setSeatsAvailable(tp.getSeats());
 				tr.setTrip(trip);
 				//I DATI SONO TUTTI CORRETTI
-				msg = "idTrain: " + idTrain+ " Departure: "+partenza + " Arrive: "+ arrivo
-						+" TimeDeparture: "+timeStart+" TimeArrrive: "+timeEnd + " Seats avaiable: " +tp.getSeats();
+				msg = "Hai creato il trip! Ecco un resoconto dei dati:\n"+
+				"idTrain:" + idTrain+ " Partenza: "+partenza + " Arrivo: "+ arrivo
+						+" orario di partenza: "+timeStart+" orario di arrivo: "+timeEnd + " Posti disponibili: " +tp.getSeats();
 			}
 			//arrivo has no correspondence
 			else {

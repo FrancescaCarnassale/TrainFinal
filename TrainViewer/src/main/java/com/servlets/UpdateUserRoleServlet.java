@@ -35,7 +35,7 @@ public class UpdateUserRoleServlet extends HttpServlet {
 		//Method update all users in the array with relative new role
 		s.updateUserRole(checkRoles, newRoles);
 		
-		request.setAttribute("msg", "Ruoli assegnati");
+		request.setAttribute("msg", "Ruoli assegnati correttamente");
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateUserRole.jsp");
 		dispatcher.forward(request, response);
 	}

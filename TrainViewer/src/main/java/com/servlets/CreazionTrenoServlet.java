@@ -66,7 +66,9 @@ public class CreazionTrenoServlet extends HttpServlet{
 				train.setSeats(t.getNumPosti());
 				System.out.println(t.getNumPosti());
 				s.setTrain(train);
-				msg = "Operazione avvenuta con successo!";
+				msg = "Operazione avvenuta con successo! "+
+				"Hai creato il treno "+ produttore+ " con numero seriale: "+
+						serialNumber;
 			} catch ( TrenoException | IllegalArgumentException e) {
 				//if the input is wrong, exceptions will be throw
 				msg=e.getMessage();

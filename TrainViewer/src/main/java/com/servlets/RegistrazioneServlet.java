@@ -62,7 +62,7 @@ public class RegistrazioneServlet extends HttpServlet {
 			request.setAttribute("msg", "Utente creato con successo!");
 			 dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/login.jsp");
 		}else {
-			request.setAttribute("msg", "Utente esistente!");
+			request.setAttribute("msg", "Utente già esistente!");
 			 dispatcher = getServletContext().getRequestDispatcher("/registrazioneLogin/registrazione.jsp");
 		}
 		
