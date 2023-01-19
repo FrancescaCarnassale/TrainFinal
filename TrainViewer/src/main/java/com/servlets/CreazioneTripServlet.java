@@ -76,6 +76,8 @@ public class CreazioneTripServlet extends HttpServlet {
 			//if arrivo!=null the check has found the related country
 			if(arrivo!=null) {
 				Trip trip= new Trip();  
+				partenza = partenza.substring(0, 1).toUpperCase() + partenza.substring(1);
+				arrivo = arrivo.substring(0, 1).toUpperCase() + arrivo.substring(1);
 				Train tp= td.getSession().get(Train.class,idTrain);
 				trip.setArrive(td.getSession().get(Country.class,arrive));         
 				trip.setDeparture(td.getSession().get(Country.class,departure));         
@@ -108,7 +110,6 @@ public class CreazioneTripServlet extends HttpServlet {
 			aliasManager.setAlias(a);
 			msg = "Partenza non trovata!";
 		}
-		
 		request.setAttribute("msg", msg);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/creazioneTripAdmin/creazioneTrip.jsp");
 		dispatcher.forward(request, response);
