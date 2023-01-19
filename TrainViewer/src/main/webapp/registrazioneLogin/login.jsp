@@ -25,7 +25,7 @@
 	<div class="web">
 		<div align="center" class="card2">
 			<a href="/TrainViewer" style="display: inline-block;"> <img
-				src="https://cdn-icons-png.flaticon.com/128/507/507257.png"
+				src="img/arrow.png"
 				alt="Indietro" style="max-width: 2%; position: absolute; left: 27%;">
 			</a>
 			<h1 class="py-4 text-center text-white">Login</h1>

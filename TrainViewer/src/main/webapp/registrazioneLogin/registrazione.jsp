@@ -27,7 +27,7 @@
 		<div align="center" class="card2">
 			<form id="registration-form" onsubmit="return handleSubmit()">
 				<a href="/TrainViewer" style="display: inline-block;"> <img
-					src="https://cdn-icons-png.flaticon.com/128/507/507257.png"
+					src="img/arrow.png"
 					alt="Indietro"
 					style="max-width: 2%; position: absolute; left: 27%;">
 				</a>

@@ -33,9 +33,9 @@ Collection<Country> countries = db.getAllCountries();
 		action="/TrainViewer/buyingTickets/search" method="POST">
 
 		<a href="/TrainViewer" style="display: inline-block;"> <img
-			src="https://cdn-icons-png.flaticon.com/128/507/507257.png"
+			src="http://localhost:8080/TrainViewer/registrazioneLogin/img/arrow.png"
 			alt="Indietro"
-			style="max-width: 25%; margin-top: 10%; margin-left: 10%">
+			style="max-width: 100%; margin-top: 70%; margin-left: 80%">
 		</a>
 		<div style="text-align: center;">
 			<h1 style="color: white">TROVA IL BIGLIETTO GIUSTO PER TE</h1>
