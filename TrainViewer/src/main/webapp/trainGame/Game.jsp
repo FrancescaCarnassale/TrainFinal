@@ -52,7 +52,7 @@ if (user != null) {%>
 			
 		<div class="container" id="container-game">
 			<input id="btnPlay" type="button" onclick="play()" value="Play" class="btnPlay"></input>
-			<audio id="myAudio" src="audio1/videoplayback.mp3" loop></audio>
+			<audio id="myAudio" src="audio1/trainTankSountrack.mp3" loop></audio>
 			<br> <br>
 			<div id="pianoGioco"></div>
 		</div>
