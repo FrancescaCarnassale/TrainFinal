@@ -32,9 +32,9 @@ public class TripDaoImpl extends BaseDao implements TripDao{
 	 * **/
 	@Override
 	public boolean updateSeats(Trip t, int bookedSeats) {
-		if(!checkSeats(t,bookedSeats)) {
+		if(!checkSeats(t,bookedSeats)) 
 			return false;
-		}
+		
 		t.setSeatsAvailable(t.getSeatsAvailable()-bookedSeats);
 		super.getSession().beginTransaction();
 		super.getSession().update(t);
