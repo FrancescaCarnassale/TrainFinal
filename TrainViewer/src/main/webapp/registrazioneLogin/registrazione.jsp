@@ -27,7 +27,7 @@
 	<jsp:include page="../menu.jsp"></jsp:include>
 	<div class="web">
 		<div align="center" class="card2">
-			<form id="registration-form" onsubmit="return handleSubmit()">
+			<form id="registration-form" onsubmit="return handleSubmit()" action="/TrainViewer/RegistrazioneServlet" method="POST">
 				<h1 class="py-4 text-center text-white" id="title-registration">Registrazione</h1>
 				<label class="mb-1 text-center text-white" for="name">Nome
 					Utente:</label> <br> <input type="text" class="mb-1" id="name"

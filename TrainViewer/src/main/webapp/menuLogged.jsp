@@ -27,7 +27,7 @@
         	          <a class="nav-link" aria-current="page" href="/TrainViewer/trainGame/trainGame.jsp">Gioco del treno</a>
         	        </li>
         	           
-        	       <c:if test = "${role == 'train factory' }">
+        	       <c:if test = "${role == 'factory' }">
         	        <li class="nav-item">
         	        </li>
         	        <li class="nav-item">
@@ -37,7 +37,7 @@
         	          
         	          
         	          
-        	          <c:if test = "${role == 'train manager' }">
+        	          <c:if test = "${role == 'conductor' }">
         	         <li class="nav-item">
         	        </li>
          	          <li class="nav-item">
