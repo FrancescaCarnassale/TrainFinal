@@ -52,6 +52,10 @@
 	</div>
 	<div class="mobile">
 		<div align="center" class="card2">
+			<a href="/TrainViewer" style="display: inline-block;"> <img
+				src="https://cdn-icons-png.flaticon.com/128/507/507257.png"
+				alt="Indietro" style="max-width: 20px; position: absolute; left: 20px;">
+			</a>
 			<h1 class="py-4 text-center text-white">Login</h1>
 			<form id="login-form" action="/TrainViewer/LoginServlet"
 				method="POST">

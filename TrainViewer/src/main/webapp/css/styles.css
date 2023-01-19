@@ -13,6 +13,10 @@
 	top: 16.5px;
 }
 
+.navbar {
+	z-index: 2;
+}
+
 .btn-group.dropstart {
 	right: 0;
 	top: 11.5px;
