@@ -5,7 +5,7 @@
 	<div class="container-fluid">
 		<a class="navbar-brand" href="/TrainViewer/index.jsp"> <img
 			src="img/logo.jpg" alt="TrainViewer Icon"
-			style="height: 3rem; border-radius: 10%">
+			style="height: 3rem; border-radius: 50px">
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"

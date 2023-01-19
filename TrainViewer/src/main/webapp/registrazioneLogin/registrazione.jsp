@@ -6,23 +6,30 @@
 <head>
 <meta charset="ISO-8859-1">
 <!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-  <link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
-<title>TrainViewer</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+	crossorigin="anonymous"></script>
+
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/styles.css">
 <title>Registration</title>
 </head>
 
 <body class="body-registration">
-	<jsp:include page="../menu.jsp"></jsp:include>
 	<script src="handlerRegistrazione.js"></script>
+	<jsp:include page="../menu.jsp"></jsp:include>
 	<div class="web">
 		<div align="center" class="card2">
 			<form id="registration-form" onsubmit="return handleSubmit()">
 				<h1 class="py-4 text-center text-white" id="title-registration">Registrazione</h1>
 				<label class="mb-1 text-center text-white" for="name">Nome
-					Utente:</label> <br> <input type="text" class="mb-1" id="name"
+					Utente:</label> <br> <input type="text" class="username mb-1" id="name"
 					name="name" required> <br> <label
 					class="mb-1 text-center text-white" for="email" required>Indirizzo
 					email:</label> <br> <input type="email" class="mb-1" id="email"
