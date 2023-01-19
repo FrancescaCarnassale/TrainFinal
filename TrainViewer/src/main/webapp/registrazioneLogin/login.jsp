@@ -31,7 +31,7 @@
 				<br>
 				<div class="div-submit">
 					<input type="submit" class="input-submit" value="Login"> <br>
-					<a href="registrazioneLogin/registrazione.jsp" class="text-center text-white" id="already-registered">Non sei
+					<a href="/TrainViewer/registrazioneLogin/registrazione.jsp" class="text-center text-white" id="already-registered">Non sei
 						registrato? Registrati!</a>
 				</div>
 			</form>
@@ -49,7 +49,7 @@
 				<br>
 				<div class="div-submit">
 					<input type="submit" class="input-submit" value="Login"> <br>
-					<a href="registrazioneLogin/registrazione.jsp" class="text-center text-white" id="already-registered">Non sei
+					<a href="/TrainViewer/registrazioneLogin/registrazione.jsp" class="text-center text-white" id="already-registered">Non sei
 						registrato? Registrati!</a>
 				</div>
 			</form>
