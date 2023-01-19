@@ -41,7 +41,7 @@
         	         <li class="nav-item">
         	        </li>
          	          <li class="nav-item">
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTripAdmin/creazioneTrip.jsp">CreazioneTrip</a>
+        	          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTripAdmin/creazioneTrip.jsp">Creazione Viaggio</a>
         	         
         	        </li>
         				</c:if>
