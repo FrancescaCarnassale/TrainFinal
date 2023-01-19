@@ -28,6 +28,5 @@ public interface Strategy {
 	public CheckChain getChain();
 	public List<User> getUsersWithRole(String role);
 	public void updateUserRole(String[] email, String[] newRoles);
-	public void updateScore(Leaderboard leaderboardEntry);
-    public Leaderboard getOldScore(User user);
+	
 }
