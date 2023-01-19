@@ -62,7 +62,7 @@ input[type="text"] {
 }
 
 body {
-	margin-top: 50px !important;
+	margin-top: 0px !important;
 }
 
 #ricercaTreno-form {
@@ -156,15 +156,6 @@ body {
 
 #departures, #arrives {
 	text-align: center;
-}
-
-#submitBtn {
-	
-}
-
-.btn {
-	/*background: linear-gradient(to right, #574B90, #9E579D);*/
-	
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {
