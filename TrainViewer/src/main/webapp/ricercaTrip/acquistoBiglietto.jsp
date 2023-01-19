@@ -10,7 +10,7 @@
 <meta charset="ISO-8859-1">
 <title>Acquisto biglietto</title>
 </head>
-<body>
+<body onload="loadFlag()">
 <jsp:include page="../menuLogged.jsp"></jsp:include>
 <table>
   <tr>
@@ -22,8 +22,8 @@
   </tr>
     <tr>
     <form action = "/TrainViewer/buyingTickets/buy" method = "POST">
-      <td>${trip.getDeparture().getCountryName()}</td>
-      <td>${trip.getArrive().getCountryName()}</td>
+      <td><img id="depImg" src="" width="30" height="30"> ${trip.getDeparture().getCountryName()}</td> 
+      <td><img id="arrImg" src="" width="30" height="30">${trip.getArrive().getCountryName()}</td>
       <td>${trip.getTimeDeparture()}</td>
       <td>${trip.getTimeArrive()}</td>
       <td><input type="number" id="seats" name="seats" min="1"></td>
@@ -32,9 +32,12 @@
 		<input type="submit" value="Compra"/>
 	  </td>
      </form>
-     
     </tr>
 </table>
-
+     <div class="d-none">
+                    <input id="dep" type="hidden" value="${trip.getDeparture().getAlpha2code().toLowerCase()}">
+                    <input id="arr" type="hidden" value="${trip.getArrive().getAlpha2code().toLowerCase()}">
+                </div>
+                <script type="text/javascript" src="js/flag.js"></script>        
 </body>
 </html>
