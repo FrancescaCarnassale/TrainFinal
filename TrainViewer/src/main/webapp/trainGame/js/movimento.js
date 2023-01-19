@@ -141,6 +141,13 @@ function gameOver(){
 	location.href = e.href;
 });
 }
+
+//impedisce lo scrolling della pagina con le frecce direzionali
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
 function controllaCella(x, y) {
 	controllaGameOver(x, y);
 	const val = piano[x][y];

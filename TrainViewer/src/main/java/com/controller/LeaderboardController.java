@@ -52,9 +52,9 @@ public class LeaderboardController {
 			l.setScore(Integer.valueOf(punteggio));
 			s.updateScore(l);
 		}
-		httpServletResponse.setHeader("Location", "/TrainViewer/trainGame/Game.jsp");
-	    httpServletResponse.setStatus(302);
-		return "/TrainViewer/trainGame/Game";
+//		httpServletResponse.setHeader("Location", "/TrainViewer/trainGame/Game.jsp");
+//	    httpServletResponse.setStatus(302);
+		return "/TrainViewer/trainGame/TrainGame";
 	}
 	
 }

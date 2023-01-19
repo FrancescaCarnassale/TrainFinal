@@ -41,22 +41,44 @@ if (user != null) {%>
 <body id="b01" class="bg-white" onkeydown="checkKeyDown(event);"
 	onkeypress="checkKeyPress(event)">
 	<jsp:include page="../menuLogged.jsp"></jsp:include>
-	<div id="loader" style="align-items: center; justify-content: center; display: flex; flex-direction:row; padding-top: 10%">
-			<div style="align-items: center; display: flex; flex-direction: column;">
-		  		<img src="https://thumbs.gfycat.com/InferiorDecentAsianporcupine-max-1mb.gif" style="padding-left: 5rem; width: 25rem" alt="Loading...">
-		  		<h3 style="color:black; font-size:3rem">Loading...</h3>
+	
+	<div id="start-page" style="background-color: #ceead6; height: 100vh"
+		class="page full-page title-bg">
+		<img class="title-image title-image-left title-image-top"
+			style="position: absolute"
+			src="https://snake.googlemaps.com/static/img/home/upper_left.png">
+		<img class="title-image title-image-left title-image-ycenter"
+			style="position: absolute; bottom: 25%"
+			src="https://snake.googlemaps.com/static/img/home/mid_left.png">
+		<img class="title-image title-image-right title-image-ycenter"
+			style="position: absolute; bottom: 25%; right: 0px;"
+			src="https://snake.googlemaps.com/static/img/home/mid_right.png">
+		<img class="title-image title-image-train-left"
+			style="position: absolute; bottom: 46%"
+			src="https://snake.googlemaps.com/static/img/train/tokyo-full.png">
+		<img class="title-image title-image-train-right"
+			style="position: absolute; top: 15%; right: 0px; transform: rotate(180deg); transform: scaleX(-1);"
+			src="https://snake.googlemaps.com/static/img/train/world-full.png">
+		<img class="title-image title-image-person-3"
+			style="position: absolute; bottom: 10%; right: 10%"
+			src="https://snake.googlemaps.com/static/img/person/Pegman_1.png">
+		<img class="title-image title-image-person-1"
+			style="position: absolute; top: 28%; left: 59%"
+			src="https://snake.googlemaps.com/static/img/person/Pegman_2.png">
+		<img class="title-image title-image-person-2"
+			style="position: absolute; bottom: 75%; right: 56%"
+			src="https://snake.googlemaps.com/static/img/person/Pegman_3.png">
+		<div class="div-container">
+			<div class="div-title">
+				<h1 class="title pixel-font" style="font-size: 6rem; color: #9E579D">Snake</h1>
 			</div>
-		</div>
-	<div id="outerContainer" style="background-color:white">
+			<div class="container" id="container-game">
 			
-			
-		<div class="container" id="container-game">
-			<input id="btnPlay" type="button" onclick="play()" value="Play" class="btnPlay"></input>
-			<audio id="myAudio" src="audio1/videoplayback.mp3" loop></audio>
-			<br> <br>
-			<div id="pianoGioco"></div>
-		</div>
-
+				<input id="btnPlay" style="position:relative; left: 200px;background-color: #9E579D; color: white; box-shadow: 0 4px 0 #9E579D; border: none; display: block; font-size: .875rem; font-weight: 500; height: 36px; margin: 12px; min-width: 200px; padding: 0px 30px;" type="button" onclick="play()" value="Play" class="btnPlay"></input>
+				<audio id="myAudio" src="audio1/videoplayback.mp3" loop></audio>
+				<br> <br>
+				<div id="pianoGioco" ></div>
+			</div>
 		<div class="container bg-dark" id="container-score" style="background: linear-gradient(to right, #574B90, #9E579D);">
 			<div id="punteggio" name="punteggio" ></div><br>
 			<a id="paginaUpdate" href= "/TrainViewer/leaderboardController/updateScore"></a> 
@@ -92,20 +114,19 @@ if (user != null) {%>
 				</table>
 
 			</form>
-     <!-- 
-		</div>
-            <div class="centered-flex" style="position:absolute; bottom:20%; left:45%">          
-                <button onClick="location.href='/TrainViewer/index.jsp" style="background-color: #1a73e8;color: white;box-shadow: 0 4px 0 #185abc;border: none;display: block; font-size: .875rem;font-weight: 500;height: 36px;margin: 12px;min-width: 200px;padding: 0px 24px;" id="title-start-btn" class="btn primary-btn" dir="auto">HomePage</button>
-                -->	
+     
               
 			</div>   
+		</div>
+		
+	
              	
+		
 	</div>
-	<br>
-	<br>
-	<p id="posizioneOmino"></p>
-	<p id="messaggioDebug"></p>
 
+
+	
+	
 	<script type="text/javascript" src="js/mappa.js"></script>
 	<script type="text/javascript" src="js/movimento.js"></script>
 	
