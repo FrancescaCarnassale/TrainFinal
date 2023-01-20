@@ -25,6 +25,9 @@ if (user != null) {%>
 <body class="body-acquisto"
 	style="height: 100vh; display: flex; align-items: center; background: linear-gradient(to right, #574B90, #9E579D); margin-top: 0px !important; justify-content: center">
 	<div class="container" style="margin: 0">
+	<div style="text-align: center; margin-bottom:30px">
+					<h1 style="color: white">Trova il biglietto giusto per te</h1>
+				</div>
 		<div class="card2"
 			style="display: flex; padding: 20px; align-items: center; text-align: center; margin-top: 0px !important">
 			<a href="/TrainViewer" style="display: inline-block;"> <img
@@ -32,18 +35,16 @@ if (user != null) {%>
 				alt="Indietro"
 				style="max-width: 100%; position:absolute; left: 20px; top: 20px;">
 			</a>
-				<div style="text-align: center;">
-					<h1 style="color: white">Sicuro di voler acquistare questo biglietto?</h1>
-				</div>
+				
 				<table class="tableTrip"
 					style="color: white; text-align: center; width: 100%; margin-top: 25px; border-collapse: collapse; font-size: 15px;">
 					<thead>
 						<tr>
-							<th style="font-size: 18px; width: 25%">Partenza</th>
-							<th style="font-size: 18px; width: 25%">Arrivo</th>
-							<th style="font-size: 18px; width: 15">Orario di Partenza</th>
-							<th style="font-size: 18px; width: 15">Orario d'Arrivo</th>
-							<th style="font-size: 18px; width: 15">Numero biglietti</th>
+							<th style="font-size: 18px; width: 20%">Partenza</th>
+							<th style="font-size: 18px; width: 20%">Arrivo</th>
+							<th style="font-size: 18px; width: 20%">Orario di Partenza</th>
+							<th style="font-size: 18px; width: 20%">Orario d'Arrivo</th>
+							<th style="font-size: 18px; width: 15%">Numero biglietti</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -53,10 +54,10 @@ if (user != null) {%>
 						      <td> ${trip.getArrive().getCountryName()}</td>
 						      <td>${trip.getTimeDeparture()}</td>
 						      <td>${trip.getTimeArrive()}</td>
-						      <td><input type="number" id="seats" name="seats" min="1"></td>
+						      <td><input type="number" id="seats" name="seats" min="1" style="width: 60%"></td>
 						      <input type="hidden" name="tripId" value="${trip.getIdTrip()}"/>
 						      <td>
-						        <input type="submit" value="Compra"/>
+						        <input type="submit"value="Compra"/>
 						      </td>
 						     </form>
 						    </tr>
@@ -77,4 +78,3 @@ if (user != null) {%>
 	<% 
 }; %>
 </html>
-
