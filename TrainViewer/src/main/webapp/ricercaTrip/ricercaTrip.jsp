@@ -52,6 +52,7 @@ Collection<Country> countries = db.getAllCountries();
 			</thead>
 			<tbody>
 				<c:set var="counter" value="0" />
+				<c:set var="tripsJSP" value="${requestScope.trips}" /> 
 				<c:forEach items="${tripsJSP}" var="trip">
 					<tr>
 						<td>${trip.getDeparture().getCountryName()}</td>

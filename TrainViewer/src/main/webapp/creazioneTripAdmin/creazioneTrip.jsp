@@ -41,6 +41,14 @@ if (user != null && role.equals("train manager")) {
 			onsubmit="return handleSubmit()"
 			action="/TrainViewer/CreazioneTripServlet" method="POST">
 			<select name="idTrain" id="idTrain">
+			                <%
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+                Date today = new Date();
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(today);
+                calendar.add(Calendar.MINUTE, 30);
+                Date later = calendar.getTime();
+                %> 
 			</select> <br> <label for="departure" required>Partenza:</label> <input
 				type="text" id="departure" name="departure"> <label
 				for="arrive" required>Arrivo:</label> <input type="text" id="arrive"
