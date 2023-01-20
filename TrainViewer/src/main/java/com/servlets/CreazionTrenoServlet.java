@@ -64,7 +64,6 @@ public class CreazionTrenoServlet extends HttpServlet{
 				train.setBrand(produttore);
 				train.setSerialNumber(serialNumber);
 				train.setSeats(t.getNumPosti());
-				System.out.println(t.getNumPosti());
 				s.setTrain(train);
 				msg = "Operazione avvenuta con successo! "+
 				"Hai creato il treno "+ produttore+ " con numero seriale: "+
