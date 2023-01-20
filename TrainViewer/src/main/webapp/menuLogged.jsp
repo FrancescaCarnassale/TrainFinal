@@ -79,11 +79,11 @@
         	        </li>
         	            <li class="nav-item">
         	           
-        	          <a class="nav-link" aria-current="page" style="color: white; font-size: 20px" href="/TrainViewer/admin.jsp">Admin</a>
+        	          <a class="nav-link" aria-current="page" style="color: white; font-size: 20px" href="/TrainViewer/admin.jsp">Alias</a>
         	          
         	          <li class="nav-item" >
         	           
-        	          <a class="nav-link" aria-current="page" style="color: white; font-size: 20px" href="/TrainViewer/updateUserRole.jsp">Users Roles</a>
+        	          <a class="nav-link" aria-current="page" style="color: white; font-size: 20px" href="/TrainViewer/updateUserRole.jsp">Roles</a>
         	          
         	        </li>
         	         
