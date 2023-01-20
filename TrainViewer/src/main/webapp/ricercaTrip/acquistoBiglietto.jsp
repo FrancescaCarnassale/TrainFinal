@@ -6,11 +6,12 @@
 <c:set var="trip" value="${requestScope.tripId}" />
 <html>
 <head>
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
 <meta charset="ISO-8859-1">
 <title>Acquisto biglietto</title>
 </head>
-<body>
+ <%  	        	String user = (String)session.getAttribute("user");
+if (user != null) {%>
 <jsp:include page="../menuLogged.jsp"></jsp:include>
 <table>
   <tr>
@@ -22,8 +23,8 @@
   </tr>
     <tr>
     <form action = "/TrainViewer/buyingTickets/buy" method = "POST">
-      <td>${trip.getDeparture().getCountryName()}</td>
-      <td>${trip.getArrive().getCountryName()}</td>
+      <td> ${trip.getDeparture().getCountryName()}</td> 
+      <td> ${trip.getArrive().getCountryName()}</td>
       <td>${trip.getTimeDeparture()}</td>
       <td>${trip.getTimeArrive()}</td>
       <td><input type="number" id="seats" name="seats" min="1"></td>
@@ -32,9 +33,16 @@
 		<input type="submit" value="Compra"/>
 	  </td>
      </form>
-     
     </tr>
 </table>
-
+     <div class="d-none">
+                    <input id="dep" type="hidden" value="${trip.getDeparture().getAlpha2code().toLowerCase()}">
+                    <input id="arr" type="hidden" value="${trip.getArrive().getAlpha2code().toLowerCase()}">
+                </div>       
 </body>
+<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<% 
+}; %>
 </html>

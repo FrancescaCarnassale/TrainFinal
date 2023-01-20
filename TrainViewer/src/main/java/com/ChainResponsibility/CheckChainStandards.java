@@ -10,9 +10,18 @@ public abstract class CheckChainStandards extends CheckChain {
 	 * Returns null if nothing was found.
 	 */
 	public final String checkInternal(String input) {
-		for (String standard : getStrategy().getCountryNames()) {
+		input=input.toLowerCase();
+		for (String standard : getStrategy().dataMap().keySet()) {
+			standard=standard.toLowerCase();
 			if(compare(input, standard)) {
 				return standard;
+			}
+			if(getStrategy().dataMap().get(standard)!= null){
+				for(String aliases: getStrategy().dataMap().get(standard)) {
+					if(compare(input, aliases)) {
+						return standard;
+					}
+				}
 			}
 		}
 		return null;

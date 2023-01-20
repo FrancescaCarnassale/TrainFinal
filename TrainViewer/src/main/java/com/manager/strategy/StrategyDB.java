@@ -71,6 +71,7 @@ public class StrategyDB implements Strategy{
 		// TODO Auto-generated method stub
 		return countryDao.dataMap().keySet();
 	}
+	
 
 	/**
 	 * Gets all the countries

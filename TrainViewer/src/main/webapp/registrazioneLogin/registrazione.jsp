@@ -18,20 +18,25 @@
 	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
 	crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/styles.css">
 <title>Registration</title>
 </head>
 
 <body class="body-registration">
 	<script src="handlerRegistrazione.js"></script>
-	<jsp:include page="../menu.jsp"></jsp:include>
 	<div class="web">
 		<div align="center" class="card2">
 			<form id="registration-form" onsubmit="return handleSubmit()" action="/TrainViewer/RegistrazioneServlet" method="POST">
+				<a href="/TrainViewer" style="display: inline-block;"> <img
+					src="img/arrow.png"
+					alt="Indietro"
+					style="max-width: 2%; position: absolute; left: 27%;">
+				</a>
 				<h1 class="py-4 text-center text-white" id="title-registration">Registrazione</h1>
 				<label class="mb-1 text-center text-white" for="name">Nome
-					Utente:</label> <br> <input type="text" class="mb-1" id="name"
-					name="name" required> <br> <label
+					Utente:</label> <br> <input type="text" class="username mb-1"
+					id="name" name="name" required> <br> <label
 					class="mb-1 text-center text-white" for="email" required>Indirizzo
 					email:</label> <br> <input type="email" class="mb-1" id="email"
 					name="email"> <br> <label
@@ -50,11 +55,17 @@
 	</div>
 	<div class="mobile">
 		<div align="center" class="card2">
-			<form id="registration-form" onsubmit="return handleSubmit()">
+			<a href="/TrainViewer" style="display: inline-block;"> <img
+				src="https://cdn-icons-png.flaticon.com/128/507/507257.png"
+				alt="Indietro"
+				style="max-width: 20px; position: absolute; left: 20px;">
+			</a>
+			<form id="registration-form" onsubmit="return handleSubmit()" action="/TrainViewer/RegistrazioneServlet"
+				method="POST">
 				<h1 class="py-4 text-center text-white" id="title-registration">Registrazione</h1>
 				<label class="mb-1 text-center text-white" for="name">Nome
-					Utente:</label> <br> <input type="text" class="mb-1" id="name"
-					name="name" required> <br> <label
+					Utente:</label> <br> <input type="text" class="username mb-1"
+					id="name" name="name" required> <br> <label
 					class="mb-1 text-center text-white" for="email" required>Indirizzo
 					email:</label> <br> <input type="email" class="mb-1" id="email"
 					name="email"> <br> <label
@@ -73,3 +84,4 @@
 
 </html>
 
+	

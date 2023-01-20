@@ -3,13 +3,18 @@
 	src: url(prstartk.ttf);
 }
 
+
 body {
-    background-color:white;	
+    background-color:white;
 }
 
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+}
+
+a:hover {
+	color: rgba(224, 85, 255, 1) !important;
 }
 
 .container {
