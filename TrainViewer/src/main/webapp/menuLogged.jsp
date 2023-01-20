@@ -26,6 +26,8 @@
 				<li class="nav-item"><a class="nav-link" aria-current="page"
 					href="/TrainViewer/trainGame/trainGame.jsp"
 					style="color: white; font-size: 20px">Gioco del treno</a></li>
+					
+        	        <c:if test = "${role == 'client' }">
 				<li class="nav-item"><a class="nav-link" aria-current="page"
 					href="#" style="color: white; font-size: 20px">Chi Siamo</a></li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
@@ -33,14 +35,18 @@
 				</li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
 					href="#" style="color: white; font-size: 20px">Supporto</a></li>
+					</c:if>
 					<c:if test = "${role == 'factory' }">
         	        <li class="nav-item">
+        	        <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTrenoAdmin/creazioneTreno.jsp">Creazione Treno</a>
+        	         
         	        </li>
+        	        </c:if>
         	        <c:if test = "${role == 'conductor' }">
         	         <li class="nav-item">
         	        </li>
          	          <li class="nav-item">
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTripAdmin/creazioneTrip.jsp">CreazioneTrip</a>
+        	          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTripAdmin/creazioneTrip.jsp">Creazione Viaggio</a>
         	         
         	        </li>
         				</c:if>
@@ -67,10 +73,6 @@
         	        </li>
         	         
   					</c:if>
-        	        <li class="nav-item">
-        	          <a class="nav-link" aria-current="page" href="/TrainViewer/creazioneTrenoAdmin/creazioneTreno.jsp">CreazioneTreno</a>
-        	        </li>
-        	          </c:if>
 			</ul>
 		</div>
 		        	  <a class="navbar-brand my-2 my-lg-0" aria-current="page" href="/TrainViewer/registrazioneLogin/login.jsp" style="color:white">Benvenuto, <%= user%></a>
