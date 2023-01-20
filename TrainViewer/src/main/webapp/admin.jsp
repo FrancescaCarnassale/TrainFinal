@@ -33,13 +33,39 @@ String user = (String) session.getAttribute("user");
 String role = (String) session.getAttribute("role");
 if (user != null && role.equals("admin")) {
 %>
-
+ <script>
+    setTimeout(function(){
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("list").style.display = "block";
+    }, 1000);
+</script> 
 <body class="bg-dark">
 
 	<jsp:include page="menuLogged.jsp"></jsp:include>
 
 
 	<div class="container">
+	<% 
+			if(aliases == null && aliases.size() == 0) {
+				%>
+				
+				<!-- Loading screen when waiting for the list -->
+				
+				<div id="loader" style="align-items: center; justify-content: center; display: flex;">
+		  		<img src="https://thumbs.gfycat.com/InferiorDecentAsianporcupine-max-1mb.gif" alt="Loading...">
+		  		<h3 style="color:white">Loading...</h3>
+			</div>
+			<%
+			}
+		%>
+		<div id="loader" style="align-items: center; justify-content: center; display: flex; flex-direction:row; padding-top: 20%">
+			<div style="align-items: center; display: flex; flex-direction: column;">
+		  		<img src="https://thumbs.gfycat.com/InferiorDecentAsianporcupine-max-1mb.gif" style="padding-left: 5rem; width: 25rem" alt="Loading...">
+		  		<h3 style="color:white; font-size:3rem">Loading...</h3>
+			</div>
+		</div>
+		<div id="list" style="display: none;" >
+	
 		<div class="card2" style="padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
 			<h1 class="py-4 text-center text-white">Alias Table</h1>
 			<form action="aliasApproving/approve" method="GET">
@@ -96,8 +122,6 @@ if (user != null && role.equals("admin")) {
 				if ("${msg}" != "")
 					alert("${msg}");
 			</script>
-
-
 		</div>
 	</div>
 </body>
