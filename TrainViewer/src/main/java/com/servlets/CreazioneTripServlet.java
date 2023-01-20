@@ -87,7 +87,7 @@ public class CreazioneTripServlet extends HttpServlet {
 				trip.setSeatsAvailable(tp.getSeats());
 				tr.setTrip(trip);
 				//I DATI SONO TUTTI CORRETTI
-				msg = "Hai creato il trip! Ecco un resoconto dei dati:\n"+
+				msg = "Hai creato il trip! Ecco un resoconto dei dati: "+
 				"idTrain:" + idTrain+ " Partenza: "+partenza + " Arrivo: "+ arrivo
 						+" orario di partenza: "+timeStart+" orario di arrivo: "+timeEnd + " Posti disponibili: " +tp.getSeats();
 			}

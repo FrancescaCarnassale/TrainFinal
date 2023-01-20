@@ -53,7 +53,7 @@ public class Main {
 				e.printStackTrace();
 			}*/
 		
-		System.out.println(s.getChain().check("Itaglia"));
+		System.out.println(s.getChain().check("burubdi"));
 		
 
 	}
