@@ -6,10 +6,12 @@
 <c:set var="trip" value="${requestScope.tripId}" />
 <html>
 <head>
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css">
 <meta charset="ISO-8859-1">
 <title>Acquisto biglietto</title>
 </head>
+ <%  	        	String user = (String)session.getAttribute("user");
+if (user != null) {%>
 <body onload="loadFlag()">
 <jsp:include page="../menuLogged.jsp"></jsp:include>
 <table>
@@ -40,4 +42,9 @@
                 </div>
                 <script type="text/javascript" src="js/flag.js"></script>        
 </body>
+<% 
+}else{ %>
+	<jsp:include page="/registrazioneLogin/login.jsp"></jsp:include>
+	<% 
+}; %>
 </html>
