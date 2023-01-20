@@ -53,7 +53,7 @@
 							<td>${trip.getTimeDeparture()}</td>
 							<td>${trip.getTimeArrive()}</td>
 							<td><a style="color: white; text-decoration: none"
-								href="/TrainViewer/buyingTickets/buyingPage?tripId=${trip.getIdTrip()}">
+								href="/TrainViewer/index.jsp">
 									Compra!</a></td>
 						</tr>
 						<c:set var="counter" value="${counter + 1}" />

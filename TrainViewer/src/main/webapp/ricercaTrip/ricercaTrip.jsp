@@ -38,7 +38,7 @@ Collection<Country> countries = db.getAllCountries();
 			style="max-width: 100%; margin-top: 70%; margin-left: 80%">
 		</a>
 		<div style="text-align: center;">
-			<h1 style="color: white">TROVA IL BIGLIETTO GIUSTO PER TE</h1>
+			<h1 style="color: white">SICURO DI VOLER ACQUISTARE IL BIGLIETTO</h1>
 		</div>
 		<table class="tableTrip"
 			style="color: white; width: 100%; margin-top: 50px; border-collapse: collapse; border: 3px solid white; font-size: 15px;">
@@ -59,7 +59,7 @@ Collection<Country> countries = db.getAllCountries();
 						<td>${trip.getArrive().getCountryName()}</td>
 						<td>${trip.getTimeDeparture()}</td>
 						<td>${trip.getTimeArrive()}</td>
-						<td><a
+						<td><a style="color: white; text-decoration: none"
 							href="/TrainViewer/buyingTickets/buyingPage?tripId=${trip.getIdTrip()}">
 								Compra!</a></td>
 					</tr>

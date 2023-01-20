@@ -1,5 +1,5 @@
 .body-game, .body-createTrain, .body-createTrip {
-	margin-top: 100px!important;	
+	margin-top: 0px!important;	
 }
 
 .card2 {
@@ -58,7 +58,7 @@ input[type="text"] {
 }
 
 body {
-	margin-top: 50px !important;
+	margin-top: 0px !important;
 }
 
 #ricercaTreno-form {

@@ -29,36 +29,37 @@ Collection<?> trains = (Collection<?>) db.getAllTrains();
 <%
 String user = (String) session.getAttribute("user");
 String role = (String) session.getAttribute("role");
-if (user != null && role.equals("train manager")) {
+if (user != null && role.equals("conductor")) {
 %>
 <body class="body-createTrip">
 	<script src="handlerCreazioneTrip.js"></script>
 	<jsp:include page="../menuLogged.jsp"></jsp:include>
 	<div align="center" class="card2">
 		<h1 class="py-4 text-center text-white">Creazione Viaggio</h1>
-		<form id="creazioneTrip-form"
-			class="pb-4 text-center text-white createTripForm"
-			onsubmit="return handleSubmit()"
-			action="/TrainViewer/CreazioneTripServlet" method="POST">
-			<select name="idTrain" id="idTrain">
-			                <%
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-                Date today = new Date();
-                Calendar calendar = Calendar.getInstance();
-                calendar.setTime(today);
-                calendar.add(Calendar.MINUTE, 30);
-                Date later = calendar.getTime();
-                %> 
-			</select> <br> <label for="departure" required>Partenza:</label> <input
-				type="text" id="departure" name="departure"> <label
-				for="arrive" required>Arrivo:</label> <input type="text" id="arrive"
-				name="arrive"> <br> <label for="start">Orario
-				di partenza:</label> <input type="datetime-local" id="start" name="start"
-				value="<%=sdf.format(today)%>"> <label for="end">Orario
-				di arrivo:</label> <input type="datetime-local" id="end" name="end"
-				value="<%=sdf.format(later)%>"> <br> <input
-				type="submit" class="input-submit" value="Crea trip!">
-		</form>
+		<form id="creazioneTrip-form" class="pb-4 text-center text-white createTripForm" onsubmit="return handleSubmit()" action="/TrainViewer/CreazioneTripServlet" method="POST">
+    <div class="form-group" style="display: grid; grid-template-columns: 1fr 2fr;">
+        <label for="idTrain" required>Treno:</label>
+        <select name="idTrain" id="idTrain" style="width: 25%; margin-bottom: 5%">
+            <%
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+            Date today = new Date();
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(today);
+            calendar.add(Calendar.MINUTE, 30);
+            Date later = calendar.getTime();
+            %>
+        </select>
+        <label for="departure" required >Partenza:</label>
+        <input type="text" id="departure" name="departure" style=" margin-bottom: 5%">
+        <label for="arrive" required>Arrivo:</label>
+        <input type="text" id="arrive" name="arrive" style=" margin-bottom: 5%">
+        <label for="start">Orario di partenza:</label>
+        <input type="datetime-local" id="start" name="start" value="<%=sdf.format(today)%>" style="width: 35%; margin-bottom: 5%">
+        <label for="end">Orario di arrivo:</label>
+        <input type="datetime-local" id="end" name="end" value="<%=sdf.format(later)%>" style="width: 35%; margin-bottom: 5%">
+    </div>
+    <input type="submit" class="input-submit" value="Crea trip!">
+</form>
 
 	</div>
 </body>
