@@ -7,6 +7,11 @@ import java.util.List;
 import com.ChainResponsibility.CheckChain;
 
 public class ContainsPartial extends CheckChain {
+	/**
+	 * Separates the Strings into Arrays based on how many spaces they have in the word and 
+	 * compares the singular elements of the array.
+	 * If a sufficient amount is similar, the Strings count as the same.
+	 */
 	@Override
 	public String checkInternal(String input) {
         //L'IDEA E' QUELLA DI SEPARARE LE STRINGHE E CONTROLLARE I SINGOLI ELEMENTI. 

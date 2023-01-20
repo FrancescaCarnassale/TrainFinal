@@ -6,9 +6,11 @@
  <hibernate-mapping>  
   <class name="com.beans.User" table="user_train">
 
-    <id name="username" column="user_name"></id>
+    	<id name="email" column="user_mail"></id>
        <property name="password" column="user_password"></property>
-       <property name="email" column="user_mail"></property>
+       <property name="name" column="user_name"></property>
+       <property name="role" column="user_role"></property>
+       
 
   </class>  
             

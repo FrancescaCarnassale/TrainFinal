@@ -9,22 +9,29 @@ import com.TrenoFactory.treno.Passeggeri;
 import com.TrenoFactory.treno.Ristorante;
 import com.TrenoFactory.treno.Treno;
 
+/**
+ * The class follow the builder pattern
+ *
+ */
 
 public abstract class TrenoBuilder {
 	
 	/**
-	 * La stringa può essere qualsiasi, inserita da utente ed è da controllare: 
-		Controlli sulla stringa: 
-		1- La locomotiva in testa è obbligatoria
-		2- massimo un vagone ristorante
-		3- Deve avere almeno due elementi
-		4- un limite massimo alla capienza dei posti per il treno complessivo
-		5- se sono due locomotive l’altra deve essere in coda
-		6- cargo e passeggeri mai insieme (vagoni incompatibili)
-		7- ristorante e cargo mai insieme (vagoni incompatibili)
-		8- vagone inesistente o carattere non idoneo
-		9- il treno deve poter partire pesoTrainabile > peso del treno
-	 * @throws NumeroPostiInEccesso 
+	 * @param String sigla, describe all the elements of the train.
+	 * 
+	 * The string can be any, entered by user and is to be checked: 
+		String checks: 
+		1- Overhead locomotive is mandatory
+		2- Maximum of one dining car
+		3- Must have at least two elements
+		4- a maximum limit to the seat capacity for the overall train
+		5- if it is two locomotives the other must be in the rear
+		6- cargo and passengers never together (incompatible cars)
+		7- restaurant and cargo never together (incompatible cars)
+		8- nonexistent carriage or unsuitable character
+		9- train must be able to start weightTrainable weight > train weight
+	 * @throws NumeroPostiInEccesso if there are too many Passengers Wagons
+	 * @return the train object builded from the input
 		
 	 */
 
@@ -33,29 +40,26 @@ public abstract class TrenoBuilder {
 		int passeggeri=0;
 		int teste=1;
 		int maxPersone=0;
-		/*if(vagoneFactory instanceof FRFactory) { 
-			FRFactory concreteFactory = (FRFactory) vagoneFactory;
-			maxPersone=concreteFactory.getMassimoPosti();
-		}
-		if(vagoneFactory instanceof TNFactory) { 
-			TNFactory concreteFactory = (TNFactory) vagoneFactory;
-			maxPersone=concreteFactory.getMassimoPosti();
-		}*/
+		
 		
 		maxPersone = getMassimoPosti();
 		
 		
 		if (sigla==null)
-			throw new NullPointerException("Stringa nulla!");
+			throw new NullPointerException("Stringa nulla!"); //null element
+		
 		if (sigla.length()<2)
-			throw new IllegalArgumentException("Troppi pochi componenti!");
+			throw new IllegalArgumentException("Troppi pochi componenti!"); //3- Must have at least two elements
+		
 		if (!sigla.startsWith("H"))
-			throw new IllegalArgumentException("Manca la locomotiva all'inizio!");
+			throw new IllegalArgumentException("Manca la locomotiva all'inizio!"); //1- Overhead locomotive is mandatory
+		
 		for(int i=1;i<sigla.length();i++) {
 			switch(sigla.charAt(i)){
 				case 'H':
 					if(i!=sigla.length()-1)
-						throw new IllegalArgumentException("Troppe locomotive!");
+						throw new IllegalArgumentException("Troppe locomotive!"); //5- if it is two locomotives the other must be in the rear
+					
 					teste++;
 					break;
 				case 'R':
@@ -65,45 +69,51 @@ public abstract class TrenoBuilder {
 					passeggeri++;
 					break;
 				default:
-					throw new IllegalArgumentException("Carattere non idoneo!");
+					throw new IllegalArgumentException("Carattere non idoneo!"); //8- nonexistent carriage or unsuitable character
 					
 			}
 		}
 		if(ristoranti>1)
-			throw new IllegalArgumentException("Troppi ristoranti!");
+			throw new IllegalArgumentException("Troppi ristoranti!"); //2- Maximum of one dining car
 		int postiTreno=0;
 		
 		if(postiTreno>maxPersone)
-			throw new IllegalArgumentException("Troppi passeggeri!");
+			throw new IllegalArgumentException("Troppi passeggeri!"); //4- a maximum limit to the seat capacity for the overall train
 		
 		
-		//Creazione treno
+		//After all checks, the train will be created
 
 		List<Carrozza> lista = new ArrayList<Carrozza>();
 		lista.add(getLocomotiva());
+		
 		if(ristoranti==1)
 			lista.add(getRistorante());
 		if(teste>1)
 			lista.add(getLocomotiva());
+		
 		int numPosti = 0;
 		int postiVagone = 0;
+		
 		for(int i=0;i<passeggeri;i++) {
 			Passeggeri p = getPasseggeri();
 			numPosti = numPosti+p.getNumeroPosti();
 			lista.add(p);
-
 		}
-		if(numPosti >= getMassimoPosti()) { 
-			throw new NumeroPostiInEccesso(sigla, postiVagone, numPosti, getMassimoPosti());
-		}
+		
+		if(numPosti >= getMassimoPosti())
+			throw new NumeroPostiInEccesso(sigla, postiVagone, numPosti, getMassimoPosti()); //4- a maximum limit to the seat capacity for the overall train
+		
 		int pesoTotale=0;
-		for(Carrozza c : lista) {
+		
+		for(Carrozza c : lista)
 			pesoTotale+=c.getPeso();
-		}
+		
 		pesoTotale+=getLocomotiva().getPeso();
+		
 		if(pesoTotale>getLocomotiva().getPesoTrainabile())
-			throw new IllegalArgumentException("Peso eccessivo!");
-		Treno t = new Treno(sigla, lista);
+			throw new IllegalArgumentException("Peso eccessivo!"); //9- train must be able to start weightTrainable weight > train weight
+		
+		Treno t = new Treno(sigla, lista, numPosti);
 		return t;
 	}
 	

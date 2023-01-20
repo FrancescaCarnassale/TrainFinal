@@ -10,6 +10,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import com.beans.Bean;
 
+/**
+ * Class to manage all the beans in the session. The class allows the connection between beans and dao impl java files
+ */
 public abstract class BaseDao {
 	private Session session;
 	
@@ -39,7 +42,30 @@ public abstract class BaseDao {
 		this.session.beginTransaction();
 		Bean b =this.session.get(class1, id);
 		this.session.getTransaction().commit();
+		this.session.close();
 		return b;
-		
 	}
+	
+	protected Bean get(Class<? extends Bean> class1, int id) {
+		this.session.beginTransaction();
+		Bean b =this.session.get(class1, id);
+		this.session.getTransaction().commit();
+		this.session.close();
+		return b;
+	}
+	
+	protected void delete(Bean b) {
+		this.session.beginTransaction();
+		this.session.delete(b);
+		this.session.getTransaction().commit();
+		this.session.close();
+	}
+	
+	protected void update(Bean b) {
+		this.session.beginTransaction();
+		this.session.update(b);
+		this.session.getTransaction().commit();
+		this.session.close();
+	}
+
 }

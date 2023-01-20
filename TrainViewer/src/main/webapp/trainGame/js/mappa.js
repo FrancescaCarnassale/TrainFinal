@@ -47,7 +47,8 @@ function mostraMatriceHTML() {
 
 function play() {
 	var audio = document.getElementById("myAudio");
-	audio.play();
+	audio.play(); 
+	audio.volume = 0.2;
 	const pianoDiGioco = document.getElementById("pianoGioco");
 	pianoDiGioco.innerHTML = "";
 	for (var i = 0; i < R; i++) {
@@ -63,10 +64,9 @@ function play() {
 	testa = 3;
 
 	//punteggio da resettare ogni volta che premi play
-	punteggio = 0;
-	//const punteggioUtente = document.getElementById("punteggioUtente");
-	//punteggioUtente.innerHTML = ""
-	//console.log(punteggio)
+	actualScore=0;
+	punteggio.innerHTML=actualScore;
+	giocoFinito=false;
 	idInterval1 = null;			//used for stopping enemies when game stops
 	idInterval2 = null;
 	idInterval3 = null;

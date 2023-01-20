@@ -1,11 +1,13 @@
 //gestione dell'evento onkeydown:
 function checkKeyDown(e) {
 	e = e || window.event;
-	switch (e.keyCode) {
-		case 39: destra(); break;
-		case 40: giu(); break;
-		case 37: sinistra(); break;
-		case 38: su(); break;
+	if(!giocoFinito){
+		switch (e.keyCode) {
+			case 39: destra(); break;
+			case 40: giu(); break;
+			case 37: sinistra(); break;
+			case 38: su(); break;
+		}
 	}
 	//alert ("The Unicode character code is (key down): " + e.keyCode);   
 }
@@ -13,12 +15,13 @@ function checkKeyDown(e) {
 // gestione dell'evento onkey press:
 function checkKeyPress(event) {
 	var chCode = ('charCode' in event) ? event.charCode : event.keyCode;
-
-	switch (chCode) {
-		case 100: destra(); break;
-		case 115: giu(); break;
-		case 97: sinistra(); break;
-		case 119: su(); break;
+	if(!giocoFinito){
+		switch (chCode) {
+			case 100: destra(); break;
+			case 115: giu(); break;
+			case 97: sinistra(); break;
+			case 119: su(); break;
+		}
 	}
 	//alert ("The Unicode character code is (key press): " + chCode);   
 }
@@ -29,7 +32,7 @@ Audio.prototype.rewindAndPlay = function () {
 	this.currentTime = 0.0;
 	this.play();
 }
-
+var giocoFinito=false;
 var username = null;
 var om1 = new OggettoInMovimento(3, 0, 10, false, "nemico1");
 var om2 = new OggettoInMovimento(0, 9, 10, true, "nemico4");
@@ -59,8 +62,8 @@ function stopEnemies(){
 	}
 }
 function incrementaDiff(){
-	if(punteggio <= 80){
-		switch(punteggio){
+	if(actualScore <= 80){
+		switch(actualScore){
 			case 5:
 				//introduci primo nemico
 				idInterval1 = setInterval("om1.muovi()", 800);
@@ -106,19 +109,45 @@ function incrementaDiff(){
 		}
 	}
 }
+
+
+
+
+var punteggio = document.getElementById("punteggio");
+var actualScore = 0;
+function sleep(seconds) 
+{
+  var e = new Date().getTime() + (seconds * 1000);
+  while (new Date().getTime() <= e) {}
+}
+function submitPunteggio(){
+	
+	var e = document.getElementById("paginaUpdate");
+	e.href = e.href + "?" + "punteggio=" +actualScore;
+	//alert(e.href)
+	location.href = e.href;
+}
 function gameOver(){
+	
+	giocoFinito=true;
 	stopEnemies();
-	while(username == null || username == "") {
-		 username = prompt("Enter your username to continue");
-	} 
-	alert("Hello " + username + " you scored: " + punteggio);
+	swal({
+		 title: "Clicca ok per inviare il tuo punteggio",
+    	type: "success"
+	}).then(function() {
+   var e = document.getElementById("paginaUpdate");
+	e.href = e.href + "?" + "punteggio=" +actualScore;
+	//alert(e.href)
+	location.href = e.href;
+});
 }
 
-var punteggio = 0;
-function getPunteggio(){
-	return punteggio;
-}
-
+//impedisce lo scrolling della pagina con le frecce direzionali
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
 function controllaCella(x, y) {
 	controllaGameOver(x, y);
 	const val = piano[x][y];
@@ -129,25 +158,24 @@ function controllaCella(x, y) {
 		case PILLOLA:
 			biglietto.rewindAndPlay(); 
 			generaOggetto(PILLOLA);
-			punteggio++;
+			actualScore++;
+			punteggio.innerHTML=actualScore;
 			piano[x][y] = testa;
 			sposta(ominoX,ominoY,x,y);  //il treno non si allunga piu', basta spostarlo
 			incrementaDiff(); 			//incrementa la difficolta' del gioco
-			const abcdf = document.getElementById("punteggioUtente");
-			const efgt = document.createElement(" "+ punteggio);
-			abcdf.append(efgt);
+			
 			console.log(abcdf)
 			return false;
 			break;
 		case NEMICO:
 			nemico.rewindAndPlay();
 			gameOver();
-			alert("Hai investito un passante!");
+			
 			return false;
 			break;
 		default:
 			if (val  >= 1 && val <= testa-1) { // toccato il serpente
-				//alert("Ti sei mangiato le mani, eheheh");
+				
 				gameOver();
 				return false;
 			}

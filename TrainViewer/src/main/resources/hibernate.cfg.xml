@@ -5,19 +5,23 @@
 <session-factory> 
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/trainViewer</property>
-        <property name="hibernate.connection.password">Marco2002!</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/trainviewer</property>
+       <property name="hibernate.connection.password">GetMeOut2023.</property>
+
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+       <property name="hibernate.id.new_generator_mappings">true</property>
        <property name="show_sql">true</property>
        <property name="format_sql">true</property>
        <!-- property name="use_sql_comments">true</property-->
        
        <mapping resource="country.hbm.xml"/>  
        <mapping resource="alias.hbm.xml"/> 
-       <mapping resource="aliasUnknown.hbm.xml"/> 
-       <mapping resource="gameScore.hbm.xml"/>
        <mapping resource="user.hbm.xml"/>
+       <mapping resource="train.hbm.xml"/>
+       <mapping resource="trip.hbm.xml"/>
+       <mapping resource="leaderboard.hbm.xml"/>
+       <mapping resource="reservation.hbm.xml"/>
     </session-factory>  
     
 </hibernate-configuration>

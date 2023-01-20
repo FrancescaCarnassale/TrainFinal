@@ -5,6 +5,12 @@ import java.util.List;
 
 import com.TrenoFactory.treno.Ristorante;
 
+/**
+ * 
+ * This class represent the restaurant wagon made by TreNord Factory
+ *
+ */
+
 public class RistoranteTN implements Ristorante{
 	private final int numeroTavoliTN=200, pesoTN= 150;
 	private final int numeroPersoneTN=200;

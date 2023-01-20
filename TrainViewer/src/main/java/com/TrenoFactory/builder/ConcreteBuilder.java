@@ -5,6 +5,12 @@ import com.TrenoFactory.treno.Locomotiva;
 import com.TrenoFactory.treno.Passeggeri;
 import com.TrenoFactory.treno.Ristorante;
 
+/**
+ * 
+ * As requested by the builder pattern, there is a concrete builder that extend the main builder, that use the factory for create trains
+ *
+ */
+
 public class ConcreteBuilder extends TrenoBuilder{
 	private VagoneFactory factory;
 	
