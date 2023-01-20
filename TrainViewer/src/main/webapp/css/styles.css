@@ -1,5 +1,5 @@
-.body-game, .body-createTrain, .body-createTrip, .body-admin {
-	margin-top: 100px !important;
+.body-game, .body-createTrain, .body-createTrip {
+	margin-top: 0px!important;	
 }
 
 .card2 {
@@ -9,10 +9,6 @@
 	margin-top: 50px;
 	background-color: rgba(0, 0, 0, 0.5);
 	width: 60%;
-}
-
-td {
-	color: white !important;
 }
 
 .navbar-toggler {
@@ -78,7 +74,6 @@ body {
 
 #idTrain {
 	display: block;
-	border-radius: 8px;
 }
 
 #departure, #arrive, #start, #end {
@@ -158,6 +153,15 @@ body {
 	text-align: center;
 }
 
+#submitBtn {
+	
+}
+
+.btn {
+	/*background: linear-gradient(to right, #574B90, #9E579D);*/
+	
+}
+
 .carousel-control-next-icon, .carousel-control-prev-icon {
 	display: inline-block;
 	width: 5rem;
@@ -168,7 +172,7 @@ body {
 }
 
 .body-registration, .body-login, .body-createTrain, .body-createTrip,
-	.body-searchTrain, .body-admin {
+	.body-searchTrain {
 	background: rgb(2, 0, 36);
 	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%,
 		rgba(224, 85, 255, 1) 0%, rgba(123, 0, 255, 1) 100%);
@@ -238,15 +242,11 @@ a:hover {
 	border: none;
 }
 
-#newCountry {
-	border-radius: 8px;
-}
-
 #btn-approve {
 	border: none;
 }
 
-.createTrainForm, .createTripForm {
+.createTrainForm {
 	display: flex;
 	flex-direction: column;
 	align-items: center;

@@ -34,7 +34,7 @@ String role = (String) session.getAttribute("role");
 if (user != null && role.equals("admin")) {
 %>
 
-<body class="body-admin">
+<body class="bg-dark">
 
 	<jsp:include page="menuLogged.jsp"></jsp:include>
 
@@ -60,7 +60,7 @@ if (user != null && role.equals("admin")) {
 								while (it.hasNext()) {
 									Alias a = (Alias) it.next();
 							%>
-							<td><%=a.getAlias()%></td>
+							<td style="color: white"><%=a.getAlias()%></td>
 							<td><select name="newCountry" id="newCountry">
 									<%
 									if (countries != null && countries.size() != 0) {

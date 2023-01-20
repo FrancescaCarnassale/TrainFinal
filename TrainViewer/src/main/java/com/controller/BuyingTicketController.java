@@ -60,8 +60,6 @@ public class BuyingTicketController {
 		//CARICA LA NUOVA PAGINA OVE L'UTENTE COMPRA IL BIGLIETTO
 		TripManager tripManager= new TripManager();
 		request.setAttribute("tripId", tripManager.getTripDao().get(tripId));
-		int msg=tripId;
-		request.setAttribute("msg", msg);
 		return "ricercaTrip/acquistoBiglietto";
 	}
 	

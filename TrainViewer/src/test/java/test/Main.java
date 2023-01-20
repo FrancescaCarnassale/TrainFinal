@@ -53,11 +53,8 @@ public class Main {
 				e.printStackTrace();
 			}*/
 		
-		ReservationDao reservationDao = new ReservationDaoImpl();
-		TripManager tm= new TripManager();
-		Trip t=new Trip();
-		t= tm.getTripDao().get(1);
-		System.out.println(tm.updateSeats(t, 1));
+		System.out.println(s.getChain().check("burubdi"));
+		
 
 	}
 

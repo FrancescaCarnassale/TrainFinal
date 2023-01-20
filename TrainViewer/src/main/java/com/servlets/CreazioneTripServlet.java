@@ -79,15 +79,15 @@ public class CreazioneTripServlet extends HttpServlet {
 				partenza = partenza.substring(0, 1).toUpperCase() + partenza.substring(1);
 				arrivo = arrivo.substring(0, 1).toUpperCase() + arrivo.substring(1);
 				Train tp= td.getSession().get(Train.class,idTrain);
-				trip.setArrive(td.getSession().get(Country.class,arrive));         
-				trip.setDeparture(td.getSession().get(Country.class,departure));         
+				trip.setArrive(td.getSession().get(Country.class,arrivo));         
+				trip.setDeparture(td.getSession().get(Country.class,partenza));         
 				trip.setIdTrain(tp);         
 				trip.setTimeArrive(timeEnd);         
 				trip.setTimeDeparture(timeStart);
 				trip.setSeatsAvailable(tp.getSeats());
 				tr.setTrip(trip);
 				//I DATI SONO TUTTI CORRETTI
-				msg = "Hai creato il trip! Ecco un resoconto dei dati:\n"+
+				msg = "Hai creato il trip! Ecco un resoconto dei dati: "+
 				"idTrain:" + idTrain+ " Partenza: "+partenza + " Arrivo: "+ arrivo
 						+" orario di partenza: "+timeStart+" orario di arrivo: "+timeEnd + " Posti disponibili: " +tp.getSeats();
 			}
