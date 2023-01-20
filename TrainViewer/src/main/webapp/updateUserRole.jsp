@@ -9,6 +9,7 @@ Collection<?> users = (Collection<?>) db.getUsersWithRole("client");
 <!DOCTYPE html>
 <html>
 <head>
+<link  rel="icon"  href="https://cdn-icons-png.flaticon.com/128/821/821354.png">
 <meta charset="ISO-8859-1">
 <title>Users Roles</title>
 <!-- CSS only -->

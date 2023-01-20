@@ -12,6 +12,7 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 <!DOCTYPE html>
 <html>
 <head>
+<link  rel="icon"  href="https://cdn-icons-png.flaticon.com/128/821/821354.png">
 <meta charset="ISO-8859-1">
  <script>
     setTimeout(function(){

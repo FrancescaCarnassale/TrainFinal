@@ -10,6 +10,7 @@ Collection<?> scores = (Collection<?>)db.getGameData();
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link  rel="icon"  href="https://cdn-icons-png.flaticon.com/128/821/821354.png">
  <script>
     setTimeout(function(){
         document.getElementById("loader").style.display = "none";
