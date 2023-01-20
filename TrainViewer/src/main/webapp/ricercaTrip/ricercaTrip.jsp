@@ -68,10 +68,6 @@ Collection<Country> countries = db.getAllCountries();
 
 			</tbody>
 		</table>
-		<script>
-			if ("${msg}" != "")
-				alert("${msg}");
-		</script>
 	</form>
 </body>
 </html>
